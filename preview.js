@@ -7,6 +7,15 @@ const showcases = {
 };
 const key = new URLSearchParams(location.search).get('project') || 'visitorflow';
 const project = showcases[key] || showcases.visitorflow;
+
+// These values are intentionally hardcoded for the public portfolio preview.
+// This page has no database, API request, login, or connection to private projects.
+const sampleMetrics = [
+  { label: 'Sample records', value: '128' },
+  { label: 'Completed', value: '94%' },
+  { label: 'Sample reports', value: '12' }
+];
+
 document.documentElement.style.setProperty('--accent', project.accent);
 document.documentElement.style.setProperty('--soft', project.soft);
 document.title = `${project.title} — Portfolio Showcase`;
@@ -14,4 +23,7 @@ document.querySelector('#projectType').textContent = `${project.type} / Showcase
 document.querySelector('#projectTitle').textContent = project.title;
 document.querySelector('#projectLead').textContent = project.lead;
 document.querySelector('#sideBrand').textContent = project.title;
+document.querySelector('#sampleMetrics').innerHTML = sampleMetrics
+  .map(({ label, value }) => `<div class="metric"><small>${label}</small><strong>${value}</strong></div>`)
+  .join('');
 document.querySelector('#featureGrid').innerHTML = project.features.map(([number,title,text]) => `<article class="feature-card"><span>${number}</span><h3>${title}</h3><p>${text}</p></article>`).join('');
