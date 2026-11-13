@@ -1,0 +1,3 @@
+<FilesMatch "(?i)\.(png|jpe?g|webp|gif|ico)$">
+Require all denied
+</FilesMatch>

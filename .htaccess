@@ -1,0 +1,8 @@
+Options -Indexes
+RewriteEngine On
+RewriteRule (^|/)\.(git|env|aws|codex|agents)(/|$) - [F,L,NC]
+RewriteRule ^(?:ims|bjmp_vaqs)/(?:config|helpers|database|default_access|tools|public/(?:uploads|downloads))(?:/|$) - [F,L,NC]
+RewriteRule ^verification_system/(?:pdad_osca|database)(?:/|$) - [F,L,NC]
+<FilesMatch "(?i)\.(sql|env|log|pdf|docx?|xlsx?|csv|py)$">
+    Require all denied
+</FilesMatch>

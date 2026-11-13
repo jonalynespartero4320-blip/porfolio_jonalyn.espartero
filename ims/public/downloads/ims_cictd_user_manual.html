@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Inventory Management System User Manual</title>
+  <style>
+    @page { size: A4; margin: 14mm 13mm 16mm; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: #172033;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      line-height: 1.45;
+      background: #fff;
+    }
+    .cover {
+      min-height: 255mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      border: 2px solid #0f5c68;
+      padding: 28mm 18mm;
+    }
+    .logos { display: flex; justify-content: center; align-items: center; gap: 14px; margin-bottom: 24px; }
+    .logos img { width: 58px; height: 58px; object-fit: contain; }
+    h1 { margin: 0; font-size: 30px; color: #083c55; letter-spacing: 0; }
+    .subtitle { margin-top: 10px; font-size: 15px; font-weight: 700; color: #0f5c68; }
+    .meta { margin-top: 28px; color: #4b5563; font-size: 12px; }
+    h2 {
+      margin: 0 0 8px;
+      padding: 7px 10px;
+      color: #fff;
+      background: #164e63;
+      font-size: 15px;
+      break-after: avoid;
+    }
+    h3 { margin: 13px 0 6px; color: #0f5c68; font-size: 12px; break-after: avoid; }
+    p { margin: 0 0 7px; }
+    ul, ol { margin: 5px 0 9px 18px; padding: 0; }
+    li { margin: 3px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 7px 0 12px; break-inside: avoid; }
+    th, td { border: 1px solid #cbd5e1; padding: 5px 6px; vertical-align: top; }
+    th { background: #e6f2f4; color: #0f3f4a; text-align: left; }
+    .page { break-before: page; }
+    .note {
+      border-left: 4px solid #0f5c68;
+      background: #edf8fa;
+      padding: 8px 10px;
+      margin: 8px 0 12px;
+      break-inside: avoid;
+    }
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      margin-left: 0;
+    }
+    .steps li {
+      counter-increment: step;
+      margin: 0 0 6px;
+      padding: 6px 8px 6px 30px;
+      border: 1px solid #d7e2ea;
+      position: relative;
+      break-inside: avoid;
+    }
+    .steps li:before {
+      content: counter(step);
+      position: absolute;
+      left: 7px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #0f5c68;
+      color: #fff;
+      text-align: center;
+      font-size: 10px;
+      line-height: 16px;
+      font-weight: 700;
+    }
+    .toc td:first-child { width: 34%; font-weight: 700; color: #0f5c68; }
+    .small { color: #64748b; font-size: 10px; }
+    .footer-note { margin-top: 20px; font-size: 10px; color: #64748b; text-align: center; }
+    code { font-family: Consolas, monospace; background: #f1f5f9; padding: 1px 3px; }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <div class="logos">
+      <img src="../assets/images/demo-mark.svg" alt="Demo logo">
+      <img src="../assets/images/demo-mark.svg" alt="ICTD logo">
+      <img src="../assets/images/demo-mark.svg" alt="Demo Services logo">
+      <img src="../assets/images/demo-scene.svg" alt="ISO logo">
+    </div>
+    <h1>Inventory Management System User Manual</h1>
+    <div class="subtitle">Inventory, Requests, Assignment, Service Reports, Maintenance, Transmittal, and Reports</div>
+    <div class="meta">
+      City Information and Communications Technology Department<br>
+      Version 1.0<br>
+      Prepared: May 13, 2026
+    </div>
+    <div class="footer-note">This guide explains the standard step-by-step workflow for authorized Inventory Management System users.</div>
+  </section>
+
+  <section class="page">
+    <h2>Table of Contents</h2>
+    <table class="toc">
+      <tr><td>Getting Started</td><td>Login, sidebar navigation, search, common buttons, and account settings.</td></tr>
+      <tr><td>Masterlists</td><td>Maintain reusable values such as departments, end users, status, descriptions, brands, suppliers, complaints, troubleshooting, and service remarks.</td></tr>
+      <tr><td>Requests</td><td>Create and monitor equipment and service requests, including request status management.</td></tr>
+      <tr><td>Equipment</td><td>Add equipment by batch, use supplier and date delivered, generate control numbers, edit records, import, and archive.</td></tr>
+      <tr><td>Supplies</td><td>Add supplies by batch, use supplier/date delivered, manage delivery and warranty details, edit, import, and archive.</td></tr>
+      <tr><td>Assignment</td><td>Assign equipment or supplies to end users and departments, view assignment history, and archive assignments.</td></tr>
+      <tr><td>Service Report</td><td>Create service reports, connect equipment/supplies/subscriptions, generate service report numbers, and export PDF.</td></tr>
+      <tr><td>Maintenance and Transmittal</td><td>Create maintenance reports and transmittal records, attach items, edit, view, archive, and export PDF.</td></tr>
+      <tr><td>Reports and Admin</td><td>Generate general reports, manage users, roles, permissions, account settings, and activity logs.</td></tr>
+    </table>
+    <div class="note">Available menus depend on your account permissions. If a menu is missing, ask the system administrator to review your assigned role.</div>
+  </section>
+
+  <section class="page">
+    <h2>1. Getting Started</h2>
+    <h3>Login</h3>
+    <ol class="steps">
+      <li>Open the Inventory Management System website in the browser.</li>
+      <li>Enter your username and password.</li>
+      <li>Click <strong>Login</strong>.</li>
+      <li>If the system asks you to change your password, enter a new password and save it before continuing.</li>
+    </ol>
+
+    <h3>Navigate the System</h3>
+    <ol class="steps">
+      <li>Use the left sidebar to open modules such as Dashboard, Requests, Equipment, Supplies, Assign, Reports, and Masterlist.</li>
+      <li>Use the sidebar search box to quickly find a module.</li>
+      <li>Click nested menu headings to open submodules such as Archive, Import Data, Request Status, and Report Archive.</li>
+      <li>Use your account menu for My Account, Change Password, Activity Logs, Admin Users, or Logout if available.</li>
+    </ol>
+
+    <h3>Common Buttons</h3>
+    <table>
+      <tr><th>Button</th><th>Purpose</th></tr>
+      <tr><td>Add / New</td><td>Create a new record.</td></tr>
+      <tr><td>View</td><td>Open the complete details of a record without editing.</td></tr>
+      <tr><td>Edit</td><td>Update an existing record.</td></tr>
+      <tr><td>PDF / Print</td><td>Open a PDF-ready document for printing or saving.</td></tr>
+      <tr><td>Archive</td><td>Move a record to its archive instead of permanently deleting it.</td></tr>
+      <tr><td>Restore</td><td>Move an archived record back to the active list.</td></tr>
+    </table>
+  </section>
+
+  <section class="page">
+    <h2>2. Masterlists</h2>
+    <p>Masterlists control the dropdown selections used across the system. Keep these values clean and consistent before encoding transactions.</p>
+    <ol class="steps">
+      <li>Open <strong>Masterlist &gt; Manage Masterlist</strong>.</li>
+      <li>Select the masterlist tab you need, such as Equipment Status, Description, Brand, Department, End User, Supplier, Complaint, Troubleshoot, or Service Remarks.</li>
+      <li>Click <strong>Add</strong> to create a new option.</li>
+      <li>Enter the exact name or description to be shown in forms.</li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>Use <strong>Edit</strong> to correct spelling or update an existing option.</li>
+    </ol>
+    <div class="note">Before creating service reports, make sure the complaint, troubleshoot, remarks, department, end user, and equipment status lists are updated.</div>
+  </section>
+
+  <section class="page">
+    <h2>3. Requests</h2>
+    <h3>Equipment Request</h3>
+    <ol class="steps">
+      <li>Open <strong>Request &gt; Equipment &gt; Request Equipment</strong>.</li>
+      <li>Click <strong>New Equipment Request</strong>.</li>
+      <li>Select the requesting end user and department.</li>
+      <li>Add requested equipment or supplies in the item list.</li>
+      <li>Enter the request purpose, remarks, and required details.</li>
+      <li>Save the request.</li>
+      <li>Use <strong>View</strong> or <strong>Edit</strong> from the request table when changes are needed.</li>
+    </ol>
+
+    <h3>Service Request</h3>
+    <ol class="steps">
+      <li>Open <strong>Request &gt; Service &gt; Request Service</strong>.</li>
+      <li>Create a new request and fill in the end user, department, concern, and requested service details.</li>
+      <li>Save the request.</li>
+      <li>When ready, click the report action to create a service report from the request.</li>
+    </ol>
+
+    <h3>Request Status</h3>
+    <ol class="steps">
+      <li>Open the corresponding <strong>Request Status</strong> page if you have management permission.</li>
+      <li>Add or edit statuses used to monitor request progress.</li>
+      <li>Use clear status names, such as Pending, Approved, Released, Completed, Cancelled, or Returned.</li>
+    </ol>
+  </section>
+
+  <section class="page">
+    <h2>4. Equipment Management</h2>
+    <h3>Add Equipment by Batch</h3>
+    <ol class="steps">
+      <li>Open <strong>Equipment &gt; Manage Equipment</strong>.</li>
+      <li>Click <strong>Add Equipment</strong> or the batch add button.</li>
+      <li>Select the supplier.</li>
+      <li>Enter the <strong>Date Delivered</strong>. The control number year is based on this date.</li>
+      <li>Fill in description, brand, serial number, warranty information, delivery status, ETA if still to follow, and remarks.</li>
+      <li>Leave Control No blank if you want the system to generate it.</li>
+      <li>Add more rows if the same batch contains multiple equipment items.</li>
+      <li>Click <strong>Save</strong>.</li>
+    </ol>
+    <table>
+      <tr><th>Field</th><th>Use</th></tr>
+      <tr><td>Control No</td><td>Generated as <code>IT-YY-####</code> using the delivered year.</td></tr>
+      <tr><td>Date Delivered</td><td>Required for batch generation and warranty tracking.</td></tr>
+      <tr><td>Warranty</td><td>Used to determine warranty status.</td></tr>
+      <tr><td>Delivery Status and ETA</td><td>Use ETA when the item is still to follow.</td></tr>
+    </table>
+
+    <h3>Edit, Archive, and Import</h3>
+    <ol class="steps">
+      <li>Use the search box or table filters to find the equipment.</li>
+      <li>Click <strong>Edit</strong> to update identification, delivery, warranty, status, or remarks.</li>
+      <li>Click <strong>Archive</strong> when equipment should no longer appear in the active table.</li>
+      <li>Open <strong>Equipment &gt; Import Data</strong> to upload records in the supported template format.</li>
+    </ol>
+  </section>
+
+  <section class="page">
+    <h2>5. Supplies Management</h2>
+    <h3>Add Supplies by Batch</h3>
+    <ol class="steps">
+      <li>Open <strong>Supplies &gt; Manage Supplies</strong>.</li>
+      <li>Click <strong>Add Supplies</strong>.</li>
+      <li>Select the supplier.</li>
+      <li>Enter the batch delivered date.</li>
+      <li>Fill in description, brand, serial number if applicable, status, warranty date, delivery status, ETA, and remarks.</li>
+      <li>Leave Code blank if you want the system to generate it.</li>
+      <li>Add additional supply rows for the same batch.</li>
+      <li>Click <strong>Save</strong>.</li>
+    </ol>
+    <div class="note">Supply codes are generated as <code>SUP-YY-####</code>. The system checks active and archived supply records before choosing the next number.</div>
+
+    <h3>View, Edit, Archive, and Import</h3>
+    <ol class="steps">
+      <li>Search for the supply in the active table.</li>
+      <li>Use <strong>View</strong> to check details.</li>
+      <li>Use <strong>Edit</strong> to update status, delivery, warranty, supplier, or remarks.</li>
+      <li>Use <strong>Archive</strong> to move the supply out of the active table.</li>
+      <li>Use <strong>Import Data</strong> for bulk upload when available.</li>
+    </ol>
+  </section>
+
+  <section class="page">
+    <h2>6. Assignment</h2>
+    <p>The assignment module records which equipment or supplies are issued to an end user and department.</p>
+    <ol class="steps">
+      <li>Open <strong>Assign &gt; Manage Assign</strong>.</li>
+      <li>Click <strong>New Assignment</strong>.</li>
+      <li>Select the end user. Confirm the department displayed by the system.</li>
+      <li>Select the equipment or supplies to assign.</li>
+      <li>Review the control number, serial number, and status.</li>
+      <li>Save the assignment.</li>
+      <li>Use <strong>Assignment History</strong> to check previous assignment movement.</li>
+    </ol>
+    <div class="note">When an item is assigned, its assigned status is reflected in the related equipment or supplies list.</div>
+  </section>
+
+  <section class="page">
+    <h2>7. Service Report</h2>
+    <h3>Create a Service Report</h3>
+    <ol class="steps">
+      <li>Open <strong>Reports &gt; Service Report</strong>.</li>
+      <li>Click <strong>New Service Report</strong>.</li>
+      <li>Select the end user. The department will be filled automatically when available.</li>
+      <li>Select an optional employee designation. If designation is available, it is used in the PDF; otherwise the department is displayed.</li>
+      <li>Fill in travel date, vicinity, distance, departure time, and arrival time.</li>
+      <li>Add complaint and troubleshooting details from the dropdown lists.</li>
+      <li>Add remarks and pullout details when applicable.</li>
+      <li>Select the attending technician and confirm the technician designation.</li>
+      <li>Set the report date and time.</li>
+      <li>Attach a PDF if supporting documents are required.</li>
+      <li>Click <strong>Save Service Report</strong>.</li>
+    </ol>
+
+    <h3>Add Equipment, Supplies, Subscription, or Other Items</h3>
+    <ol class="steps">
+      <li>Use the equipment picker to add existing assigned or inventory equipment.</li>
+      <li>Use <strong>Add New Equipment</strong> if the item is not yet in the equipment table.</li>
+      <li>For new equipment, enter <strong>Date Delivered</strong>. If Control No is blank, the system generates the control number from the delivered year.</li>
+      <li>Use the supplies picker or <strong>Add New Supply</strong> to connect supplies.</li>
+      <li>For new supplies, leave Supply Code blank if the system should generate the next supply code.</li>
+      <li>Add subscription or other/as-is items when the item does not belong to equipment or supplies.</li>
+      <li>Review status, serial number, warranty date, warranty remarks, and service remarks before saving.</li>
+    </ol>
+
+    <h3>Print or Save PDF</h3>
+    <ol class="steps">
+      <li>Find the saved service report in the table.</li>
+      <li>Click <strong>PDF</strong>.</li>
+      <li>The PDF opens in the browser PDF tab.</li>
+      <li>Use the browser print or download button to print or save the report.</li>
+    </ol>
+  </section>
+
+  <section class="page">
+    <h2>8. Maintenance Report</h2>
+    <ol class="steps">
+      <li>Open <strong>Reports &gt; Maintenance Report</strong>.</li>
+      <li>Click <strong>New Maintenance Report</strong>.</li>
+      <li>Select the end user and department.</li>
+      <li>Optionally select a designation. The PDF uses designation when available; otherwise it uses department.</li>
+      <li>Enter the maintenance date, equipment details, work performed, technician, remarks, and item status.</li>
+      <li>Save the report.</li>
+      <li>Use <strong>PDF</strong> to open the print-ready maintenance report.</li>
+      <li>Use <strong>Archive</strong> to move old records to the maintenance archive.</li>
+    </ol>
+  </section>
+
+  <section class="page">
+    <h2>9. Transmittal Report</h2>
+    <ol class="steps">
+      <li>Open <strong>Reports &gt; Transmittal Report</strong>.</li>
+      <li>Click <strong>New Transmittal</strong>.</li>
+      <li>Select the receiving end user, department, and optional designation.</li>
+      <li>Select equipment and supplies from the item pickers.</li>
+      <li>Add manual entries for items that are not recorded in inventory.</li>
+      <li>Review all selected and manual items before saving.</li>
+      <li>Click <strong>Save</strong>.</li>
+      <li>Use the row toggle or <strong>View</strong> to confirm that selected equipment, supplies, and manual entries are listed under the transmittal.</li>
+      <li>Use <strong>Edit</strong> when item selections or manual entries need to be updated.</li>
+      <li>Use <strong>PDF</strong> to open the print-ready transmittal form.</li>
+    </ol>
+  </section>
+
+  <section class="page">
+    <h2>10. Archives, Reports, and Administration</h2>
+    <h3>Archives</h3>
+    <ol class="steps">
+      <li>Open the archive page for the module, such as Equipment Archive, Supplies Archive, Service Archive, Maintenance Archive, or Transmittal Archive.</li>
+      <li>Search for the archived record.</li>
+      <li>Use <strong>View</strong> to inspect details.</li>
+      <li>Use <strong>Restore</strong> if the record must return to active records.</li>
+    </ol>
+
+    <h3>General Reports</h3>
+    <ol class="steps">
+      <li>Open <strong>Reports &gt; General Report</strong>.</li>
+      <li>Select the module or report category.</li>
+      <li>Apply date, status, department, or keyword filters as needed.</li>
+      <li>Use export or print actions to generate the required report output.</li>
+    </ol>
+
+    <h3>Admin Users and Permissions</h3>
+    <ol class="steps">
+      <li>Open <strong>Admin Users</strong> from the account menu if you have permission.</li>
+      <li>Create or edit user accounts.</li>
+      <li>Assign roles and module permissions based on the user responsibility.</li>
+      <li>Save changes and ask the user to log out and log in again if permissions changed.</li>
+    </ol>
+
+    <h3>Activity Logs</h3>
+    <ol class="steps">
+      <li>Open <strong>Activity Logs</strong> from the account menu.</li>
+      <li>Search or filter logs to review user actions.</li>
+      <li>Use logs when auditing changes, archiving, restoring, or troubleshooting data updates.</li>
+    </ol>
+  </section>
+
+  <section class="page">
+    <h2>11. Troubleshooting Guide</h2>
+    <table>
+      <tr><th>Issue</th><th>What to Check</th></tr>
+      <tr><td>Menu is missing</td><td>Your account may not have permission for that module. Ask the administrator to check your role.</td></tr>
+      <tr><td>Dropdown has no option</td><td>Open Masterlist and add the missing department, end user, status, description, brand, supplier, complaint, troubleshoot, or remarks value.</td></tr>
+      <tr><td>Control number is not generated</td><td>For equipment, make sure Date Delivered is filled. For supplies, leave Code blank if auto-generation is needed.</td></tr>
+      <tr><td>PDF logo or format issue</td><td>Use the PDF action from the system and print from the browser PDF tab. Confirm image files exist under public assets.</td></tr>
+      <tr><td>Selected transmittal items are missing</td><td>Open Edit and confirm equipment/supply selections are still listed before saving.</td></tr>
+      <tr><td>Duplicate entry error</td><td>The same item may already be assigned or saved in a unique field. Search active and archive records before saving again.</td></tr>
+      <tr><td>Cannot restore archived record</td><td>An active record may already use the same code or control number. Resolve the duplicate first.</td></tr>
+    </table>
+    <div class="note">Recommended daily practice: update masterlists first, encode inventory with supplier and delivery details, assign items to end users, then create service, maintenance, and transmittal reports from accurate records.</div>
+  </section>
+</body>
+</html>

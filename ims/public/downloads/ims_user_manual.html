@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IMS User Manual</title>
+  <style>
+    :root {
+      --teal: #149aa0;
+      --navy: #07346c;
+      --ink: #152235;
+      --muted: #5f6b7a;
+      --line: #dbe4ef;
+      --soft: #f4f8fb;
+      --warn: #8a4b00;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: #eef3f7;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 24px auto;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 45px rgba(15, 35, 55, .10);
+    }
+    header {
+      padding: 34px 42px;
+      color: #fff;
+      background: linear-gradient(90deg, var(--teal), var(--navy));
+    }
+    header .kicker {
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 800;
+      opacity: .86;
+      font-size: 12px;
+    }
+    h1, h2, h3 { margin: 0 0 10px; line-height: 1.2; }
+    h1 { font-size: 30px; margin-top: 8px; }
+    h2 {
+      margin-top: 32px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+      color: var(--navy);
+      font-size: 22px;
+    }
+    h3 { margin-top: 22px; color: #0f4f6f; font-size: 17px; }
+    p { margin: 0 0 10px; }
+    main { padding: 30px 42px 42px; }
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .meta div, .note, .warning {
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 8px;
+      padding: 12px;
+      background: rgba(255,255,255,.12);
+    }
+    .meta strong { display: block; font-size: 12px; opacity: .82; text-transform: uppercase; }
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 22px;
+      padding: 18px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .toc a { color: var(--navy); text-decoration: none; font-weight: 700; }
+    .step {
+      margin: 12px 0;
+      padding: 14px 16px;
+      border-left: 4px solid var(--teal);
+      background: #f8fbfd;
+      border-radius: 0 8px 8px 0;
+    }
+    ol, ul { margin-top: 8px; padding-left: 22px; }
+    li { margin-bottom: 7px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      font-size: 13px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #e9f2f7; color: var(--navy); }
+    .note {
+      border-color: #b8d9df;
+      background: #eef9fa;
+      color: #15464b;
+    }
+    .warning {
+      border-color: #ffd27a;
+      background: #fff8e8;
+      color: var(--warn);
+    }
+    code {
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: #eef2f7;
+      color: #123;
+    }
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fff;
+    }
+    footer {
+      padding: 18px 42px 28px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      background: #fbfdff;
+      font-size: 12px;
+    }
+    @media (max-width: 760px) {
+      .page { width: 100%; margin: 0; border: 0; }
+      header, main, footer { padding-left: 20px; padding-right: 20px; }
+      .meta, .toc, .section-grid { grid-template-columns: 1fr; }
+    }
+    @media print {
+      body { background: #fff; }
+      .page { width: 100%; margin: 0; box-shadow: none; border: 0; }
+      a { color: inherit; text-decoration: none; }
+      h2 { break-after: avoid; }
+      .step, table, .card { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">Inventory Management System</div>
+      <h1>IMS User Manual</h1>
+      <p>Step-by-step operating guide for users, staff, administrators, and super administrators.</p>
+      <div class="meta">
+        <div><strong>System</strong> ICTD Inventory Management System</div>
+        <div><strong>Audience</strong> Authorized IMS users</div>
+        <div><strong>Version</strong> Prepared May 2026</div>
+      </div>
+    </header>
+
+    <main>
+      <h2 id="contents">Contents</h2>
+      <div class="toc">
+        <a href="#overview">1. System Overview</a>
+        <a href="#access">2. Access and Login</a>
+        <a href="#navigation">3. Navigation</a>
+        <a href="#dashboard">4. Dashboard</a>
+        <a href="#requests">5. Request Modules</a>
+        <a href="#inventory">6. Equipment and Supplies</a>
+        <a href="#assignment">7. Assignment Module</a>
+        <a href="#operations">8. Other Operations</a>
+        <a href="#reports">9. Reports and PDFs</a>
+        <a href="#masterlists">10. Masterlists</a>
+        <a href="#admin">11. Admin, Roles, and Logs</a>
+        <a href="#account">12. Account Settings</a>
+        <a href="#best-practices">13. Best Practices</a>
+        <a href="#troubleshooting">14. Troubleshooting</a>
+      </div>
+
+      <h2 id="overview">1. System Overview</h2>
+      <p>The IMS centralizes ICTD inventory records, requests, assignments, reports, archives, masterlists, and user access control. Features shown to each user depend on assigned role permissions.</p>
+      <table>
+        <thead><tr><th>Area</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Dashboard</td><td>View summary cards and operational statistics.</td></tr>
+          <tr><td>Request</td><td>Create and monitor equipment or service requests.</td></tr>
+          <tr><td>Equipment and Supplies</td><td>Register, update, import, archive, and review inventory records.</td></tr>
+          <tr><td>Assign</td><td>Assign equipment to end users, upload PDFs, reassign items, and keep assignment history.</td></tr>
+          <tr><td>Reports</td><td>Prepare service, maintenance, transmittal, and general reports with export or print options.</td></tr>
+          <tr><td>Masterlist</td><td>Maintain reusable dropdown values such as suppliers, departments, statuses, and related references.</td></tr>
+          <tr><td>Admin</td><td>Manage users, roles, permissions, reset requests, and activity logs.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="access">2. Access and Login</h2>
+      <h3>Login</h3>
+      <div class="step">
+        <ol>
+          <li>Open the IMS web address in a browser.</li>
+          <li>Enter your registered username or email and password.</li>
+          <li>Select <strong>Login</strong>.</li>
+          <li>After successful login, the system opens the page allowed for your role.</li>
+        </ol>
+      </div>
+      <h3>Register a New Account</h3>
+      <div class="step">
+        <ol>
+          <li>Open the registration page.</li>
+          <li>Fill in the required account details.</li>
+          <li>Create a secure password and confirm it.</li>
+          <li>Select <strong>Create Account</strong>.</li>
+          <li>Wait for account review or approval if your organization requires it.</li>
+        </ol>
+      </div>
+      <h3>Forgot Password or Reset Request</h3>
+      <div class="step">
+        <ol>
+          <li>From the login screen, select <strong>Forgot password?</strong>.</li>
+          <li>Submit the requested account information.</li>
+          <li>An administrator reviews the reset request.</li>
+          <li>When approved, follow the provided reset instructions or temporary access procedure.</li>
+        </ol>
+      </div>
+      <div class="warning"><strong>Security reminder:</strong> Do not share your password. Log out after using a shared computer.</div>
+
+      <h2 id="navigation">3. Navigation</h2>
+      <h3>Sidebar</h3>
+      <div class="step">
+        <ol>
+          <li>Use the sidebar to open modules such as Dashboard, Request, Equipment, Supplies, Assign, Reports, and Masterlist.</li>
+          <li>Select a main group to expand its child pages.</li>
+          <li>Use the search box in the sidebar to quickly filter modules.</li>
+          <li>Use the collapse button to switch between full sidebar and compact rail view.</li>
+        </ol>
+      </div>
+      <h3>Common Buttons</h3>
+      <table>
+        <thead><tr><th>Button</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td>Add / New</td><td>Create a new record.</td></tr>
+          <tr><td>Edit</td><td>Update an existing record.</td></tr>
+          <tr><td>View</td><td>Open record details without editing.</td></tr>
+          <tr><td>Archive</td><td>Move a record out of the active list.</td></tr>
+          <tr><td>Restore</td><td>Return an archived record to the active list, when available.</td></tr>
+          <tr><td>Delete Permanently</td><td>Remove an archived record permanently, when allowed.</td></tr>
+          <tr><td>Upload File</td><td>Attach a PDF or supporting file.</td></tr>
+          <tr><td>PDF / Print</td><td>Open a printable report or PDF view.</td></tr>
+          <tr><td>Export</td><td>Download records according to selected filters.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="dashboard">4. Dashboard</h2>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Main &gt; Dashboard</strong>.</li>
+          <li>Review cards, charts, or counters for quick status checking.</li>
+          <li>Use dashboard shortcuts, if available, to jump to the related module.</li>
+          <li>Refresh the page if you need the latest displayed statistics.</li>
+        </ol>
+      </div>
+
+      <h2 id="requests">5. Request Modules</h2>
+      <h3>Request Module Overview</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Request &gt; Request Modules</strong>.</li>
+          <li>Review request categories such as Equipment and Service.</li>
+          <li>Use the displayed actions to create a request, view status, or open archives.</li>
+        </ol>
+      </div>
+      <h3>Create an Equipment Request</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Request &gt; Equipment &gt; Request Equipment</strong>.</li>
+          <li>Select the request option to add a new equipment request.</li>
+          <li>Fill in requester details, department, equipment needed, quantity, purpose, and other required fields.</li>
+          <li>Review all entered details.</li>
+          <li>Select <strong>Save</strong> or <strong>Submit</strong>.</li>
+          <li>Use the request status page to monitor approval, rejection, assignment, or completion.</li>
+        </ol>
+      </div>
+      <h3>Create a Service Request</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Request &gt; Service &gt; Request Service</strong>.</li>
+          <li>Create a new service request.</li>
+          <li>Enter the requester, department, service type, issue description, and priority or remarks if required.</li>
+          <li>Submit the request.</li>
+          <li>Check <strong>Request Status</strong> for pending, acknowledged, assigned, accomplished, rejected, or cancelled items.</li>
+        </ol>
+      </div>
+      <h3>Manage Request Status</h3>
+      <div class="step">
+        <ol>
+          <li>Open the correct <strong>Request Status</strong> page.</li>
+          <li>Use filters such as All, Pending, Acknowledged, Assigned, Accomplished, Rejected, or Cancelled.</li>
+          <li>Select an action such as acknowledge, assign, accomplish, reject, cancel, or archive, depending on permission.</li>
+          <li>Provide required notes or reasons when prompted.</li>
+          <li>Confirm the action.</li>
+        </ol>
+      </div>
+      <h3>Request Archives</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Request Archive</strong> under Equipment or Service.</li>
+          <li>Search for archived requests by keyword.</li>
+          <li>Use restore or permanent delete only when allowed and necessary.</li>
+        </ol>
+      </div>
+
+      <h2 id="inventory">6. Equipment and Supplies</h2>
+      <h3>Manage Equipment</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Equipment &gt; Manage Equipment</strong>.</li>
+          <li>Use the search box, table filters, or status filters to locate records.</li>
+          <li>Select <strong>Add Equipment</strong> to open the batch entry form.</li>
+          <li>Enter <strong>Batch Details</strong>, including supplier and date delivered.</li>
+          <li>Fill in each equipment row, including control number, equipment type, brand/model, serial number, status, and related details.</li>
+          <li>Select <strong>Add Another Equipment</strong> for additional rows.</li>
+          <li>Select <strong>Save Batch</strong> to save all rows at once.</li>
+          <li>Use <strong>View</strong> to inspect details, <strong>Edit</strong> to update a record, or <strong>Archive</strong> to move it out of the active list.</li>
+        </ol>
+      </div>
+      <h3>Import Equipment</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Equipment &gt; Import data</strong>.</li>
+          <li>Download or follow the required template format if provided.</li>
+          <li>Prepare the import file with complete and valid columns.</li>
+          <li>Upload the file.</li>
+          <li>Review validation messages and correct errors if needed.</li>
+          <li>Confirm the import.</li>
+        </ol>
+      </div>
+      <h3>Equipment Archive</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Equipment &gt; Archive</strong>.</li>
+          <li>Search archived equipment by keyword such as control number, serial number, or item name.</li>
+          <li>Restore a record if it must return to the active list.</li>
+          <li>Permanently delete only when the record should no longer be retained.</li>
+        </ol>
+      </div>
+      <h3>Manage Supplies</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Supplies &gt; Manage Supplies</strong>.</li>
+          <li>Select <strong>Add Supply</strong>.</li>
+          <li>Enter supply code, item description, quantity, unit, supplier, status, and other required details.</li>
+          <li>Select <strong>Add Another Supply</strong> if entering multiple supplies.</li>
+          <li>Select <strong>Save Supply</strong>.</li>
+          <li>Use view, edit, archive, import, and archive pages as needed.</li>
+        </ol>
+      </div>
+      <div class="note"><strong>Tip:</strong> Keep supplier, department, and status masterlists updated before encoding inventory. Clean masterlists reduce wrong dropdown selections.</div>
+
+      <h2 id="assignment">7. Assignment Module</h2>
+      <h3>Create a New Assignment</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Assign &gt; Manage Assign</strong>.</li>
+          <li>Select <strong>New Assignment</strong>.</li>
+          <li>Choose the equipment or item to assign.</li>
+          <li>Enter end user, department, assignment date, and other assignment details.</li>
+          <li>Add remarks or supporting details if needed.</li>
+          <li>Select <strong>Save Assignment</strong>.</li>
+        </ol>
+      </div>
+      <h3>Edit, Reassign, or Unassign</h3>
+      <div class="step">
+        <ol>
+          <li>Find the assignment in the table.</li>
+          <li>Select <strong>Edit</strong> to update assignment details.</li>
+          <li>Select <strong>Reassign</strong> to transfer the item to another end user or department.</li>
+          <li>Use unassign or archive actions only when the assignment is no longer active.</li>
+          <li>Confirm the action when the system prompts you.</li>
+        </ol>
+      </div>
+      <h3>Upload or View Assignment PDF</h3>
+      <div class="step">
+        <ol>
+          <li>Locate the assignment row.</li>
+          <li>Select <strong>Upload File</strong> to attach a PDF.</li>
+          <li>Select the PDF file from your computer.</li>
+          <li>Confirm upload.</li>
+          <li>Use the <strong>PDF</strong> button to view or print the attached document.</li>
+        </ol>
+      </div>
+
+      <h2 id="operations">8. Other Operations</h2>
+      <div class="section-grid">
+        <div class="card">
+          <h3>Subscription</h3>
+          <ol>
+            <li>Open <strong>Other operations &gt; Subscription &gt; Manage Subscription</strong>.</li>
+            <li>Select <strong>New Subscription</strong>.</li>
+            <li>Encode subscription details such as account, provider, period, amount, department, and status.</li>
+            <li>Save, edit, archive, import, or review archived subscriptions as needed.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Borrowed</h3>
+          <ol>
+            <li>Open <strong>Other operations &gt; Borrowed &gt; Manage Borrowed</strong>.</li>
+            <li>Add borrowed item details, borrower, department, dates, and remarks.</li>
+            <li>Save the record and update it when the item is returned or changed.</li>
+            <li>Archive old borrowed records when no longer active.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Bidding</h3>
+          <ol>
+            <li>Open <strong>Other operations &gt; Bidding &gt; Manage Bidding</strong>.</li>
+            <li>Create a bidding record and add one or more bidding items.</li>
+            <li>Fill in bidding dates, department, item details, and remarks.</li>
+            <li>Use export filters when preparing bidding reports.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Title</h3>
+          <ol>
+            <li>Open <strong>Other operations &gt; Title &gt; Manage Title</strong>.</li>
+            <li>Add or update title-related records used by the system.</li>
+            <li>Use archive and import pages where available.</li>
+          </ol>
+        </div>
+      </div>
+
+      <h2 id="reports">9. Reports and PDFs</h2>
+      <h3>Service Report</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Reports &gt; Service Report</strong>.</li>
+          <li>Create or edit a service report.</li>
+          <li>Add service items, findings, action taken, personnel, date, and remarks.</li>
+          <li>Save the report.</li>
+          <li>Upload a PDF when needed or select <strong>PDF</strong> to print/export.</li>
+          <li>Use <strong>Service Archive</strong> for archived service reports.</li>
+        </ol>
+      </div>
+      <h3>Maintenance Report</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Reports &gt; Maintenance Report</strong>.</li>
+          <li>Add maintenance details such as equipment, performed work, findings, schedule, and personnel.</li>
+          <li>Save the record.</li>
+          <li>Use PDF or upload actions for printable documentation.</li>
+          <li>Archive completed or old maintenance records when appropriate.</li>
+        </ol>
+      </div>
+      <h3>Transmittal Report</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Reports &gt; Transmittal Report</strong>.</li>
+          <li>Select <strong>New Transmittal</strong>.</li>
+          <li>Enter transmittal recipient, department, date, item rows, and remarks.</li>
+          <li>Select <strong>Add Row</strong> for additional items.</li>
+          <li>Save and use <strong>PDF</strong> to print or export.</li>
+        </ol>
+      </div>
+      <h3>General Report</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Reports &gt; General Report</strong>.</li>
+          <li>Choose the module or report tab.</li>
+          <li>Select <strong>Filter &amp; Export</strong>.</li>
+          <li>Set date range, status, department, and other filters as needed.</li>
+          <li>Choose fields to include and reorder them if supported.</li>
+          <li>Select <strong>Print</strong>, <strong>PDF</strong>, or <strong>Excel</strong> depending on permission.</li>
+        </ol>
+      </div>
+
+      <h2 id="masterlists">10. Masterlists</h2>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Masterlist &gt; Manage Masterlist</strong>.</li>
+          <li>Select the masterlist category to maintain.</li>
+          <li>Add a new value using the available form.</li>
+          <li>Edit values when names, descriptions, or statuses need correction.</li>
+          <li>Delete or deactivate only when the value is no longer needed and will not affect active records.</li>
+        </ol>
+      </div>
+      <p>Common masterlists may include suppliers, departments, equipment types, statuses, service types, personnel, offices, and other reusable values.</p>
+
+      <h2 id="admin">11. Admin, Roles, and Logs</h2>
+      <h3>User Administration</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Account &gt; User Admin</strong> or the admin link available to your role.</li>
+          <li>Review registered users, roles, and account status.</li>
+          <li>Assign a role to each user.</li>
+          <li>Review role defaults, then fine-tune permission overrides if needed.</li>
+          <li>Save changes.</li>
+        </ol>
+      </div>
+      <h3>Password Reset Requests</h3>
+      <div class="step">
+        <ol>
+          <li>Open the <strong>Reset Requests</strong> tab in the admin page.</li>
+          <li>Review the requesting user and request details.</li>
+          <li>Select <strong>Approve</strong> to allow the reset or <strong>Reject</strong> to deny it.</li>
+          <li>Enter required notes or rejection reason.</li>
+          <li>Confirm the action.</li>
+        </ol>
+      </div>
+      <h3>Activity Logs</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Account &gt; Logs</strong> or <strong>Activity Logs</strong>.</li>
+          <li>Filter logs by date, user, module, or activity where available.</li>
+          <li>Review actions for audit and monitoring purposes.</li>
+          <li>Use cleanup tools only when authorized by your retention policy.</li>
+        </ol>
+      </div>
+      <div class="warning"><strong>Admin caution:</strong> Permission changes affect what users can see and do. Review role access carefully before saving.</div>
+
+      <h2 id="account">12. Account Settings</h2>
+      <h3>Update Account Details</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Account Details</strong>.</li>
+          <li>Update editable profile fields.</li>
+          <li>Select <strong>Save Account</strong>.</li>
+        </ol>
+      </div>
+      <h3>Change Password</h3>
+      <div class="step">
+        <ol>
+          <li>Open <strong>Change Password</strong>.</li>
+          <li>Enter your current password.</li>
+          <li>Enter and confirm the new password.</li>
+          <li>Save the change.</li>
+          <li>Use the new password on your next login.</li>
+        </ol>
+      </div>
+      <h3>Logout</h3>
+      <div class="step">
+        <ol>
+          <li>Select the logout or power button from the sidebar or account menu.</li>
+          <li>Wait until the login page appears.</li>
+          <li>Close the browser tab if using a shared workstation.</li>
+        </ol>
+      </div>
+
+      <h2 id="best-practices">13. Best Practices</h2>
+      <ul>
+        <li>Search before adding a record to avoid duplicates.</li>
+        <li>Use complete descriptions, serial numbers, control numbers, and department names.</li>
+        <li>Upload final signed PDFs when a report or assignment requires attachment.</li>
+        <li>Archive records instead of deleting them when they may still be needed for audit.</li>
+        <li>Keep masterlists clean and standardized.</li>
+        <li>Check reports before printing, exporting, or submitting them outside the office.</li>
+        <li>Use role permissions to limit access to only the features each user needs.</li>
+      </ul>
+
+      <h2 id="troubleshooting">14. Troubleshooting</h2>
+      <table>
+        <thead><tr><th>Problem</th><th>What to Do</th></tr></thead>
+        <tbody>
+          <tr><td>Cannot log in</td><td>Check username and password. Use the reset request page if needed.</td></tr>
+          <tr><td>Module is missing</td><td>Your role may not have permission. Contact an administrator.</td></tr>
+          <tr><td>Save button shows an error</td><td>Review required fields, duplicate control numbers, invalid dates, and file requirements.</td></tr>
+          <tr><td>Dropdown value is missing</td><td>Ask an authorized user to add it in Masterlist.</td></tr>
+          <tr><td>Upload failed</td><td>Confirm the file is a supported type, usually PDF, and try again.</td></tr>
+          <tr><td>Report export is incomplete</td><td>Check date range, selected fields, module filter, and your export permission.</td></tr>
+          <tr><td>Wrong record was archived</td><td>Open the archive page and restore it if restoration is available.</td></tr>
+        </tbody>
+      </table>
+      <div class="note">For unresolved issues, record the page name, action attempted, error message, date/time, and username before reporting to the system administrator.</div>
+    </main>
+
+    <footer>
+      IMS User Manual. This guide is intended for internal system users and should be updated when workflows or permissions change.
+    </footer>
+  </div>
+</body>
+</html>

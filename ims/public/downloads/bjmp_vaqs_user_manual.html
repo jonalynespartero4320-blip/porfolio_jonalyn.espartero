@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ID & Queuing System User Manual</title>
+  <style>
+    :root { --ink:#17222c; --muted:#5f6d79; --line:#cfd8df; --accent:#1d5c78; --accent-2:#2d7a39; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Book Antiqua","Georgia","Times New Roman",serif; color:var(--ink); background:#e9eef1; }
+    .document { max-width:850px; margin:28px auto; background:#fff; box-shadow:0 8px 28px rgba(0,0,0,.08); min-height:100vh; }
+    .page { padding:42px 54px 50px; }
+    .letterhead { border-bottom:3px solid var(--accent); padding-bottom:18px; margin-bottom:24px; }
+    .letterhead-top { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .agency { text-align:center; flex:1; }
+    .agency .line { font-size:13px; letter-spacing:.05em; text-transform:uppercase; }
+    .agency .title { font-size:26px; font-weight:700; margin:8px 0 4px; color:#0f2433; }
+    .agency .subtitle { font-size:14px; color:var(--muted); }
+    .seal { width:74px; height:74px; object-fit:contain; }
+    h1 { font-size:28px; margin:0 0 8px; text-align:center; }
+    .doc-meta { text-align:center; font-size:14px; color:var(--muted); margin-bottom:22px; }
+    h2 { font-size:20px; margin:26px 0 10px; color:#103247; border-bottom:1px solid var(--line); padding-bottom:6px; }
+    h3 { font-size:16px; margin:16px 0 6px; color:#17384d; }
+    p { margin:0 0 12px; line-height:1.65; font-size:14px; }
+    ol, ul { margin:8px 0 14px 22px; padding:0; }
+    li { margin:0 0 6px; line-height:1.6; font-size:14px; }
+    table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:14px; }
+    th, td { border:1px solid var(--line); padding:10px 12px; vertical-align:top; }
+    th { background:#f3f7f9; text-align:left; }
+    .note { border-left:4px solid var(--accent-2); background:#f7fbf8; padding:12px 14px; margin:14px 0 18px; font-size:14px; }
+    .footer { margin-top:30px; padding-top:12px; border-top:1px solid var(--line); font-size:12px; color:var(--muted); text-align:center; }
+    @page { size:A4; margin:14mm; }
+    @media print { body { background:#fff; } .document { margin:0; max-width:none; box-shadow:none; } }
+  </style>
+</head>
+<body>
+  <div class="document">
+    <div class="page">
+      <div class="letterhead">
+        <div class="letterhead-top">
+          <img src="../assets/images/demo-mark.svg" alt="Demo ID Services" class="seal">
+          <div class="agency">
+            <div class="line">Republic of the Philippines</div>
+            <div class="line">Department of the Interior and Local Government</div>
+            <div class="title">ID & Queuing System</div>
+            <div class="subtitle">User Manual</div>
+          </div>
+          <img src="../assets/images/demo-mark.svg" alt="Demo Services" class="seal">
+        </div>
+      </div>
+
+      <h1>User Manual</h1>
+      <div class="doc-meta">Document Type: Operations and User Guide</div>
+
+      <p>This manual provides practical instructions for using the ID & Queuing System. It is intended for staff, administrators, and supervisory personnel who are responsible for visitor processing, queue operations, reporting, and system governance.</p>
+
+      <h2>1. Accessing the System</h2>
+      <h3>1.1 Login Procedure</h3>
+      <ol>
+        <li>Open the ID & Queuing System login page.</li>
+        <li>Enter the assigned username or email address.</li>
+        <li>Enter the correct password.</li>
+        <li>Select <strong>Sign In</strong> to enter the system.</li>
+      </ol>
+
+      <h3>1.2 Forgot Password Procedure</h3>
+      <ol>
+        <li>Open the <strong>Forgot Password</strong> page.</li>
+        <li>Enter the username assigned to the account.</li>
+        <li>Submit the password reset request.</li>
+        <li>Wait for administrator approval and the issuance of a replacement password.</li>
+      </ol>
+
+      <h2>2. Main Modules and Their Functions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Module</th>
+            <th>Function</th>
+            <th>Typical User</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Dashboard</td><td>Displays operational overview, summary figures, and shortcuts to key modules.</td><td>Staff, Admin, Super Admin</td></tr>
+          <tr><td>Queue</td><td>Handles QR validation, queue admission, acceptance, rejection, and time-out operations.</td><td>Staff, Admin</td></tr>
+          <tr><td>PDL Management</td><td>Maintains PDL records, case references, dorm assignment, and authorized visitors.</td><td>Admin</td></tr>
+          <tr><td>Visitor Registration</td><td>Registers visitors and uploads photographs and documentary requirements.</td><td>Staff, Admin</td></tr>
+          <tr><td>Visitor Management</td><td>Reviews verified visitors, updates files, controls bans, and routes records to queue or ID issuance.</td><td>Staff, Admin</td></tr>
+          <tr><td>ID Issuance</td><td>Issues and reissues QR-enabled visitor identification cards.</td><td>Staff, Admin</td></tr>
+          <tr><td>Reports</td><td>Generates and exports filtered operational reports.</td><td>Staff, Admin</td></tr>
+          <tr><td>Masterlist</td><td>Maintains cases, courts, and dorm references.</td><td>Admin, Super Admin</td></tr>
+          <tr><td>Manage Users</td><td>Assigns roles, permissions, and processes password reset approvals.</td><td>Super Admin</td></tr>
+        </tbody>
+      </table>
+
+      <h2>3. Daily Operating Procedure</h2>
+      <h3>3.1 Preparing Records</h3>
+      <ol>
+        <li>Review case, court, and dorm masterlists to ensure they are updated.</li>
+        <li>Create or update PDL records as required.</li>
+        <li>Confirm authorized visitors linked to the selected PDL.</li>
+      </ol>
+
+      <h3>3.2 Registering a Visitor</h3>
+      <ol>
+        <li>Open the Visitor Registration module.</li>
+        <li>Select the relevant PDL record.</li>
+        <li>Enter the visitor's personal information.</li>
+        <li>Upload the visitor photo and required documentary files.</li>
+        <li>Submit the registration.</li>
+      </ol>
+
+      <h3>3.3 Managing a Verified Visitor</h3>
+      <ol>
+        <li>Open the Visitor Management module.</li>
+        <li>Search and open the verified visitor record.</li>
+        <li>Review linked PDL data, issued ID status, and uploaded files.</li>
+        <li>If necessary, update the photo or documentary requirement file.</li>
+        <li>Apply a ban or lift a ban when authorized.</li>
+      </ol>
+
+      <h3>3.4 Issuing an ID</h3>
+      <ol>
+        <li>Open the ID Issuance module.</li>
+        <li>Select the relevant PDL.</li>
+        <li>Choose the verified visitor for issuance.</li>
+        <li>Select <strong>Issue</strong> or <strong>Re-Issue</strong>.</li>
+        <li>Open the generated card and print or export it.</li>
+      </ol>
+
+      <h3>3.5 Queue Admission</h3>
+      <ol>
+        <li>Open the Queue module.</li>
+        <li>Scan the visitor QR or search manually.</li>
+        <li>Review the visitor details shown on screen.</li>
+        <li>Select <strong>Put in Queue</strong> and encode the presented ID details.</li>
+        <li>Accept or reject the queue request as appropriate.</li>
+        <li>Record <strong>Time Out</strong> once the visit is completed.</li>
+      </ol>
+
+      <div class="note"><strong>Important:</strong> The system allows only one visit per visitor per day and only ten visitors inside the facility at one time.</div>
+
+      <h2>4. Reporting Procedure</h2>
+      <ol>
+        <li>Open the Reports module.</li>
+        <li>Select the report source: Admissions, Registrations, or ID Issuance.</li>
+        <li>Select the desired period type: Daily, Monthly, Yearly, or Custom Range.</li>
+        <li>Apply the filters.</li>
+        <li>Review the report table, including time in, time out, and hours stayed for admission reports.</li>
+        <li>Export to Excel or open the print/PDF layout as required.</li>
+      </ol>
+
+      <h2>5. Role Responsibilities</h2>
+      <table>
+        <thead><tr><th>Role</th><th>Operational Responsibility</th></tr></thead>
+        <tbody>
+          <tr><td>Staff</td><td>Performs frontline tasks such as visitor handling, queue intake, and basic ID issuance support.</td></tr>
+          <tr><td>Admin</td><td>Supervises PDL, visitor, queue, report, and issuance operations.</td></tr>
+          <tr><td>Super Admin</td><td>Controls user administration, permission assignment, and governance actions.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>6. Permission Guidance</h2>
+      <p>Action buttons and backend functions are permission-controlled. Users must be granted the required permission before they can open or use a function. Super admin is responsible for assigning these permissions in the Manage Users module.</p>
+
+      <div class="footer">ID & Queuing System User Manual</div>
+    </div>
+  </div>
+</body>
+</html>

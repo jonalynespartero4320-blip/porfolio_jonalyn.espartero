@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ID & Queuing System Click-by-Click System Flow</title>
+  <style>
+    :root { --ink:#17222c; --muted:#5f6d79; --line:#d7e0e6; --accent:#1d5c78; --green:#2d7a39; --soft:#f7fafc; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Book Antiqua","Georgia","Times New Roman",serif; color:var(--ink); background:#e9eef1; }
+    .document { max-width:900px; margin:28px auto; background:#fff; box-shadow:0 8px 28px rgba(0,0,0,.08); min-height:100vh; }
+    .page { padding:42px 54px 50px; }
+    .letterhead { border-bottom:3px solid var(--accent); padding-bottom:18px; margin-bottom:24px; }
+    .letterhead-top { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .agency { text-align:center; flex:1; }
+    .agency .line { font-size:13px; letter-spacing:.05em; text-transform:uppercase; }
+    .agency .title { font-size:26px; font-weight:700; margin:8px 0 4px; color:#0f2433; }
+    .agency .subtitle { font-size:14px; color:var(--muted); }
+    .seal { width:74px; height:74px; object-fit:contain; }
+    h1 { font-size:29px; margin:0 0 8px; text-align:center; }
+    h2 { font-size:20px; margin:26px 0 10px; color:#103247; border-bottom:1px solid var(--line); padding-bottom:6px; }
+    h3 { font-size:16px; margin:0 0 6px; color:#17384d; }
+    p { margin:0 0 12px; line-height:1.65; font-size:14px; }
+    ol, ul { margin:8px 0 14px 22px; padding:0; }
+    li { margin:0 0 6px; line-height:1.6; font-size:14px; }
+    .doc-meta { text-align:center; font-size:14px; color:var(--muted); margin-bottom:22px; }
+    .note { border-left:4px solid var(--green); background:#f7fbf8; padding:12px 14px; margin:14px 0 18px; font-size:14px; }
+    .flow-card { border:1px solid var(--line); border-radius:16px; padding:14px 16px; background:var(--soft); margin:12px 0; }
+    .click-path { font-family:"Courier New",monospace; background:#eef6f8; border:1px solid #d7e7ec; padding:8px 10px; border-radius:10px; display:block; margin:8px 0 10px; color:#103247; }
+    .step-label { display:inline-block; padding:4px 9px; border-radius:999px; background:#e9f7ef; color:#198754; font-weight:700; font-size:13px; margin-bottom:8px; }
+    .role-table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:14px; }
+    .role-table th, .role-table td { border:1px solid var(--line); padding:10px 12px; vertical-align:top; }
+    .role-table th { background:#f3f7f9; text-align:left; }
+    .footer { margin-top:30px; padding-top:12px; border-top:1px solid var(--line); font-size:12px; color:var(--muted); text-align:center; }
+    @page { size:A4; margin:14mm; }
+    @media print { body { background:#fff; } .document { margin:0; max-width:none; box-shadow:none; } }
+    @media (max-width:700px) { .page { padding:28px 22px; } .letterhead-top { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <div class="document">
+    <div class="page">
+      <div class="letterhead">
+        <div class="letterhead-top">
+          <img src="../assets/images/demo-mark.svg" alt="Demo ID Services" class="seal">
+          <div class="agency">
+            <div class="line">Republic of the Philippines</div>
+            <div class="line">Department of the Interior and Local Government</div>
+            <div class="title">ID & Queuing System</div>
+            <div class="subtitle">Click-by-Click System Flow Guide</div>
+          </div>
+          <img src="../assets/images/demo-mark.svg" alt="Demo Services" class="seal">
+        </div>
+      </div>
+
+      <h1>How to Use the System Step by Step</h1>
+      <div class="doc-meta">A friendly guide that tells users what to click, select, fill in, and save</div>
+
+      <div class="note">
+        <strong>How to read this guide:</strong> Follow each section in order. Each workflow shows the screen to open, the button to click, the details to encode, and the final action to save, print, approve, or export.
+      </div>
+
+      <h2>1. Start of Day Setup</h2>
+      <div class="flow-card">
+        <span class="step-label">Admin / Super Admin</span>
+        <h3>Update Masterlist Records</h3>
+        <span class="click-path">Sidebar &gt; Masterlist</span>
+        <ol>
+          <li>Click the <strong>Case</strong>, <strong>Court</strong>, or <strong>Dorm</strong> tab.</li>
+          <li>Click <strong>Add Case</strong>, <strong>Add Court</strong>, or <strong>Add Dorm</strong>.</li>
+          <li>Enter the required details such as case number, court name, dorm number, or dorm description.</li>
+          <li>Click <strong>Save</strong>.</li>
+          <li>Use the search box to confirm that the new record appears in the table.</li>
+        </ol>
+      </div>
+
+      <h2>2. PDL Record Preparation</h2>
+      <div class="flow-card">
+        <span class="step-label">Admin</span>
+        <h3>Add a PDL Record Manually</h3>
+        <span class="click-path">Sidebar &gt; PDL Management &gt; Add New</span>
+        <ol>
+          <li>Click <strong>Add New</strong>.</li>
+          <li>Fill in PDL identity details such as first name, middle name, last name, age, sex, and suffix if available.</li>
+          <li>Select or enter the assigned <strong>Dorm</strong>.</li>
+          <li>Add case details such as <strong>Case No.</strong>, <strong>Case Type</strong>, and <strong>Court</strong>.</li>
+          <li>Add the five (5) authorized visitors provided by the PDL prior to or during commitment.</li>
+          <li>Encode each authorized visitor's available information, such as full name, relationship, address, and contact details.</li>
+          <li>Upload the PDL photo if available.</li>
+          <li>Review all details, then click <strong>Save</strong>.</li>
+        </ol>
+      </div>
+
+      <div class="flow-card">
+        <span class="step-label">Admin</span>
+        <h3>Import PDL List</h3>
+        <span class="click-path">Sidebar &gt; PDL Management &gt; Import PDL</span>
+        <ol>
+          <li>Click <strong>CSV Template</strong>.</li>
+          <li>Open the downloaded file and fill in the PDL rows.</li>
+          <li>Save the completed file as CSV.</li>
+          <li>Return to the import page and click <strong>Choose File</strong>.</li>
+          <li>Select the completed CSV file.</li>
+          <li>Click <strong>Import PDL</strong>.</li>
+          <li>Wait for the success message, then return to <strong>PDL Management</strong> to review the imported records.</li>
+        </ol>
+      </div>
+
+      <div class="flow-card">
+        <span class="step-label">Admin</span>
+        <h3>Import Visitors for One PDL</h3>
+        <span class="click-path">Sidebar &gt; PDL Management &gt; PDL row &gt; Import Visitors button</span>
+        <ol>
+          <li>Find the PDL record in the table.</li>
+          <li>Click the green <strong>Import Visitors</strong> button on that PDL row.</li>
+          <li>Click <strong>CSV Template</strong> and fill in the visitor details.</li>
+          <li>Save the completed CSV file.</li>
+          <li>Click <strong>Choose File</strong> and select the completed visitor file.</li>
+          <li>Click <strong>Import Visitors</strong>.</li>
+          <li>The system will attach those visitors to the selected PDL only.</li>
+        </ol>
+      </div>
+
+      <h2>3. Visitor Registration</h2>
+      <div class="flow-card">
+        <span class="step-label">Staff / Admin</span>
+        <h3>Register a Visitor</h3>
+        <span class="click-path">Sidebar &gt; Visitor Registration</span>
+        <ol>
+          <li>Click <strong>Start Registration</strong> or open the first registration section if the form is already visible.</li>
+          <li>Click or search the <strong>PDL</strong> field.</li>
+          <li>Select the correct PDL from the list.</li>
+          <li>Click <strong>Next</strong> to continue to visitor information.</li>
+          <li>Enter visitor personal details such as first name, middle name, last name, age, sex, contact number, and address.</li>
+          <li>Click <strong>Next</strong> to continue to requirements and emergency contact.</li>
+          <li>Enter emergency contact details.</li>
+          <li>Upload the visitor photo.</li>
+          <li>Upload required documents such as birth certificate, marriage contract, cohabitation certificate, or other required files if applicable.</li>
+          <li>Click <strong>Next</strong> to review the encoded information.</li>
+          <li>Check the summary carefully. If something is wrong, click <strong>Back</strong> and correct it.</li>
+          <li>Click <strong>Submit</strong> or <strong>Save Registration</strong>.</li>
+          <li>Wait for the confirmation message before leaving the page.</li>
+        </ol>
+      </div>
+
+      <h2>4. Visitor Review and Management</h2>
+      <div class="flow-card">
+        <span class="step-label">Staff / Admin</span>
+        <h3>Review or Update a Visitor</h3>
+        <span class="click-path">Sidebar &gt; Visitor Management</span>
+        <ol>
+          <li>Use the search box to find the visitor by name, PDL, contact number, or status.</li>
+          <li>Click the visitor row or the <strong>View</strong> button.</li>
+          <li>Review visitor details, linked PDL, uploaded files, and current status.</li>
+          <li>To update details, click <strong>Edit</strong>, change the needed fields, then click <strong>Save</strong>.</li>
+          <li>To change a photo or document, open the update area, choose the new file, then click <strong>Upload</strong> or <strong>Save</strong>.</li>
+          <li>To ban a visitor, click <strong>Ban</strong>, enter the violation and effective date, then click <strong>Confirm</strong>.</li>
+          <li>To lift a ban, click <strong>Lift Ban</strong>, enter the reason for lifting, then click <strong>Confirm</strong>.</li>
+        </ol>
+      </div>
+
+      <h2>5. ID Issuance</h2>
+      <div class="flow-card">
+        <span class="step-label">Staff / Admin</span>
+        <h3>Issue Visitor ID</h3>
+        <span class="click-path">Sidebar &gt; ID Issuance</span>
+        <ol>
+          <li>Select the PDL from the PDL table.</li>
+          <li>Wait for the authorized visitor list to load below.</li>
+          <li>Find the visitor who needs an ID.</li>
+          <li>Click the visitor row if the system requires selection before showing the action buttons.</li>
+          <li>Click <strong>Issue ID</strong>.</li>
+          <li>If the visitor already has an ID, click <strong>Re-Issue</strong> only when replacement is needed.</li>
+          <li>Review the generated ID preview.</li>
+          <li>Click <strong>Print PVC</strong> for card printing, or click <strong>PDF</strong> to export a copy.</li>
+        </ol>
+      </div>
+
+      <h2>6. Queue Admission</h2>
+      <div class="flow-card">
+        <span class="step-label">Staff / Admin</span>
+        <h3>Put Visitor in Queue</h3>
+        <span class="click-path">Sidebar &gt; Queue</span>
+        <ol>
+          <li>Scan the visitor QR code.</li>
+          <li>Check the visitor details shown on screen.</li>
+          <li>If the visitor is correct, click <strong>Put in Queue</strong>.</li>
+          <li>If the visitor presented an ID, select the ID type and enter the ID number.</li>
+          <li>If ID is not available and the visit is allowed, use the approved special case workflow.</li>
+          <li>Click <strong>Confirm</strong>.</li>
+        </ol>
+      </div>
+
+      <div class="flow-card">
+        <span class="step-label">Admin</span>
+        <h3>Accept or Reject Queue Request</h3>
+        <span class="click-path">Sidebar &gt; Queue &gt; Visitor Request Table</span>
+        <ol>
+          <li>Find the visitor in the request table.</li>
+          <li>Click the green <strong>Accept</strong> button to let the visitor inside.</li>
+          <li>If the visitor should not proceed, click the red <strong>Reject</strong> button.</li>
+          <li>The system will block acceptance if there are already 10 visitors inside.</li>
+          <li>After the visit, click <strong>Time Out</strong> to complete the admission.</li>
+        </ol>
+      </div>
+
+      <div class="flow-card">
+        <span class="step-label">Admin</span>
+        <h3>Create Special Case Visitor</h3>
+        <span class="click-path">Sidebar &gt; Queue &gt; Special Case</span>
+        <ol>
+          <li>Click <strong>Special Case</strong>.</li>
+          <li>Enter the visitor first name, middle name, last name, age, gender, and address.</li>
+          <li>Search and select the related PDL.</li>
+          <li>Enter ID type and ID number if available. If none, leave optional ID fields blank.</li>
+          <li>Enter the reason for visit.</li>
+          <li>Enter the approving officer or admin details and approval date.</li>
+          <li>Click <strong>Save</strong> or <strong>Add to Queue</strong>.</li>
+          <li>The special case record will be included in queue monitoring and reports.</li>
+        </ol>
+      </div>
+
+      <h2>7. Live Monitoring</h2>
+      <div class="flow-card">
+        <span class="step-label">Admin</span>
+        <h3>Monitor Queue Activity</h3>
+        <span class="click-path">Sidebar &gt; Queue Monitor</span>
+        <ol>
+          <li>Open <strong>Queue Monitor</strong>.</li>
+          <li>Check the Waiting, Inside, Completed, and Average Wait counters.</li>
+          <li>Review <strong>Visitors Currently Inside</strong> to see all visitors admitted today.</li>
+          <li>Review <strong>Waiting Queue</strong> to know who is next.</li>
+          <li>Use <strong>Recent Admissions</strong> and <strong>Live Activity Feed</strong> for quick checking.</li>
+        </ol>
+      </div>
+
+      <h2>8. Reports</h2>
+      <div class="flow-card">
+        <span class="step-label">Staff / Admin</span>
+        <h3>Generate a Report</h3>
+        <span class="click-path">Sidebar &gt; Reports</span>
+        <ol>
+          <li>Select the report type, such as Admissions, Registrations, ID Issuance, Banned Visitors, or Special Case Visits.</li>
+          <li>Select the date coverage, such as Daily, Monthly, Yearly, or Custom Range.</li>
+          <li>Use filters if needed: dorm, gender, PDL, ban status, violation, or date range.</li>
+          <li>Click <strong>Show Report</strong>.</li>
+          <li>Optional: open <strong>Choose columns</strong>, check the fields to include, drag fields to arrange them, and rename headers.</li>
+          <li>Click <strong>Export Excel</strong>, <strong>PDF Report</strong>, or <strong>Print Report</strong>.</li>
+        </ol>
+      </div>
+
+      <h2>9. User Permission Management</h2>
+      <div class="flow-card">
+        <span class="step-label">Super Admin</span>
+        <h3>Approve Users and Assign Permissions</h3>
+        <span class="click-path">Sidebar &gt; Manage Users</span>
+        <ol>
+          <li>Open <strong>Manage Users</strong>.</li>
+          <li>Review registered users and pending password reset requests.</li>
+          <li>Select the user account.</li>
+          <li>Choose the correct role, such as Staff, Admin, or Super Admin.</li>
+          <li>In the permission matrix, check only the modules and actions the user is allowed to use.</li>
+          <li>Click <strong>Save Permissions</strong>.</li>
+          <li>Ask the user to log out and log in again if the permission change is not immediately visible.</li>
+        </ol>
+      </div>
+
+      <h2>10. Important Rules</h2>
+      <table class="role-table">
+        <thead><tr><th>Rule</th><th>What the user should do</th></tr></thead>
+        <tbody>
+          <tr><td>One visit per day</td><td>If a visitor already completed a visit today, do not create another admission for that visitor.</td></tr>
+          <tr><td>10 visitors inside only</td><td>If the system says capacity is full, wait until another visitor is timed out.</td></tr>
+          <tr><td>Banned visitor</td><td>Do not proceed unless an authorized user lifts the ban with a valid reason.</td></tr>
+          <tr><td>Missing button</td><td>Ask the super admin to check the user's permission.</td></tr>
+          <tr><td>End of day</td><td>Make sure all inside visitors are timed out and export the needed report.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="footer">ID & Queuing System Click-by-Click System Flow Guide</div>
+    </div>
+  </div>
+</body>
+</html>

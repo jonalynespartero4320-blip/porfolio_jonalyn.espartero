@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IMS Process Flow</title>
+  <style>
+    :root { --teal:#149aa0; --navy:#07346c; --ink:#142233; --line:#dbe4ef; --soft:#f6fafc; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #eef3f7; color: var(--ink); line-height: 1.55; }
+    .page { width: min(980px, calc(100% - 32px)); margin: 24px auto; background: #fff; border: 1px solid var(--line); box-shadow: 0 18px 45px rgba(15,35,55,.10); }
+    header { padding: 32px 40px; color: #fff; background: linear-gradient(90deg, var(--teal), var(--navy)); }
+    main { padding: 30px 40px 42px; }
+    h1, h2 { margin: 0 0 10px; line-height: 1.2; }
+    h2 { margin-top: 30px; padding-bottom: 8px; border-bottom: 2px solid var(--line); color: var(--navy); }
+    .flow { counter-reset: item; list-style: none; padding: 0; }
+    .flow li { counter-increment: item; position: relative; margin: 12px 0; padding: 15px 16px 15px 56px; background: var(--soft); border: 1px solid var(--line); border-radius: 8px; }
+    .flow li::before { content: counter(item); position: absolute; left: 16px; top: 15px; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--teal); color: #fff; font-weight: 800; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 18px; }
+    th, td { border: 1px solid var(--line); padding: 9px 10px; text-align: left; vertical-align: top; }
+    th { background: #e9f2f7; color: var(--navy); }
+    @media print { body { background: #fff; } .page { width: 100%; margin: 0; box-shadow: none; border: 0; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>IMS Process Flow</h1>
+      <p>Operational sequence from login to record management, reporting, and audit review.</p>
+    </header>
+    <main>
+      <h2>Main Flow</h2>
+      <ol class="flow">
+        <li><strong>Login:</strong> User enters credentials. IMS validates the account and loads role-based access.</li>
+        <li><strong>Navigate:</strong> User selects a module from the sidebar or searches the sidebar for a module name.</li>
+        <li><strong>Create or update records:</strong> User fills required fields, uploads files where needed, and saves the transaction.</li>
+        <li><strong>Validate:</strong> IMS checks required fields, duplicates, dates, file uploads, and permission rules.</li>
+        <li><strong>Track status:</strong> Requests, assignments, reports, and inventory records move through active, completed, rejected, or archived states.</li>
+        <li><strong>Report:</strong> Authorized users filter records and print, export PDF, or export Excel outputs.</li>
+        <li><strong>Audit:</strong> System activity is logged for administrators to review.</li>
+      </ol>
+
+      <h2>Module Flow Summary</h2>
+      <table>
+        <thead><tr><th>Workflow</th><th>Typical Sequence</th></tr></thead>
+        <tbody>
+          <tr><td>Equipment / Supplies</td><td>Add or import records, edit details, archive inactive items, restore when needed.</td></tr>
+          <tr><td>Request</td><td>Create request, review status, acknowledge or assign, accomplish or reject, archive finished requests.</td></tr>
+          <tr><td>Assign</td><td>Create assignment, upload supporting PDF, reassign or edit, archive old assignment.</td></tr>
+          <tr><td>Reports</td><td>Encode report, upload PDF if required, print/export, archive completed records.</td></tr>
+          <tr><td>Admin</td><td>Review users, assign roles, approve reset requests, monitor logs.</td></tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+/storage/*
+!/storage/.htaccess
+!/storage/.gitkeep
+/config/database.php
+/config/database.php.pending

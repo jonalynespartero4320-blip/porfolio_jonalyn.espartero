@@ -1,0 +1,26 @@
+Options -Indexes
+RewriteEngine On
+
+RewriteRule ^config/ - [F,L]
+RewriteRule ^generate_key\.php\.txt$ - [F,L]
+
+DirectoryIndex index.php
+RewriteCond %{REQUEST_URI} ^(.*)/(?:index\.php|public/?)$
+RewriteRule ^(?:index\.php|public/?)$ %1/ [R=302,L]
+RewriteRule ^gad-index\.php$ public/gad_verifyid/ [R=302,L]
+RewriteRule ^pdad-index\.php$ public/pdad_verifyid/ [R=302,L]
+RewriteRule ^osca-index\.php$ public/osca_verifyid/ [R=302,L]
+RewriteRule ^sales-tracker\.php$ public/sales_tracker/ [R=302,L]
+RewriteRule ^public/righttocare_verifyid/?$ public/gad_verifyid/ [R=302,L]
+RewriteRule ^public/righttocare_verifyid/index\.php$ public/gad_verifyid/ [R=302,L]
+RewriteRule ^public/gad_verifyid/index\.php$ public/gad_verifyid/ [R=302,L]
+RewriteRule ^public/pdad_verifyid/index\.php$ public/pdad_verifyid/ [R=302,L]
+RewriteRule ^public/osca_verifyid/index\.php$ public/osca_verifyid/ [R=302,L]
+RewriteRule ^public/sales_tracker/index\.php$ public/sales_tracker/ [R=302,L]
+
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+RewriteRule ^(.+)\.php$ $1 [R=302,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+?)/?$ $1.php [L]

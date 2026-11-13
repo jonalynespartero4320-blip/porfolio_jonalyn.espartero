@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ID & Queuing System Process Flow</title>
+  <style>
+    :root { --ink:#17222c; --muted:#5f6d79; --line:#cfd8df; --accent:#1d5c78; --accent-2:#2d7a39; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Book Antiqua","Georgia","Times New Roman",serif; color:var(--ink); background:#e9eef1; }
+    .document { max-width:850px; margin:28px auto; background:#fff; box-shadow:0 8px 28px rgba(0,0,0,.08); min-height:100vh; }
+    .page { padding:42px 54px 50px; }
+    .letterhead { border-bottom:3px solid var(--accent); padding-bottom:18px; margin-bottom:24px; }
+    .letterhead-top { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .agency { text-align:center; flex:1; }
+    .agency .line { font-size:13px; letter-spacing:.05em; text-transform:uppercase; }
+    .agency .title { font-size:26px; font-weight:700; margin:8px 0 4px; color:#0f2433; }
+    .agency .subtitle { font-size:14px; color:var(--muted); }
+    .seal { width:74px; height:74px; object-fit:contain; }
+    h1 { font-size:28px; margin:0 0 8px; text-align:center; }
+    .doc-meta { text-align:center; font-size:14px; color:var(--muted); margin-bottom:22px; }
+    h2 { font-size:20px; margin:26px 0 10px; color:#103247; border-bottom:1px solid var(--line); padding-bottom:6px; }
+    h3 { font-size:16px; margin:16px 0 6px; color:#17384d; }
+    p { margin:0 0 12px; line-height:1.65; font-size:14px; }
+    ol, ul { margin:8px 0 14px 22px; padding:0; }
+    li { margin:0 0 6px; line-height:1.6; font-size:14px; }
+    table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:14px; }
+    th, td { border:1px solid var(--line); padding:10px 12px; vertical-align:top; }
+    th { background:#f3f7f9; text-align:left; }
+    .note { border-left:4px solid var(--accent-2); background:#f7fbf8; padding:12px 14px; margin:14px 0 18px; font-size:14px; }
+    .footer { margin-top:30px; padding-top:12px; border-top:1px solid var(--line); font-size:12px; color:var(--muted); text-align:center; }
+    @page { size:A4; margin:14mm; }
+    @media print { body { background:#fff; } .document { margin:0; max-width:none; box-shadow:none; } }
+  </style>
+</head>
+<body>
+  <div class="document">
+    <div class="page">
+      <div class="letterhead">
+        <div class="letterhead-top">
+          <img src="../assets/images/demo-mark.svg" alt="Demo ID Services" class="seal">
+          <div class="agency">
+            <div class="line">Republic of the Philippines</div>
+            <div class="line">Department of the Interior and Local Government</div>
+            <div class="title">ID & Queuing System</div>
+            <div class="subtitle">Process Flow Documentation</div>
+          </div>
+          <img src="../assets/images/demo-mark.svg" alt="Demo Services" class="seal">
+        </div>
+      </div>
+
+      <h1>System Process Flow</h1>
+      <div class="doc-meta">Document Type: Internal Operations Reference</div>
+
+      <p>This document presents the end-to-end operational process of the ID & Queuing System Visitor Admission and Queuing System. It is intended to guide staff, administrators, and supervisory personnel in the proper use of the platform for visitor processing, queue admission, ID issuance, reporting, and governance.</p>
+
+      <h2>1. Overview of the Main Process</h2>
+      <ol>
+        <li><strong>User Authentication.</strong> Personnel access the system through login. New users may register under the default staff profile, while password reset requests are subject to administrator approval.</li>
+        <li><strong>Reference Data Preparation.</strong> Case, court, and dorm masterlists are maintained to ensure consistency across PDL and visitor records.</li>
+        <li><strong>PDL Management.</strong> Person deprived of liberty records are created or imported, including dorm assignment, case references, and linked authorized visitors.</li>
+        <li><strong>Visitor Registration.</strong> Authorized visitors are registered against a selected PDL with complete personal information, emergency contact, photo, and documentary requirements.</li>
+        <li><strong>Visitor Management.</strong> Verified visitor records are reviewed, updated, banned, unbanned, or routed to ID issuance and queueing workflows.</li>
+        <li><strong>ID Issuance.</strong> Verified visitors are issued secure QR-enabled visitor IDs that can be printed on PVC or exported to PDF.</li>
+        <li><strong>Queue Admission.</strong> Visitors are validated by QR or manual search, placed in queue, and processed for acceptance, rejection, or time-out.</li>
+        <li><strong>Live Monitoring.</strong> The queue board and admin monitor present live daily activity for operational control.</li>
+        <li><strong>Reporting.</strong> Admissions, registrations, and ID issuance data are compiled into filterable reports with export and print support.</li>
+        <li><strong>Governance.</strong> Super admin manages users, assigns roles, and grants action-level permissions.</li>
+      </ol>
+
+      <h2>2. Detailed Flow Description</h2>
+      <h3>2.1 Authentication and Access Control</h3>
+      <p>The system begins with secure authentication. Registered users log in using approved credentials. Password recovery is available through a formal request mechanism, and all requests are processed by authorized administrators. Role-based access ensures that each user sees and uses only the modules and actions assigned to them.</p>
+
+      <h3>2.2 PDL and Reference Record Preparation</h3>
+      <p>Before any visitor can be processed, operational records must be prepared. Masterlists are maintained for cases, courts, and dorms. PDL records are then created manually or through the import workflow. Each PDL may also be linked with authorized visitors who are eligible for registration and visitation processing.</p>
+
+      <h3>2.3 Visitor Registration and Verification</h3>
+      <p>In the Visitor Registration module, staff select the correct PDL and encode the authorized visitor's information. Required attachments such as identification documents and civil-status-related requirements are uploaded. Once the record is complete and validated, the visitor becomes available in the Visitor Management module for review and further operational handling.</p>
+
+      <h3>2.4 Visitor Management Operations</h3>
+      <p>The Visitor Management module serves as the operational control area for verified visitors. Personnel can review detailed information, update photos and requirements, apply bans, lift bans, and transfer qualified visitors into the ID issuance or queue workflow. This module centralizes the decision-making stage before admission.</p>
+
+      <h3>2.5 ID Issuance</h3>
+      <p>Verified visitors may be issued a secure visitor ID containing a QR code. The system supports initial issuance and reissuance, with history retained for audit reference. Generated cards may be printed in PVC format or exported as PDF for recordkeeping and reproduction.</p>
+
+      <h3>2.6 Queue Admission and Daily Controls</h3>
+      <p>The queue module validates the visitor using QR or manual search. After validation, the visitor may be placed in queue using an approved identification document. The system enforces critical operational rules:</p>
+      <ul>
+        <li>One visitor ID may only be used for one visit per day.</li>
+        <li>A visitor who already visited on the same day is automatically blocked from reentry.</li>
+        <li>A maximum of ten visitors may be accepted inside at the same time.</li>
+        <li>A new visitor may be accepted only when another visitor is timed out and a slot becomes available.</li>
+      </ul>
+
+      <h3>2.7 Queue Board and Monitor</h3>
+      <p>The public queue board displays live admission information for visitors. The admin monitor provides supervisory visibility over waiting, inside, and completed visits. Both views are configured to display daily records only, which means the board resets automatically every day.</p>
+
+      <h3>2.8 Reports and Exports</h3>
+      <p>The Reports module consolidates operational data from admissions, visitor registrations, and ID issuance. Users may filter by daily, monthly, yearly, or custom periods. Admission reports include detailed fields such as time in, time out, and hours stayed. Outputs may be exported to Excel or printed and saved as PDF.</p>
+
+      <h2>3. Role Responsibilities</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Role</th>
+            <th>Responsibility</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Staff</td>
+            <td>Frontline visitor processing, queue intake, visitor review, and basic ID issuance support.</td>
+          </tr>
+          <tr>
+            <td>Admin</td>
+            <td>Operational management of PDL records, visitors, queue supervision, ID issuance, and reporting.</td>
+          </tr>
+          <tr>
+            <td>Super Admin</td>
+            <td>Full governance over user management, permissions, password reset approvals, and action-level access control.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note"><strong>Operational Note:</strong> All module buttons and backend actions are permission-controlled. A user must first be granted the required permission by the super admin before the action becomes available.</div>
+
+      <div class="footer">ID & Queuing System Process Flow Document</div>
+    </div>
+  </div>
+</body>
+</html>

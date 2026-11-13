@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1880" viewBox="0 0 1600 1880">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#000000"/><stop offset="52%" stop-color="#1d5c78"/><stop offset="100%" stop-color="#2d7a39"/></linearGradient>
+    <linearGradient id="card" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#f7fbfd"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0b1520" flood-opacity="0.14"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#1d5c78"/></marker>
+    <style>
+      .title { font: 800 42px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .subtitle { font: 500 20px 'Segoe UI', Arial, sans-serif; fill: rgba(255,255,255,.88); }
+      .box-title { font: 800 25px 'Segoe UI', Arial, sans-serif; fill: #08131f; }
+      .box-body { font: 500 17px 'Segoe UI', Arial, sans-serif; fill: #566776; }
+      .step-no { font: 800 22px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .small-note { font: 600 15px 'Segoe UI', Arial, sans-serif; fill: #1d5c78; }
+      .footer { font: 500 16px 'Segoe UI', Arial, sans-serif; fill: #5b6b79; }
+    </style>
+  </defs>
+  <rect width="1600" height="1880" fill="#eef4f6"/>
+  <rect x="60" y="50" width="1480" height="230" rx="34" fill="url(#bg)" filter="url(#shadow)"/>
+  <text x="110" y="130" class="title">BJMP VAQS System Flowchart</text>
+  <text x="110" y="178" class="subtitle">End-to-end flow for visitor admission, ID issuance, queueing, reporting, and governance</text>
+  <text x="110" y="222" class="subtitle">Daily queue controls: one visit per visitor per day, max 10 visitors inside at a time, daily board reset</text>
+
+  <g transform="translate(130 340)"><rect width="1340" height="132" rx="28" fill="url(#card)" stroke="#d7e1e8" filter="url(#shadow)"/><rect x="26" y="24" width="82" height="82" rx="22" fill="url(#bg)"/><text x="53" y="76" class="step-no">01</text><text x="136" y="58" class="box-title">Authentication</text><text x="136" y="92" class="box-body">Login, registration, forgot password request, and password reset approval.</text></g>
+  <line x1="800" y1="472" x2="800" y2="530" stroke="#1d5c78" stroke-width="5" marker-end="url(#arrow)"/>
+  <g transform="translate(130 540)"><rect width="1340" height="132" rx="28" fill="url(#card)" stroke="#d7e1e8" filter="url(#shadow)"/><rect x="26" y="24" width="82" height="82" rx="22" fill="url(#bg)"/><text x="53" y="76" class="step-no">02</text><text x="136" y="58" class="box-title">Masterlist Setup</text><text x="136" y="92" class="box-body">Cases, courts, and dorm references are maintained for standardized downstream records.</text></g>
+  <line x1="800" y1="672" x2="800" y2="730" stroke="#1d5c78" stroke-width="5" marker-end="url(#arrow)"/>
+  <g transform="translate(130 740)"><rect width="1340" height="132" rx="28" fill="url(#card)" stroke="#d7e1e8" filter="url(#shadow)"/><rect x="26" y="24" width="82" height="82" rx="22" fill="url(#bg)"/><text x="53" y="76" class="step-no">03</text><text x="136" y="58" class="box-title">PDL Management</text><text x="136" y="92" class="box-body">Create/import PDL records, maintain dorm/case details, and manage authorized visitors.</text></g>
+  <line x1="800" y1="872" x2="800" y2="930" stroke="#1d5c78" stroke-width="5" marker-end="url(#arrow)"/>
+  <g transform="translate(130 940)"><rect width="1340" height="132" rx="28" fill="url(#card)" stroke="#d7e1e8" filter="url(#shadow)"/><rect x="26" y="24" width="82" height="82" rx="22" fill="url(#bg)"/><text x="53" y="76" class="step-no">04</text><text x="136" y="58" class="box-title">Visitor Registration</text><text x="136" y="92" class="box-body">Register authorized visitor details, photo, documents, and emergency contact against a PDL.</text></g>
+  <line x1="800" y1="1072" x2="800" y2="1130" stroke="#1d5c78" stroke-width="5" marker-end="url(#arrow)"/>
+  <g transform="translate(130 1140)"><rect width="1340" height="132" rx="28" fill="url(#card)" stroke="#d7e1e8" filter="url(#shadow)"/><rect x="26" y="24" width="82" height="82" rx="22" fill="url(#bg)"/><text x="53" y="76" class="step-no">05</text><text x="136" y="58" class="box-title">Visitor Management</text><text x="136" y="92" class="box-body">Review verified visitors, update files/photos, apply bans, lift bans, and prepare next action.</text></g>
+  <line x1="800" y1="1272" x2="480" y2="1360" stroke="#1d5c78" stroke-width="5" marker-end="url(#arrow)"/>
+  <line x1="800" y1="1272" x2="1120" y2="1360" stroke="#1d5c78" stroke-width="5" marker-end="url(#arrow)"/>
+  <g transform="translate(130 1360)"><rect width="600" height="170" rx="28" fill="url(#card)" stroke="#d7e1e8" filter="url(#shadow)"/><rect x="26" y="24" width="82" height="82" rx="22" fill="url(#bg)"/><text x="53" y="76" class="step-no">06A</text><text x="136" y="58" class="box-title">ID Issuance</text><text x="136" y="92" class="box-body">Issue or reissue QR-secured visitor IDs.</text><text x="136" y="122" class="box-body">Generate PVC print layout or export A4/PDF.</text></g>
+  <g transform="translate(870 1360)"><rect width="600" height="170" rx="28" fill="url(#card)" stroke="#d7e1e8" filter="url(#shadow)"/><rect x="26" y="24" width="82" height="82" rx="22" fill="url(#bg)"/><text x="53" y="76" class="step-no">06B</text><text x="136" y="58" class="box-title">Queue Admission</text><text x="136" y="92" class="box-body">Scan QR or validate visitor, then add to queue.</text><text x="136" y="122" class="box-body">Accept, reject, or time out based on occupancy and visit rules.</text></g>
+  <line x1="1170" y1="1530" x2="1170" y2="1604" stroke="#1d5c78" stroke-width="5" marker-end="url(#arrow)"/>
+  <g transform="translate(870 1614)"><rect width="600" height="150" rx="28" fill="url(#card)" stroke="#d7e1e8" filter="url(#shadow)"/><rect x="26" y="24" width="82" height="82" rx="22" fill="url(#bg)"/><text x="53" y="76" class="step-no">07</text><text x="136" y="58" class="box-title">Board and Monitor</text><text x="136" y="92" class="box-body">Public queue board and admin monitor display live daily activity only.</text><text x="136" y="120" class="small-note">Board resets each day</text></g>
+  <line x1="480" y1="1530" x2="480" y2="1604" stroke="#1d5c78" stroke-width="5" marker-end="url(#arrow)"/>
+  <g transform="translate(130 1614)"><rect width="600" height="150" rx="28" fill="url(#card)" stroke="#d7e1e8" filter="url(#shadow)"/><rect x="26" y="24" width="82" height="82" rx="22" fill="url(#bg)"/><text x="53" y="76" class="step-no">08</text><text x="136" y="58" class="box-title">Reports and Exports</text><text x="136" y="92" class="box-body">Generate filtered reports for admissions, registrations, and ID issuance.</text><text x="136" y="120" class="box-body">Export to Excel or print/PDF with a report layout.</text></g>
+  <text x="130" y="1820" class="footer">Governance overlay: Super admin manages roles, permissions, reset approvals, and action-level access across all modules.</text>
+</svg>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ID & Queuing System Documentation Pack</title>
+  <style>
+    :root { --ink:#17222c; --muted:#5f6d79; --line:#cfd8df; --accent:#1d5c78; --accent-2:#2d7a39; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Book Antiqua","Georgia","Times New Roman",serif; color:var(--ink); background:#e9eef1; }
+    .document { max-width:850px; margin:28px auto; background:#fff; box-shadow:0 8px 28px rgba(0,0,0,.08); min-height:100vh; }
+    .page { padding:42px 54px 50px; }
+    .letterhead { border-bottom:3px solid var(--accent); padding-bottom:18px; margin-bottom:24px; }
+    .letterhead-top { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .agency { text-align:center; flex:1; }
+    .agency .line { font-size:13px; letter-spacing:.05em; text-transform:uppercase; }
+    .agency .title { font-size:26px; font-weight:700; margin:8px 0 4px; color:#0f2433; }
+    .agency .subtitle { font-size:14px; color:var(--muted); }
+    .seal { width:74px; height:74px; object-fit:contain; }
+    h1 { font-size:28px; margin:0 0 8px; text-align:center; }
+    .doc-meta { text-align:center; font-size:14px; color:var(--muted); margin-bottom:22px; }
+    h2 { font-size:20px; margin:26px 0 10px; color:#103247; border-bottom:1px solid var(--line); padding-bottom:6px; }
+    h3 { font-size:16px; margin:16px 0 6px; color:#17384d; }
+    p { margin:0 0 12px; line-height:1.65; font-size:14px; }
+    ol, ul { margin:8px 0 14px 22px; padding:0; }
+    li { margin:0 0 6px; line-height:1.6; font-size:14px; }
+    table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:14px; }
+    th, td { border:1px solid var(--line); padding:10px 12px; vertical-align:top; }
+    th { background:#f3f7f9; text-align:left; }
+    .note { border-left:4px solid var(--accent-2); background:#f7fbf8; padding:12px 14px; margin:14px 0 18px; font-size:14px; }
+    .footer { margin-top:30px; padding-top:12px; border-top:1px solid var(--line); font-size:12px; color:var(--muted); text-align:center; }
+    @page { size:A4; margin:14mm; }
+    @media print { body { background:#fff; } .document { margin:0; max-width:none; box-shadow:none; } }
+  </style>
+</head>
+<body>
+  <div class="document">
+    <div class="page">
+      <div class="letterhead">
+        <div class="letterhead-top">
+          <img src="../assets/images/demo-mark.svg" alt="Demo ID Services" class="seal">
+          <div class="agency">
+            <div class="line">Republic of the Philippines</div>
+            <div class="line">Department of the Interior and Local Government</div>
+            <div class="title">ID & Queuing System</div>
+            <div class="subtitle">Documentation Pack</div>
+          </div>
+          <img src="../assets/images/demo-mark.svg" alt="Demo Services" class="seal">
+        </div>
+      </div>
+
+      <h1>Documentation Pack</h1>
+      <div class="doc-meta">Combined Process Flow and User Manual</div>
+
+      <p>This consolidated document serves as an internal reference for the ID & Queuing System Visitor Admission and Queuing System. It combines the process flow, module guide, role guidance, and user operating instructions into a single formal document for printing and distribution.</p>
+
+      <h2>1. Process Flow Summary</h2>
+      <ol>
+        <li>User authentication through login, registration, and password reset workflow.</li>
+        <li>Reference preparation through masterlist maintenance.</li>
+        <li>PDL record management and authorized visitor linking.</li>
+        <li>Visitor registration with documentary uploads and emergency contact details.</li>
+        <li>Visitor management for verified records, bans, updates, and routing actions.</li>
+        <li>ID issuance for verified visitors with QR-secured cards.</li>
+        <li>Queue admission with one-visit-per-day and occupancy-limit controls.</li>
+        <li>Queue board and admin monitor for daily live display.</li>
+        <li>Report generation and export to Excel or print/PDF.</li>
+        <li>Super admin governance for users, roles, and permissions.</li>
+      </ol>
+
+      <h2>2. Module Guide</h2>
+      <table>
+        <thead><tr><th>Module</th><th>Main Function</th></tr></thead>
+        <tbody>
+          <tr><td>Dashboard</td><td>Operational overview, metrics, and navigation shortcuts.</td></tr>
+          <tr><td>Queue</td><td>Validation, queueing, acceptance, rejection, and time-out operations.</td></tr>
+          <tr><td>PDL Management</td><td>Maintenance of PDL profiles and authorized visitors.</td></tr>
+          <tr><td>Visitor Registration</td><td>Creation of visitor records and upload of requirements.</td></tr>
+          <tr><td>Visitor Management</td><td>Control of verified visitor records, bans, and operational routing.</td></tr>
+          <tr><td>ID Issuance</td><td>Issuance and reissuance of QR-enabled visitor IDs.</td></tr>
+          <tr><td>Reports</td><td>Operational report generation and exports.</td></tr>
+          <tr><td>Manage Users</td><td>Roles, permission matrix, and reset approvals.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>3. Operational Rules</h2>
+      <div class="note"><strong>Critical Queue Rules:</strong> Each visitor may visit only once per day, only ten visitors may be inside at one time, and the queue board resets daily to current-day activity.</div>
+      <ul>
+        <li>Action buttons are permission-controlled.</li>
+        <li>Super admin grants permission before a user can use a function.</li>
+        <li>Admission reports include time in, time out, and hours stayed.</li>
+        <li>ID issuance maintains issuance history for audit and reissue reference.</li>
+      </ul>
+
+      <h2>4. User Operating Guide</h2>
+      <h3>4.1 Staff</h3>
+      <p>Staff are responsible for frontline work such as visitor handling, queue intake, and selected issuance operations according to granted permissions.</p>
+      <h3>4.2 Admin</h3>
+      <p>Admins supervise PDL, visitor, reporting, queue, and issuance operations. Their permissions are operational by default and may be extended by super admin.</p>
+      <h3>4.3 Super Admin</h3>
+      <p>Super admin controls platform governance, including users, roles, action permissions, and reset approvals.</p>
+
+      <h2>5. Recommended Daily Sequence</h2>
+      <ol>
+        <li>Confirm masterlist accuracy.</li>
+        <li>Review or update PDL records.</li>
+        <li>Register or complete visitor records.</li>
+        <li>Verify visitor status and issue IDs where needed.</li>
+        <li>Process queue requests and live admissions.</li>
+        <li>Monitor queue board and admin monitor.</li>
+        <li>Generate end-of-day or period-based reports.</li>
+      </ol>
+
+      <div class="footer">ID & Queuing System Documentation Pack</div>
+    </div>
+  </div>
+</body>
+</html>

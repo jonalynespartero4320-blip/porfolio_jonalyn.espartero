@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ID & Queuing System Buttons to Remember</title>
+  <style>
+    :root {
+      --ink: #16212b;
+      --muted: #677684;
+      --line: #20262d;
+      --green: #5D8D66;
+      --navy: #16324b;
+      --blue: #062150;
+      --red: #e35768;
+      --soft: #f2f5f4;
+      --soft-green: #eef6ee;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #eef2f2;
+      color: var(--ink);
+      font-family: "Book Antiqua", "Georgia", "Times New Roman", serif;
+    }
+    .document {
+      width: 820px;
+      margin: 24px auto;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+    .page {
+      padding: 34px 42px 40px;
+    }
+    .topbar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px solid #8b9297;
+    }
+    .brand-left,
+    .brand-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .brand-right {
+      justify-content: flex-end;
+      text-align: right;
+    }
+    .seal {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+    .brand-copy {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      line-height: 1.2;
+      color: #5d6771;
+    }
+    .title-wrap {
+      text-align: center;
+      padding: 20px 20px 12px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.1;
+      color: #111;
+    }
+    .subtitle {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .purpose-box {
+      margin: 10px auto 16px;
+      padding: 12px 14px;
+      background: #f0f4f2;
+      border-left: 4px solid var(--green);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      vertical-align: middle;
+    }
+    th {
+      font-size: 16px;
+      font-weight: 400;
+      text-align: center;
+      background: #fafafa;
+    }
+    td {
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    .button-cell {
+      width: 29%;
+      text-align: center;
+      background: #fcfcfc;
+    }
+    .desc-cell {
+      width: 71%;
+    }
+    .ui-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-width: 112px;
+      min-height: 30px;
+      padding: 6px 14px;
+      border-radius: 7px;
+      border: 1px solid rgba(0,0,0,0.08);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+    }
+    .ui-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex: 0 0 auto;
+    }
+    .btn-add { background: var(--blue); color: #ffffff; border: 1px solid rgba(0,0,0,0.08); }
+    .btn-edit { background: var(--green); color: #ffffff; }
+    .btn-delete { background: var(--red); color: #ffffff; }
+    .btn-import-pdl { background: #d4a93a; color: #ffffff; }
+    .btn-import-visitors { background: #d4a93a; color: #ffffff; }
+    .btn-back { background: #f7fbf4; color: #45627a; border-color: #c8dbb9; }
+    .btn-save { background: #16324b; color: #ffffff; }
+    .btn-cancel { background: #f9fcfb; color: #5d7285; border-color: #d8e1d9; }
+    .btn-load { background: #16324b; color: #ffffff; }
+    .btn-reset { background: #2d3338; color: #ffffff; }
+    .btn-queue-main { background: #16324b; color: #ffffff; }
+    .btn-queue-alt { background: #f8faf8; color: #4a6379; border-color: #d5dfd6; }
+    .footer {
+      margin-top: 12px;
+      color: #7a858e;
+      font-size: 11px;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    @page { size: A4; margin: 12mm; }
+    @media print {
+      body { background: #fff; }
+      .document { margin: 0; box-shadow: none; width: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="document">
+    <div class="page">
+      <div class="topbar">
+        <div class="brand-left">
+          <img src="../assets/images/demo-mark.svg" alt="Demo City" class="seal">
+          <div class="brand-copy">Demo Services</div>
+        </div>
+        <div class="brand-right">
+          <div class="brand-copy">
+            <div>ID & Queuing System</div>
+            <div>Visitor Admission and Queuing System</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="title-wrap">
+        <h1>Buttons to Remember</h1>
+        <div class="subtitle">Quick user guide for the common buttons and actions found across the system</div>
+      </div>
+
+      <div class="purpose-box">
+        <strong>Purpose:</strong> This file helps users quickly understand what each button does before clicking it. It may be printed, saved, or shared as a quick desk reference.
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Button</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-add">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v8M8 12h8"></path></svg>
+                Add New
+              </span>
+            </td>
+            <td class="desc-cell">Opens a form to create a new record.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-edit">
+                <svg viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16v4z"></path><path d="M13 5l4 4"></path></svg>
+                Edit
+              </span>
+            </td>
+            <td class="desc-cell">Allow modification of an existing record.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-delete">
+                <svg viewBox="0 0 24 24"><path d="M5 7h14"></path><path d="M9 7V5h6v2"></path><path d="M8 10v7M12 10v7M16 10v7"></path><path d="M7 7l1 12h8l1-12"></path></svg>
+                Delete
+              </span>
+            </td>
+            <td class="desc-cell">Removes a record from the system.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-import-pdl">
+                <svg viewBox="0 0 24 24"><path d="M12 4v10"></path><path d="M8 10l4 4 4-4"></path><path d="M4 18h16"></path></svg>
+                Import PDL
+              </span>
+            </td>
+            <td class="desc-cell">Upload multiple PDL records at once, only use a correctly formatted CSV file.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-import-visitors">
+                <svg viewBox="0 0 24 24"><path d="M12 4v10"></path><path d="M8 10l4 4 4-4"></path><path d="M4 18h16"></path></svg>
+                Import Visitors
+              </span>
+            </td>
+            <td class="desc-cell">Uploads visitor records linked to a selected PDL, make sure the import is being done for the correct PDL record.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-back">
+                <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"></path><path d="M9 12h10"></path></svg>
+                Back
+              </span>
+            </td>
+            <td class="desc-cell">Go back to the last page visited.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-save">
+                <svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z"></path><path d="M8 4v5h8"></path><path d="M9 18h6"></path></svg>
+                Save
+              </span>
+            </td>
+            <td class="desc-cell">Store a new record or updated information, review the form first, then click when all required fields are complete.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-cancel">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M9 9l6 6M15 9l-6 6"></path></svg>
+                Cancel
+              </span>
+            </td>
+            <td class="desc-cell">Stop the current action, use this if you do not want to continue with the pending action.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-load">
+                <svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="5"></circle><path d="M14 14l6 6"></path></svg>
+                Load Visitors
+              </span>
+            </td>
+            <td class="desc-cell">Load the data fetch from database to datatable.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-reset">
+                <svg viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 1-6.2 3.7"></path><path d="M4 4v5h5"></path></svg>
+                Reset
+              </span>
+            </td>
+            <td class="desc-cell">Reload the latest data on the page, use this when you want to see updated queue or record information.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-queue-main">
+                <svg viewBox="0 0 24 24"><path d="M16 5h3v3"></path><path d="M8 19H5v-3"></path><path d="M8 5H5v3"></path><path d="M16 19h3v-3"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                Put in Queue
+              </span>
+            </td>
+            <td class="desc-cell">Adds a verified visitor to the waiting queue, confirm that the correct visitor details are on screen first.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-queue-alt">
+                <svg viewBox="0 0 24 24"><path d="M7 18v-1a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v1"></path><circle cx="12" cy="8" r="3"></circle><path d="M4 12h3"></path><path d="M5.5 10.5v3"></path></svg>
+                Queue
+              </span>
+            </td>
+            <td class="desc-cell">Shortcut button used to send or prepare an eligible visitor for queue processing.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-import-pdl">
+                <svg viewBox="0 0 24 24"><path d="M12 5v9"></path><path d="M8 11l4 4 4-4"></path><path d="M5 19h14"></path></svg>
+                CSV Template
+              </span>
+            </td>
+            <td class="desc-cell">Downloads the correct sample format before importing records into the system.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-back">
+                <svg viewBox="0 0 24 24"><path d="M6 12h12"></path><path d="M12 6l-6 6 6 6"></path></svg>
+                Guide
+              </span>
+            </td>
+            <td class="desc-cell">Downloads or opens written instructions to help the user complete an import or process correctly.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-cancel">
+                <svg viewBox="0 0 24 24"><path d="M4 19h16"></path><path d="M7 8l5-4 5 4"></path><path d="M12 4v11"></path></svg>
+                Outline Template
+              </span>
+            </td>
+            <td class="desc-cell">Downloads the outline-only import format used for alternative bulk encoding workflows.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-import-visitors">
+                <svg viewBox="0 0 24 24"><path d="M12 4v10"></path><path d="M8 10l4 4 4-4"></path><path d="M4 18h16"></path></svg>
+                Import Outline
+              </span>
+            </td>
+            <td class="desc-cell">Uploads a prepared outline-based import file into the system.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-add">
+                <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"></path><path d="M8 12h8"></path></svg>
+                Choose File
+              </span>
+            </td>
+            <td class="desc-cell">Opens the device file picker so the user can attach a CSV, photo, or document for upload.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-load">
+                <svg viewBox="0 0 24 24"><path d="M12 4v10"></path><path d="M8 10l4 4 4-4"></path><path d="M5 20h14"></path></svg>
+                Upload
+              </span>
+            </td>
+            <td class="desc-cell">Sends the selected file or document into the system after the user confirms it is the correct one.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-load">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.2-4.2"></path></svg>
+                Search
+              </span>
+            </td>
+            <td class="desc-cell">Looks for matching records such as visitor names, PDL information, or queue entries.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-reset">
+                <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.7"></path><path d="M4 4v5h5"></path></svg>
+                Refresh
+              </span>
+            </td>
+            <td class="desc-cell">Reloads the latest data on the current page, especially useful for queue and monitoring screens.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-load">
+                <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"></path><path d="M9 12h10"></path></svg>
+                View
+              </span>
+            </td>
+            <td class="desc-cell">Opens the full details, preview, or record contents for the selected visitor, document, or item.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-save">
+                <svg viewBox="0 0 24 24"><path d="M7 12l3 3 7-7"></path><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"></path></svg>
+                Approve
+              </span>
+            </td>
+            <td class="desc-cell">Accepts a pending request, special-case admission, or reset request and allows the process to continue.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-delete">
+                <svg viewBox="0 0 24 24"><path d="M8 8l8 8"></path><path d="M16 8l-8 8"></path><circle cx="12" cy="12" r="9"></circle></svg>
+                Reject
+              </span>
+            </td>
+            <td class="desc-cell">Declines a pending request or queue action when the visitor or user should not proceed.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-save">
+                <svg viewBox="0 0 24 24"><path d="M12 3v18"></path><path d="M6 9l6-6 6 6"></path></svg>
+                Confirm
+              </span>
+            </td>
+            <td class="desc-cell">Finalizes the current action after the user has reviewed the details shown in the modal or form.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-save">
+                <svg viewBox="0 0 24 24"><path d="M7 12l3 3 7-7"></path><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"></path></svg>
+                Confirm &amp; Continue
+              </span>
+            </td>
+            <td class="desc-cell">Saves the current registration step and unlocks the next step in the workflow.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-add">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+                Start Registration
+              </span>
+            </td>
+            <td class="desc-cell">Begins a new visitor registration flow for a selected or newly identified visitor.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-edit">
+                <svg viewBox="0 0 24 24"><path d="M4 20h4l10-10-4-4L4 16v4z"></path><path d="M13 5l4 4"></path></svg>
+                Continue Registration
+              </span>
+            </td>
+            <td class="desc-cell">Returns to an unfinished registration so the user can complete the remaining steps.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-add">
+                <svg viewBox="0 0 24 24"><path d="M5 6h14v12H5z"></path><path d="M8 9h8"></path><path d="M8 13h5"></path></svg>
+                Submit Registration
+              </span>
+            </td>
+            <td class="desc-cell">Submits the completed visitor registration after all details and documents have been reviewed.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-load">
+                <svg viewBox="0 0 24 24"><path d="M12 4v8"></path><path d="M8 8l4 4 4-4"></path><path d="M5 18h14"></path></svg>
+                Start Camera
+              </span>
+            </td>
+            <td class="desc-cell">Turns on the camera so the user can capture a live visitor photo during registration.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-save">
+                <svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="10" rx="2"></rect><path d="M9 7l1.5-2h3L15 7"></path><circle cx="12" cy="12" r="2.5"></circle></svg>
+                Capture
+              </span>
+            </td>
+            <td class="desc-cell">Takes the current camera image and prepares it for review before saving as the visitor photo.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-reset">
+                <svg viewBox="0 0 24 24"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+                Stop
+              </span>
+            </td>
+            <td class="desc-cell">Turns off the active camera session or stops the current live image capture process.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-cancel">
+                <svg viewBox="0 0 24 24"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+                Remove
+              </span>
+            </td>
+            <td class="desc-cell">Deletes the selected uploaded file, preview, or temporary captured photo from the current form.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-edit">
+                <svg viewBox="0 0 24 24"><path d="M4 12h16"></path><path d="M12 4v16"></path></svg>
+                Review Document
+              </span>
+            </td>
+            <td class="desc-cell">Opens the selected document preview first so the user can check if the uploaded file is correct and readable.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-save">
+                <svg viewBox="0 0 24 24"><path d="M7 12l3 3 7-7"></path><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"></path></svg>
+                Confirm Safe
+              </span>
+            </td>
+            <td class="desc-cell">Marks that the user reviewed the file and accepts responsibility for uploading the correct document.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-edit">
+                <svg viewBox="0 0 24 24"><path d="M12 4v10"></path><path d="M8 10l4 4 4-4"></path><path d="M5 20h14"></path></svg>
+                Confirm Upload
+              </span>
+            </td>
+            <td class="desc-cell">Uploads the currently selected document after the file has been reviewed and approved by the user.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-save">
+                <svg viewBox="0 0 24 24"><path d="M7 12l3 3 7-7"></path><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"></path></svg>
+                Verified
+              </span>
+            </td>
+            <td class="desc-cell">Shows that a visitor record or registration has already been completed and verified.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-load">
+                <svg viewBox="0 0 24 24"><path d="M7 17v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2"></path><circle cx="12" cy="7" r="3"></circle></svg>
+                Visitors
+              </span>
+            </td>
+            <td class="desc-cell">Opens the list of authorized visitors linked to the selected PDL record.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-load">
+                <svg viewBox="0 0 24 24"><path d="M7 17v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2"></path><circle cx="12" cy="7" r="3"></circle></svg>
+                Load Visitors
+              </span>
+            </td>
+            <td class="desc-cell">Loads visitor data from the database into the current table or management view.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-save">
+                <svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="2"></rect><path d="M9 8h6"></path><path d="M9 12h6"></path></svg>
+                Issue ID
+              </span>
+            </td>
+            <td class="desc-cell">Creates a visitor ID card for the selected visitor and opens the preview/printing screen.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-edit">
+                <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.7"></path><path d="M4 4v5h5"></path></svg>
+                Re-Issue
+              </span>
+            </td>
+            <td class="desc-cell">Creates a replacement ID for a visitor who already has one on record.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-load">
+                <svg viewBox="0 0 24 24"><path d="M7 17h10"></path><path d="M8 7h8l2 5H6l2-5z"></path><path d="M10 12v5M14 12v5"></path></svg>
+                Print PVC
+              </span>
+            </td>
+            <td class="desc-cell">Prints the visitor ID in PVC card format after the preview has been checked.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-import-pdl">
+                <svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"></path><path d="M9 12h6"></path><path d="M9 16h6"></path></svg>
+                Export A4 PDF
+              </span>
+            </td>
+            <td class="desc-cell">Exports the generated visitor ID or related card layout as an A4 PDF file.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-reset">
+                <svg viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 1-6.2 3.7"></path><path d="M4 4v5h5"></path></svg>
+                Zoom +
+              </span>
+            </td>
+            <td class="desc-cell">Increases the preview size so the user can inspect the generated ID card more closely.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-reset">
+                <svg viewBox="0 0 24 24"><path d="M7 12h10"></path></svg>
+                Zoom -
+              </span>
+            </td>
+            <td class="desc-cell">Decreases the preview size on the ID screen when the current zoom is too large.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-edit">
+                <svg viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 1-6.2 3.7"></path><path d="M4 4v5h5"></path></svg>
+                Special Case
+              </span>
+            </td>
+            <td class="desc-cell">Starts the controlled workflow for visitors who do not follow the regular queueing or ID path.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-edit">
+                <svg viewBox="0 0 24 24"><path d="M8 4h8"></path><path d="M10 4v4"></path><path d="M14 4v4"></path><path d="M7 10h10"></path><path d="M12 10v9"></path><path d="M9 16h6"></path></svg>
+                Time Out
+              </span>
+            </td>
+            <td class="desc-cell">Marks that the visitor has already left the facility and completes the visit cycle in monitoring and reports.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-load">
+                <svg viewBox="0 0 24 24"><path d="M4 12h16"></path><path d="M8 8l-4 4 4 4"></path><path d="M20 6v12"></path></svg>
+                Admin Monitor
+              </span>
+            </td>
+            <td class="desc-cell">Opens the live admin queue-monitoring page for operational supervision.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-back">
+                <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"></rect><path d="M8 19h8"></path></svg>
+                Visitor Board
+              </span>
+            </td>
+            <td class="desc-cell">Opens the public-facing queue board used to display waiting or admitted visitors.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-load">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.2-4.2"></path></svg>
+                Run Report
+              </span>
+            </td>
+            <td class="desc-cell">Generates the selected report after filters such as source, date, dorm, or PDL are chosen.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-import-pdl">
+                <svg viewBox="0 0 24 24"><path d="M6 3h12v18H6z"></path><path d="M9 8h6"></path><path d="M9 12h6"></path><path d="M9 16h6"></path></svg>
+                Export Excel
+              </span>
+            </td>
+            <td class="desc-cell">Downloads the current report as an Excel file for sorting, submission, or further encoding.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-load">
+                <svg viewBox="0 0 24 24"><path d="M6 3h12v18H6z"></path><path d="M8 8h8"></path><path d="M8 12h8"></path><path d="M8 16h5"></path></svg>
+                PDF Report
+              </span>
+            </td>
+            <td class="desc-cell">Opens or downloads the active report in PDF format for printing or formal reporting.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-back">
+                <svg viewBox="0 0 24 24"><path d="M7 17h10"></path><path d="M8 7h8l2 5H6l2-5z"></path><path d="M10 12v5M14 12v5"></path></svg>
+                Print Report
+              </span>
+            </td>
+            <td class="desc-cell">Opens the current report in a print-friendly layout for paper output.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-save">
+                <svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z"></path><path d="M8 4v5h8"></path><path d="M9 18h6"></path></svg>
+                Save Permissions
+              </span>
+            </td>
+            <td class="desc-cell">Applies the selected role and access matrix changes to the chosen user account.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-save">
+                <svg viewBox="0 0 24 24"><path d="M7 12l3 3 7-7"></path><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"></path></svg>
+                Submit Reset Request
+              </span>
+            </td>
+            <td class="desc-cell">Sends a password reset request to the administrator for account recovery processing.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-delete">
+                <svg viewBox="0 0 24 24"><path d="M5 7h14"></path><path d="M9 7V5h6v2"></path><path d="M8 10v7M12 10v7M16 10v7"></path><path d="M7 7l1 12h8l1-12"></path></svg>
+                Delete Today's Logs
+              </span>
+            </td>
+            <td class="desc-cell">Deletes the current day’s activity logs, used only when audit cleanup is intentionally authorized.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-delete">
+                <svg viewBox="0 0 24 24"><path d="M3 6h18"></path><path d="M8 6V4h8v2"></path><path d="M6 6l1 14h10l1-14"></path></svg>
+                Delete Selected Date
+              </span>
+            </td>
+            <td class="desc-cell">Deletes log records for one selected date only.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-delete">
+                <svg viewBox="0 0 24 24"><path d="M3 6h18"></path><path d="M8 6V4h8v2"></path><path d="M6 6l1 14h10l1-14"></path></svg>
+                Delete Date Range
+              </span>
+            </td>
+            <td class="desc-cell">Deletes activity logs from a selected start date up to the chosen end date.</td>
+          </tr>
+          <tr>
+            <td class="button-cell">
+              <span class="ui-btn btn-cancel">
+                <svg viewBox="0 0 24 24"><path d="M18 6L6 18"></path><path d="M6 6l12 12"></path></svg>
+                Close
+              </span>
+            </td>
+            <td class="desc-cell">Closes the open modal, preview, or screen without applying any further action.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="footer">ID & Queuing System Buttons to Remember</div>
+    </div>
+  </div>
+</body>
+</html>

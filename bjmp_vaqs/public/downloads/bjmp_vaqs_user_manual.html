@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ID & Queuing System User Manual</title>
+  <style>
+    :root {
+      --ink: #17222c;
+      --muted: #5f6d79;
+      --line: #cfd8df;
+      --navy: #062150;
+      --green: #5D8D66;
+      --paper: #ffffff;
+      --page: #e9eef1;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Book Antiqua", "Georgia", "Times New Roman", serif;
+      color: var(--ink);
+      background: var(--page);
+    }
+    .document {
+      max-width: 860px;
+      margin: 28px auto;
+      background: var(--paper);
+      box-shadow: 0 8px 28px rgba(0,0,0,.08);
+      min-height: 100vh;
+    }
+    .page { padding: 42px 54px 50px; }
+    .letterhead {
+      border-bottom: 3px solid var(--navy);
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+    }
+    .agency { text-align: center; }
+    .agency .line {
+      font-size: 13px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .agency .title {
+      font-size: 26px;
+      font-weight: 700;
+      margin: 8px 0 4px;
+      color: #0f2433;
+    }
+    .agency .subtitle {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    h1 {
+      font-size: 28px;
+      margin: 0 0 8px;
+      text-align: center;
+    }
+    .doc-meta {
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+    h2 {
+      font-size: 20px;
+      margin: 26px 0 10px;
+      color: #103247;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 6px;
+    }
+    h3 {
+      font-size: 16px;
+      margin: 16px 0 6px;
+      color: #17384d;
+    }
+    p {
+      margin: 0 0 12px;
+      line-height: 1.68;
+      font-size: 14px;
+    }
+    ol, ul {
+      margin: 8px 0 16px 22px;
+      padding: 0;
+    }
+    li {
+      margin: 0 0 8px;
+      line-height: 1.65;
+      font-size: 14px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+    th {
+      background: #f3f7f9;
+      text-align: left;
+    }
+    .note {
+      border-left: 4px solid var(--green);
+      background: #f7fbf8;
+      padding: 12px 14px;
+      margin: 14px 0 18px;
+      font-size: 14px;
+    }
+    .flow-box {
+      border: 1px solid #d8e3ea;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #fbfdfe, #ffffff);
+      padding: 14px 16px;
+      margin: 14px 0 18px;
+    }
+    .flow-box strong { color: var(--navy); }
+    .footer {
+      margin-top: 30px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+    @page { size: A4; margin: 14mm; }
+    @media print {
+      body { background: #fff; }
+      .document { margin: 0; max-width: none; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="document">
+    <div class="page">
+      <div class="letterhead">
+        <div class="agency">
+          <div class="line">Republic of the Philippines</div>
+          <div class="line">Department of the Interior and Local Government</div>
+          <div class="title">ID & Queuing System</div>
+          <div class="subtitle">Step-by-Step User Manual</div>
+        </div>
+      </div>
+
+      <h1>User Manual</h1>
+      <div class="doc-meta">Document Type: Daily Operating Guide</div>
+
+      <p>This manual explains the step-by-step process of using the ID & Queuing System. It is written as a plain instruction guide so staff, admin, and super admin users can follow the actual workflow from login up to reporting and account administration.</p>
+
+      <div class="flow-box">
+        <strong>Recommended daily sequence:</strong> Sign in, check the masterlist references, prepare PDL records, attach authorized visitors, register visitors, review verified visitor records, issue IDs when needed, process queue admission, handle special cases if approved, generate reports, and review user or reset requests when authorized.
+      </div>
+
+      <h2>1. Accessing the System</h2>
+      <h3>1.1 Sign In</h3>
+      <ol>
+        <li>Open the ID & Queuing System login page.</li>
+        <li>Enter your username.</li>
+        <li>Enter your password.</li>
+        <li>Sign in to open the system dashboard.</li>
+      </ol>
+
+      <h3>1.2 Request a Password Reset</h3>
+      <ol>
+        <li>Open the reset request page from the login screen.</li>
+        <li>Enter your username.</li>
+        <li>Submit the reset request.</li>
+        <li>Wait for admin or super admin approval before signing in again.</li>
+      </ol>
+
+      <h2>2. Prepare Masterlist References</h2>
+      <p>Before encoding live records, make sure the system references are complete. These references include Case, Court, Dorm, Relationship, Requirement, and Accepted ID.</p>
+      <ol>
+        <li>Open the Masterlist module.</li>
+        <li>Select the reference tab that needs to be updated.</li>
+        <li>Add the missing reference if it does not yet exist.</li>
+        <li>Enter the name or description of the reference.</li>
+        <li>Save the new entry.</li>
+        <li>Search the table and confirm the entry appears correctly.</li>
+      </ol>
+
+      <h2>3. PDL Management</h2>
+      <h3>3.1 Add a PDL Record Manually</h3>
+      <ol>
+        <li>Open PDL Management.</li>
+        <li>Create a new PDL record.</li>
+        <li>Enter the PDL details, including name, age, sex, dorm, case number, case type, and court.</li>
+        <li>Enter the authorized visitors linked to that PDL.</li>
+        <li>Review the information for accuracy.</li>
+        <li>Save the PDL record.</li>
+      </ol>
+
+      <h3>3.2 Import PDL Records by CSV</h3>
+      <ol>
+        <li>Open the PDL import page.</li>
+        <li>Download the CSV template.</li>
+        <li>Fill in the PDL records in the template.</li>
+        <li>Save the completed template as a CSV file.</li>
+        <li>Return to the system and choose the completed file.</li>
+        <li>Start the import process.</li>
+        <li>Wait for the completion message and review the result summary.</li>
+      </ol>
+
+      <h3>3.3 Add or Import Authorized Visitors Under a PDL</h3>
+      <ol>
+        <li>Find the target PDL in the PDL list.</li>
+        <li>Open the visitor list for that PDL.</li>
+        <li>If you are adding visitors one by one, enter their details directly in the visitor section.</li>
+        <li>If you are importing visitors in bulk, open the import page for that PDL.</li>
+        <li>Download the visitor template and complete the visitor details.</li>
+        <li>Upload the completed visitor file.</li>
+        <li>Review the imported or encoded visitor list and confirm the correct visitors are linked to the selected PDL.</li>
+      </ol>
+
+      <h2>4. Visitor Registration</h2>
+      <p>This process converts an authorized visitor into a verified visitor record that can later be used for ID issuance and queue admission.</p>
+      <ol>
+        <li>Open Visitor Registration.</li>
+        <li>Select the PDL group based on male or female records.</li>
+        <li>Select the PDL to be visited.</li>
+        <li>Load the authorized visitors linked to that PDL.</li>
+        <li>Choose the correct visitor from the authorized list.</li>
+        <li>If the visitor is new to the form, start the registration process.</li>
+        <li>If the visitor already has unfinished data, continue the registration process from the saved stage.</li>
+        <li>Review the auto-filled visitor information.</li>
+        <li>Capture or upload the visitor photo.</li>
+        <li>Confirm the photo and continue to the next registration stage.</li>
+        <li>Enter the emergency contact information.</li>
+        <li>Save the visitor details stage.</li>
+        <li>Upload the required supporting documents.</li>
+        <li>Review each document before final upload confirmation.</li>
+        <li>Confirm each uploaded document.</li>
+        <li>Submit the completed registration.</li>
+      </ol>
+
+      <div class="note"><strong>Result:</strong> After submission, the visitor becomes part of the verified visitor records and can be used in Visitor Management, ID Issuance, and Queue.</div>
+
+      <h2>5. Verified Visitor Management</h2>
+      <ol>
+        <li>Open Visitor Management.</li>
+        <li>Use the search and filter tools to find the correct visitor record.</li>
+        <li>Open the visitor details to review personal information, PDL linkage, photo, and uploaded documents.</li>
+        <li>Edit the visitor record if corrections are needed.</li>
+        <li>Update the emergency contact if the information must be changed.</li>
+        <li>Update a requirement file if a new document must replace the old one.</li>
+        <li>Send the visitor to queue when the record is ready for admission.</li>
+        <li>Open the ID workflow if the visitor needs an ID card.</li>
+        <li>Ban the visitor if a restriction must be applied.</li>
+        <li>Lift the ban only when the restriction is officially cleared.</li>
+        <li>Check ban history if you need to review previous restrictions.</li>
+      </ol>
+
+      <h2>6. ID Issuance</h2>
+      <ol>
+        <li>Open the ID Issuance module.</li>
+        <li>Select the male or female PDL tab.</li>
+        <li>Select the PDL whose verified visitors need IDs.</li>
+        <li>Review the verified visitors shown under that PDL.</li>
+        <li>Issue an ID if the visitor does not yet have one.</li>
+        <li>Re-issue the ID if the visitor already had one and a replacement is required.</li>
+        <li>Open the visitor card preview page.</li>
+        <li>Print the PVC card if physical card printing is needed.</li>
+        <li>Export the A4 PDF if a PDF copy is needed.</li>
+        <li>Review issuance history if you need to trace prior issuance actions.</li>
+      </ol>
+
+      <h2>7. Queue Admission and Time In / Time Out</h2>
+      <ol>
+        <li>Open the Queue module.</li>
+        <li>Load the visitor by scanning the QR code or by typing the V-ID or QR token manually.</li>
+        <li>Review the visitor details shown on the screen.</li>
+        <li>Place the visitor into the active queue.</li>
+        <li>Confirm the queue entry when required.</li>
+        <li>Wait for the queue request to appear in the request table.</li>
+        <li>Approve the request to admit the visitor, or reject it if the visitor cannot proceed.</li>
+        <li>When the visit is finished, record time out from the queue workflow.</li>
+        <li>Use the queue monitor when an admin view of the live queue is needed.</li>
+        <li>Use the visitor board when a public queue display is needed.</li>
+      </ol>
+
+      <div class="note"><strong>Important queue rule:</strong> Time in and time out should always be completed inside the same queue workflow so that reports remain accurate.</div>
+
+      <h2>8. Special Cases</h2>
+      <p>This process is separate from the regular queue page and is protected for super admin access.</p>
+      <ol>
+        <li>Open the Special Cases page.</li>
+        <li>Create a new special case entry.</li>
+        <li>Enter the visitor identity details.</li>
+        <li>Enter the linked PDL name, dorm, and visit reason.</li>
+        <li>Enter the approval details, including approving person and approval date.</li>
+        <li>Approve the special case entry.</li>
+        <li>Monitor the special case record in the special case register as it moves through queued, inside, completed, or rejected states.</li>
+      </ol>
+
+      <h2>9. Reports</h2>
+      <ol>
+        <li>Open the Reports module.</li>
+        <li>Select the report source, such as Admissions, Registrations, ID Issuance, Banned Visitors, or Special Cases.</li>
+        <li>Select the reporting period, such as daily, monthly, yearly, or custom range.</li>
+        <li>Apply the available filters such as year, month, date range, dorm, PDL, gender, or ban status.</li>
+        <li>Choose custom report columns if needed.</li>
+        <li>Rename report headers if a custom export layout is required.</li>
+        <li>Run the report.</li>
+        <li>Review the summary cards, charts, and table output.</li>
+        <li>Reset the filters when you want to clear the current report setup.</li>
+        <li>Export the report to Excel or create the PDF or print output if needed.</li>
+      </ol>
+
+      <h2>10. User Administration and Reset Requests</h2>
+      <p>This part applies only to users who are allowed to manage accounts and permissions.</p>
+      <ol>
+        <li>Open the user administration page.</li>
+        <li>Review the user list and account status.</li>
+        <li>Search for a user when a specific account must be updated.</li>
+        <li>Adjust the role and permission settings of the user if needed.</li>
+        <li>Save the permission changes after review.</li>
+        <li>Open the reset requests section to review pending password recovery requests.</li>
+        <li>Approve the request if the reset is valid, or reject it if the request should not proceed.</li>
+      </ol>
+
+      <h2>11. Role Guide</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Role</th>
+            <th>Main Use of the System</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Staff</td>
+            <td>Performs frontline registration, visitor handling, queue intake, and other daily actions based on assigned permissions.</td>
+          </tr>
+          <tr>
+            <td>Admin</td>
+            <td>Supervises records, visitor verification, queue processing, ID issuance, and reports.</td>
+          </tr>
+          <tr>
+            <td>Super Admin</td>
+            <td>Controls user governance, reset approvals, permission assignment, and access to protected pages such as Special Cases.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="footer">ID & Queuing System User Manual</div>
+    </div>
+  </div>
+</body>
+</html>

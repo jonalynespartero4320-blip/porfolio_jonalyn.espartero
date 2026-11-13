@@ -1,0 +1,6 @@
+<FilesMatch "(?i)\.(png|jpe?g|webp|gif|ico)$">
+Require all denied
+</FilesMatch>
+<FilesMatch "^LOGO[123]\.jpg$">
+Require all granted
+</FilesMatch>

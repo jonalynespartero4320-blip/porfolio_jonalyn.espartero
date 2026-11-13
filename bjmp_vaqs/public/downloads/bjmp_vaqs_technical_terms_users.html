@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ID & Queuing System Technical Terms and Users Guide</title>
+  <style>
+    :root {
+      --ink:#17222c;
+      --muted:#5f6d79;
+      --line:#cfd8df;
+      --navy:#062150;
+      --teal:#003E51;
+      --green:#5D8D66;
+      --green-soft:#97BB92;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Book Antiqua","Georgia","Times New Roman",serif; color:var(--ink); background:#e9eef1; }
+    .document { max-width:850px; margin:28px auto; background:#fff; box-shadow:0 8px 28px rgba(0,0,0,.08); min-height:100vh; }
+    .page { padding:42px 54px 50px; }
+    .letterhead { border-bottom:3px solid var(--navy); padding-bottom:18px; margin-bottom:24px; }
+    .letterhead-top { display:flex; align-items:center; justify-content:center; gap:16px; }
+    .agency { text-align:center; flex:1; }
+    .agency .line { font-size:13px; letter-spacing:.05em; text-transform:uppercase; }
+    .agency .title { font-size:26px; font-weight:700; margin:8px 0 4px; color:#0f2433; }
+    .agency .subtitle { font-size:14px; color:var(--muted); }
+    h1 { font-size:28px; margin:0 0 8px; text-align:center; }
+    .doc-meta { text-align:center; font-size:14px; color:var(--muted); margin-bottom:22px; }
+    h2 { font-size:20px; margin:26px 0 10px; color:#103247; border-bottom:1px solid var(--line); padding-bottom:6px; }
+    p { margin:0 0 12px; line-height:1.65; font-size:14px; }
+    table { width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:14px; }
+    th, td { border:1px solid var(--line); padding:10px 12px; vertical-align:top; }
+    th { background:#f3f7f9; text-align:left; }
+    .note { border-left:4px solid var(--green); background:#f7fbf8; padding:12px 14px; margin:14px 0 18px; font-size:14px; }
+    .footer { margin-top:30px; padding-top:12px; border-top:1px solid var(--line); font-size:12px; color:var(--muted); text-align:center; }
+    @page { size:A4; margin:14mm; }
+    @media print { body { background:#fff; } .document { margin:0; max-width:none; box-shadow:none; } }
+    @media (max-width:700px) { .page { padding:28px 22px; } .letterhead-top { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <div class="document">
+    <div class="page">
+      <div class="letterhead">
+        <div class="letterhead-top">
+          <div class="agency">
+            <div class="line">Republic of the Philippines</div>
+            <div class="line">Department of the Interior and Local Government</div>
+            <div class="title">ID & Queuing System</div>
+            <div class="subtitle">Technical Terms and Users Guide</div>
+          </div>
+        </div>
+      </div>
+
+      <h1>Technical Terms and Users Guide</h1>
+      <div class="doc-meta">Document Type: Updated Glossary, Role Guide, and Process Reference</div>
+
+      <p>This guide explains the current users, roles, terms, permissions, and process words used in the ID & Queuing System. It was updated to match the newer workflow of masterlist setup, PDL management, visitor registration, verified visitor handling, ID issuance, queue admission, special cases, reports, and account administration.</p>
+
+      <h2>1. User Roles and Access</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>User Type</th>
+            <th>Meaning</th>
+            <th>Current Typical Access</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Staff</td>
+            <td>Frontline user who handles daily visitor operations based on assigned permissions.</td>
+            <td>Dashboard, Visitor Registration, Queue, selected Reports, and other actions granted by the permission matrix.</td>
+          </tr>
+          <tr>
+            <td>Admin</td>
+            <td>Operational supervisor who manages records, verification, queueing, ID issuance, and reports.</td>
+            <td>PDL Management, Visitor Management, ID Issuance, Queue Monitor, Reports, Masterlist, and other approved module actions.</td>
+          </tr>
+          <tr>
+            <td>Super Admin</td>
+            <td>Governance-level user who controls users, permissions, reset approvals, and protected pages.</td>
+            <td>All modules, Manage Users, permission assignment, reset approvals, and protected pages such as Special Cases.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>2. Permission Terms</h2>
+      <table>
+        <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>View</td><td>Allows a user to open a page, read a table, or inspect a record.</td></tr>
+          <tr><td>Create</td><td>Allows a user to add a new record such as a PDL, queue request, visitor registration, or masterlist item.</td></tr>
+          <tr><td>Edit</td><td>Allows a user to update an existing record, such as PDL information, visitor details, or masterlist values.</td></tr>
+          <tr><td>Delete</td><td>Allows a user to remove records that are permitted to be deleted by the module.</td></tr>
+          <tr><td>Import</td><td>Allows a user to upload CSV-based records such as PDL lists or authorized visitor lists.</td></tr>
+          <tr><td>Export</td><td>Allows a user to download report outputs such as Excel or PDF files.</td></tr>
+          <tr><td>Print</td><td>Allows a user to open print layouts such as PVC or A4 ID print views and printable reports.</td></tr>
+          <tr><td>All</td><td>Grants the full set of configured actions for the selected module.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note"><strong>Important:</strong> If an action button is hidden, disabled, or missing, the user may not have the required permission. The super admin should review the user role and permission matrix first.</div>
+
+      <h2>3. Core Record Terms</h2>
+      <table>
+        <thead><tr><th>Term</th><th>Simple Explanation</th></tr></thead>
+        <tbody>
+          <tr><td>PDL</td><td>Person Deprived of Liberty. The detained person or inmate being visited.</td></tr>
+          <tr><td>PDL Management</td><td>The module used to add, edit, import, and maintain PDL records and their linked authorized visitors.</td></tr>
+          <tr><td>Authorized Visitor</td><td>A person linked to a selected PDL and allowed to continue into the registration process.</td></tr>
+          <tr><td>Verified Visitor</td><td>A registered visitor whose record already passed the registration stage and is available in Visitor Management, ID Issuance, and Queue.</td></tr>
+          <tr><td>Visitor Registration</td><td>The process of capturing visitor profile details, photo, emergency contact, valid ID details, and supporting requirements.</td></tr>
+          <tr><td>Visitor Management</td><td>The module used to review verified visitors, inspect documents, edit selected details, ban or lift bans, and route visitors to queue or ID issuance.</td></tr>
+          <tr><td>Accepted ID</td><td>A valid ID type maintained in Masterlist and used when recording the visitor's valid ID document.</td></tr>
+          <tr><td>Requirement</td><td>A document requirement such as Valid ID, Birth Certificate, Marriage Certificate, or Cohabitation Certificate.</td></tr>
+          <tr><td>Masterlist</td><td>The collection of reference lists used by forms and reports, such as Case, Court, Dorm, Relationship, Requirement, and Accepted ID.</td></tr>
+          <tr><td>Dorm</td><td>The custodial location or assigned area of a PDL, used in records, queue details, and reports.</td></tr>
+          <tr><td>Relationship</td><td>The visitor's relationship to the PDL, such as spouse, parent, sibling, or other accepted relation.</td></tr>
+          <tr><td>Emergency Contact</td><td>The contact person and contact details recorded for the visitor during registration.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>4. ID and Document Terms</h2>
+      <table>
+        <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>V-ID</td><td>The visitor identification number generated by the system.</td></tr>
+          <tr><td>QR Code</td><td>The scannable code tied to the issued visitor ID and used for queue lookup and admission control.</td></tr>
+          <tr><td>ID Issuance</td><td>The module used to issue or re-issue the visitor's QR-enabled identification card.</td></tr>
+          <tr><td>Issue ID</td><td>The action used when a verified visitor is receiving an ID for the first time.</td></tr>
+          <tr><td>Re-Issue</td><td>The action used when a visitor already had an ID and a replacement card must be generated again.</td></tr>
+          <tr><td>Print PVC</td><td>The print view for card-sized physical PVC output.</td></tr>
+          <tr><td>Export A4 PDF</td><td>The action used to generate a PDF version of the visitor ID in A4 layout.</td></tr>
+          <tr><td>Issuance History</td><td>The record of previous ID issuance and re-issuance actions for a visitor.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>5. Queue and Admission Terms</h2>
+      <table>
+        <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>Queue</td><td>The admission module where a verified visitor is loaded by QR or V-ID and placed into the active waiting line.</td></tr>
+          <tr><td>Manual Search</td><td>The queue option that lets the user type the V-ID or QR token instead of scanning.</td></tr>
+          <tr><td>Put in Queue</td><td>The action used to submit the loaded visitor into the admission queue.</td></tr>
+          <tr><td>Approve</td><td>The action used to accept a waiting visitor and allow time in.</td></tr>
+          <tr><td>Reject</td><td>The action used to deny a queue request.</td></tr>
+          <tr><td>Time In</td><td>The recorded timestamp when the visitor is accepted and allowed inside.</td></tr>
+          <tr><td>Time Out</td><td>The recorded timestamp when the visitor leaves and the visit is completed.</td></tr>
+          <tr><td>Hours Stayed</td><td>The readable duration computed between time in and time out.</td></tr>
+          <tr><td>Queue Board</td><td>The visitor-facing display board used for public queue visibility.</td></tr>
+          <tr><td>Queue Monitor</td><td>The admin-facing live monitor showing queue status, waiting count, inside count, completed visits, and rejection-related metrics.</td></tr>
+          <tr><td>Waiting</td><td>A queue request that has been submitted but not yet accepted or rejected.</td></tr>
+          <tr><td>Inside</td><td>A visitor who has already been admitted and has an active visit inside the facility.</td></tr>
+          <tr><td>Completed</td><td>A visitor record with finished time out.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>6. Special Case Terms</h2>
+      <table>
+        <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>Special Cases</td><td>A protected page below Queue in the sidebar, accessible only to super admin.</td></tr>
+          <tr><td>Add Special Case</td><td>The action used to manually encode and approve an exceptional visitor visit.</td></tr>
+          <tr><td>Approved By</td><td>The approving authority name recorded on a special case entry.</td></tr>
+          <tr><td>Approved Date</td><td>The approval date recorded before a special case can proceed.</td></tr>
+          <tr><td>Special Case Register</td><td>The tracking table that shows all special case entries and their queue lifecycle.</td></tr>
+          <tr><td>Special Case Status</td><td>The stage of a special case entry, such as approved, queued, inside, completed, or rejected.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>7. Control and Compliance Terms</h2>
+      <table>
+        <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>Banned Visitor</td><td>A visitor who is blocked from admission because of a recorded violation or administrative reason.</td></tr>
+          <tr><td>Lift Ban</td><td>The action used by an authorized user to remove an active visitor ban.</td></tr>
+          <tr><td>Ban History</td><td>The record of previous visitor bans, the approving or lifting users, and the dates involved.</td></tr>
+          <tr><td>Pending User</td><td>A newly created or newly reviewed user account that still needs approval, role assignment, or permission confirmation.</td></tr>
+          <tr><td>Password Reset Request</td><td>A request submitted by a user who cannot access the account and needs administrator-issued password recovery.</td></tr>
+          <tr><td>Approve Reset</td><td>The admin action that approves a pending password reset request.</td></tr>
+          <tr><td>Reject Reset</td><td>The admin action that declines a pending password reset request.</td></tr>
+          <tr><td>Permission Matrix</td><td>The permission table where super admin grants View, Create, Edit, Delete, Import, Export, Print, and other allowed actions per module.</td></tr>
+          <tr><td>Activity Log</td><td>The stored history of actions such as login, registration, update, approval, export, and deletion events.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>8. Queue and Admission Rules</h2>
+      <table>
+        <thead><tr><th>Rule</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>One visit per day</td><td>A visitor should not complete multiple visit cycles in the same day using the same identity record unless the workflow explicitly allows otherwise.</td></tr>
+          <tr><td>Maximum 10 inside</td><td>Only ten visitors may be admitted inside at the same time. Another visitor may be approved after a current visitor times out.</td></tr>
+          <tr><td>Verified records first</td><td>Regular queue admissions should come from verified visitor records before queueing is allowed.</td></tr>
+          <tr><td>Special case is separate</td><td>Exceptional visitor handling is no longer created on the regular queue form and must be processed on the Special Cases page.</td></tr>
+          <tr><td>Ban blocks queueing</td><td>A banned visitor should not proceed to normal queueing until the ban is lifted by an authorized action.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>9. Reporting Terms</h2>
+      <table>
+        <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>Report Source</td><td>The category of data being reported, such as Admissions, Registrations, ID Issuance, Banned Visitors, or Special Cases.</td></tr>
+          <tr><td>Daily Report</td><td>Shows records for one selected day.</td></tr>
+          <tr><td>Monthly Report</td><td>Shows records within a selected month and year.</td></tr>
+          <tr><td>Yearly Report</td><td>Shows records within a selected year.</td></tr>
+          <tr><td>Custom Range</td><td>Shows records between a selected start date and end date.</td></tr>
+          <tr><td>Dorm Filter</td><td>Limits report results to one dorm or dorm-related records.</td></tr>
+          <tr><td>PDL Filter</td><td>Limits report results to one selected PDL.</td></tr>
+          <tr><td>Gender Filter</td><td>Limits results by applicable gender field.</td></tr>
+          <tr><td>Custom Columns</td><td>The report fields chosen by the user for display and export.</td></tr>
+          <tr><td>Custom Headers</td><td>User-defined column titles used in the exported report output.</td></tr>
+          <tr><td>Run Report</td><td>The action used to apply filters and generate the report view.</td></tr>
+          <tr><td>Export Excel</td><td>The action used to download the report in spreadsheet format.</td></tr>
+          <tr><td>PDF Report</td><td>The printable or PDF-exportable report output.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>10. Process Sequence Terms</h2>
+      <table>
+        <thead><tr><th>Process Word</th><th>Current Meaning in the System</th></tr></thead>
+        <tbody>
+          <tr><td>Prepare</td><td>Set up masterlist references before operational data entry starts.</td></tr>
+          <tr><td>Encode</td><td>Enter details into a form manually.</td></tr>
+          <tr><td>Import</td><td>Upload multiple records through CSV.</td></tr>
+          <tr><td>Register</td><td>Complete the visitor registration workflow so the visitor becomes verified.</td></tr>
+          <tr><td>Verify</td><td>Use the verified visitor record as the operational basis for ID issuance and queueing.</td></tr>
+          <tr><td>Issue</td><td>Create the visitor ID card and QR-linked identity output.</td></tr>
+          <tr><td>Queue</td><td>Submit the visitor for active admission handling.</td></tr>
+          <tr><td>Admit</td><td>Approve the queue request and allow time in.</td></tr>
+          <tr><td>Complete</td><td>Finalize the visit by recording time out.</td></tr>
+          <tr><td>Report</td><td>Filter, generate, and export operational records for review or printing.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="footer">ID & Queuing System Technical Terms and Users Guide</div>
+    </div>
+  </div>
+</body>
+</html>
