@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jonalyn Espartero — web designer and developer portfolio.">
+  <title>Jonalyn Espartero — Web Designer & Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=compact-popup-fix-1">
+</head>
+<body>
+  <header class="nav-wrap">
+    <nav class="nav container" aria-label="Main navigation">
+      <div class="brand"><button class="profile-avatar" id="openPhoto" type="button" aria-label="Preview Jonalyn's photo" aria-haspopup="dialog"><img src="picture.png" alt="Jonalyn Espartero" width="37" height="37"></button><a href="#home" aria-label="Jonalyn Espartero home"><strong>Jonalyn.</strong></a></div>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">All projects</a>
+        <a class="nav-cta" href="#contact">Let's talk <span>↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- i put all my project folder files so you can see my projects to be displayed in my portfolio. -->
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> Open to employment opportunities</p>
+        <h1>Web programmer.<br>Problem solver.<br><em>Ready to grow.</em></h1>
+        <p class="hero-text">I'm Jonalyn Espartero, an IT professional with experience in web development, system deployment, and technical support across government and private organizations. I'm ready to contribute my skills, learn from your team, and receive training to grow in my next role.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">View my projects <span>↓</span></a>
+          <a class="text-link" href="resume.html" target="_blank" rel="noopener">View my résumé <span>↗</span></a>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="portrait-card" aria-label="Professional skills illustration: develop, support, and improve">
+          <div class="orb orb-one"></div><div class="orb orb-two"></div>
+          <div class="browser-mock">
+            <div class="browser-top"><i></i><i></i><i></i></div>
+            <div class="mock-label">DEVELOP · SUPPORT · IMPROVE</div>
+            <div class="mock-title">Skills to<br><strong>contribute.</strong></div>
+            <div class="mock-lines"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <!-- <span>Based in the Philippines</span> -->
+        <!-- <span>Scroll to discover <b>↓</b></span> -->
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Services"><div>WEB DESIGN <i>✦</i> FRONT-END DEVELOPMENT <i>✦</i> BACK-END DEVELOPMENT <i>✦</i> USER EXPERIENCE <i>✦</i> WEB DESIGN <i>✦</i></div></section>
+
+    <section class="about container section" id="about">
+      <div class="section-kicker">01 / PROFESSIONAL PROFILE</div>
+      <div class="about-grid">
+        <h2 class="reveal">Professional<br><em>Profile.</em></h2>
+        <div class="about-copy reveal">
+          <p>I'm seeking a role where I can contribute to web design and development. My portfolio includes PHP and database-backed applications for inventory, visitor queues, verification, and online appointments. I value clear communication, attention to detail, and dependable teamwork.</p>
+          <p>I adapt to new technologies and use AI tools to explore creative ideas, streamline development, and build useful websites more efficiently. I combine these tools with my own design judgment and careful review to create thoughtful, practical experiences.</p>
+          <p>I enjoy exploring new ideas and researching technologies to expand my knowledge and strengthen my skills. I am willing to learn, receive training, and take guidance from experienced colleagues. I apply what I learn to solve problems, improve my work, and contribute more effectively to a team.</p>
+          <p>I graduated <strong>Cum Laude</strong> with a Bachelor of Science in Information Technology from Colegio de Montalban (2019–2023). I also completed Information and Communications Technology at Kasiglahan Village Senior High School (2017–2019), passed Computer Systems Servicing NC II, and hold Honor Graduate Eligibility from the Civil Service Commission.</p>
+          <div class="stats">
+            <div><strong>04</strong><span>Application projects</span></div>
+            <div><strong>03</strong><span>Core specialties</span></div>
+            <div><strong>AI</strong><span>Assisted workflow</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience section" id="experience">
+      <div class="container">
+        <div class="section-kicker">02 / PROFESSIONAL EXPERIENCE</div>
+        <div class="section-heading"><h2>Experience across<br><em>technology &amp; service.</em></h2><p>My background combines government systems, technical support, programming, and client relations. Select a role to see my responsibilities.</p></div>
+        <div class="experience-layout">
+          <div class="role-tabs" role="tablist">
+            <button class="role-tab active" data-role="coordinator" role="tab"><span>01</span><div><strong>Web Programmer</strong><small>LGU of Mandaluyong · Aug 2024–Present</small></div><b>↗</b></button>
+            <button class="role-tab" data-role="creative" role="tab"><span>02</span><div><strong>Sales Associate</strong><small>Microgenesis · Mar 2024–Aug 2024</small></div><b>↗</b></button>
+            <button class="role-tab" data-role="client" role="tab"><span>03</span><div><strong>Technical Support / Programmer</strong><small>Lexsys · Mar 2023–Jan 2024</small></div><b>↗</b></button>
+          </div>
+          <article class="role-detail" id="roleDetail" aria-live="polite"></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects container section" id="projects">
+      <div class="section-kicker">03 / SELECTED WORK</div>
+      <div class="section-heading"><h2>Projects made with<br><em>purpose.</em></h2><p>Explore my live applications, from inventory and verification to health appointment booking.</p></div>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="active" data-filter="all">All projects <span>4</span></button>
+        <button data-filter="systems">Live systems</button>
+      </div>
+      <div class="project-grid" id="projectGrid"></div>
+      <p class="demo-privacy-note">Privacy notice: Data, names, and icons shown in these demos have been changed for privacy purposes. Sample records are fictional and are provided only to demonstrate how the systems work.</p>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="container contact-inner">
+        <p class="eyebrow"><span></span> Hiring for your team?</p>
+        <h2>Let's discuss<br><em>your opportunity.</em></h2>
+        <div class="contact-details" aria-label="Contact information">
+          <a href="mailto:jonalyn.espartero4320@gmail.com"><span>Email me</span><strong>jonalyn.espartero4320@gmail.com</strong></a>
+          <a href="tel:+639703475419"><span>Call me</span><strong>+63 970 3475 419</strong></a>
+        </div>
+        <a href="mailto:jonalyn.espartero4320@gmail.com?subject=Employment%20opportunity" class="button light">Email me about a role <span>↗</span></a>
+        <div class="contact-bottom"><span>Jonalyn Espartero © 2026</span><a href="#home">Back to top ↑</a></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="project-modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Interactive project website preview">
+    <div class="modal-shell">
+      <div class="modal-bar"><div><i></i><i></i><i></i></div><span id="modalUrl">project.preview</span><button id="closeModal" aria-label="Close project preview">×</button></div>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+  <dialog id="photoPreview" class="photo-preview" aria-label="Jonalyn Espartero photo preview">
+    <button id="closePhoto" class="photo-close" type="button" aria-label="Close photo preview">&times;</button>
+    <img src="picture.png" alt="Jonalyn Espartero" width="220" height="277">
+    <p>Jonalyn Espartero</p>
+  </dialog>
+  <script src="script.js?v=light-royal-blue-1"></script>
+</body>
+</html>

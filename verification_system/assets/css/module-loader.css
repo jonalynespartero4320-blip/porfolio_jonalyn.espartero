@@ -1,0 +1,39 @@
+.module-loader {
+  position:fixed;
+  inset:0;
+  z-index:3000;
+  display:grid;
+  place-items:center;
+  padding:1.5rem;
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(8px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .18s ease, visibility .18s ease;
+}
+.module-loader.is-visible {
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+.module-loader__logo {
+  width:96px;
+  height:96px;
+  object-fit:contain;
+  filter:drop-shadow(0 16px 28px rgba(20,33,61,.22));
+  animation:moduleLoaderSpin 1s linear infinite;
+}
+body.module-loader-lock {
+  overflow:hidden;
+}
+@keyframes moduleLoaderSpin {
+  to { transform:rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .module-loader,
+  .module-loader__logo {
+    animation:none;
+    transition:none;
+  }
+}
