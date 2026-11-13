@@ -1,5 +1,20 @@
 # Jonalyn Espartero portfolio
 
+## GitHub Pages demos (no PHP or SQL)
+
+The portfolio project buttons now open simplified, browser-only demos in `browser-demo/`. These use HTML, CSS, JavaScript, and localStorage. The original PHP applications below remain intact.
+
+- Queue: `browser-demo/index.html?project=queue` — register visitors and update queue status.
+- Inventory: `browser-demo/index.html?project=inventory` — add equipment and update its status.
+- Appointments: `browser-demo/index.html?project=appointments` — book weekday AM/PM slots and manage bookings. Each slot holds one demo appointment.
+- Verification: `browser-demo/index.html?project=verification` — try Professional `0000001`, Home `000001`, or Food `00001` with `Demo Barangay`.
+
+For GitHub Pages, copy `browser-demo/` and the updated `script.js` to the root of your cloned repository, commit, and push using GitHub Desktop. Existing root portfolio HTML/CSS/image files must also remain published. No database export or private database configuration is needed for these demos.
+
+Records persist only for the current browser and site origin. There is no authentication, shared storage, real identity verification, or server processing. Use fictional data only. Each demo has its own storage key and reset button. Opening on a different origin (for example localhost versus GitHub Pages) starts a separate workspace.
+
+## Original PHP applications (XAMPP)
+
 The portfolio launches the original PHP projects in `ims`, `bjmp_vaqs`, and `verification_system` through `demo/`. This version runs locally with XAMPP Apache and MySQL.
 
 The **Health Appointment System (Wellnest)** card launches `Health/public/customer` directly. Open http://localhost/porfolio_jonalyn.espartero-main/Health/public/customer for the public booking flow; no customer login is required. Health uses its own database configuration and is not initialized or reset by `demo/setup.php`. See `Health/README.md` for its database setup. Appointments submitted through this link are saved in the Health database.
