@@ -1,0 +1,30 @@
+**********************
+Windows PowerShell transcript start
+Start time: 20261110164445
+Username: JONA-PC\MSI MANDA
+RunAs User: JONA-PC\MSI MANDA
+Configuration Name: 
+Machine: JONA-PC (Microsoft Windows NT 10.0.26300.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\wamp\www\Health\scripts\repair-wamp.ps1
+Process ID: 48908
+PSVersion: 5.1.26100.9818
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9818
+BuildVersion: 10.0.26100.9818
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+
+Syntax OK
+WARNING: Waiting for service 'wampapache64 (wampapache64)' to stop...
+WARNING: Waiting for service 'wampapache64 (wampapache64)' to stop...
+WARNING: Waiting for service 'wampapache64 (wampapache64)' to stop...
+WAMP MySQL and Apache are running. XAMPP services were not stopped.
+Customer URL: http://localhost/Health/public/customer
+WAMP MySQL uses port 3308; MariaDB remains on 3307.
+**********************
+Windows PowerShell transcript end
+End time: 20261110164454
+**********************
