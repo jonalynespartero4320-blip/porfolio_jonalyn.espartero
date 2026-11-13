@@ -1,0 +1,27 @@
+main [hidden] { display: none !important; }
+.appointment-search { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 12px; padding: 0 25px; }
+.appointment-search > div { flex: 1; min-width: 220px; }
+.appointment-search label { margin-top: 0; }
+.appointment-search > a { padding-bottom: 12px; font-size: 12px; }
+.search-summary { margin: 12px 25px 20px; color: var(--muted); font-size: 11px; }
+@media(max-width:500px) { .appointment-search { padding-inline: 18px; } .appointment-search > div { min-width: 100%; } }
+.arrival-action { margin-top: 10px; }
+.arrival-action .button { white-space: nowrap; }
+.receipt .print-only { display: none; }
+.arrival-reminder { margin: 22px 0; padding: 15px 18px; border-left: 3px solid #d9ac36; background: #fff9e9; color: #614e1b; font-size: 12px; break-inside: avoid; }
+.arrival-reminder p { margin: 7px 0 0; line-height: 1.7; }
+@media print {
+    .receipt .arrival-reminder { display: block !important; background: none; color: #000; border-color: #666; break-inside: avoid; }
+    .receipt > .pill, .receipt .print-hide { display: none !important; }
+    .receipt .print-only { display: block; margin-top: 24px; }
+}
+.public-portal .shell, .public-portal main, .public-portal .booking-layout > * { min-width: 0; }
+.public-portal main { width: 100%; }
+.cancellation-confirm { display: flex; align-items: flex-start; gap: 10px; font-weight: 400; }
+.cancellation-confirm input { width: 17px; min-width: 17px; margin-top: 4px; accent-color: var(--green); }
+.login-page .auth-layout{display:block;max-width:520px}
+.login-page main>footer{max-width:520px;margin-top:34px;gap:18px;align-items:center}
+.login-page main>footer span:last-child{display:block;text-align:right}
+@media(max-width:500px){.login-page main>footer{flex-wrap:wrap;gap:8px}.login-page main>footer span:last-child{text-align:left}}
+.receipt-print-name{display:none}
+@media print{.receipt .receipt-screen-name{display:none!important}.receipt .receipt-print-name{display:inline!important}}
