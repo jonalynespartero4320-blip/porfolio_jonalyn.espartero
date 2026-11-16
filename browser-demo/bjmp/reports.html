@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ID &amp; Queuing System</title>
+
+    
+
+    <!-- ================= META ================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ================= FONTS ================= -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ================= BOOTSTRAP ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- ================= ICONS ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- ================= CSS PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM CSS ================= -->
+<link rel="stylesheet" href="./assets/css/main.css?v=plain-2">
+<link rel="stylesheet" href="./assets/css/table.css">
+<link rel="stylesheet" href="./assets/css/select.css">
+
+
+
+
+<!-- ================= JQUERY (REQUIRED FIRST) ================= -->
+
+
+<!-- ================= DATA TABLES ================= -->
+
+
+
+<!-- ================= PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM JS ================= -->
+
+<link rel="stylesheet" href="local.css?v=plain-2"></head>
+<body>
+
+<div class="layout">
+    
+<aside class="sidebar">
+
+    <!-- BRAND -->
+    <div class="sidebar-brand text-center py-3">
+        <img
+            src="./assets/images/demo-mark.svg"
+            alt="Demo ID symbol"
+            class="sidebar-brand-logo"
+        >
+        <div class="fw-bold">ID & Queuing System</div>
+    </div>
+
+    <!-- MENU -->
+    <nav class="sidebar-menu px-2">
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    MAIN                </div>
+
+                
+                    
+                    <a 
+                        href="dashboard.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="queue.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-upc-scan"></i>
+                        <span>Queue</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="special-cases.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-stars"></i>
+                        <span>Special Cases</span>
+                    </a>
+
+                
+            </div>
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    MODULES                </div>
+
+                
+                    
+                    <a 
+                        href="pdl-management.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-file"></i>
+                        <span>Resident Management</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="visitor-registration.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-person-vcard"></i>
+                        <span>Visitor Registration</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="visitor-management.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-people-fill"></i>
+                        <span>Visitor Management</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="id-issuance.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-person-vcard-fill"></i>
+                        <span>ID Issuance</span>
+                    </a>
+
+                
+            </div>
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    REPORTING                </div>
+
+                
+                    
+                    <a 
+                        href="reports.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-bar-chart-line"></i>
+                        <span>Reports</span>
+                    </a>
+
+                
+            </div>
+
+        
+
+        <!-- 🔥 ADMIN SECTION -->
+        
+            <div class="sidebar-module">
+
+                <div class="sidebar-divider text-uppercase small text-warning px-2 mb-2">
+                    ADMIN
+                </div>
+
+                                <a href="masterlist.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-bookmark"></i>
+                    <span>Masterlist</span>
+                </a>
+                
+                                <a href="admin.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-person-gear"></i>
+                    <span>Manage Users</span>
+                </a>
+                
+                                <a href="documentation-process-flow.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Documentation & Process Flow</span>
+                </a>
+                
+            </div>
+
+        
+    </nav>
+
+</aside>
+
+    <main class="content">
+        <div class="topbar d-flex justify-content-between align-items-center px-3 py-2 shadow-sm">
+            <div class="d-flex align-items-center gap-3">
+                <div class="system-title fw-bold">
+                    <i class="bi bi-shield-lock"></i>
+                    <span>ID & Queuing System</span>
+                </div>
+
+                <div class="topbar-clock text-muted">
+                    <i class="bi bi-clock"></i>
+                    <span id="currentDateTime"></span>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                                    <a href="activity-logs.html" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-clock-history"></i> Logs
+                    </a>
+                
+                <div class="user-panel d-flex align-items-center gap-2">
+                    <i class="bi bi-person-circle fs-4"></i>
+
+                    <div>
+                        <div class="fw-semibold">demo</div>
+                        <small class="text-muted">Super Admin</small>
+                    </div>
+                </div>
+
+                <a href="change-password.html" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-key"></i> Change Password
+                </a>
+
+                <a href="index.html" class="btn btn-danger btn-sm" data-logout-clear-state="1">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="px-3 pb-3 pt-1">
+            
+<style>
+  .reports-shell {
+    display: grid;
+    gap: 1rem;
+  }
+  .reports-hero {
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #062150, #447A61);
+    color: #fff;
+    box-shadow: 0 18px 42px rgba(8, 40, 68, 0.18);
+  }
+  .reports-hero::after {
+    content: "";
+    position: absolute;
+    right: -80px;
+    bottom: -80px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+  }
+  .reports-hero .card-body { position: relative; z-index: 1; padding: 1.25rem 1.35rem; }
+  .reports-hero-meta {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .reports-hero-meta .badge {
+    border: 1px solid rgba(255,255,255,0.28);
+    background: rgba(255,255,255,0.92) !important;
+    color: #062150 !important;
+  }
+  .reports-stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .85rem; }
+  .reports-stat-card, .reports-filter-card, .reports-panel-card {
+    border: 1px solid rgba(180, 215, 190, 0.35);
+    border-radius: 14px;
+    box-shadow: 0 14px 30px rgba(8, 40, 68, 0.08);
+    overflow: hidden;
+  }
+  .reports-stat-card {
+    border-top: 4px solid #80A497;
+  }
+  .reports-stat-card .display-6 {
+    color: #062150;
+    font-size: 1.85rem;
+  }
+  .reports-stat-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+  }
+  .reports-filter-card .form-control,
+  .reports-filter-card .form-select { border-radius: 8px; }
+  .reports-filter-header,
+  .reports-panel-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .reports-filter-title,
+  .reports-panel-title {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+  }
+  .reports-filter-title span,
+  .reports-panel-title span {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #6b7280;
+    color: #062150;
+  }
+  .reports-section-title {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: .25rem;
+  }
+  .reports-section-title span {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #edf5ec;
+    color: #447A61;
+  }
+  .reports-helper {
+    color: #64748b;
+    font-size: .88rem;
+    margin-bottom: .85rem;
+  }
+  .reports-column-builder {
+    border: 1px solid rgba(180, 215, 190, 0.46);
+    border-radius: 12px;
+    background: #f8faf5;
+    padding: 1rem;
+  }
+  .reports-column-builder summary {
+    cursor: pointer;
+    color: #062150;
+  }
+  .reports-column-row {
+    display: grid;
+    grid-template-columns: 34px 34px minmax(140px, 1fr) minmax(150px, 1.2fr);
+    gap: .65rem;
+    align-items: center;
+    padding: .55rem;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid rgba(180, 215, 190, 0.35);
+  }
+  .reports-column-row.is-dragging {
+    opacity: .55;
+    border-style: dashed;
+  }
+  .reports-drag-handle {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef6f8;
+    color: #062150;
+    cursor: grab;
+  }
+  .reports-column-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .65rem;
+  }
+  .reports-mini-list {
+    display: grid;
+    gap: .85rem;
+  }
+  .reports-mini-item {
+    border-radius: 12px;
+    background: #f8faf5;
+    border: 1px solid rgba(180, 215, 190, 0.34);
+    padding: .9rem 1rem;
+  }
+  .reports-mini-item:hover {
+    border-color: rgba(79, 143, 63, .42);
+    background: #fff;
+  }
+  .reports-chart-wrap {
+    min-height: 320px;
+    padding: .5rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(244,247,239,.95));
+  }
+  .reports-table-card {
+    overflow: hidden;
+  }
+  .reports-table-card .card-body {
+    padding: .85rem 1rem 1rem;
+  }
+  .reports-table-wrap {
+    border: 1px solid rgba(8,40,68,.08);
+    border-radius: 14px;
+    background: #fff;
+    padding: .45rem;
+  }
+  .reports-table-wrap table {
+    margin-bottom: 0 !important;
+  }
+  .reports-table-wrap thead th {
+    background: #f4f7ef;
+    color: #334155;
+    font-size: .78rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(8,40,68,.08);
+  }
+  .reports-table-wrap tbody td {
+    vertical-align: middle;
+    color: #334155;
+  }
+  .reports-table-wrap .dataTables_wrapper .row,
+  .reports-table-wrap .dataTables_wrapper .top,
+  .reports-table-wrap .dataTables_wrapper .bottom {
+    gap: .5rem;
+  }
+  .reports-status-badge {
+    display: inline-flex;
+    align-items: center;
+    max-width: 180px;
+    padding: .36rem .6rem;
+    border-radius: 999px;
+    background: #e9f7ef;
+    color: #157347;
+    font-size: .78rem;
+    font-weight: 800;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .reports-action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .75rem;
+    flex-wrap: wrap;
+    padding: .8rem 1rem;
+    border: 1px solid rgba(180, 215, 190, 0.35);
+    border-radius: 14px;
+    background: rgba(255,255,255,.9);
+    box-shadow: 0 10px 24px rgba(8,40,68,.06);
+  }
+  .reports-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: .6rem;
+    flex-wrap: wrap;
+  }
+  .reports-active-filters {
+    display: flex;
+    gap: .45rem;
+    flex-wrap: wrap;
+    margin-top: .65rem;
+  }
+  .reports-filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    padding: .38rem .62rem;
+    border-radius: 999px;
+    background: #f4f7ef;
+    border: 1px solid rgba(180, 215, 190, .55);
+    color: #405545;
+    font-size: .78rem;
+    font-weight: 700;
+  }
+  .reports-submit-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: .6rem;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 1199px) {
+    .reports-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 767px) {
+    .reports-stat-grid { grid-template-columns: 1fr; }
+    .reports-column-list { grid-template-columns: 1fr; }
+    .reports-column-row { grid-template-columns: 30px 30px 1fr; }
+    .reports-column-row .column-header-input { grid-column: 1 / -1; }
+    .reports-action-bar,
+    .reports-filter-header,
+    .reports-panel-heading {
+      align-items: stretch;
+      flex-direction: column;
+    }
+    .reports-actions,
+    .reports-submit-row {
+      justify-content: stretch;
+    }
+    .reports-actions .btn,
+    .reports-submit-row .btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<div class="container-fluid py-3">
+    <div class="reports-shell">
+        <div class="card reports-hero">
+            <div class="card-body d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div>
+                    <div class="text-uppercase small fw-semibold opacity-75 mb-2">Reports</div>
+                    <h2 class="fw-bold mb-1"><i class="bi bi-bar-chart-line me-2"></i>Manage Report</h2>
+                    <p class="mb-0 opacity-75">Review trends, verify matching records, and export the exact report layout you need.</p>
+                </div>
+                <div class="reports-hero-meta">
+                    <span class="badge bg-light text-dark fs-6">Visitor Admissions</span>
+                    <span class="badge bg-dark-subtle text-dark fs-6">DAILY</span>
+                    <span class="badge bg-light text-dark fs-6">0 rows</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="reports-stat-grid">
+            <div class="card reports-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Total Visits</div><div class="display-6 fw-bold mb-0">0</div></div><div class="reports-stat-icon bg-primary-subtle text-primary"><i class="bi bi-collection"></i></div></div></div></div>
+            <div class="card reports-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Unique Visitors</div><div class="display-6 fw-bold mb-0">0</div></div><div class="reports-stat-icon bg-success-subtle text-success"><i class="bi bi-people"></i></div></div></div></div>
+            <div class="card reports-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Dorm Coverage</div><div class="display-6 fw-bold mb-0">0</div></div><div class="reports-stat-icon bg-info-subtle text-info"><i class="bi bi-building"></i></div></div></div></div>
+            <div class="card reports-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Active Days</div><div class="display-6 fw-bold mb-0">0</div></div><div class="reports-stat-icon bg-warning-subtle text-warning"><i class="bi bi-calendar-event"></i></div></div></div></div>
+        </div>
+
+        <div class="card reports-filter-card">
+            <div class="card-body">
+                <div class="reports-filter-header">
+                    <div>
+                        <div class="reports-filter-title">
+                            <span><i class="bi bi-sliders"></i></span>
+                            <div>
+                                <h5 class="fw-bold mb-0">Report Controls</h5>
+                                <div class="text-muted small">Set scope, date coverage, filters, and optional export columns.</div>
+                            </div>
+                        </div>
+                        <!-- <div class="reports-active-filters">
+                                                            <span class="reports-filter-chip"><i class="bi bi-check2-circle"></i>Source: Visitor Admissions</span>
+                                                            <span class="reports-filter-chip"><i class="bi bi-check2-circle"></i>Coverage: Daily</span>
+                                                            <span class="reports-filter-chip"><i class="bi bi-check2-circle"></i>Month: November 2026</span>
+                                                    </div> -->
+                    </div>
+                    <a href="reports.html" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-arrow-counterclockwise"></i> Reset
+                    </a>
+                </div>
+                <form method="get" action="reports.html" class="row g-3 align-items-end" id="reportFilterForm">
+                    <input type="hidden" name="columns" id="reportColumnsInput" value="event_at,visitor_name,visitor_gender,pdl_name,dorm_no,violation_type,approved_by,status_label,time_in,time_out,hours_stayed">
+                    <input type="hidden" name="headers" id="reportHeadersInput" value="{&quot;event_at&quot;:&quot;Date \/ Time&quot;,&quot;visitor_name&quot;:&quot;Visitor&quot;,&quot;visitor_gender&quot;:&quot;Resident Gender&quot;,&quot;pdl_name&quot;:&quot;Resident&quot;,&quot;dorm_no&quot;:&quot;Dorm&quot;,&quot;violation_type&quot;:&quot;Remarks&quot;,&quot;approved_by&quot;:&quot;Approved By&quot;,&quot;status_label&quot;:&quot;Status&quot;,&quot;time_in&quot;:&quot;Time In&quot;,&quot;time_out&quot;:&quot;Time Out&quot;,&quot;hours_stayed&quot;:&quot;Hours Stayed&quot;}">
+                    <!-- <div class="col-12">
+                        <div class="reports-section-title"><span><i class="bi bi-file-earmark-bar-graph"></i></span>Report Setup</div>
+                    </div> -->
+                    <div class="col-lg-4">
+                        <label class="form-label fw-semibold">Report title</label>
+                        <input type="text" name="report_title" id="reportTitleInput" class="form-control" value="Manage Report" maxlength="120" placeholder="Example: Monthly Visitor Admission Report">
+                    </div>
+                    <div class="col-lg-3">
+                        <label class="form-label fw-semibold">Report Source</label>
+                        <select name="source" id="reportSource" class="form-select">
+                            <option value="admissions" selected>Visitor Admissions</option>
+                            <option value="registrations" >Visitor Registrations</option>
+                            <option value="id_issuance" >ID Issuance</option>
+                            <option value="banned" >Banned Visitors Records</option>
+                            <option value="special_cases" >Special Case Visits Records</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <label class="form-label fw-semibold">Date coverage</label>
+                        <select name="period" id="reportPeriod" class="form-select">
+                            <option value="daily" selected>Daily</option>
+                            <option value="monthly" >Monthly</option>
+                            <option value="yearly" >Yearly</option>
+                            <option value="custom" >Custom Range</option>
+                        </select>
+                    </div>
+                    <!-- <div class="col-12 mt-2">
+                        <div class="reports-section-title"><span><i class="bi bi-funnel"></i></span>Filters</div>
+                    </div> -->
+                    <div class="col-lg-2">
+                        <label class="form-label fw-semibold">Dorm</label>
+                        <select name="dorm" class="form-select">
+                            <option value="">All Dorms</option>
+                                                    </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <label class="form-label fw-semibold">Resident Gender</label>
+                        <select name="gender" class="form-select">
+                            <option value="">All Resident Genders</option>
+                            <option value="Male" >Male Resident</option>
+                            <option value="Female" >Female Resident</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3">
+                        <label class="form-label fw-semibold">Resident</label>
+                        <select name="pdl_id" class="form-select select2" data-placeholder="Search Resident name">
+                            <option value="">All Resident</option>
+                                                    </select>
+                    </div>
+                    <div class="col-lg-2 ban-filter">
+                        <label class="form-label fw-semibold">Ban status</label>
+                        <select name="ban_status" class="form-select">
+                            <option value="">All Ban Records</option>
+                            <option value="active" >Active</option>
+                            <option value="lifted" >Lifted</option>
+                            <option value="expired" >Expired</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3 ban-filter">
+                        <label class="form-label fw-semibold">Violation keyword</label>
+                        <input type="text" name="violation" class="form-control" value="" placeholder="Search violation">
+                    </div>
+                    <div class="col-lg-2 filter-year">
+                        <label class="form-label fw-semibold">Year</label>
+                        <input type="number" name="year" class="form-control" value="2026" min="2000" max="2031">
+                    </div>
+                    <div class="col-lg-2 filter-month">
+                        <label class="form-label fw-semibold">Month</label>
+                        <select name="month" class="form-select">
+                                                            <option value="1" >January</option>
+                                                            <option value="2" >February</option>
+                                                            <option value="3" >March</option>
+                                                            <option value="4" >April</option>
+                                                            <option value="5" >May</option>
+                                                            <option value="6" >June</option>
+                                                            <option value="7" >July</option>
+                                                            <option value="8" >August</option>
+                                                            <option value="9" >September</option>
+                                                            <option value="10" >October</option>
+                                                            <option value="11" selected>November</option>
+                                                            <option value="12" >December</option>
+                                                    </select>
+                    </div>
+                    <div class="col-lg-2 filter-from">
+                        <label class="form-label fw-semibold">Date From</label>
+                        <input type="date" name="date_from" class="form-control" value="2026-11-01">
+                    </div>
+                    <div class="col-lg-2 filter-to">
+                        <label class="form-label fw-semibold">Date To</label>
+                        <input type="date" name="date_to" class="form-control" value="2026-11-15">
+                    </div>
+                    <div class="col-lg-2 d-grid">
+                        <button type="submit" class="btn btn-success"><i class="bi bi-search"></i> Run Report</button>
+                    </div>
+                    <div class="col-12">
+                        <details class="reports-column-builder" >
+                            <summary class="fw-bold">
+                                <i class="bi bi-layout-three-columns me-1"></i> Optional: choose columns for this report
+                                <span class="text-muted fw-normal small ms-2">Check fields to include, drag them into order, and rename headers.</span>
+                            </summary>
+                            <div class="alert alert-info border-0 mt-3 mb-3 py-2 small">
+                                Tip: Hold and drag the handle beside each field to arrange the report columns. The table and exports follow the same order.
+                            </div>
+                            <div class="reports-column-list mt-3">
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="event_at" checked>
+                                        <div class="fw-semibold small">Date / Time</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Date / Time" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="visitor_name" checked>
+                                        <div class="fw-semibold small">Visitor</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Visitor" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="visitor_gender" checked>
+                                        <div class="fw-semibold small">Resident Gender</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Resident Gender" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="pdl_name" checked>
+                                        <div class="fw-semibold small">Resident</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Resident" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="dorm_no" checked>
+                                        <div class="fw-semibold small">Dorm</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Dorm" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="violation_type" checked>
+                                        <div class="fw-semibold small">Remarks</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Remarks" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="approved_by" checked>
+                                        <div class="fw-semibold small">Approved By</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Approved By" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="status_label" checked>
+                                        <div class="fw-semibold small">Status</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Status" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="time_in" checked>
+                                        <div class="fw-semibold small">Time In</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Time In" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="time_out" checked>
+                                        <div class="fw-semibold small">Time Out</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Time Out" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="hours_stayed" checked>
+                                        <div class="fw-semibold small">Hours Stayed</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Hours Stayed" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="banned_by" >
+                                        <div class="fw-semibold small">Banned By</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Banned By" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="banned_at" >
+                                        <div class="fw-semibold small">Banned On</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Banned On" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="lifted_by" >
+                                        <div class="fw-semibold small">Lifted By</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Lifted By" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="lifted_at" >
+                                        <div class="fw-semibold small">Lifted On</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Lifted On" placeholder="Rename header">
+                                    </div>
+                                                                                                        <div class="reports-column-row" data-column-row draggable="true">
+                                        <span class="reports-drag-handle" title="Drag to arrange"><i class="bi bi-grip-vertical"></i></span>
+                                        <input type="checkbox" class="form-check-input report-column-check" data-column="lift_reason" >
+                                        <div class="fw-semibold small">Reason for Lifting</div>
+                                        <input type="text" class="form-control form-control-sm column-header-input report-column-header" value="Reason for Lifting" placeholder="Rename header">
+                                    </div>
+                                                            </div>
+                        </details>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="reports-action-bar">
+            <div>
+                <div class="fw-bold"><i class="bi bi-download me-1 text-success"></i>Export Current Report</div>
+                <div class="text-muted small">Exports use the filters and selected columns shown below.</div>
+            </div>
+            <div class="reports-actions">
+                                    <a href="#?format=excel&source=admissions&period=daily&year=2026&month=11&date_from=2026-11-01&date_to=2026-11-15&dorm=0&pdl_id=0&gender=&ban_status=&violation=&columns=event_at%2Cvisitor_name%2Cvisitor_gender%2Cpdl_name%2Cdorm_no%2Cviolation_type%2Capproved_by%2Cstatus_label%2Ctime_in%2Ctime_out%2Chours_stayed&headers=%7B%22event_at%22%3A%22Date+%5C%2F+Time%22%2C%22visitor_name%22%3A%22Visitor%22%2C%22visitor_gender%22%3A%22Resident+Gender%22%2C%22pdl_name%22%3A%22Resident%22%2C%22dorm_no%22%3A%22Dorm%22%2C%22violation_type%22%3A%22Remarks%22%2C%22approved_by%22%3A%22Approved+By%22%2C%22status_label%22%3A%22Status%22%2C%22time_in%22%3A%22Time+In%22%2C%22time_out%22%3A%22Time+Out%22%2C%22hours_stayed%22%3A%22Hours+Stayed%22%7D&report_title=Manage+Report" class="btn btn-success report-export-link" data-format="excel">
+                        <i class="bi bi-file-earmark-excel"></i> Excel
+                    </a>
+                                                    <a href="#?format=print&source=admissions&period=daily&year=2026&month=11&date_from=2026-11-01&date_to=2026-11-15&dorm=0&pdl_id=0&gender=&ban_status=&violation=&columns=event_at%2Cvisitor_name%2Cvisitor_gender%2Cpdl_name%2Cdorm_no%2Cviolation_type%2Capproved_by%2Cstatus_label%2Ctime_in%2Ctime_out%2Chours_stayed&headers=%7B%22event_at%22%3A%22Date+%5C%2F+Time%22%2C%22visitor_name%22%3A%22Visitor%22%2C%22visitor_gender%22%3A%22Resident+Gender%22%2C%22pdl_name%22%3A%22Resident%22%2C%22dorm_no%22%3A%22Dorm%22%2C%22violation_type%22%3A%22Remarks%22%2C%22approved_by%22%3A%22Approved+By%22%2C%22status_label%22%3A%22Status%22%2C%22time_in%22%3A%22Time+In%22%2C%22time_out%22%3A%22Time+Out%22%2C%22hours_stayed%22%3A%22Hours+Stayed%22%7D&report_title=Manage+Report" target="_blank" class="btn btn-outline-primary report-export-link" data-format="print">
+                        <i class="bi bi-printer"></i> Print
+                    </a>
+                    <a href="#?format=pdf&source=admissions&period=daily&year=2026&month=11&date_from=2026-11-01&date_to=2026-11-15&dorm=0&pdl_id=0&gender=&ban_status=&violation=&columns=event_at%2Cvisitor_name%2Cvisitor_gender%2Cpdl_name%2Cdorm_no%2Cviolation_type%2Capproved_by%2Cstatus_label%2Ctime_in%2Ctime_out%2Chours_stayed&headers=%7B%22event_at%22%3A%22Date+%5C%2F+Time%22%2C%22visitor_name%22%3A%22Visitor%22%2C%22visitor_gender%22%3A%22Resident+Gender%22%2C%22pdl_name%22%3A%22Resident%22%2C%22dorm_no%22%3A%22Dorm%22%2C%22violation_type%22%3A%22Remarks%22%2C%22approved_by%22%3A%22Approved+By%22%2C%22status_label%22%3A%22Status%22%2C%22time_in%22%3A%22Time+In%22%2C%22time_out%22%3A%22Time+Out%22%2C%22hours_stayed%22%3A%22Hours+Stayed%22%7D&report_title=Manage+Report" target="_blank" class="btn btn-outline-danger report-export-link" data-format="pdf">
+                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                    </a>
+                            </div>
+        </div>
+
+        <div class="card reports-panel-card reports-table-card">
+            <div class="card-header bg-white border-0 pt-4 px-4">
+                <div class="reports-panel-heading mb-0">
+                    <div class="reports-panel-title">
+                        <span><i class="bi bi-table"></i></span>
+                        <div>
+                            <h6 class="fw-bold mb-0">Manage Report</h6>
+                            <small class="text-muted">Showing up to 300 matching record(s) for the current filters.</small>
+                        </div>
+                    </div>
+                    <span class="badge bg-success rounded-pill">0 displayed</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="reports-table-wrap table-responsive">
+                    <table id="reportsTable" class="table table-hover align-middle w-100">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                                                    <th>Date / Time</th>
+                                                                    <th>Visitor</th>
+                                                                    <th>Resident Gender</th>
+                                                                    <th>Resident</th>
+                                                                    <th>Dorm</th>
+                                                                    <th>Remarks</th>
+                                                                    <th>Approved By</th>
+                                                                    <th>Status</th>
+                                                                    <th>Time In</th>
+                                                                    <th>Time Out</th>
+                                                                    <th>Hours Stayed</th>
+                                                            </tr>
+                        </thead>
+                        <tbody>
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-xl-8">
+                <div class="card reports-panel-card h-100">
+                    <div class="card-header bg-white border-0 pt-4 px-4">
+                        <div class="reports-panel-heading mb-0">
+                            <div class="reports-panel-title">
+                                <span><i class="bi bi-graph-up-arrow"></i></span>
+                                <div>
+                                    <h6 class="fw-bold mb-0">Visitor Admissions Trend</h6>
+                                    <small class="text-muted">Records found for each date.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body px-4 pb-4">
+                        <div class="reports-chart-wrap">
+                            <canvas id="reportsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="card reports-panel-card h-100">
+                    <div class="card-header bg-white border-0 pt-4 px-4">
+                        <div class="reports-panel-heading mb-0">
+                            <div class="reports-panel-title">
+                                <span><i class="bi bi-person-lines-fill"></i></span>
+                                <div>
+                                    <h6 class="fw-bold mb-0">Visitor Frequency</h6>
+                                    <small class="text-muted">Visitors with the most matching records.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body px-4 pb-4">
+                        <div class="reports-mini-list">
+                                                            <div class="reports-mini-item text-muted">No visitor activity found for this report filter.</div>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</div> <!-- content padding -->
+
+</main>
+</div> <!-- layout -->
+<!-- Bootstrap JS Bundle -->
+
+
+<!--  -->
+
+
+
+<link rel="stylesheet" href="local.css?v=plain-2"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="local.js"></script></body>
+</html>

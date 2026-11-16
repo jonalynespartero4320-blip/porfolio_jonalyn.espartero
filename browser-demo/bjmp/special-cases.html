@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Special Cases</title>
+
+    
+
+    <!-- ================= META ================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ================= FONTS ================= -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ================= BOOTSTRAP ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- ================= ICONS ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- ================= CSS PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM CSS ================= -->
+<link rel="stylesheet" href="./assets/css/main.css?v=plain-2">
+<link rel="stylesheet" href="./assets/css/table.css">
+<link rel="stylesheet" href="./assets/css/select.css">
+
+
+
+
+<!-- ================= JQUERY (REQUIRED FIRST) ================= -->
+
+
+<!-- ================= DATA TABLES ================= -->
+
+
+
+<!-- ================= PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM JS ================= -->
+
+<link rel="stylesheet" href="local.css?v=plain-2"></head>
+<body>
+
+<div class="layout">
+    
+<aside class="sidebar">
+
+    <!-- BRAND -->
+    <div class="sidebar-brand text-center py-3">
+        <img
+            src="./assets/images/demo-mark.svg"
+            alt="Demo ID symbol"
+            class="sidebar-brand-logo"
+        >
+        <div class="fw-bold">ID & Queuing System</div>
+    </div>
+
+    <!-- MENU -->
+    <nav class="sidebar-menu px-2">
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    MAIN                </div>
+
+                
+                    
+                    <a 
+                        href="dashboard.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="queue.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-upc-scan"></i>
+                        <span>Queue</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="special-cases.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-stars"></i>
+                        <span>Special Cases</span>
+                    </a>
+
+                
+            </div>
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    MODULES                </div>
+
+                
+                    
+                    <a 
+                        href="pdl-management.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-file"></i>
+                        <span>Resident Management</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="visitor-registration.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-person-vcard"></i>
+                        <span>Visitor Registration</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="visitor-management.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-people-fill"></i>
+                        <span>Visitor Management</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="id-issuance.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-person-vcard-fill"></i>
+                        <span>ID Issuance</span>
+                    </a>
+
+                
+            </div>
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    REPORTING                </div>
+
+                
+                    
+                    <a 
+                        href="reports.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-bar-chart-line"></i>
+                        <span>Reports</span>
+                    </a>
+
+                
+            </div>
+
+        
+
+        <!-- 🔥 ADMIN SECTION -->
+        
+            <div class="sidebar-module">
+
+                <div class="sidebar-divider text-uppercase small text-warning px-2 mb-2">
+                    ADMIN
+                </div>
+
+                                <a href="masterlist.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-bookmark"></i>
+                    <span>Masterlist</span>
+                </a>
+                
+                                <a href="admin.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-person-gear"></i>
+                    <span>Manage Users</span>
+                </a>
+                
+                                <a href="documentation-process-flow.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Documentation & Process Flow</span>
+                </a>
+                
+            </div>
+
+        
+    </nav>
+
+</aside>
+
+    <main class="content">
+        <div class="topbar d-flex justify-content-between align-items-center px-3 py-2 shadow-sm">
+            <div class="d-flex align-items-center gap-3">
+                <div class="system-title fw-bold">
+                    <i class="bi bi-shield-lock"></i>
+                    <span>ID & Queuing System</span>
+                </div>
+
+                <div class="topbar-clock text-muted">
+                    <i class="bi bi-clock"></i>
+                    <span id="currentDateTime"></span>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                                    <a href="activity-logs.html" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-clock-history"></i> Logs
+                    </a>
+                
+                <div class="user-panel d-flex align-items-center gap-2">
+                    <i class="bi bi-person-circle fs-4"></i>
+
+                    <div>
+                        <div class="fw-semibold">demo</div>
+                        <small class="text-muted">Super Admin</small>
+                    </div>
+                </div>
+
+                <a href="change-password.html" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-key"></i> Change Password
+                </a>
+
+                <a href="index.html" class="btn btn-danger btn-sm" data-logout-clear-state="1">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="px-3 pb-3 pt-1">
+            
+<style>
+  .special-shell { display: grid; gap: 1.25rem; 
+  /* background: linear-gradient(180deg, rgba(255,255,255,0.86) 0%, rgba(248,250,252,0.96) 100%);  */
+  border-radius: 28px; padding: 24px; }
+  .special-hero, .special-stat-card, .special-table-card { border: 0 !important; border-radius: 24px; box-shadow: 0 16px 38px rgba(15, 23, 42, 0.08) !important; }
+  .special-hero {
+    background: linear-gradient(135deg, #062150, #447A61) !important;
+    color: #fff !important;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 24px 54px rgba(8, 40, 68, 0.18) !important;
+  }
+  .special-hero::after { content: ""; position: absolute; right: -90px; bottom: -90px; width: 240px; height: 240px; border-radius: 50%; background: rgba(255,255,255,0.08); }
+  .special-hero .card-body { position: relative; z-index: 1; padding: 1.35rem 1.5rem !important; }
+  .special-hero .text-uppercase,
+  .special-hero h2,
+  .special-hero p,
+  .special-hero .btn {
+    color: #fff !important;
+    background: transparent !important;
+  }
+  .special-hero h2 { font-size: clamp(1.45rem, 2vw, 2rem); margin-bottom: .45rem !important; }
+  .special-hero .btn.btn-light {
+    background: rgba(255,255,255,0.96) !important;
+    color: #062150 !important;
+    border-color: rgba(255,255,255,0.96) !important;
+  }
+  .special-hero .btn.btn-light:hover {
+    background: #fff !important;
+    color: #062150 !important;
+  }
+  .special-stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .special-stat-card .card-body { padding: .95rem 1rem !important; }
+  .special-stat-icon { width: 54px; height: 54px; border-radius: 18px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+  .special-table-card > .card-header {
+    background: linear-gradient(135deg, rgba(180,215,190,0.18), rgba(107,114,128,0.16)) !important;
+    border: 0 !important;
+    padding: 1rem 1.35rem !important;
+  }
+  .special-table-card > .card-body { padding: 1rem 1.35rem 1.35rem !important; }
+  .special-table-card .table-responsive {
+    border-radius: 18px;
+    background: rgba(255,255,255,0.94);
+    padding: .5rem .75rem .2rem;
+  }
+  .special-table-card table.dataTable { margin-top: .4rem !important; margin-bottom: .4rem !important; }
+  .special-table-card .dataTables_filter input { min-width: 280px; }
+  .special-table-card .dataTables_empty {
+    padding: 2.5rem 1rem !important;
+    color: #64748b !important;
+    font-size: 1rem;
+  }
+  #specialCaseModal .modal-header {
+    background: linear-gradient(135deg, rgba(107,114,128,0.16), rgba(229,231,235,0.72)) !important;
+    border-bottom-color: rgba(107,114,128,0.18) !important;
+  }
+  #specialCaseModal .alert-warning {
+    background: rgba(107,114,128,0.10) !important;
+    color: #374151 !important;
+    border: 1px solid rgba(107,114,128,0.14) !important;
+  }
+  #specialCaseModal .text-warning,
+  .special-shell .text-warning {
+    color: #6b7280 !important;
+  }
+  .special-status { border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 700; text-transform: uppercase; }
+  @media (max-width: 1199px) { .special-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 767px) {
+    .special-stat-grid { grid-template-columns: 1fr; }
+    .special-hero .card-body { padding: 1.1rem 1rem !important; }
+    .special-table-card .dataTables_filter input { min-width: 0; width: 100% !important; }
+  }
+</style>
+
+<div class="container-fluid py-3">
+    <div class="special-shell">
+        <div class="card special-hero">
+            <div class="card-body d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div>
+                    <div class="text-uppercase small fw-semibold opacity-75 mb-2">Super Admin Oversight</div>
+                    <h2 class="fw-bold mb-2">Special Cases</h2>
+                    <p class="mb-0 opacity-75">Review every special-case visitor entry, the approving details, linked Resident, and current queue lifecycle from one protected page.</p>
+                </div>
+                <div class="d-flex gap-2 flex-wrap">
+                                            <button type="button" class="btn btn-primary btn-sm" id="btnOpenSpecialCaseModal">
+                            <i class="bi bi-star-fill me-1"></i> Add Special Case
+                        </button>
+                                        <a href="queue.html" class="btn btn-light btn-sm">
+                        <i class="bi bi-arrow-left me-1"></i> Back to Queue
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="special-stat-grid">
+            <div class="card special-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Total Records</div><div class="display-6 fw-bold mb-0">0</div></div><div class="special-stat-icon bg-primary-subtle text-primary"><i class="bi bi-archive"></i></div></div></div></div>
+            <div class="card special-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Queued</div><div class="display-6 fw-bold mb-0">0</div></div><div class="special-stat-icon bg-warning-subtle text-secondary"><i class="bi bi-hourglass-split"></i></div></div></div></div>
+            <div class="card special-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Inside</div><div class="display-6 fw-bold mb-0">0</div></div><div class="special-stat-icon bg-success-subtle text-success"><i class="bi bi-door-open"></i></div></div></div></div>
+            <div class="card special-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Completed</div><div class="display-6 fw-bold mb-0">0</div></div><div class="special-stat-icon bg-secondary-subtle text-secondary"><i class="bi bi-check2-circle"></i></div></div></div></div>
+        </div>
+
+        <div class="card special-table-card">
+            <div class="card-header pt-4 px-4 d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div>
+                    <h6 class="fw-bold mb-0">Special Case Register</h6>
+                    <small class="text-muted">Super admin visibility for all special-case visitor transactions.</small>
+                </div>
+                <span class="badge bg-dark rounded-pill">0 record(s)</span>
+            </div>
+            <div class="card-body px-4 pb-4">
+                <div class="table-responsive">
+                    <table id="specialCasesTable" class="table table-hover align-middle w-100">
+                        <thead class="table-light">
+                            <tr>
+                                <th>#</th>
+                                <th>Visitor</th>
+                                <th>Resident</th>
+                                <th>Dorm</th>
+                                <th>Reason</th>
+                                <th>Approved By</th>
+                                <th>Approved Date</th>
+                                <th>Status</th>
+                                <th>Requested At</th>
+                                <th>Time In</th>
+                                <th>Time Out</th>
+                                <th>Hours Stayed</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="specialCaseModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <form id="frmSpecialCase" class="modal-content">
+            <div class="modal-header bg-warning-subtle">
+                <h5 class="modal-title">
+                    <i class="bi bi-star-fill me-2 text-warning"></i>
+                    Special Case Visitor Approval
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning border-0 rounded-4">
+                    Use this only for visitors approved as special cases, including visitors without a valid ID card.
+                    Once submitted, the visitor will be marked as a special case and placed in the queue for review.
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label">First Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="firstname" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Middle Name</label>
+                        <input type="text" class="form-control" name="middlename">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Last Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="lastname" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Age <span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" name="age" min="1" max="120" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Gender <span class="text-danger">*</span></label>
+                        <select class="form-select" name="gender" required>
+                            <option value="">Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Resident Name <span class="text-danger">*</span></label>
+                        <select class="form-select select2" name="pdl_id" id="special_pdl_id" data-placeholder="Search Resident" required>
+                            <option value="">Select Resident</option>
+                                                    </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Address <span class="text-danger">*</span></label>
+                        <textarea class="form-control" name="address" rows="2" required></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">ID Type <span class="text-muted fw-normal">(optional)</span></label>
+                        <select class="form-select" name="id_type">
+                            <option value="">No ID Provided</option>
+                            <option value="Driver's License">Driver's License</option>
+                            <option value="National ID">National ID</option>
+                            <option value="Passport">Passport</option>
+                            <option value="Student ID">Student ID</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">ID Number <span class="text-muted fw-normal">(optional)</span></label>
+                        <input type="text" class="form-control" name="id_number" placeholder="Leave blank if no ID">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Reason for Visit <span class="text-danger">*</span></label>
+                        <textarea class="form-control" name="reason_for_visit" rows="2" required></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Approved By <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="approved_by" value="demo" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Approved Date <span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" name="approved_date" value="2026-11-15" required>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-check2-circle me-1"></i> Approve Special Case
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+</div> <!-- content padding -->
+
+</main>
+</div> <!-- layout -->
+<!-- Bootstrap JS Bundle -->
+
+
+<!--  -->
+
+
+
+<link rel="stylesheet" href="local.css?v=plain-2"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="local.js"></script></body>
+</html>

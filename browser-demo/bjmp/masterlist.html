@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ID &amp; Queuing System</title>
+
+    
+
+    <!-- ================= META ================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ================= FONTS ================= -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ================= BOOTSTRAP ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- ================= ICONS ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- ================= CSS PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM CSS ================= -->
+<link rel="stylesheet" href="./assets/css/main.css?v=plain-2">
+<link rel="stylesheet" href="./assets/css/table.css">
+<link rel="stylesheet" href="./assets/css/select.css">
+
+
+
+
+<!-- ================= JQUERY (REQUIRED FIRST) ================= -->
+
+
+<!-- ================= DATA TABLES ================= -->
+
+
+
+<!-- ================= PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM JS ================= -->
+
+<link rel="stylesheet" href="local.css?v=plain-2"></head>
+<body>
+
+<div class="layout">
+    
+<aside class="sidebar">
+
+    <!-- BRAND -->
+    <div class="sidebar-brand text-center py-3">
+        <img
+            src="./assets/images/demo-mark.svg"
+            alt="Demo ID symbol"
+            class="sidebar-brand-logo"
+        >
+        <div class="fw-bold">ID & Queuing System</div>
+    </div>
+
+    <!-- MENU -->
+    <nav class="sidebar-menu px-2">
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    MAIN                </div>
+
+                
+                    
+                    <a 
+                        href="dashboard.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="queue.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-upc-scan"></i>
+                        <span>Queue</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="special-cases.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-stars"></i>
+                        <span>Special Cases</span>
+                    </a>
+
+                
+            </div>
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    MODULES                </div>
+
+                
+                    
+                    <a 
+                        href="pdl-management.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-file"></i>
+                        <span>Resident Management</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="visitor-registration.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-person-vcard"></i>
+                        <span>Visitor Registration</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="visitor-management.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-people-fill"></i>
+                        <span>Visitor Management</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="id-issuance.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-person-vcard-fill"></i>
+                        <span>ID Issuance</span>
+                    </a>
+
+                
+            </div>
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    REPORTING                </div>
+
+                
+                    
+                    <a 
+                        href="reports.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-bar-chart-line"></i>
+                        <span>Reports</span>
+                    </a>
+
+                
+            </div>
+
+        
+
+        <!-- 🔥 ADMIN SECTION -->
+        
+            <div class="sidebar-module">
+
+                <div class="sidebar-divider text-uppercase small text-warning px-2 mb-2">
+                    ADMIN
+                </div>
+
+                                <a href="masterlist.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-bookmark"></i>
+                    <span>Masterlist</span>
+                </a>
+                
+                                <a href="admin.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-person-gear"></i>
+                    <span>Manage Users</span>
+                </a>
+                
+                                <a href="documentation-process-flow.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Documentation & Process Flow</span>
+                </a>
+                
+            </div>
+
+        
+    </nav>
+
+</aside>
+
+    <main class="content">
+        <div class="topbar d-flex justify-content-between align-items-center px-3 py-2 shadow-sm">
+            <div class="d-flex align-items-center gap-3">
+                <div class="system-title fw-bold">
+                    <i class="bi bi-shield-lock"></i>
+                    <span>ID & Queuing System</span>
+                </div>
+
+                <div class="topbar-clock text-muted">
+                    <i class="bi bi-clock"></i>
+                    <span id="currentDateTime"></span>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                                    <a href="activity-logs.html" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-clock-history"></i> Logs
+                    </a>
+                
+                <div class="user-panel d-flex align-items-center gap-2">
+                    <i class="bi bi-person-circle fs-4"></i>
+
+                    <div>
+                        <div class="fw-semibold">demo</div>
+                        <small class="text-muted">Super Admin</small>
+                    </div>
+                </div>
+
+                <a href="change-password.html" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-key"></i> Change Password
+                </a>
+
+                <a href="index.html" class="btn btn-danger btn-sm" data-logout-clear-state="1">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="px-3 pb-3 pt-1">
+            <!-- modals.php -->
+<style>
+  #caseModal button[type="submit"]::before,
+  #editCaseModal button[type="submit"]::before,
+  #deleteCaseModal button[type="submit"]::before,
+  #courtModal button[type="submit"]::before,
+  #editCourtModal button[type="submit"]::before,
+  #deleteCourtModal button[type="submit"]::before,
+  #dormModal button[type="submit"]::before,
+  #editDormModal button[type="submit"]::before,
+  #deleteDormModal button[type="submit"]::before,
+  #relationshipModal button[type="submit"]::before,
+  #editRelationshipModal button[type="submit"]::before,
+  #requirementModal button[type="submit"]::before,
+  #editRequirementModal button[type="submit"]::before,
+  #validIdTypeModal button[type="submit"]::before,
+  #editValidIdTypeModal button[type="submit"]::before {
+    font-family: "bootstrap-icons";
+    display: inline-block;
+    margin-right: .35rem;
+    vertical-align: -.05em;
+  }
+
+  #caseModal .btn-primary[type="submit"]::before,
+  #courtModal .btn-primary[type="submit"]::before,
+  #dormModal .btn-primary[type="submit"]::before,
+  #relationshipModal .btn-primary[type="submit"]::before,
+  #requirementModal .btn-primary[type="submit"]::before,
+  #validIdTypeModal .btn-primary[type="submit"]::before {
+    content: "\f4fe";
+  }
+
+  #editCaseModal .btn-success[type="submit"]::before,
+  #editCourtModal .btn-success[type="submit"]::before,
+  #editDormModal .btn-success[type="submit"]::before,
+  #editRelationshipModal .btn-success[type="submit"]::before,
+  #editRequirementModal .btn-success[type="submit"]::before,
+  #editValidIdTypeModal .btn-success[type="submit"]::before {
+    content: "\f4ca";
+  }
+
+  #deleteCaseModal .btn-danger[type="submit"]::before,
+  #deleteCourtModal .btn-danger[type="submit"]::before,
+  #deleteDormModal .btn-danger[type="submit"]::before {
+    content: "\f5de";
+  }
+</style>
+
+<!-- ================= CASE MODALS ================= -->
+
+<!-- Add Case -->
+<div class="modal fade" id="caseModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Add New Case</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <input type="hidden" name="action" value="add_case">
+          <input type="hidden" name="active_tab" value="case">
+
+          <div class="mb-3">
+            <label>Case No</label>
+            <input type="text" class="form-control" name="case_no" required>
+          </div>
+
+          <div class="mb-3">
+            <label>Case Type</label>
+            <input type="text" class="form-control" name="case_type" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save Case</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Case -->
+<div class="modal fade" id="editCaseModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Edit Case</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <input type="hidden" name="action" value="edit_case">
+          <input type="hidden" name="active_tab" value="case">
+          <input type="hidden" id="edit_case_id" name="case_id">
+
+          <div class="mb-3">
+            <label>Case No</label>
+            <input type="text" class="form-control" id="edit_case_no" name="case_no" required>
+          </div>
+
+          <div class="mb-3">
+            <label>Case Type</label>
+            <input type="text" class="form-control" id="edit_case_type" name="case_type" required>
+          </div>
+
+          <button type="submit" class="btn btn-success">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Case -->
+<div class="modal fade" id="deleteCaseModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Delete Case</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this case?</p>
+      </div>
+      <div class="modal-footer">
+        <form method="POST">
+          <input type="hidden" name="action" value="delete_case">
+          <input type="hidden" name="active_tab" value="case">
+          <input type="hidden" id="delete_case_id" name="id">
+
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= COURT MODALS ================= -->
+
+<!-- Add Court -->
+<div class="modal fade" id="courtModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Add Court</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <input type="hidden" name="action" value="add_court">
+          <input type="hidden" name="active_tab" value="court">
+
+          <div class="mb-3">
+            <label>Court Name</label>
+            <input type="text" class="form-control" name="court_name" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Court -->
+<div class="modal fade" id="editCourtModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Edit Court</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <input type="hidden" name="action" value="edit_court">
+          <input type="hidden" name="active_tab" value="court">
+          <input type="hidden" id="edit_court_id" name="court_id">
+
+          <div class="mb-3">
+            <label>Court Name</label>
+            <input type="text" class="form-control" id="edit_court_name" name="court_name" required>
+          </div>
+
+          <button type="submit" class="btn btn-success">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Court -->
+<div class="modal fade" id="deleteCourtModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Delete Court</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-footer">
+        <form method="POST">
+          <input type="hidden" name="action" value="delete_court">
+          <input type="hidden" name="active_tab" value="court">
+          <input type="hidden" id="delete_court_id" name="id">
+
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= DORM MODALS ================= -->
+
+<!-- Add Dorm -->
+<div class="modal fade" id="dormModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Add Dorm</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <input type="hidden" name="action" value="add_dorm">
+          <input type="hidden" name="active_tab" value="dorm">
+
+          <div class="mb-3">
+            <label>Dorm No</label>
+            <input type="text" class="form-control" name="dorm_no" required>
+          </div>
+
+          <div class="mb-3">
+            <label>Description</label>
+            <input type="text" class="form-control" name="description" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Dorm -->
+<div class="modal fade" id="editDormModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Edit Dorm</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <input type="hidden" name="action" value="edit_dorm">
+          <input type="hidden" name="active_tab" value="dorm">
+          <input type="hidden" id="edit_dorm_id" name="dorm_id">
+
+          <div class="mb-3">
+            <label>Dorm No</label>
+            <input type="text" class="form-control" id="edit_dorm_no" name="dorm_no" required>
+          </div>
+
+          <div class="mb-3">
+            <label>Description</label>
+            <input type="text" class="form-control" id="edit_description" name="description" required>
+          </div>
+
+          <button type="submit" class="btn btn-success">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Dorm -->
+<div class="modal fade" id="deleteDormModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Delete Dorm</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-footer">
+        <form method="POST">
+          <input type="hidden" name="action" value="delete_dorm">
+          <input type="hidden" name="active_tab" value="dorm">
+          <input type="hidden" id="delete_dorm_id" name="id">
+
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= RELATIONSHIP MODALS ================= -->
+
+<div class="modal fade" id="relationshipModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Add Relationship</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <input type="hidden" name="action" value="add_relationship">
+          <input type="hidden" name="active_tab" value="relationship">
+
+          <div class="mb-3">
+            <label>Relationship Name</label>
+            <input type="text" class="form-control" name="relationship_name" required>
+          </div>
+
+          <div class="mb-3">
+            <label>Description</label>
+            <input type="text" class="form-control" name="description">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editRelationshipModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Edit Relationship</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <input type="hidden" name="action" value="edit_relationship">
+          <input type="hidden" name="active_tab" value="relationship">
+          <input type="hidden" id="edit_relationship_id" name="relationship_id">
+
+          <div class="mb-3">
+            <label>Relationship Name</label>
+            <input type="text" class="form-control" id="edit_relationship_name" name="relationship_name" required>
+          </div>
+
+          <div class="mb-3">
+            <label>Description</label>
+            <input type="text" class="form-control" id="edit_relationship_description" name="description">
+          </div>
+
+          <button type="submit" class="btn btn-success">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= REQUIREMENT MODALS ================= -->
+
+<div class="modal fade" id="requirementModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Add Requirement</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <input type="hidden" name="action" value="add_requirement">
+          <input type="hidden" name="active_tab" value="requirement">
+
+          <div class="mb-3">
+            <label>Requirement Name</label>
+            <input type="text" class="form-control" name="requirement_name" required>
+          </div>
+
+          <div class="mb-3">
+            <label>Description</label>
+            <input type="text" class="form-control" name="description">
+          </div>
+
+          <div class="mb-3">
+            <label>Status</label>
+            <select class="form-select select2" name="is_active" data-placeholder="Select Status">
+              <option value="1" selected>Active</option>
+              <option value="0">Inactive</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editRequirementModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Edit Requirement</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <input type="hidden" name="action" value="edit_requirement">
+          <input type="hidden" name="active_tab" value="requirement">
+          <input type="hidden" id="edit_requirement_id" name="requirement_id">
+
+          <div class="mb-3">
+            <label>Requirement Name</label>
+            <input type="text" class="form-control" id="edit_requirement_name" name="requirement_name" required>
+          </div>
+
+          <div class="mb-3">
+            <label>Description</label>
+            <input type="text" class="form-control" id="edit_requirement_description" name="description">
+          </div>
+
+          <div class="mb-3">
+            <label>Status</label>
+            <select class="form-select select2" id="edit_requirement_active" name="is_active" data-placeholder="Select Status">
+              <option value="1">Active</option>
+              <option value="0">Inactive</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-success">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ACCEPTED ID MODALS ================= -->
+
+<div class="modal fade" id="validIdTypeModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Add Accepted ID</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <input type="hidden" name="action" value="add_valid_id_type">
+          <input type="hidden" name="active_tab" value="valid-id-type">
+
+          <div class="mb-3">
+            <label>Accepted ID Name</label>
+            <input type="text" class="form-control" name="id_type_name" required>
+          </div>
+
+          <div class="mb-3">
+            <label>Description</label>
+            <input type="text" class="form-control" name="description">
+          </div>
+
+          <div class="mb-3">
+            <label>Status</label>
+            <select class="form-select select2" name="is_active" data-placeholder="Select Status">
+              <option value="1" selected>Active</option>
+              <option value="0">Inactive</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editValidIdTypeModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Edit Accepted ID</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <input type="hidden" name="action" value="edit_valid_id_type">
+          <input type="hidden" name="active_tab" value="valid-id-type">
+          <input type="hidden" id="edit_id_type_id" name="id_type_id">
+
+          <div class="mb-3">
+            <label>Accepted ID Name</label>
+            <input type="text" class="form-control" id="edit_id_type_name" name="id_type_name" required>
+          </div>
+
+          <div class="mb-3">
+            <label>Description</label>
+            <input type="text" class="form-control" id="edit_id_type_description" name="description">
+          </div>
+
+          <div class="mb-3">
+            <label>Status</label>
+            <select class="form-select select2" id="edit_id_type_active" name="is_active" data-placeholder="Select Status">
+              <option value="1">Active</option>
+              <option value="0">Inactive</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-success">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .master-shell { display: grid; gap: .8rem; 
+    /* background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(248, 250, 252, 0.96) 100%); */
+    border-radius: 28px;
+    padding: 24px;}
+  .master-hero {
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    border-radius: 22px;
+    background:
+      linear-gradient(135deg, #062150, #447A61);
+    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.14);
+  }
+  .master-hero::after {
+    content: "";
+    position: absolute;
+    right: -70px;
+    bottom: -75px;
+    width: 185px;
+    height: 185px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+  }
+  .master-hero .card-body { position: relative; z-index: 1; padding: 1rem 1.15rem; }
+  .master-hero h2 { font-size: clamp(1.45rem, 2vw, 2rem); }
+  .master-hero p { font-size: .92rem; }
+  .master-stat-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .75rem; }
+  .master-stat-card {
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0 16px 38px rgba(15, 23, 42, 0.08);
+  }
+  .master-stat-card { margin-bottom: 0; }
+  .master-stat-card .card-body { padding: .85rem 1rem; }
+  .master-stat-card .display-6 { font-size: 2rem; line-height: 1; }
+  .master-stat-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+  .master-workspace-card {
+    border: 0;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.96);
+    box-shadow: 0 14px 34px rgba(15,23,42,0.09);
+    overflow: hidden;
+  }
+  .master-workspace-card > .card-header {
+    padding: .75rem .9rem 0;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.98), rgba(241,247,244,0.98));
+    border-bottom: 1px solid rgba(8,19,31,0.08);
+  }
+  .master-workspace-card > .card-body {
+    padding: .85rem .9rem .9rem;
+  }
+  .master-workspace-card .master-toolbar {
+    border-bottom: 1px solid rgba(8,19,31,0.08);
+    background: rgba(248,250,252,0.72);
+    padding: .75rem .9rem;
+  }
+  .master-workspace-card h4 {
+    font-size: 1.05rem;
+  }
+  .master-tab-nav { gap: .45rem; border-bottom: 0; margin-top: .55rem; }
+  .master-tab-nav .nav-item { margin-bottom: -1px; }
+  .master-tab-nav .nav-link {
+    position: relative;
+    border: 1px solid rgba(8,19,31,0.08);
+    border-bottom: 0;
+    border-radius: 14px 14px 0 0;
+    padding: .58rem .85rem .72rem;
+    background: linear-gradient(180deg, #f8fafc, #edf3f1);
+    color: #334155;
+    font-weight: 800;
+    min-width: 110px;
+    box-shadow: inset 0 -8px 14px rgba(15,23,42,0.04);
+  }
+  .master-tab-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 5px;
+    height: 3px;
+    border-radius: 999px;
+    background: transparent;
+  }
+  .master-tab-nav .nav-link.active {
+    background: #fff;
+    color: #447A61;
+    border-color: rgba(15,91,52,0.18);
+    box-shadow: 0 -8px 22px rgba(15,23,42,0.08);
+  }
+  .master-tab-nav .nav-link.active::after {
+    background: linear-gradient(90deg, #062150, #447A61);
+  }
+  .master-table-card {
+    background: transparent;
+    margin-bottom: 0;
+  }
+  .master-table-heading {
+    padding: .35rem .15rem .65rem;
+  }
+  .master-table-heading h5 {
+    font-size: 1.05rem;
+  }
+  .master-table-area {
+    /* border: 1px solid rgba(8,19,31,0.08); */
+    border-radius: 16px;
+    background: #fff;
+    padding: .35rem;
+  }
+  .master-table-card .table {
+    margin-bottom: 0;
+  }
+  .master-table-card .dataTables_wrapper .top,
+  .master-table-card .dataTables_wrapper .bottom {
+    margin-bottom: .4rem !important;
+    margin-top: .55rem !important;
+  }
+  .master-toolbar .form-control { border-radius: 14px; }
+  .master-action-row { display: flex; gap: .5rem; flex-wrap: wrap; }
+  .master-row-actions { display: flex; gap: .35rem; flex-wrap: wrap; }
+  @media (max-width: 991px) {
+    .master-stat-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="container-fluid py-3">
+    <div class="master-shell">
+        <div class="card master-hero text-white">
+            <div class="card-body d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div>
+                    <div class="text-uppercase small fw-semibold opacity-75 mb-2">Reference Data</div>
+                    <h2 class="fw-bold mb-1"><i class="bi bi-journal-text me-2"></i>Masterlist Management</h2>
+                    <!-- <p class="mb-0 opacity-75">Maintain case references, courts, and dorm records from one organized admin workspace.</p> -->
+                </div>
+                <div class="master-action-row">
+                                            <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#caseModal">
+                            <i class="bi bi-plus-circle me-1"></i> Add Case
+                        </button>
+                                                                <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#courtModal">
+                            <i class="bi bi-bank me-1"></i> Add Court
+                        </button>
+                                                                <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#dormModal">
+                            <i class="bi bi-building me-1"></i> Add Dorm
+                        </button>
+                                                                <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#relationshipModal">
+                            <i class="bi bi-people me-1"></i> Add Relationship
+                        </button>
+                                                                <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#requirementModal">
+                            <i class="bi bi-file-earmark-check me-1"></i> Add Requirement
+                        </button>
+                                                                <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#validIdTypeModal">
+                            <i class="bi bi-card-checklist me-1"></i> Add Accepted ID
+                        </button>
+                                    </div>
+            </div>
+        </div>
+
+        <div class="master-stat-grid">
+            <div class="card master-stat-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="text-muted small">Case Records</div>
+                            <div class="display-6 fw-bold mb-0" id="statCases">0</div>
+                        </div>
+                        <div class="master-stat-icon bg-primary-subtle text-primary"><i class="bi bi-folder2-open"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card master-stat-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="text-muted small">Court Records</div>
+                            <div class="display-6 fw-bold mb-0" id="statCourts">0</div>
+                        </div>
+                        <div class="master-stat-icon bg-success-subtle text-success"><i class="bi bi-bank2"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card master-stat-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="text-muted small">Dorm Records</div>
+                            <div class="display-6 fw-bold mb-0" id="statDorms">0</div>
+                        </div>
+                        <div class="master-stat-icon bg-warning-subtle text-warning"><i class="bi bi-buildings"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card master-stat-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="text-muted small">Relationship Records</div>
+                            <div class="display-6 fw-bold mb-0" id="statRelationships">0</div>
+                        </div>
+                        <div class="master-stat-icon bg-info-subtle text-info"><i class="bi bi-people"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card master-stat-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="text-muted small">Requirement Records</div>
+                            <div class="display-6 fw-bold mb-0" id="statRequirements">0</div>
+                        </div>
+                        <div class="master-stat-icon bg-danger-subtle text-danger"><i class="bi bi-file-earmark-check"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card master-stat-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="text-muted small">Accepted ID Records</div>
+                            <div class="display-6 fw-bold mb-0" id="statValidIds">0</div>
+                        </div>
+                        <div class="master-stat-icon bg-secondary-subtle text-secondary"><i class="bi bi-card-checklist"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card master-workspace-card">
+            <!-- <div class="card-header">
+                <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                    <div>
+                        <div class="text-uppercase small fw-semibold text-muted mb-1">Reference Directory</div>
+                        <h4 class="fw-bold mb-1">Masterlist Records</h4>
+                        <p class="text-muted mb-0">Browse and maintain case, court, and dorm reference data.</p>
+                    </div>
+                    <span class="badge text-bg-light text-dark">0 managed record(s)</span>
+                </div>
+            </div> -->
+
+            <div class="master-toolbar">
+                <div class="row g-3 align-items-end">
+                    <div class="col-lg-8">
+                        <label for="masterQuickSearch" class="form-label fw-semibold mb-1">Quick Search</label>
+                    <input type="text" id="masterQuickSearch" class="form-control" placeholder="Search case, court, dorm, relationship, requirement, or accepted ID records">
+                    </div>
+                    <!-- <div class="col-lg-4">
+                        <div class="small text-muted">Module Scope</div>
+                        <div class="fw-semibold fs-5">0 managed records</div>
+                    </div> -->
+                </div>
+            </div>
+
+
+<div class="card-body">
+<ul class="nav nav-tabs master-tab-nav">
+    <li class="nav-item"><a class="nav-link active d-inline-flex align-items-center justify-content-center gap-2" data-bs-toggle="tab" href="#case"> Case</a></li>
+    <li class="nav-item"><a class="nav-link  d-inline-flex align-items-center justify-content-center gap-2" data-bs-toggle="tab" href="#court"> Court</a></li>
+    <li class="nav-item"><a class="nav-link  d-inline-flex align-items-center justify-content-center gap-2" data-bs-toggle="tab" href="#dorm"> Dorm</a></li>
+    <li class="nav-item"><a class="nav-link  d-inline-flex align-items-center justify-content-center gap-2" data-bs-toggle="tab" href="#relationship"> Relationship</a></li>
+    <li class="nav-item"><a class="nav-link  d-inline-flex align-items-center justify-content-center gap-2" data-bs-toggle="tab" href="#requirement"> Requirement</a></li>
+    <li class="nav-item"><a class="nav-link  d-inline-flex align-items-center justify-content-center gap-2" data-bs-toggle="tab" href="#valid-id-type"> Accepted ID</a></li>
+</ul>
+<div class="tab-content">
+
+<!-- ================= CASE ================= -->
+<div class="tab-pane fade show active" id="case">
+    <div class="master-table-card">
+    <div class="master-table-heading d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div>
+            <h5 class="fw-bold mb-1"><i class="bi bi-folder2-open me-2 text-primary"></i>Case Masterlist</h5>
+            <small class="text-muted">Official case numbers and case type references.</small>
+        </div>
+        <span class="badge bg-primary rounded-pill">0 record(s)</span>
+    </div>
+    <div class="master-table-area">
+    <table class="table align-middle" id="caseTable">
+        <thead>
+            <tr>
+                <th>Case No</th>
+                <th>Case Type</th>
+                                    <th>Action</th>
+                            </tr>
+        </thead>
+        <tbody>
+                    </tbody>
+    </table>
+    </div>
+    </div>
+</div>
+
+<!-- ================= COURT ================= -->
+<div class="tab-pane fade " id="court">
+    <div class="master-table-card">
+    <div class="master-table-heading d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div>
+            <h5 class="fw-bold mb-1"><i class="bi bi-bank2 me-2 text-success"></i>Court Masterlist</h5>
+            <small class="text-muted">Court reference names used across Resident records.</small>
+        </div>
+        <span class="badge bg-success rounded-pill">0 record(s)</span>
+    </div>
+    <div class="master-table-area">
+    <table class="table align-middle" id="courtTable">
+        <thead>
+            <tr>
+                <th>Court</th>
+                                    <th>Action</th>
+                            </tr>
+        </thead>
+        <tbody>
+                    </tbody>
+    </table>
+    </div>
+    </div>
+</div>
+
+<!-- ================= DORM ================= -->
+<div class="tab-pane fade " id="dorm">
+    <div class="master-table-card">
+    <div class="master-table-heading d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div>
+            <h5 class="fw-bold mb-1"><i class="bi bi-buildings me-2 text-warning"></i>Dorm Masterlist</h5>
+            <small class="text-muted">Dorm numbers and descriptions used for custodial assignment.</small>
+        </div>
+        <span class="badge bg-warning text-dark rounded-pill">0 record(s)</span>
+    </div>
+    <div class="master-table-area">
+    <table class="table align-middle" id="dormTable">
+        <thead>
+            <tr>
+                <th>Dorm</th>
+                <th>Description</th>
+                                    <th>Action</th>
+                            </tr>
+        </thead>
+        <tbody>
+                    </tbody>
+    </table>
+    </div>
+    </div>
+</div>
+
+<!-- ================= RELATIONSHIP ================= -->
+<div class="tab-pane fade " id="relationship">
+    <div class="master-table-card">
+    <div class="master-table-heading d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div>
+            <h5 class="fw-bold mb-1"><i class="bi bi-people me-2 text-info"></i>Relationship Masterlist</h5>
+            <small class="text-muted">Relationship options used for Resident authorized visitors.</small>
+        </div>
+        <span class="badge bg-info text-dark rounded-pill">0 record(s)</span>
+    </div>
+    <div class="master-table-area">
+    <table class="table align-middle" id="relationshipTable">
+        <thead>
+            <tr>
+                <th>Relationship</th>
+                <th>Description</th>
+                                    <th>Action</th>
+                            </tr>
+        </thead>
+        <tbody>
+                    </tbody>
+    </table>
+    </div>
+    </div>
+</div>
+
+<!-- ================= REQUIREMENT ================= -->
+<div class="tab-pane fade " id="requirement">
+    <div class="master-table-card">
+    <div class="master-table-heading d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div>
+            <h5 class="fw-bold mb-1"><i class="bi bi-file-earmark-check me-2 text-danger"></i>Requirement Masterlist</h5>
+            <small class="text-muted">Document options used in visitor registration Select2 lists.</small>
+        </div>
+        <span class="badge bg-danger rounded-pill">0 record(s)</span>
+    </div>
+    <div class="master-table-area">
+    <table class="table align-middle" id="requirementTable">
+        <thead>
+            <tr>
+                <th>Requirement</th>
+                <th>Description</th>
+                <th>Status</th>
+                                    <th>Action</th>
+                            </tr>
+        </thead>
+        <tbody>
+                    </tbody>
+    </table>
+    </div>
+    </div>
+</div>
+
+<!-- ================= ACCEPTED VALID ID ================= -->
+<div class="tab-pane fade " id="valid-id-type">
+    <div class="master-table-card">
+    <div class="master-table-heading d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div>
+            <h5 class="fw-bold mb-1"><i class="bi bi-card-checklist me-2 text-secondary"></i>Accepted ID Masterlist</h5>
+            <small class="text-muted">Valid ID type options used when uploading visitor Valid ID requirements.</small>
+        </div>
+        <span class="badge bg-secondary rounded-pill">0 record(s)</span>
+    </div>
+    <div class="master-table-area">
+    <table class="table align-middle" id="validIdTypeTable">
+        <thead>
+            <tr>
+                <th>Accepted ID</th>
+                <th>Description</th>
+                <th>Status</th>
+                                    <th>Action</th>
+                            </tr>
+        </thead>
+        <tbody>
+                    </tbody>
+    </table>
+    </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</div> <!-- content padding -->
+
+</main>
+</div> <!-- layout -->
+<!-- Bootstrap JS Bundle -->
+
+
+<!--  -->
+
+
+
+<link rel="stylesheet" href="local.css?v=plain-2"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="local.js"></script></body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ID &amp; Queuing System</title>
+
+    
+
+    <!-- ================= META ================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ================= FONTS ================= -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ================= BOOTSTRAP ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- ================= ICONS ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- ================= CSS PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM CSS ================= -->
+<link rel="stylesheet" href="./assets/css/main.css?v=plain-2">
+<link rel="stylesheet" href="./assets/css/table.css">
+<link rel="stylesheet" href="./assets/css/select.css">
+
+
+
+
+<!-- ================= JQUERY (REQUIRED FIRST) ================= -->
+
+
+<!-- ================= DATA TABLES ================= -->
+
+
+
+<!-- ================= PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM JS ================= -->
+
+<link rel="stylesheet" href="local.css?v=plain-2"></head>
+<body>
+
+<div class="layout">
+    
+<aside class="sidebar">
+
+    <!-- BRAND -->
+    <div class="sidebar-brand text-center py-3">
+        <img
+            src="./assets/images/demo-mark.svg"
+            alt="Demo ID symbol"
+            class="sidebar-brand-logo"
+        >
+        <div class="fw-bold">ID & Queuing System</div>
+    </div>
+
+    <!-- MENU -->
+    <nav class="sidebar-menu px-2">
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    MAIN                </div>
+
+                
+                    
+                    <a 
+                        href="dashboard.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="queue.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-upc-scan"></i>
+                        <span>Queue</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="special-cases.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-stars"></i>
+                        <span>Special Cases</span>
+                    </a>
+
+                
+            </div>
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    MODULES                </div>
+
+                
+                    
+                    <a 
+                        href="pdl-management.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-file"></i>
+                        <span>Resident Management</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="visitor-registration.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-person-vcard"></i>
+                        <span>Visitor Registration</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="visitor-management.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-people-fill"></i>
+                        <span>Visitor Management</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="id-issuance.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-person-vcard-fill"></i>
+                        <span>ID Issuance</span>
+                    </a>
+
+                
+            </div>
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    REPORTING                </div>
+
+                
+                    
+                    <a 
+                        href="reports.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-bar-chart-line"></i>
+                        <span>Reports</span>
+                    </a>
+
+                
+            </div>
+
+        
+
+        <!-- 🔥 ADMIN SECTION -->
+        
+            <div class="sidebar-module">
+
+                <div class="sidebar-divider text-uppercase small text-warning px-2 mb-2">
+                    ADMIN
+                </div>
+
+                                <a href="masterlist.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-bookmark"></i>
+                    <span>Masterlist</span>
+                </a>
+                
+                                <a href="admin.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-person-gear"></i>
+                    <span>Manage Users</span>
+                </a>
+                
+                                <a href="documentation-process-flow.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Documentation & Process Flow</span>
+                </a>
+                
+            </div>
+
+        
+    </nav>
+
+</aside>
+
+    <main class="content">
+        <div class="topbar d-flex justify-content-between align-items-center px-3 py-2 shadow-sm">
+            <div class="d-flex align-items-center gap-3">
+                <div class="system-title fw-bold">
+                    <i class="bi bi-shield-lock"></i>
+                    <span>ID & Queuing System</span>
+                </div>
+
+                <div class="topbar-clock text-muted">
+                    <i class="bi bi-clock"></i>
+                    <span id="currentDateTime"></span>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                                    <a href="activity-logs.html" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-clock-history"></i> Logs
+                    </a>
+                
+                <div class="user-panel d-flex align-items-center gap-2">
+                    <i class="bi bi-person-circle fs-4"></i>
+
+                    <div>
+                        <div class="fw-semibold">demo</div>
+                        <small class="text-muted">Super Admin</small>
+                    </div>
+                </div>
+
+                <a href="change-password.html" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-key"></i> Change Password
+                </a>
+
+                <a href="index.html" class="btn btn-danger btn-sm" data-logout-clear-state="1">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="px-3 pb-3 pt-1">
+            
+<style>
+  .logs-shell { display: grid; gap: 1.25rem; 
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(248, 250, 252, 0.96) 100%);
+    border-radius: 28px;
+    padding: 24px;}
+  .logs-hero {
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    border-radius: 28px;
+    background:
+      linear-gradient(135deg, #062150, #447A61);
+    color: #fff;
+    box-shadow: 0 24px 60px rgba(8, 19, 31, 0.14);
+  }
+  .logs-hero::after {
+    content: "";
+    position: absolute;
+    right: -80px;
+    bottom: -80px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+  }
+  .logs-hero .card-body { position: relative; z-index: 1; padding: 1.6rem; }
+  .logs-stat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .logs-stat-card, .logs-filter-card, .logs-table-card {
+    border: 0;
+    border-radius: 24px;
+    box-shadow: 0 16px 38px rgba(15, 23, 42, 0.08);
+  }
+  .logs-tools-card {
+    border: 0;
+    border-radius: 24px;
+    box-shadow: 0 16px 38px rgba(15, 23, 42, 0.08);
+    background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(246,250,255,0.96));
+  }
+  .logs-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+  }
+  .logs-table-card .card-header {
+    background: linear-gradient(135deg, rgba(15,71,215,0.04), rgba(15,143,45,0.04));
+    border-bottom: 1px solid rgba(8,19,31,0.08);
+  }
+  .history-json {
+    max-width: 520px;
+    max-height: 260px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: .78rem;
+    background: #0f172a;
+    color: #e2e8f0;
+    border-radius: 12px;
+    padding: .85rem;
+  }
+  .history-summary {
+    min-width: 260px;
+    max-width: 420px;
+  }
+  .log-action-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    padding: .45rem .7rem;
+    border-radius: 999px;
+    background: rgba(15,71,215,0.08);
+    color: #1f4fa5;
+    font-weight: 600;
+  }
+  .log-description {
+    display: grid;
+    gap: .35rem;
+    min-width: 320px;
+    max-width: 620px;
+  }
+  .log-description-line {
+    display: block;
+    padding: .35rem .55rem;
+    border-radius: 10px;
+    background: rgba(248, 250, 252, 0.92);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    color: #334155;
+    line-height: 1.35;
+  }
+  .log-description-line:first-child {
+    background: rgba(29, 92, 120, 0.08);
+    border-color: rgba(29, 92, 120, 0.14);
+    color: #14324f;
+    font-weight: 700;
+  }
+  .logs-tool-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .logs-tool-panel {
+    border: 1px solid rgba(20, 50, 79, 0.08);
+    border-radius: 20px;
+    padding: 1rem;
+    background: rgba(255,255,255,0.82);
+  }
+  .logs-tool-panel h6 {
+    margin-bottom: .35rem;
+    font-weight: 700;
+  }
+  .logs-tool-panel p {
+    color: #64748b;
+    font-size: .92rem;
+    margin-bottom: .85rem;
+  }
+  .logs-warning {
+    border-radius: 18px;
+    padding: .9rem 1rem;
+    background: rgba(245, 158, 11, 0.12);
+    color: #8a5300;
+    font-size: .92rem;
+  }
+  @media (max-width: 991px) {
+    .logs-stat-grid { grid-template-columns: 1fr; }
+    .logs-tool-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="container-fluid py-3">
+    <div class="logs-shell">
+        <div class="card logs-hero">
+            <div class="card-body">
+                <div class="text-uppercase small fw-semibold opacity-75 mb-2">Audit Trail</div>
+                <h2 class="fw-bold mb-1"><i class="bi bi-journal-text me-2"></i>System Logs</h2>
+                <p class="mb-0 opacity-75">Track user activity, operational events, and audit history with a cleaner monitoring workspace.</p>
+            </div>
+        </div>
+
+        <div class="logs-stat-grid">
+            <div class="card logs-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Total Logs</div><div class="display-6 fw-bold mb-0">0</div></div><div class="logs-stat-icon bg-primary-subtle text-primary"><i class="bi bi-database"></i></div></div></div></div>
+            <div class="card logs-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Users Logged</div><div class="display-6 fw-bold mb-0">0</div></div><div class="logs-stat-icon bg-success-subtle text-success"><i class="bi bi-people"></i></div></div></div></div>
+            <div class="card logs-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Today</div><div class="display-6 fw-bold mb-0">0</div></div><div class="logs-stat-icon bg-warning-subtle text-warning"><i class="bi bi-clock-history"></i></div></div></div></div>
+        </div>
+
+        <div class="card logs-filter-card">
+            <div class="card-body">
+                <form method="GET" class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label fw-semibold">User</label>
+                        <select name="user" class="form-select">
+                            <option value="">All Users</option>
+                                                    </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label fw-semibold">Action</label>
+                        <input type="text" name="action" class="form-control" placeholder="Search action..." value="">
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label fw-semibold">Date From</label>
+                        <input type="date" name="date_from" class="form-control" value="">
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label fw-semibold">Date To</label>
+                        <input type="date" name="date_to" class="form-control" value="">
+                    </div>
+                    <div class="col-md-2 d-flex align-items-end gap-2">
+                        <button class="btn btn-primary w-100"><i class="bi bi-search me-1"></i>Filter</button>
+                        <a href="activity-logs.html" class="btn btn-secondary w-100">Reset</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+                <div class="card logs-tools-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+                    <div>
+                        <h5 class="mb-1 fw-bold">Log Cleanup Controls</h5>
+                        <small class="text-muted">Delete logs for today, a specific date, or a selected date range.</small>
+                    </div>
+                    <span class="badge text-bg-warning">Restricted Action</span>
+                </div>
+
+                <div class="logs-warning mb-3">
+                    Only use this when audit cleanup is truly intended. Deleted log records cannot be restored from this screen.
+                </div>
+
+                <div class="logs-tool-grid">
+                    <div class="logs-tool-panel">
+                        <h6><i class="bi bi-calendar-day me-2"></i>Delete Today</h6>
+                        <p>Removes all log records created today.</p>
+                        <button type="button" class="btn btn-danger w-100 js-delete-logs" data-mode="today">
+                            <i class="bi bi-trash3 me-1"></i>Delete Today's Logs
+                        </button>
+                    </div>
+
+                    <div class="logs-tool-panel">
+                        <h6><i class="bi bi-calendar-date me-2"></i>Delete Specific Date</h6>
+                        <p>Delete logs only from one selected calendar date.</p>
+                        <div class="d-grid gap-2">
+                            <input type="date" class="form-control" id="deleteLogDate" max="2026-11-15">
+                            <button type="button" class="btn btn-danger js-delete-logs" data-mode="date">
+                                <i class="bi bi-calendar-x me-1"></i>Delete Selected Date
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="logs-tool-panel">
+                        <h6><i class="bi bi-calendar-range me-2"></i>Delete Date Range</h6>
+                        <p>Delete logs from a start date through an end date.</p>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <input type="date" class="form-control" id="deleteLogFrom" max="2026-11-15">
+                            </div>
+                            <div class="col-6">
+                                <input type="date" class="form-control" id="deleteLogTo" max="2026-11-15">
+                            </div>
+                            <div class="col-12">
+                                <button type="button" class="btn btn-danger w-100 js-delete-logs" data-mode="range">
+                                    <i class="bi bi-trash me-1"></i>Delete Date Range
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card logs-table-card">
+            <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div>
+                    <h5 class="mb-1 fw-bold">Activity Log Ledger</h5>
+                    <!-- <small class="text-muted">Detailed record of actions captured by the system.</small> -->
+                </div>
+                <span class="badge text-bg-light text-dark">0 record(s)</span>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="activityTable" class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>User</th>
+                                <th>Action</th>
+                                <th>Description</th>
+                                <th>IP Address</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card logs-table-card">
+            <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div>
+                    <h5 class="mb-1 fw-bold">Record Change History</h5>
+                    <small class="text-muted">Archive of edited and deleted records with before/after snapshots.</small>
+                </div>
+                <span class="badge text-bg-light text-dark">0 latest record(s)</span>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="recordHistoryTable" class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Record</th>
+                                <th>Action</th>
+                                <th>Summary</th>
+                                <th>Before</th>
+                                <th>After</th>
+                                <th>Changed By</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div> <!-- content padding -->
+
+</main>
+</div> <!-- layout -->
+<!-- Bootstrap JS Bundle -->
+
+
+<!--  -->
+
+
+
+<link rel="stylesheet" href="local.css?v=plain-2"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="local.js"></script></body>
+</html>

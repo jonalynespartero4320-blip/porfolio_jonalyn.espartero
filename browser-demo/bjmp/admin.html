@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ID &amp; Queuing System</title>
+
+    
+
+    <!-- ================= META ================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ================= FONTS ================= -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ================= BOOTSTRAP ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- ================= ICONS ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- ================= CSS PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM CSS ================= -->
+<link rel="stylesheet" href="./assets/css/main.css?v=plain-2">
+<link rel="stylesheet" href="./assets/css/table.css">
+<link rel="stylesheet" href="./assets/css/select.css">
+
+
+
+
+<!-- ================= JQUERY (REQUIRED FIRST) ================= -->
+
+
+<!-- ================= DATA TABLES ================= -->
+
+
+
+<!-- ================= PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM JS ================= -->
+
+<link rel="stylesheet" href="local.css?v=plain-2"></head>
+<body>
+
+<div class="layout">
+    
+<aside class="sidebar">
+
+    <!-- BRAND -->
+    <div class="sidebar-brand text-center py-3">
+        <img
+            src="./assets/images/demo-mark.svg"
+            alt="Demo ID symbol"
+            class="sidebar-brand-logo"
+        >
+        <div class="fw-bold">ID & Queuing System</div>
+    </div>
+
+    <!-- MENU -->
+    <nav class="sidebar-menu px-2">
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    MAIN                </div>
+
+                
+                    
+                    <a 
+                        href="dashboard.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="queue.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-upc-scan"></i>
+                        <span>Queue</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="special-cases.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-stars"></i>
+                        <span>Special Cases</span>
+                    </a>
+
+                
+            </div>
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    MODULES                </div>
+
+                
+                    
+                    <a 
+                        href="pdl-management.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-file"></i>
+                        <span>Resident Management</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="visitor-registration.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-person-vcard"></i>
+                        <span>Visitor Registration</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="visitor-management.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-people-fill"></i>
+                        <span>Visitor Management</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="id-issuance.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-person-vcard-fill"></i>
+                        <span>ID Issuance</span>
+                    </a>
+
+                
+            </div>
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    REPORTING                </div>
+
+                
+                    
+                    <a 
+                        href="reports.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-bar-chart-line"></i>
+                        <span>Reports</span>
+                    </a>
+
+                
+            </div>
+
+        
+
+        <!-- 🔥 ADMIN SECTION -->
+        
+            <div class="sidebar-module">
+
+                <div class="sidebar-divider text-uppercase small text-warning px-2 mb-2">
+                    ADMIN
+                </div>
+
+                                <a href="masterlist.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-bookmark"></i>
+                    <span>Masterlist</span>
+                </a>
+                
+                                <a href="admin.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-person-gear"></i>
+                    <span>Manage Users</span>
+                </a>
+                
+                                <a href="documentation-process-flow.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Documentation & Process Flow</span>
+                </a>
+                
+            </div>
+
+        
+    </nav>
+
+</aside>
+
+    <main class="content">
+        <div class="topbar d-flex justify-content-between align-items-center px-3 py-2 shadow-sm">
+            <div class="d-flex align-items-center gap-3">
+                <div class="system-title fw-bold">
+                    <i class="bi bi-shield-lock"></i>
+                    <span>ID & Queuing System</span>
+                </div>
+
+                <div class="topbar-clock text-muted">
+                    <i class="bi bi-clock"></i>
+                    <span id="currentDateTime"></span>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                                    <a href="activity-logs.html" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-clock-history"></i> Logs
+                    </a>
+                
+                <div class="user-panel d-flex align-items-center gap-2">
+                    <i class="bi bi-person-circle fs-4"></i>
+
+                    <div>
+                        <div class="fw-semibold">demo</div>
+                        <small class="text-muted">Super Admin</small>
+                    </div>
+                </div>
+
+                <a href="change-password.html" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-key"></i> Change Password
+                </a>
+
+                <a href="index.html" class="btn btn-danger btn-sm" data-logout-clear-state="1">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="px-3 pb-3 pt-1">
+            
+<style>
+  .admin-shell { display: grid; gap: .85rem; 
+    /* background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(248, 250, 252, 0.96) 100%); */
+    border-radius: 28px;
+    padding: 24px;}
+  .admin-hero {
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    border-radius: 22px;
+    background:
+      linear-gradient(135deg, #062150, #447A61);
+    color: #fff;
+    box-shadow: 0 18px 42px rgba(8, 19, 31, 0.14);
+  }
+  .admin-hero::after {
+    content: "";
+    position: absolute;
+    right: -70px;
+    bottom: -75px;
+    width: 185px;
+    height: 185px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+  }
+  .admin-hero .card-body { position: relative; z-index: 1; padding: 1rem 1.15rem; }
+  .admin-hero h2 { font-size: clamp(1.45rem, 2vw, 2rem); }
+  .admin-hero p { font-size: .92rem; }
+  .admin-stat-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .75rem; }
+  .admin-stat-card, .admin-toolbar { border: 0; border-radius: 24px; box-shadow: 0 16px 38px rgba(15, 23, 42, 0.08); }
+  .admin-stat-card { border-radius: 20px; margin-bottom: 0; }
+  .admin-stat-card .card-body { padding: .85rem 1rem; }
+  .admin-stat-card .display-6 { font-size: 2rem; line-height: 1; }
+  .admin-toolbar { border-radius: 20px; margin-bottom: 0; }
+  .admin-toolbar .card-body { padding: .85rem 1rem; }
+  .admin-stat-icon {
+    width: 42px; height: 42px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.1rem;
+  }
+  .admin-workspace-card {
+    border: 0;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.96);
+    box-shadow: 0 14px 34px rgba(15,23,42,0.09);
+    overflow: hidden;
+  }
+  .admin-workspace-card > .card-header {
+    padding: .8rem .9rem 0;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.98), rgba(241,247,244,0.98));
+    border-bottom: 1px solid rgba(8,19,31,0.08);
+  }
+  .admin-workspace-card > .card-body {
+    padding: .85rem .9rem .9rem;
+  }
+  .admin-tabs { gap: .45rem; border-bottom: 0; margin-top: .55rem; }
+  .admin-tabs .nav-item { margin-bottom: -1px; }
+  .admin-tabs .nav-link {
+    position: relative;
+    border: 1px solid rgba(8,19,31,0.08);
+    border-bottom: 0;
+    border-radius: 14px 14px 0 0;
+    padding: .58rem .85rem .72rem;
+    background: linear-gradient(180deg, #f8fafc, #edf3f1);
+    color: #334155;
+    font-weight: 800;
+    min-width: 145px;
+    box-shadow: inset 0 -8px 14px rgba(15,23,42,0.04);
+  }
+  .admin-tabs .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 5px;
+    height: 3px;
+    border-radius: 999px;
+    background: transparent;
+  }
+  .admin-tabs .nav-link.active {
+    background: #fff;
+    color: #447A61;
+    border-color: rgba(15,91,52,0.18);
+    box-shadow: 0 -8px 22px rgba(15,23,42,0.08);
+  }
+  .admin-tabs .nav-link.active::after {
+    background: linear-gradient(90deg, #062150, #447A61);
+  }
+  .admin-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    padding: .45rem .75rem;
+    border-radius: 999px;
+    background: rgba(15,71,215,0.08);
+    color: #ffffff;
+    font-weight: 600;
+  }
+  .admin-panel {
+    /* border-radius: 18px; */
+    overflow: hidden;
+    margin-bottom: 0;
+    background: #fff;
+    /* border: 1px solid rgba(8,19,31,0.08); */
+  }
+  .admin-panel .card-header {
+    padding: .75rem .9rem;
+    background: linear-gradient(135deg, rgba(15,71,215,0.04), rgba(15,143,45,0.04));
+    border-bottom: 1px solid rgba(8,19,31,0.08);
+  }
+  .admin-panel .card-body {
+    padding: .65rem;
+  }
+  .perm-checkbox:checked { accent-color: #062150; }
+  td.active-cell { background: rgba(15, 143, 45, 0.12) !important; }
+  tr.active-row td:first-child { background: rgba(15, 143, 45, 0.18) !important; }
+  .modal-body { max-height: 65vh; overflow-y: auto; }
+  .modal-header, .modal-footer { position: sticky; z-index: 10; }
+  .modal-header { top: 0; }
+  .modal-footer { bottom: 0; }
+  .table-responsive { max-height: 60vh; }
+.permission-role-note {
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(15,71,215,0.05), rgba(15,143,45,0.05));
+    border: 1px solid rgba(8,19,31,0.08);
+    padding: .9rem 1rem;
+  }
+  .container-fluid.py-3 > h4.fw-bold.mb-3 { display: none; }
+  @media (max-width: 1199px) {
+    .admin-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 767px) {
+    .admin-stat-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="container-fluid py-3">
+
+<h4 class="fw-bold mb-3">👥 Admin Panel</h4>
+
+<div class="admin-shell">
+
+<div class="card admin-hero">
+    <div class="card-body d-flex justify-content-between align-items-center flex-wrap gap-3">
+        <div>
+            <div class="text-uppercase small fw-semibold opacity-75 mb-2">Administration</div>
+            <h2 class="fw-bold mb-1">Account Administration</h2>
+            <p class="mb-0 opacity-75">Manage user governance, role assignment, permission overrides, and password reset approvals from one control center.</p>
+        </div>
+        <div class="d-flex gap-2 flex-wrap">
+            <span class="admin-chip"><i class="bi bi-people"></i>0 users</span>
+            <span class="admin-chip"><i class="bi bi-key"></i>0 pending resets</span>
+        </div>
+    </div>
+</div>
+
+<div class="admin-stat-grid">
+    <div class="card admin-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Users</div><div class="display-6 fw-bold mb-0">0</div></div><div class="admin-stat-icon bg-primary-subtle text-primary"><i class="bi bi-people-fill"></i></div></div></div></div>
+    <div class="card admin-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Staff</div><div class="display-6 fw-bold mb-0">0</div></div><div class="admin-stat-icon bg-success-subtle text-success"><i class="bi bi-person-vcard"></i></div></div></div></div>
+    <div class="card admin-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Admins</div><div class="display-6 fw-bold mb-0">0</div></div><div class="admin-stat-icon bg-info-subtle text-info"><i class="bi bi-person-gear"></i></div></div></div></div>
+    <div class="card admin-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Pending Approval</div><div class="display-6 fw-bold mb-0">0</div></div><div class="admin-stat-icon bg-warning-subtle text-warning"><i class="bi bi-hourglass-split"></i></div></div></div></div>
+    <div class="card admin-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Pending Resets</div><div class="display-6 fw-bold mb-0">0</div></div><div class="admin-stat-icon bg-warning-subtle text-warning"><i class="bi bi-clock-history"></i></div></div></div></div>
+    <div class="card admin-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Super Admins</div><div class="display-6 fw-bold mb-0">0</div></div><div class="admin-stat-icon bg-info-subtle text-info"><i class="bi bi-shield-lock"></i></div></div></div></div>
+</div>
+
+<!-- <div class="card admin-toolbar">
+    <div class="card-body">
+        <div class="row g-3 align-items-end">
+            <div class="col-lg-7">
+                <label class="form-label fw-semibold mb-1" for="adminQuickSearch">Quick Search</label>
+                <input type="text" id="adminQuickSearch" class="form-control" placeholder="Search users, roles, usernames, or reset requests">
+            </div>
+            <div class="col-lg-5">
+                <div class="small text-muted">Governance Scope</div>
+                <div class="fw-semibold fs-5">0 system permissions available</div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="card admin-workspace-card">
+     
+    <!-- <div class="card-header">
+        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+            <div>
+                <div class="text-uppercase small fw-semibold text-muted mb-1">User Governance</div>
+                <h4 class="fw-bold mb-1">Account Administration</h4>
+                <p class="text-muted mb-0">Manage user roles, permission access, and password reset requests.</p>
+            </div>
+        </div>
+    </div> -->
+
+<div class="card-body">
+    <div class="col-lg-7">
+                <label class="form-label fw-semibold mb-1" for="adminQuickSearch">Quick Search</label>
+                <input type="text" id="adminQuickSearch" class="form-control" placeholder="Search users, roles, usernames, or reset requests">
+            </div><br>
+<ul class="nav nav-tabs admin-tabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active d-inline-flex align-items-center justify-content-center gap"
+            data-bs-toggle="tab"
+            data-bs-target="#usersTab"
+            type="button"
+            role="tab">
+             Users
+        </button>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link d-inline-flex align-items-center justify-content-center gap-2"
+            data-bs-toggle="tab"
+            data-bs-target="#resetTab"
+            type="button"
+            role="tab">
+            Reset Requests
+        </button>
+    </li>
+</ul>
+<div class="tab-content">
+
+<!-- ================= USERS TAB ================= -->
+<div class="tab-pane fade show active" id="usersTab" role="tabpanel">
+
+
+<div class="card-1 admin-panel">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div>
+            <h5 class="fw-bold mb-1"><i class="bi bi-people-fill me-2 text-primary"></i>System Users</h5>
+                        <!-- <span class="badge text-bg-light text-dark">0 account(s)</span> -->
+
+            <small class="text-muted">Review accounts and manage role-based access.</small>
+        </div>
+        <span class="badge bg-primary rounded-pill">0 user(s)</span>
+    </div>
+    <div class="card-body">
+
+        <div class="table-responsive">
+                    <!-- <span class="badge bg-primary rounded-pill">0 user(s)</span> -->
+
+            <table class="table table-hover align-middle text-center mb-0" id="usersTable">
+
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th style="width:120px;">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                                    </tbody>
+
+            </table>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+<!-- ================= RESET TAB ================= -->
+<div class="tab-pane fade" id="resetTab" role="tabpanel">
+
+
+<div class="admin-panel-table">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div>
+            <h5 class="fw-bold mb-1"><i class="bi bi-key-fill me-2 text-warning"></i>Password Reset Requests</h5>
+            <small class="text-muted">Approve or reject pending password recovery requests.</small>
+        </div>
+        <span class="badge bg-warning text-dark rounded-pill">0 request(s)</span>
+    </div>
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle text-center mb-0" id="resetTable">
+
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th style="width:180px;">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+</div> <!-- tab-content -->
+
+    </div>
+</div>
+
+</div>
+</div>
+
+<!-- ================= ROLE MODAL ================= -->
+<div class="modal fade" id="roleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+
+            <form method="POST" action="#">
+
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="mb-0 text-black">Permission Matrix</h5>
+                    <button type="button" class="btn-close btn-close-black" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <input type="hidden" name="user_id" id="modal_user_id">
+
+                    <input type="text" id="modal_user_name"
+                        class="form-control mb-3" disabled>
+
+                    <select name="role_id" id="modal_role_id" class="form-select mb-3" >
+                                            </select>
+
+                    <div class="permission-role-note mb-3">
+                        <div class="fw-semibold mb-1">Role Guidance</div>
+                        <div class="small text-muted" id="roleHelperText">Choose a role, then fine-tune permission overrides as needed.</div>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2 mb-3 align-items-center justify-content-between">
+                        <div class="d-flex flex-wrap gap-2">
+                        
+                        <button type="button" class="btn btn-dark btn-sm">
+                            All
+                        </button>
+                        </div>
+                        <div class="d-flex gap-2 align-items-center flex-wrap">
+                            <input type="text" id="permissionSearch" class="form-control form-control-sm" placeholder="Filter modules" style="max-width:220px;">
+                            <span class="badge text-bg-light text-dark" id="permissionSummary">0 permission(s) selected</span>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-center align-middle">
+
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="text-start">Module</th>
+                                                                        <th>All</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="permissionTableBody">
+                                                            </tbody>
+
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                                            <button class="btn btn-success">Save</button>
+                                    </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- ================= APPROVE MODAL ================= -->
+<div class="modal fade" id="approveModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <form method="POST" action="#">
+
+                <div class="modal-header bg-success text-white">
+                    <h5 class="mb-0">Approve Reset</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <input type="hidden" name="request_id" id="approve_id">
+                    <input type="hidden" name="action" value="approve">
+
+                    <label class="form-label">New Password</label>
+                    <input type="text" name="password" class="form-control" minlength="6" value="123456" required>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-success">Approve</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- ================= REJECT MODAL ================= -->
+<div class="modal fade" id="rejectModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <form method="POST" action="#">
+
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="mb-0">Reject Request</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <input type="hidden" name="request_id" id="reject_id">
+                    <input type="hidden" name="action" value="reject">
+
+                    <label class="form-label">Reason</label>
+                    <textarea name="reason" class="form-control" required></textarea>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-danger">Reject</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+</div> <!-- content padding -->
+
+</main>
+</div> <!-- layout -->
+<!-- Bootstrap JS Bundle -->
+
+
+<!--  -->
+
+
+
+<link rel="stylesheet" href="local.css?v=plain-2"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="local.js"></script></body>
+</html>

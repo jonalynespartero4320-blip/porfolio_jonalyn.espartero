@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Visitor Management</title>
+
+    
+
+    <!-- ================= META ================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ================= FONTS ================= -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ================= BOOTSTRAP ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- ================= ICONS ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- ================= CSS PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM CSS ================= -->
+<link rel="stylesheet" href="./assets/css/main.css?v=plain-2">
+<link rel="stylesheet" href="./assets/css/table.css">
+<link rel="stylesheet" href="./assets/css/select.css">
+
+
+
+
+<!-- ================= JQUERY (REQUIRED FIRST) ================= -->
+
+
+<!-- ================= DATA TABLES ================= -->
+
+
+
+<!-- ================= PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM JS ================= -->
+
+<link rel="stylesheet" href="local.css?v=plain-2"></head>
+<body>
+
+<div class="layout">
+    
+<aside class="sidebar">
+
+    <!-- BRAND -->
+    <div class="sidebar-brand text-center py-3">
+        <img
+            src="./assets/images/demo-mark.svg"
+            alt="Demo ID symbol"
+            class="sidebar-brand-logo"
+        >
+        <div class="fw-bold">ID & Queuing System</div>
+    </div>
+
+    <!-- MENU -->
+    <nav class="sidebar-menu px-2">
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    MAIN                </div>
+
+                
+                    
+                    <a 
+                        href="dashboard.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="queue.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-upc-scan"></i>
+                        <span>Queue</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="special-cases.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-stars"></i>
+                        <span>Special Cases</span>
+                    </a>
+
+                
+            </div>
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    MODULES                </div>
+
+                
+                    
+                    <a 
+                        href="pdl-management.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-file"></i>
+                        <span>Resident Management</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="visitor-registration.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-person-vcard"></i>
+                        <span>Visitor Registration</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="visitor-management.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-people-fill"></i>
+                        <span>Visitor Management</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="id-issuance.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-person-vcard-fill"></i>
+                        <span>ID Issuance</span>
+                    </a>
+
+                
+            </div>
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    REPORTING                </div>
+
+                
+                    
+                    <a 
+                        href="reports.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-bar-chart-line"></i>
+                        <span>Reports</span>
+                    </a>
+
+                
+            </div>
+
+        
+
+        <!-- 🔥 ADMIN SECTION -->
+        
+            <div class="sidebar-module">
+
+                <div class="sidebar-divider text-uppercase small text-warning px-2 mb-2">
+                    ADMIN
+                </div>
+
+                                <a href="masterlist.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-bookmark"></i>
+                    <span>Masterlist</span>
+                </a>
+                
+                                <a href="admin.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-person-gear"></i>
+                    <span>Manage Users</span>
+                </a>
+                
+                                <a href="documentation-process-flow.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Documentation & Process Flow</span>
+                </a>
+                
+            </div>
+
+        
+    </nav>
+
+</aside>
+
+    <main class="content">
+        <div class="topbar d-flex justify-content-between align-items-center px-3 py-2 shadow-sm">
+            <div class="d-flex align-items-center gap-3">
+                <div class="system-title fw-bold">
+                    <i class="bi bi-shield-lock"></i>
+                    <span>ID & Queuing System</span>
+                </div>
+
+                <div class="topbar-clock text-muted">
+                    <i class="bi bi-clock"></i>
+                    <span id="currentDateTime"></span>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                                    <a href="activity-logs.html" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-clock-history"></i> Logs
+                    </a>
+                
+                <div class="user-panel d-flex align-items-center gap-2">
+                    <i class="bi bi-person-circle fs-4"></i>
+
+                    <div>
+                        <div class="fw-semibold">demo</div>
+                        <small class="text-muted">Super Admin</small>
+                    </div>
+                </div>
+
+                <a href="change-password.html" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-key"></i> Change Password
+                </a>
+
+                <a href="index.html" class="btn btn-danger btn-sm" data-logout-clear-state="1">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="px-3 pb-3 pt-1">
+            
+<style>
+  .vm-shell { display: grid; gap: 1.25rem; 
+    /* background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(248, 250, 252, 0.96) 100%); */
+    border-radius: 28px;
+    padding: 24px;}
+  .vm-hero {
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    border-radius: 28px;
+     background:
+      linear-gradient(135deg, #062150, #447A61);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
+  }
+  .vm-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -80px -80px auto;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .vm-hero .card-body { position: relative; z-index: 1; padding: 1.6rem; }
+  .vm-stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .vm-stat, .vm-toolbar, .vm-table-card { border: 0; box-shadow: 0 16px 38px rgba(15, 23, 42, 0.08); }
+  .vm-stat { border-radius: 22px; }
+  .vm-toolbar { border-radius: 24px; }
+  .vm-table-card { border-radius: 28px; overflow: hidden; }
+  .vm-table-card .card-header {
+    background: linear-gradient(135deg, #062150, #80A497);
+    border: 0;
+    padding: 1rem 1.25rem;
+  }
+  .vm-toolbar .form-select, .vm-toolbar .form-control { border-radius: 14px; }
+  .icon-wrap {
+    width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 16px; font-size: 1.25rem;
+  }
+  .chip-group { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .chip { padding: .45rem .8rem; border-radius: 999px; background: #f1f5f9; font-size: .82rem; color: #334155; }
+  .vm-table tbody tr { transition: transform .15s ease; }
+  .vm-table tbody tr:hover { transform: translateY(-1px); }
+  .visitor-identity { display: flex; align-items: center; gap: .9rem; }
+  .visitor-avatar {
+    width: 52px; height: 52px; border-radius: 16px; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, rgba(68,122,97,0.28), rgba(128,164,151,0.32)); color: #062150; font-weight: 700; flex-shrink: 0;
+    overflow: hidden;
+  }
+  .visitor-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .status-stack, .document-stack, .pdl-stack { display: grid; gap: .4rem; }
+  .document-progress { height: 8px; border-radius: 999px; background: #e2e8f0; overflow: hidden; }
+  .document-progress > span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #0ea5e9, #22c55e); }
+  .action-grid { display: flex; gap: .45rem; flex-wrap: wrap; }
+  .action-grid .btn { border-radius: 12px; }
+  .vm-tab-nav {
+    gap: .5rem;
+    border-bottom: 0;
+  }
+  .vm-tab-nav .nav-link {
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 16px 16px 0 0;
+    background: rgba(248, 250, 252, 0.78);
+    color: #334155;
+    font-weight: 700;
+  }
+  .vm-tab-nav .nav-link.active {
+    background: #fff;
+    color: #14532d;
+    border-bottom-color: #fff;
+    box-shadow: 0 -8px 20px rgba(15, 23, 42, 0.05);
+  }
+  .details-photo-card { border: 0; border-radius: 24px; box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08); }
+  .requirement-frame { width: 100%; height: 500px; border: 1px solid #dbe2ea; border-radius: 16px; background: #f8fafc; }
+  @media (max-width: 1199px) { .vm-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 767px) {
+    .vm-stat-grid { grid-template-columns: 1fr; }
+    .visitor-identity { align-items: flex-start; }
+  }
+</style>
+
+<div class="container-fluid py-3">
+    <div class="vm-shell">
+        <div class="card vm-hero text-white">
+            <div class="card-body">
+                <div class="row g-4 align-items-center">
+                    <div class="col-xl-7">
+                        <div class="text-uppercase small fw-semibold opacity-75 mb-2">Visitor Operations</div>
+                        <h2 class="fw-bold mb-2">Verified Visitors Details Management.</h2>
+                        <p class="mb-0 opacity-75">Review verified visitors, control bans, maintain documents, prepare IDs, and hand off eligible visitors to the queueing module from one screen.</p>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="chip-group justify-content-xl-end">
+                            <span class="chip bg-white text-dark"><i class="bi bi-person-check me-1 text-success"></i>0 queue-ready</span>
+                            <span class="chip bg-white text-dark"><i class="bi bi-card-heading me-1 text-primary"></i>0 IDs issued</span>
+                            <span class="chip bg-white text-dark"><i class="bi bi-slash-circle me-1 text-danger"></i>0 active bans</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vm-stat-grid">
+            <div class="card vm-stat">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="text-muted small">Verified Visitors</div>
+                            <div class="display-6 fw-bold mb-0" id="statTotalVerified">0</div>
+                        </div>
+                        <div class="icon-wrap bg-success-subtle text-success"><i class="bi bi-people-fill"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card vm-stat">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="text-muted small">Queue Ready</div>
+                            <div class="display-6 fw-bold mb-0" id="statQueueReady">0</div>
+                        </div>
+                        <div class="icon-wrap bg-primary-subtle text-primary"><i class="bi bi-person-plus-fill"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card vm-stat">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="text-muted small">IDs Issued</div>
+                            <div class="display-6 fw-bold mb-0" id="statIssued">0</div>
+                        </div>
+                        <div class="icon-wrap bg-info-subtle text-info"><i class="bi bi-card-checklist"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card vm-stat">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="text-muted small">Pending ID Issuance</div>
+                            <div class="display-6 fw-bold mb-0" id="statPendingId">0</div>
+                        </div>
+                        <div class="icon-wrap bg-warning-subtle text-warning"><i class="bi bi-hourglass-split"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card vm-toolbar">
+            <div class="card-body">
+                <div class="row g-3 align-items-end">
+                    <div class="col-lg-4">
+                        <label for="visitorQuickSearch" class="form-label fw-semibold mb-1">Quick Search</label>
+                        <input type="text" id="visitorQuickSearch" class="form-control" placeholder="Search visitor, Resident, V-ID, contact, or address">
+                    </div>
+                    <div class="col-lg-3">
+                        <label for="banStatusFilter" class="form-label fw-semibold mb-1">Ban Status</label>
+                        <select id="banStatusFilter" class="form-select">
+                            <option value="">All visitors</option>
+                            <option value="active">Active bans only</option>
+                            <option value="clear">Not banned only</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3">
+                        <label for="issuanceFilter" class="form-label fw-semibold mb-1">ID Issuance</label>
+                        <select id="issuanceFilter" class="form-select">
+                            <option value="">All issuance states</option>
+                            <option value="issued">With issued ID</option>
+                            <option value="pending">Pending ID issuance</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2 d-grid">
+                        <button type="button" id="resetVisitorFilters" class="btn btn-outline-dark">
+                            <i class="bi bi-arrow-counterclockwise me-1"></i>Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card vm-table-card">
+        <div class="card-header bg-success text-white rounded-top-4">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div>
+                    <h5 class="mb-1 fw-bold">Verified Visitors Records</h5>
+                                    <!-- <span class="badge text-bg-light text-dark" id="visibleVisitorCount">Showing 0 visitors</span> -->
+
+                    <!-- <small class="opacity-75">Operational review, document maintenance, ID readiness, and queueing.</small> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <ul class="nav nav-tabs vm-tab-nav mb-3" id="visitorPdlSexTabs">
+                <li class="nav-item">
+                    <button type="button" class="nav-link active" data-pdl-sex-filter="male">
+                       </i> Male Resident Visitors
+                        <span class="badge bg-primary ms-1">0</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="nav-link" data-pdl-sex-filter="female">
+                        </i> Female Resident Visitors
+                        <span class="badge bg-danger ms-1">0</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="table-responsive">
+                <table id="visitorManagementTable" class="table vm-table align-middle w-100">
+                    <thead class="table-light">
+                        <tr>
+                            <th width="28%">Visitor</th>
+                            <th width="16%">Status</th>
+                            <th width="16%">Requirements</th>
+                            <th width="18%">Linked Resident</th>
+                            <th width="22%">Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                            </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="banModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="banForm" class="modal-content rounded-4 shadow">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title text-black">Ban Visitor</h5>
+                <button type="button" class="btn-close btn-close-black" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="ban_visitor_id" name="visitor_id">
+                <div class="mb-3">
+                    <label for="violation_type" class="form-label fw-bold">Violation</label>
+                    <input type="text" id="violation_type" name="violation_type" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="effective_until" class="form-label fw-bold">Effective Until</label>
+                    <input type="date" id="effective_until" name="effective_until" class="form-control" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-dark">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="viewDetailsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header bg-info text-white">
+                <h5 class="modal-title">Visitor Full Information</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-4 text-center">
+                            <div class="card details-photo-card p-3">
+                                <img id="viewVisitorPhoto" src="./assets/images/demo-scene.svg" class="img-fluid rounded-3 mb-3" style="aspect-ratio:1/1; object-fit:cover; cursor:pointer;" alt="Visitor photo">
+                                <span id="visitorStatusBadge" class="badge bg-secondary fs-6 mb-3 w-100">Status</span>
+                                <input type="file" id="changePhotoInput" class="d-none" accept="image/jpeg,image/png">
+                                <button type="button" class="btn btn-sm btn-outline-primary w-100" id="changePhotoBtn">
+                                    <i class="bi bi-camera me-1"></i>Change Photo
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <div id="visitorFullInfo"></div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div id="requirementsButtons" class="mb-3"></div>
+                    <iframe id="requirementsFrame" class="requirement-frame"></iframe>
+
+                    <div class="d-flex justify-content-end mt-3">
+                        <input type="file" id="changeRequirementInput" class="d-none" accept=".pdf,.jpg,.jpeg,.png">
+                        <button type="button" class="btn btn-sm btn-success" id="changeRequirementBtn">
+                            <i class="bi bi-upload me-1"></i>Change File
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="emergencyContactModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="emergencyContactForm" class="modal-content rounded-4 shadow">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title"><i class="bi bi-telephone-plus me-1"></i>Update Emergency Contact</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="ec_registration_id" name="registration_id">
+                <div class="mb-3">
+                    <label for="ec_name_input" class="form-label fw-semibold">Emergency Contact Name</label>
+                    <input type="text" id="ec_name_input" name="ec_name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="ec_contact_input" class="form-label fw-semibold">Emergency Contact No.</label>
+                    <input type="text" id="ec_contact_input" name="ec_contactno" class="form-control" required>
+                </div>
+                <div class="mb-0">
+                    <label for="ec_address_input" class="form-label fw-semibold">Emergency Address</label>
+                    <textarea id="ec_address_input" name="ec_address" class="form-control" rows="3" required></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-save me-1"></i>Save Emergency Contact
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="banHistoryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Ban History</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Violation</th>
+                                <th>From</th>
+                                <th>Until</th>
+                                <th>Banned By</th>
+                                <th>Lifted By</th>
+                                <th>Lifted On</th>
+                                <th>Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody id="banHistoryBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="viewPDLModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header bg-info text-white">
+                <h5 class="modal-title fw-bold">Resident Information</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="pdlFullInfo"></div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+</div> <!-- content padding -->
+
+</main>
+</div> <!-- layout -->
+<!-- Bootstrap JS Bundle -->
+
+
+<!--  -->
+
+
+
+<link rel="stylesheet" href="local.css?v=plain-2"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="local.js"></script></body>
+</html>

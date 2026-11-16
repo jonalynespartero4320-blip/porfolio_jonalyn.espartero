@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ID &amp; Queuing System</title>
+
+    
+
+    <!-- ================= META ================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ================= FONTS ================= -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ================= BOOTSTRAP ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- ================= ICONS ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- ================= CSS PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM CSS ================= -->
+<link rel="stylesheet" href="./assets/css/main.css?v=plain-2">
+<link rel="stylesheet" href="./assets/css/table.css">
+<link rel="stylesheet" href="./assets/css/select.css">
+
+
+
+
+<!-- ================= JQUERY (REQUIRED FIRST) ================= -->
+
+
+<!-- ================= DATA TABLES ================= -->
+
+
+
+<!-- ================= PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM JS ================= -->
+
+<link rel="stylesheet" href="local.css?v=plain-2"></head>
+<body>
+
+<div class="layout">
+    
+<aside class="sidebar">
+
+    <!-- BRAND -->
+    <div class="sidebar-brand text-center py-3">
+        <img
+            src="./assets/images/demo-mark.svg"
+            alt="Demo ID symbol"
+            class="sidebar-brand-logo"
+        >
+        <div class="fw-bold">ID & Queuing System</div>
+    </div>
+
+    <!-- MENU -->
+    <nav class="sidebar-menu px-2">
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    MAIN                </div>
+
+                
+                    
+                    <a 
+                        href="dashboard.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="queue.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-upc-scan"></i>
+                        <span>Queue</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="special-cases.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-stars"></i>
+                        <span>Special Cases</span>
+                    </a>
+
+                
+            </div>
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    MODULES                </div>
+
+                
+                    
+                    <a 
+                        href="pdl-management.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-file"></i>
+                        <span>Resident Management</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="visitor-registration.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-person-vcard"></i>
+                        <span>Visitor Registration</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="visitor-management.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-people-fill"></i>
+                        <span>Visitor Management</span>
+                    </a>
+
+                
+                    
+                    <a 
+                        href="id-issuance.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-person-vcard-fill"></i>
+                        <span>ID Issuance</span>
+                    </a>
+
+                
+            </div>
+
+        
+            
+            <div class="sidebar-module mb-3">
+
+                <div class="sidebar-divider text-uppercase small text-light px-2 mb-2">
+                    REPORTING                </div>
+
+                
+                    
+                    <a 
+                        href="reports.html"
+                        class="sidebar-link d-flex align-items-center gap-2 px-2 py-2 mb-1 rounded "
+                    >
+                        <i class="bi bi-bar-chart-line"></i>
+                        <span>Reports</span>
+                    </a>
+
+                
+            </div>
+
+        
+
+        <!-- 🔥 ADMIN SECTION -->
+        
+            <div class="sidebar-module">
+
+                <div class="sidebar-divider text-uppercase small text-warning px-2 mb-2">
+                    ADMIN
+                </div>
+
+                                <a href="masterlist.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-bookmark"></i>
+                    <span>Masterlist</span>
+                </a>
+                
+                                <a href="admin.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-person-gear"></i>
+                    <span>Manage Users</span>
+                </a>
+                
+                                <a href="documentation-process-flow.html" class="sidebar-link d-flex align-items-center gap-2 px-2 py-2">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Documentation & Process Flow</span>
+                </a>
+                
+            </div>
+
+        
+    </nav>
+
+</aside>
+
+    <main class="content">
+        <div class="topbar d-flex justify-content-between align-items-center px-3 py-2 shadow-sm">
+            <div class="d-flex align-items-center gap-3">
+                <div class="system-title fw-bold">
+                    <i class="bi bi-shield-lock"></i>
+                    <span>ID & Queuing System</span>
+                </div>
+
+                <div class="topbar-clock text-muted">
+                    <i class="bi bi-clock"></i>
+                    <span id="currentDateTime"></span>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                                    <a href="activity-logs.html" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-clock-history"></i> Logs
+                    </a>
+                
+                <div class="user-panel d-flex align-items-center gap-2">
+                    <i class="bi bi-person-circle fs-4"></i>
+
+                    <div>
+                        <div class="fw-semibold">demo</div>
+                        <small class="text-muted">Super Admin</small>
+                    </div>
+                </div>
+
+                <a href="change-password.html" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-key"></i> Change Password
+                </a>
+
+                <a href="index.html" class="btn btn-danger btn-sm" data-logout-clear-state="1">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="px-3 pb-3 pt-1">
+            
+<style>
+  .pdl-shell { display: grid; gap: .8rem; 
+    /* background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(248, 250, 252, 0.96) 100%); */
+    border-radius: 28px;
+    padding: 24px;}
+  .pdl-hero {
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    border-radius: 22px;
+    background:
+      linear-gradient(135deg, #062150, #447A61);
+    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.14);
+  }
+  .pdl-hero::after {
+    content: "";
+    position: absolute;
+    right: -70px;
+    bottom: -80px;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+  }
+  .pdl-hero .card-body { position: relative; z-index: 1; padding: 1.05rem 1.25rem; }
+  .pdl-hero h2 { font-size: clamp(1.45rem, 2vw, 2rem); }
+  .pdl-hero p { font-size: .92rem; }
+  .pdl-hero .btn { min-height: 38px; padding-inline: .95rem; }
+  .pdl-stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; }
+  .pdl-stat-card { border: 0; border-radius: 24px; box-shadow: 0 16px 38px rgba(15, 23, 42, 0.08); }
+  .pdl-stat-card {
+    border-radius: 20px;
+    margin-bottom: 0;
+  }
+  .pdl-stat-card .card-body {
+    padding: .9rem 1rem;
+  }
+  .pdl-stat-card .display-6 {
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .pdl-directory-card {
+    border: 0;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.96);
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.09);
+    overflow: hidden;
+  }
+  .pdl-directory-card > .card-header {
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.98), rgba(241,247,244,0.98));
+    border-bottom: 1px solid rgba(8,19,31,0.08);
+    padding: .7rem .85rem 0;
+  }
+  .pdl-directory-card > .card-body {
+    padding: .75rem .85rem .85rem;
+  }
+  .pdl-directory-card .pdl-toolbar {
+    border-bottom: 1px solid rgba(8,19,31,0.08);
+    background: rgba(248,250,252,0.72);
+    padding: .75rem .85rem;
+  }
+  .pdl-directory-card .pdl-toolbar .row {
+    --bs-gutter-y: .5rem;
+  }
+  .pdl-directory-card h4 {
+    font-size: 1.05rem;
+  }
+  .pdl-table-wrap {
+    background: transparent;
+  }
+  .pdl-table-title {
+    padding: .45rem .15rem .6rem;
+  }
+  .pdl-table-title h5 {
+    font-size: 1.05rem;
+  }
+  .pdl-table-wrap .table-responsive {
+    /* border: 1px solid rgba(8,19,31,0.08); */
+    border-radius: 16px;
+    background: #fff;
+    padding: .35rem;
+  }
+  .pdl-table-wrap .dataTables_wrapper .top,
+  .pdl-table-wrap .dataTables_wrapper .bottom {
+    margin-bottom: .4rem !important;
+    margin-top: .55rem !important;
+  }
+  .pdl-table-wrap table.dataTable {
+    margin-top: .35rem !important;
+    margin-bottom: .35rem !important;
+  }
+  .pdl-table-wrap .form-select,
+  .pdl-table-wrap .form-control {
+    min-height: 42px;
+  }
+  .pdl-stat-icon {
+    width: 42px; height: 42px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.1rem;
+  }
+ .form-control { border-radius: 14px; }
+  .pdl-avatar { width: 45px; height: 45px; object-fit: cover; }
+  .visitor-badge { font-size: .8rem; padding: .45rem .7rem; }
+  .pdl-action-group .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .pdl-import-btn {
+    background: #d4a93a;
+    border-color: #d4a93a;
+    color: #fff;
+  }
+  .pdl-import-btn:hover {
+    background: #bf972f;
+    border-color: #bf972f;
+    color: #fff;
+  }
+  .pdl-tab-nav {
+    gap: .45rem;
+    border-bottom: 0;
+    margin-top: .45rem;
+  }
+  .pdl-tab-nav .nav-item { margin-bottom: -1px; }
+  .pdl-tab-nav .nav-link {
+    position: relative;
+    border: 1px solid rgba(8,19,31,0.08);
+    border-bottom: 0;
+    border-radius: 14px 14px 0 0;
+    padding: .55rem .8rem .68rem;
+    background: linear-gradient(180deg, #f8fafc, #edf3f1);
+    color: #334155;
+    font-weight: 800;
+    min-width: 110px;
+    justify-content: center;
+    box-shadow: inset 0 -8px 14px rgba(15,23,42,0.04);
+  }
+  .pdl-tab-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 5px;
+    height: 3px;
+    border-radius: 999px;
+    background: transparent;
+  }
+  .pdl-tab-nav .nav-link.active {
+    background: #fff;
+    color: #447A61;
+    border-color: rgba(15,91,52,0.18);
+    box-shadow: 0 -8px 22px rgba(15,23,42,0.08);
+  }
+  .pdl-tab-nav .nav-link.active::after {
+    background: linear-gradient(90deg, #062150, #447A61);
+  }
+  @media (max-width: 1199px) {
+    .pdl-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 767px) {
+    .pdl-stat-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="container-fluid py-3">
+    <div class="pdl-shell">
+        <div class="card pdl-hero text-white">
+            <div class="card-body d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div>
+                    <div class="text-uppercase small fw-semibold opacity-75 mb-2">Custodial Records</div>
+                    <h2 class="fw-bold mb-1"><i class="bi bi-person-badge me-2"></i>Resident Management</h2>
+                    <p class="mb-0 opacity-75">Manage person deprived of liberty profiles, dorm assignments, case references, and linked authorized visitor coverage from one operations workspace.</p>
+                </div>
+                <div class="d-flex gap-2 flex-wrap">
+                                            <a href="#?mode=pdl" class="btn pdl-import-btn btn-sm">
+                            <i class="bi bi-upload me-1"></i> Import Resident
+                        </a>
+                                                                <a href="pdl-form.html" class="btn btn-light btn-sm">
+                            <i class="bi bi-plus-circle me-1"></i> Add New
+                        </a>
+                                    </div>
+            </div>
+        </div>
+
+        <div class="pdl-stat-grid">
+            <div class="card pdl-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Total Resident</div><div class="display-6 fw-bold mb-0" id="statTotalPdl">0</div></div><div class="pdl-stat-icon bg-primary-subtle text-primary"><i class="bi bi-people-fill"></i></div></div></div></div>
+            <div class="card pdl-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Male Records</div><div class="display-6 fw-bold mb-0" id="statMalePdl">0</div></div><div class="pdl-stat-icon bg-info-subtle text-info"><i class="bi bi-gender-male"></i></div></div></div></div>
+            <div class="card pdl-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Female Records</div><div class="display-6 fw-bold mb-0" id="statFemalePdl">0</div></div><div class="pdl-stat-icon bg-danger-subtle text-danger"><i class="bi bi-gender-female"></i></div></div></div></div>
+            <div class="card pdl-stat-card"><div class="card-body"><div class="d-flex justify-content-between align-items-start"><div><div class="text-muted small">Authorized Visitors</div><div class="display-6 fw-bold mb-0" id="statVisitors">0</div></div><div class="pdl-stat-icon bg-success-subtle text-success"><i class="bi bi-person-vcard"></i></div></div></div></div>
+        </div>
+
+       
+
+    <div class="card pdl-directory-card">
+        <div class="pdl-toolbar">
+            <div class="row g-3 align-items-end">
+                <div class="col-lg-8">
+                    <label class="form-label fw-semibold mb-1" for="pdlQuickSearch">Quick Search</label>
+                    <input type="text" id="pdlQuickSearch" class="form-control" placeholder="Search by Resident ID, name, dorm, case, or court">
+                </div>
+                <div class="col-lg-4">
+                    <div class="small text-muted">Active Dorm Coverage</div>
+                    <div class="fw-semibold fs-5">0</div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="card-header">
+            <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
+                <div>
+                    <div class="text-uppercase small fw-semibold text-muted mb-1">Resident Directory</div>
+                    <h4 class="fw-bold mb-1">Custodial Record List</h4>
+                        <span class="badge text-bg-light text-dark">0 total record(s)</span>
+
+                    <p class="text-muted mb-0">Browse Resident records by category using the bookmark tabs below.</p>
+                </div>
+                <span class="badge text-bg-light text-dark">0 total record(s)</span>
+            </div>
+        </div> -->
+        <div class="card-body">
+            <ul class="nav nav-tabs pdl-tab-nav">
+                <li class="nav-item">
+                    <!-- <button class="nav-link active d-inline-flex align-items-center gap-2" data-bs-toggle="tab" data-bs-target="#maleTab" type="button">
+                        <i class="bi bi-bookmark-fill text-primary"></i> Male
+                    </button> -->
+                    <button class="nav-link active d-inline-flex align-items-center gap-2" data-bs-toggle="tab" data-bs-target="#maleTab" type="button">
+                       Male
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link d-inline-flex align-items-center gap-2" data-bs-toggle="tab" data-bs-target="#femaleTab" type="button">
+                        Female
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="maleTab">
+                    <div class="pdl-table-wrap">
+                <div class="pdl-table-title d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <div>
+                        <h5 class="fw-bold mb-1"><i class="bi bi-gender-male me-2 text-primary"></i>Male Resident Records</h5>
+                        <small class="text-muted">Custodial records, case references, dorm assignment, and visitor access.</small>
+                    </div>
+                    <span class="badge bg-primary rounded-pill">0 record(s)</span>
+                </div>
+                <div class="pdl-table-area">
+                        <div class="table-responsive">
+        <table id="pdlMaleTable" class="table table-hover align-middle w-100 modern-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Photo</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Dorm</th>
+                    <th>Age</th>
+                    <th>Case</th>
+                    <th>Court</th>
+                    <th>Visitors</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                                
+            </tbody>
+        </table>
+    </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="femaleTab">
+                    <div class="pdl-table-wrap">
+                <div class="pdl-table-title d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <div>
+                        <h5 class="fw-bold mb-1"><i class="bi bi-gender-female me-2 text-danger"></i>Female Resident Records</h5>
+                        <small class="text-muted">Custodial records, case references, dorm assignment, and visitor access.</small>
+                    </div>
+                    <span class="badge bg-danger rounded-pill">0 record(s)</span>
+                </div>
+                <div class="pdl-table-area">
+                        <div class="table-responsive">
+        <table id="pdlFemaleTable" class="table table-hover align-middle w-100 modern-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Photo</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Dorm</th>
+                    <th>Age</th>
+                    <th>Case</th>
+                    <th>Court</th>
+                    <th>Visitors</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                                
+            </tbody>
+        </table>
+    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="modal fade" id="visitorsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <h5 class="modal-title mb-0">Authorized Visitors</h5>
+                    <small class="text-muted" id="visitorsModalSubtitle">Loading...</small>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="visitorsModalContent" class="text-muted">Loading authorized visitors...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div> <!-- content padding -->
+
+</main>
+</div> <!-- layout -->
+<!-- Bootstrap JS Bundle -->
+
+
+<!--  -->
+
+
+
+<link rel="stylesheet" href="local.css?v=plain-2"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="local.js"></script></body>
+</html>
