@@ -9,3 +9,10 @@ myprojects/
 .idea/
 Thumbs.db
 Desktop.ini
+
+# Temporary view compilation workspace; never publish.
+.static-export-bjmp/
+.static-export-ims/
+.static-export-health/
+.static-export-verification/
+deployment/
