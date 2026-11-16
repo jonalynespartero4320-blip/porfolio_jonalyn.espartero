@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Choose your schedule · Online Appointment</title><link rel="stylesheet" href="./assets/style.css"><link rel="stylesheet" href="./assets/customer.css"><link rel="stylesheet" href="./assets/security.css"><link rel="stylesheet" href="./assets/government.css"><link rel="stylesheet" href="../shared/demo.css?v=all-1"></head><body class="public-portal ">
+<div class="shell">
+<div class="government-strip"><div>ONLINE APPOINTMENT<span>BOOK YOUR VISIT</span></div></div>
+<header class="government-masthead"><div class="government-identity"><div><span class="government-city">SIMPLE AND CONVENIENT BOOKING</span><strong>Online Appointment</strong><span>Online Appointment System</span></div></div><div class="service-label">PUBLIC ONLINE APPOINTMENT<br><span>Monday–Friday</span></div></header>
+<main>
+<div class="eyebrow">ONLINE APPOINTMENT BOOKING</div><h1>Choose your schedule</h1><p class="subtitle">Choose a date and time that works for you.</p>
+<div id="booking-idle" hidden data-activity-url="./booking-activity.html" data-reset-url="./booking-reset.html" data-start-url="./customer.html" data-csrf="593ee5440052fbfcb0039c0fb29a8d57c67d32716004a57c4614fc3b03ec192c" data-guard="" data-remaining="900"></div>
+
+<ol class="booking-steps" aria-label="Booking progress"><li>1. Customer details</li><li class="current">2. Appointment Date</li><li>3. Reference number</li></ol>
+<div class="booking-layout"><section class="card booking"><div class="section-label">STEP 2 OF 2</div><h2>Choose appointment date</h2>
+<form method="get" action="./schedule.html" id="availability-form"><label for="schedule-date">Appointment date</label><input id="schedule-date" type="date" name="date" min="2026-11-16" max="2027-02-14" value="" required><small>Monday–Friday only · Up to 90 days ahead · Singapore time (UTC+8)</small><button class="text-button" type="submit">Check available slots</button></form>
+<form id="customer-schedule" method="post" action="./schedule.html" data-availability-url="./availability.html"><input type="hidden" name="request_token" value=""><input type="hidden" id="booking-date" name="date" value="">
+<button type="button" id="calendar-toggle" class="calendar-toggle" aria-expanded="false" aria-controls="slot-calendar" hidden>Choose appointment date &#128197;</button>
+<section id="slot-calendar" class="slot-calendar" aria-label="Monthly slot availability" hidden>
+<div class="calendar-toolbar"><button type="button" id="calendar-prev" aria-label="Previous month">&#8592;</button><strong id="calendar-month"></strong><button type="button" id="calendar-next" aria-label="Next month">&#8594;</button></div>
+<p class="muted">Remaining slots per day. Select a date, then choose AM or PM below.</p>
+<div class="calendar-weekdays" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span></div>
+<div id="calendar-days" class="calendar-days"></div><p id="calendar-status" class="muted" role="status" aria-live="polite"></p>
+<noscript><p>Use the appointment date field above to check available slots.</p></noscript>
+</section>
+<fieldset class="session-fieldset"><legend>Choose your time</legend><div class="session-grid">
+<label class="session-option" for="period-AM"><input type="radio" name="period" id="period-AM" value="AM"  disabled required><span><strong>AM · Morning</strong><small>8:00 AM – 12:00 PM</small><span class="slot-number" id="remaining-AM">—</span><span class="slot-caption"> / 250 slots available</span><small id="session-state-AM">Select a date first</small></span></label>
+<label class="session-option" for="period-PM"><input type="radio" name="period" id="period-PM" value="PM"  disabled required><span><strong>PM · Afternoon</strong><small>1:00 PM – 5:00 PM</small><span class="slot-number" id="remaining-PM">—</span><span class="slot-caption"> / 250 slots available</span><small id="session-state-PM">Select a date first</small></span></label>
+</div></fieldset>
+<p id="availability-message" class="muted" role="status" aria-live="polite">Choose a date in the calendar to view live availability.</p>
+<p class="muted">A slot is reserved only after you confirm. Keep your reference number for your visit.</p>
+<button class="button wide" id="confirm-booking" disabled>Confirm appointment →</button><a class="back-link" href="./customer.html">← Edit customer details</a></form></section>
+<aside class="card booking-info"><div class="section-label">YOUR DETAILS</div><h2>Demo Customer</h2><dl class="booking-details"><dt>Gender</dt><dd>Other</dd><dt>Company</dt><dd>Sample Company</dd><dt>Job applying for</dt><dd>Sample Role</dd></dl><hr><h3>Daily time slot limits</h3><p>AM: 250 customers<br>PM: 250 customers<br>Total: 500 customers per day</p>
+<!-- <small>Counts show remaining slots, not a timer. Cancelled bookings release a slot. Completed bookings still count toward the daily limit.</small> -->
+</aside></div>
+
+<footer><span>© 2026 Online Appointment</span><span><a href="./cancel-appointment.html">Unable to attend? Cancel an appointment</a></span></footer></main></div><script src="../shared/store.js"></script><script src="local.js"></script></body></html>

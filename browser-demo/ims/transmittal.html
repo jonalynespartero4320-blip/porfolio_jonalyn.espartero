@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Transmittal Reports</title>
+    <link rel="icon" type="image/png" href="./assets/images/demo-mark.svg">
+    <link rel="shortcut icon" type="image/png" href="./assets/images/demo-mark.svg">
+    <link rel="apple-touch-icon" href="./assets/images/demo-mark.svg">
+
+    
+
+    <!-- ================= META ================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ================= FONTS ================= -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ================= BOOTSTRAP ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- ================= ICONS ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- ================= CSS PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM CSS ================= -->
+<link rel="stylesheet" href="./assets/css/main.css?v=1">
+<link rel="stylesheet" href="./assets/css/table.css?v=1">
+<link rel="stylesheet" href="./assets/css/select.css?v=1">
+
+
+
+
+<!-- ================= JQUERY (REQUIRED FIRST) ================= -->
+
+
+<!-- ================= DATA TABLES ================= -->
+
+
+
+<!-- ================= PLUGINS ================= -->
+
+
+
+
+<!-- ================= CUSTOM JS ================= -->
+
+<link rel="stylesheet" href="local.css?v=plain-2"></head>
+<body>
+
+
+<div class="layout">
+    
+<aside class="sidebar app-sidebar" id="appSidebar">
+    <div class="sidebar-rail">
+        <button type="button" class="rail-avatar" id="sidebarRailCollapse" title="Collapse sidebar" aria-label="Collapse sidebar" aria-expanded="true">
+            <i class="bi bi-pc-display-horizontal"></i>
+            <span class="rail-label"></span>
+        </button>
+
+        <div class="rail-nav">
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Main"
+                    aria-label="Main"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu0"
+                >
+                    <i class="bi bi-house-door-fill"></i>
+                    <span class="rail-label">Main</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu0" aria-hidden="true">
+                    <div class="rail-popout-title">Main</div>
+                                <a href="dashboard.html" class="" data-sidebar-link>
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Equipment"
+                    aria-label="Equipment"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu1"
+                >
+                    <i class="bi bi-hdd-network-fill"></i>
+                    <span class="rail-label">Equipment</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu1" aria-hidden="true">
+                    <div class="rail-popout-title">Equipment</div>
+                                <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-pc-display"></i>
+                <span>Manage Equipment</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Supplies"
+                    aria-label="Supplies"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu2"
+                >
+                    <i class="bi bi-box-seam-fill"></i>
+                    <span class="rail-label">Supplies</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu2" aria-hidden="true">
+                    <div class="rail-popout-title">Supplies</div>
+                                <a href="supplies.html" class="" data-sidebar-link>
+                <i class="bi bi-box-seam-fill"></i>
+                <span>Manage Supplies</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Assign"
+                    aria-label="Assign"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu3"
+                >
+                    <i class="bi bi-person-workspace"></i>
+                    <span class="rail-label">Assign</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu3" aria-hidden="true">
+                    <div class="rail-popout-title">Assign</div>
+                                <a href="assign.html" class="" data-sidebar-link>
+                <i class="bi bi-person-workspace"></i>
+                <span>Manage Assign</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Other operations"
+                    aria-label="Other operations"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu4"
+                >
+                    <i class="bi bi-kanban-fill"></i>
+                    <span class="rail-label">Other operations</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu4" aria-hidden="true">
+                    <div class="rail-popout-title">Other operations</div>
+                                    <div class="rail-popout-subtitle">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    <span>Subscription</span>
+                </div>
+                            <a href="subscription.html" class="" data-sidebar-link>
+                <i class="bi bi-file-earmark-text-fill"></i>
+                <span>Manage Subscription</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                                            <div class="rail-popout-subtitle">
+                    <i class="bi bi-arrow-left-right"></i>
+                    <span>Borrowed</span>
+                </div>
+                            <a href="borrowed.html" class="" data-sidebar-link>
+                <i class="bi bi-arrow-left-right"></i>
+                <span>Manage Borrowed</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                                            <div class="rail-popout-subtitle">
+                    <i class="bi bi-briefcase-fill"></i>
+                    <span>Bidding</span>
+                </div>
+                            <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-briefcase-fill"></i>
+                <span>Manage Bidding</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                                            <div class="rail-popout-subtitle">
+                    <i class="bi bi-type-bold"></i>
+                    <span>Title</span>
+                </div>
+                            <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-type-bold"></i>
+                <span>Manage Title</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Reports"
+                    aria-label="Reports"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu5"
+                >
+                    <i class="bi bi-graph-up-arrow"></i>
+                    <span class="rail-label">Reports</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu5" aria-hidden="true">
+                    <div class="rail-popout-title">Reports</div>
+                                <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-clipboard-data-fill"></i>
+                <span>Service Report</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Service Archive</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-tools"></i>
+                <span>Maintenance Report</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Maintenance Archive</span>
+            </a>
+                        <a href="transmittal.html" class="" data-sidebar-link>
+                <i class="bi bi-send-fill"></i>
+                <span>Transmittal Report</span>
+            </a>
+                        <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Transmittal Archive</span>
+            </a>
+                        <a href="reports.html" class="" data-sidebar-link>
+                <i class="bi bi-bar-chart-line"></i>
+                <span>General Report</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Masterlist"
+                    aria-label="Masterlist"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu6"
+                >
+                    <i class="bi bi-collection-fill"></i>
+                    <span class="rail-label">Masterlist</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu6" aria-hidden="true">
+                    <div class="rail-popout-title">Masterlist</div>
+                                <a href="#" class="" data-sidebar-link>
+                <i class="bi bi-ui-checks-grid"></i>
+                <span>Manage Masterlist</span>
+            </a>
+                            </div>
+                    </div>
+
+        <div class="rail-bottom">
+            <button type="button" class="rail-link rail-settings " id="accountMenuToggle" title="Account menu" aria-label="Account menu" aria-expanded="false">
+                <i class="bi bi-gear"></i>
+                <span class="rail-label">Account</span>
+            </button>
+            <div class="rail-popout-menu rail-account-menu" id="accountRailMenu" aria-hidden="true">
+                <div class="rail-popout-title">Account</div>
+                <a href="#" class="" data-sidebar-link>
+                    <i class="bi bi-person-lines-fill"></i>
+                    <span>Account Details</span>
+                </a>
+                <a href="#" class="" data-sidebar-link>
+                    <i class="bi bi-key"></i>
+                    <span>Change Password</span>
+                </a>
+                                    <a href="#" class="" data-sidebar-link>
+                        <i class="bi bi-clock-history"></i>
+                        <span>Logs</span>
+                    </a>
+                                                    <a href="#" class="" data-sidebar-link>
+                        <i class="bi bi-person-gear"></i>
+                        <span>User Admin</span>
+                    </a>
+                            </div>
+            <a href="index.html" class="rail-link rail-logout" title="Logout">
+                <i class="bi bi-power"></i>
+                <span class="rail-label">Logout</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="sidebar-panel">
+        <div class="sidebar-profile">
+            <div class="sidebar-module-search">
+                <i class="bi bi-search"></i>
+                <input type="search" id="sidebarModuleSearch" placeholder="Search modules..." autocomplete="off">
+                <button type="button" id="sidebarModuleSearchClear" aria-label="Clear module search">
+                    <i class="bi bi-x-lg"></i>
+                    <span>Clear</span>
+                </button>
+            </div>
+            <button type="button" class="profile-collapse" id="sidebarCollapseToggle" title="Collapse sidebar" aria-label="Collapse sidebar" aria-expanded="true">
+                <i class="bi bi-layout-sidebar-inset"></i>
+                <span></span>
+            </button>
+        </div>
+        <div class="sidebar-search-empty" id="SearchEmpty">No matching modules found.</div>
+
+        <nav class="sidebar-menu">
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu0"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-house-door-fill"></i>
+                            <span>Main</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu0">
+                                    <a
+                href="dashboard.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span>Dashboard</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu1"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-hdd-network-fill"></i>
+                            <span>Equipment</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu1">
+                                    <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-pc-display"></i>
+                    <span>Manage Equipment</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu2"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-box-seam-fill"></i>
+                            <span>Supplies</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu2">
+                                    <a
+                href="supplies.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-box-seam-fill"></i>
+                    <span>Manage Supplies</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu3"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-person-workspace"></i>
+                            <span>Assign</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu3">
+                                    <a
+                href="assign.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-person-workspace"></i>
+                    <span>Manage Assign</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-kanban-fill"></i>
+                            <span>Other operations</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu4">
+                                        <div class="sidebar-nested-group ">
+                    <button
+                        type="button"
+                        class="sidebar-link sidebar-nested-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4_0_subscription_group"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-file-earmark-text-fill"></i>
+                            <span>Subscription</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+                    <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_0_subscription_group">
+                                    <a
+                href="subscription.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    <span>Manage Subscription</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </div>
+                                <div class="sidebar-nested-group ">
+                    <button
+                        type="button"
+                        class="sidebar-link sidebar-nested-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4_1_borrowed_group"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-arrow-left-right"></i>
+                            <span>Borrowed</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+                    <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_1_borrowed_group">
+                                    <a
+                href="borrowed.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-arrow-left-right"></i>
+                    <span>Manage Borrowed</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </div>
+                                <div class="sidebar-nested-group ">
+                    <button
+                        type="button"
+                        class="sidebar-link sidebar-nested-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4_2_bidding_group"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-briefcase-fill"></i>
+                            <span>Bidding</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+                    <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_2_bidding_group">
+                                    <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-briefcase-fill"></i>
+                    <span>Manage Bidding</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </div>
+                                <div class="sidebar-nested-group ">
+                    <button
+                        type="button"
+                        class="sidebar-link sidebar-nested-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4_3_title_group"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-type-bold"></i>
+                            <span>Title</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+                    <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_3_title_group">
+                                    <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-type-bold"></i>
+                    <span>Manage Title</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </div>
+                                    </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu5"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-graph-up-arrow"></i>
+                            <span>Reports</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu5">
+                                    <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-clipboard-data-fill"></i>
+                    <span>Service Report</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Service Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-tools"></i>
+                    <span>Maintenance Report</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Maintenance Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="transmittal.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-send-fill"></i>
+                    <span>Transmittal Report</span>
+                </span>
+                            </a>
+                        <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Transmittal Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="reports.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-bar-chart-line"></i>
+                    <span>General Report</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu6"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-collection-fill"></i>
+                            <span>Masterlist</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu6">
+                                    <a
+                href="#"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-ui-checks-grid"></i>
+                    <span>Manage Masterlist</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+            
+                        <section class="sidebar-section sidebar-module ">
+                <button
+                    type="button"
+                    class="sidebar-section-title sidebar-submenu-toggle "
+                    data-sidebar-submenu="sidebarSubmenuAccount"
+                    aria-expanded="false"
+                >
+                    <span class="sidebar-submenu-label">
+                        <i class="bi bi-person-circle"></i>
+                        <span>Account</span>
+                    </span>
+                    <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                </button>
+
+                <div class="sidebar-submenu " id="sidebarSubmenuAccount">
+                    <a href="#" class="sidebar-link " data-sidebar-link>
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-person-lines-fill"></i>
+                            <span>Account Details</span>
+                        </span>
+                    </a>
+
+                    <a href="#" class="sidebar-link " data-sidebar-link>
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-key"></i>
+                            <span>Change Password</span>
+                        </span>
+                    </a>
+
+                                            <a href="#" class="sidebar-link " data-sidebar-link>
+                            <span class="sidebar-link-main">
+                                <i class="bi bi-clock-history"></i>
+                                <span>Logs</span>
+                            </span>
+                        </a>
+                                    </div>
+            </section>
+
+                                            <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenuAdmin"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-shield-lock-fill"></i>
+                            <span>Admin</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenuAdmin">
+                                                    <a href="#" class="sidebar-link " data-sidebar-link>
+                                <span class="sidebar-link-main">
+                                    <i class="bi bi-person-gear"></i>
+                                    <span>Manage Users</span>
+                                </span>
+                            </a>
+                                            </div>
+                </section>
+                    </nav>
+
+        <div class="sidebar-footer">
+            Developed by Demo Development Team
+        </div>
+    </div>
+
+</aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="content">
+        <div class="topbar d-flex justify-content-between align-items-center px-3 py-2 shadow-sm">
+            <div class="d-flex align-items-center gap-3">
+                <button type="button" class="sidebar-toggle btn btn-outline-secondary btn-sm" id="sidebarToggle" aria-label="Toggle sidebar">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="system-title fw-bold">
+                    <i class="bi bi-pc-display-horizontal"></i>
+                    <span>Inventory Management System</span>
+                </div>
+
+                <div class="topbar-clock text-muted">
+                    <i class="bi bi-clock"></i>
+                    <span id="currentDateTime"></span>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                                    <a href="#" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-clock-history"></i> Logs
+                    </a>
+                
+                <a href="#?project=ims" download class="btn btn-outline-success btn-sm">
+                    <i class="bi bi-download"></i> Manual
+                </a>
+
+                <div class="user-panel d-flex align-items-center gap-2">
+                    <i class="bi bi-person-circle fs-4"></i>
+
+                    <div>
+                        <div class="fw-semibold">demo</div>
+                        <small class="text-muted">Super Admin</small>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-key"></i> Change Password
+                </a>
+
+                <a href="index.html" class="btn btn-danger btn-sm">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="p-3">
+            
+<style>
+  .transmittal-shell { display: grid; gap: 1rem; }
+  .transmittal-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+  .transmittal-title { margin: 0; color: #1f2937; font-size: 1.35rem; font-weight: 850; }
+  .transmittal-eyebrow { color: #667085; font-size: .78rem; font-weight: 750; }
+  .transmittal-card { border: 0; border-radius: 16px; background: rgba(255,255,255,.9); box-shadow: 0 18px 44px rgba(15,23,42,.08); overflow: hidden; }
+  .transmittal-table { font-size: .8rem; }
+  .transmittal-table thead th { white-space: nowrap; background: #f3f4f6 !important; border: 0 !important; color: #5f6672; font-size: .72rem; padding: .72rem .8rem !important; }
+  .transmittal-table tbody td { border: 0 !important; border-bottom: 1px solid #f2f4f7 !important; padding: .72rem .8rem !important; white-space: nowrap; vertical-align: middle; }
+  .transmittal-actions { display: inline-flex; align-items: center; gap: .55rem; }
+  .transmittal-action-btn { border: 0; background: transparent; padding: 0; line-height: 1; font-size: .95rem; }
+  .transmittal-item-toggle { border: 0; background: transparent; padding: 0; }
+  .transmittal-items-child { margin: .25rem 0 .35rem 3rem; border: 1px solid #e7eefc; border-radius: 8px; overflow: hidden; background: #fff; }
+  .transmittal-items-child table { width: 100%; margin: 0; font-size: .76rem; }
+  .transmittal-items-child th { background: #f8fafc; color: #667085; font-size: .68rem; text-transform: uppercase; padding: .55rem .65rem; }
+  .transmittal-items-child td { padding: .55rem .65rem; border-top: 1px solid #f2f4f7; }
+  .ims-upload-actions { display: inline-flex; align-items: center; gap: .45rem; }
+  .ims-upload-btn { border: 0; border-radius: 11px; min-width: 38px; height: 30px; padding: 0 .75rem; display: inline-flex; align-items: center; justify-content: center; gap: .35rem; font-size: .72rem; font-weight: 800; line-height: 1; box-shadow: inset 0 1px 0 rgba(255,255,255,.48), 0 3px 7px rgba(15,23,42,.2); cursor: pointer; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease, filter .15s ease; }
+  .ims-upload-btn:hover { transform: translateY(-1px); box-shadow: inset 0 1px 0 rgba(255,255,255,.55), 0 5px 10px rgba(15,23,42,.24); filter: brightness(1.03); text-decoration: none; }
+  .ims-upload-btn i { font-size: .86rem; }
+  .ims-upload-btn-blue { background: linear-gradient(180deg, #4f9cff 0%, #1f6fe5 100%); color: #fff; }
+  .ims-upload-btn-red { background: linear-gradient(180deg, #ff5c5c 0%, #e21f2f 100%); color: #fff; }
+  .ims-upload-panel { width: 220px; display: grid; gap: .28rem; justify-items: center; }
+  .ims-upload-file-link { color: #14966f; font-size: .82rem; font-weight: 850; text-decoration: underline; max-width: 212px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ims-upload-empty { color: #98a2b3; font-size: .72rem; font-weight: 750; }
+  .ims-upload-actions { justify-content: center; gap: .45rem; }
+  .ims-upload-square { min-width: 64px; width: auto; height: 30px; padding: 0 .65rem; }
+  .ims-upload-btn-gray { background: linear-gradient(180deg, #f9fafb 0%, #e5e7eb 100%); color: #64748b; }
+  .ims-upload-input { width: 100%; max-width: 216px; font-size: .72rem; padding: .25rem .35rem; border-radius: 6px; border: 1px solid #d7dce5; background: #fff; }
+  .ims-upload-submit { width: 100%; max-width: 216px; border-radius: 9px; background: linear-gradient(180deg, #fff 0%, #eef1f5 100%); color: #5f6672; }
+  .transmittal-section { border: 1px solid #edf0f5; border-radius: 14px; background: #fbfcff; padding: 1rem; margin-bottom: 1rem; }
+  .transmittal-section-title { display: flex; align-items: center; gap: .45rem; color: #263241; font-size: .82rem; font-weight: 900; text-transform: uppercase; letter-spacing: .02em; margin-bottom: .8rem; }
+  .transmittal-section-title i { color: #2563eb; }
+  .transmittal-assigned-wrap { display: none; margin-bottom: 1rem; }
+  .transmittal-assigned-wrap.active { display: block; }
+  .transmittal-item-table { border: 1px solid #edf0f5; border-radius: 12px; overflow: auto; background: #fff; }
+  .transmittal-item-table table { margin: 0; min-width: 860px; font-size: .77rem; }
+  .transmittal-item-table th { background: #f8fafc; color: #667085; white-space: nowrap; }
+  .transmittal-item-table td { vertical-align: middle; white-space: nowrap; }
+  .transmittal-item-table .form-control { min-width: 130px; height: 34px; font-size: .77rem; }
+  .transmittal-available-table { max-height: 320px; overflow: auto; border: 1px solid #edf0f5; border-radius: 12px; background: #fff; }
+  .transmittal-available-table table { margin: 0; font-size: .78rem; }
+  .transmittal-available-table th { position: sticky; top: 0; background: #f8fafc; z-index: 1; color: #667085; white-space: nowrap; }
+  .transmittal-available-table td { vertical-align: middle; }
+  .transmittal-available-table tr.selected-row { background: #e9f7ef; font-weight: 700; }
+  .transmittal-tabs .nav-link { color: #667085; font-size: .78rem; font-weight: 850; }
+  .transmittal-tabs .nav-link.active { color: #0d6efd; }
+  .manual-row { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(130px, 1fr) 82px minmax(130px, 1fr) 40px; gap: .5rem; margin-bottom: .55rem; align-items: center; }
+  @media (max-width: 767px) {
+    .manual-row { grid-template-columns: 1fr; }
+  }
+  #transmittalFormModal .modal-dialog { width: min(1180px, calc(100vw - 24px)); max-width: min(1180px, calc(100vw - 24px)); margin: .75rem auto; }
+  #transmittalFormModal .modal-content { max-height: calc(100dvh - 1.5rem); display: flex; flex-direction: column; overflow: hidden; }
+  #transmittalFormModal form { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+  #transmittalFormModal .modal-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
+  #transmittalFormModal .modal-footer { flex: 0 0 auto; background: #fff; box-shadow: 0 -10px 24px rgba(15,23,42,.08); }
+  @media (max-width: 767px) {
+    .transmittal-head { flex-direction: column; }
+    .transmittal-head .btn { width: 100%; }
+  }
+</style>
+
+<div class="container-fluid py-3">
+    <div class="transmittal-shell">
+        <div class="transmittal-head">
+            <div>
+                <div class="transmittal-eyebrow">Reports</div>
+                <h2 class="transmittal-title">Transmittal Reports</h2>
+                <div class="text-muted small">Create transmittals from unassigned equipment and supplies that have not yet been transmitted.</div>
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+                <a href="#" class="btn btn-outline-secondary btn-sm"><i class="bi bi-archive"></i> Archive</a>
+                <button type="button" class="btn btn-outline-primary btn-sm" id="transmittalMineOnlyBtn" data-active="0"><i class="bi bi-person-check"></i> My Records</button>
+                <button type="button" class="btn btn-primary btn-sm" id="openTransmittalBtn"><i class="bi bi-plus-lg"></i> New Transmittal</button>
+            </div>
+        </div>
+
+        <div class="card transmittal-card">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table id="transmittalTable" class="table align-middle nowrap mb-0 transmittal-table" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Document</th>
+                                <th>Transmittal ID</th>
+                                <th>Department</th>
+                                <th>Accountable Officer</th>
+                                <th>Transmittal Date</th>
+                                <th>Received By</th>
+                                <th>Date Received</th>
+                                <th>Items</th>
+                                <th>Created</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="transmittalFormModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content border-0">
+            <div class="modal-header">
+                <div>
+                    <h5 class="modal-title fw-bold" id="transmittalModalTitle">New Transmittal</h5>
+                    <div class="text-muted small">Transmittal ID is generated from the transmittal date year.</div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="transmittalForm" enctype="multipart/form-data">
+                <input type="hidden" id="transmittal_pk" name="id">
+                <div class="modal-body">
+                    <div class="transmittal-section">
+                        <div class="transmittal-section-title"><i class="bi bi-file-earmark-text"></i> Transmittal Details</div>
+                        <div class="row g-3">
+                            <div class="col-md-3"><label class="form-label">Transmittal No.</label><input type="text" class="form-control" id="transmittal_id" name="transmittal_id" placeholder="Auto generated" readonly></div>
+                            <div class="col-md-5"><label class="form-label">Department *</label><select class="form-select transmittal-select2" id="department_id" name="department_id" required></select></div>
+                            <div class="col-md-4"><label class="form-label">Accountable Officer *</label><input type="text" class="form-control" id="accountable_officer" name="accountable_officer" readonly required></div>
+                            <div class="col-md-4"><label class="form-label">Designation</label><select class="form-select transmittal-select2" id="designation_id" name="designation_id"></select></div>
+                            <div class="col-md-3"><label class="form-label">Transmittal Date *</label><input type="date" class="form-control" id="transmittal_date" name="transmittal_date" required></div>
+                            <div class="col-md-3"><label class="form-label">Received By</label><input type="text" class="form-control" id="received_by" name="received_by"></div>
+                            <div class="col-md-3"><label class="form-label">Date Received</label><input type="date" class="form-control" id="date_received" name="date_received"></div>
+                        </div>
+                    </div>
+
+                    <div class="transmittal-section">
+                        <div class="transmittal-section-title"><i class="bi bi-box-seam"></i> Transmittal Items</div>
+                        <div id="transmittalItemHint" class="text-muted small mb-2">Available unassigned equipment and supplies that have not yet been transmitted are loaded here.</div>
+
+                        <ul class="nav nav-tabs transmittal-tabs mb-3" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="equipment-tab" data-bs-toggle="tab" data-bs-target="#equipmentPane" type="button" role="tab"><i class="bi bi-pc-display"></i> Equipment</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="supplies-tab" data-bs-toggle="tab" data-bs-target="#suppliesPane" type="button" role="tab"><i class="bi bi-collection"></i> Supplies</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="selected-tab" data-bs-toggle="tab" data-bs-target="#selectedPane" type="button" role="tab"><i class="bi bi-check2-square"></i> Selected</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="manual-tab" data-bs-toggle="tab" data-bs-target="#manualPane" type="button" role="tab"><i class="bi bi-pencil-square"></i> Manual Items</button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="equipmentPane" role="tabpanel" aria-labelledby="equipment-tab">
+                                <div class="d-flex justify-content-between flex-wrap gap-2 mb-2">
+                                    <input type="text" class="form-control form-control-sm" id="serialSearch" placeholder="Filter equipment..." style="max-width: 280px;">
+                                    <label class="small fw-semibold"><input type="checkbox" class="form-check-input me-1" id="selectAllEquipment"> Select All Equipment</label>
+                                </div>
+                                <div class="transmittal-available-table mb-2" id="availableEquipmentTable"></div>
+                                <div class="text-muted small"><i class="bi bi-info-circle"></i> Click a row to toggle selection. Selected rows move to the top.</div>
+                            </div>
+
+                            <div class="tab-pane fade" id="suppliesPane" role="tabpanel" aria-labelledby="supplies-tab">
+                                <div class="d-flex justify-content-between flex-wrap gap-2 mb-2">
+                                    <input type="text" class="form-control form-control-sm" id="supplySearch" placeholder="Filter supplies..." style="max-width: 280px;">
+                                    <label class="small fw-semibold"><input type="checkbox" class="form-check-input me-1" id="selectAllSupplies"> Select All Supplies</label>
+                                </div>
+                                <div class="transmittal-available-table mb-2" id="availableSuppliesTable"></div>
+                                <div class="text-muted small"><i class="bi bi-info-circle"></i> Supplies can be included together with equipment in one transmittal.</div>
+                            </div>
+
+                            <div class="tab-pane fade" id="selectedPane" role="tabpanel" aria-labelledby="selected-tab">
+                                <div id="transmittalItems"></div>
+                            </div>
+
+                            <div class="tab-pane fade" id="manualPane" role="tabpanel" aria-labelledby="manual-tab">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div class="text-muted small">Use this for items that are not yet encoded in equipment or supplies.</div>
+                                    <button type="button" class="btn btn-outline-primary btn-sm" id="addManualRow"><i class="bi bi-plus"></i> Add Row</button>
+                                </div>
+                                <div id="manualContainer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Save Transmittal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="transmittalViewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content border-0">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Transmittal Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="transmittalViewBody"></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="transmittalPdfModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content border-0">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold"><i class="bi bi-file-earmark-pdf"></i> Transmittal PDF Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-0">
+                <iframe id="transmittalPdfFrame" style="width:100%;height:75vh;border:0"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div> 
+
+</main>
+</div>
+
+
+<!--  -->
+
+
+
+<link rel="stylesheet" href="local.css?v=plain-2"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="../shared/store.js"></script><script src="local.js?v=all-1"></script></body>
+</html>

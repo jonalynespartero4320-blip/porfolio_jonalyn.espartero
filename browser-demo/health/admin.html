@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Overview Appointments · Online Appointment</title><link rel="stylesheet" href="./assets/style.css"><link rel="stylesheet" href="./assets/customer.css"><link rel="stylesheet" href="./assets/security.css"><link rel="stylesheet" href="./assets/government.css"><link rel="stylesheet" href="../shared/demo.css?v=all-1"></head><body class="staff-portal ">
+<aside class="sidebar"><a class="brand" href="./customer.html"><span>Appointments</span></a><div class="workspace">APPOINTMENT STAFF PORTAL</div><nav>
+
+<a class="active" href="./admin.html">▤ All appointments</a><a class="" href="./manage-admins.html">+ Manage admins</a></nav>
+<div class="sidebar-bottom">
+<!-- <div class="help-card">
+    <strong>Online Appointment</strong>
+<p>Appointment administration and customer attendance.</p>
+</div> -->
+<small>Online Appointment System</small></div></aside>
+<div class="shell">
+<header><span>Online Appointment · Staff portal</span><div class="profile"><span class="avatar">D</span><span>Demo Administrator</span><form method="post" action="./logout.html"><button class="text-button">Sign out</button></form></div></header><main>
+<div class="eyebrow">AUTHORIZED PERSONNEL</div><h1>Overview Appointments</h1><p class="subtitle">Manage appointments, customer attendance, and health services.</p>
+<section class="card appointment-card customer-admin"><div class="section-heading"><div><h2>Customer health schedules</h2><p>250 AM + 250 PM slots per day. Cancelling a booking releases its slot.</p></div></div>
+<form class="appointment-search" method="get" action="./admin.html">
+<div><label for="customer-search">Reference or full name</label><input id="customer-search" name="q" type="search" maxlength="150" value="" placeholder="Search appointments"></div>
+<div><label for="filter-date">Appointment date</label><input id="filter-date" name="date" type="date" value="2026-11-16" required></div>
+<div><label for="filter-scope">Show appointments</label><select id="filter-scope" name="scope"><option value="date" selected>On selected date</option><option value="upcoming" >From selected date onward</option></select></div>
+<div><label for="filter-period">Time</label><select id="filter-period" name="period"><option value="">AM and PM</option><option value="AM" >AM</option><option value="PM" >PM</option></select></div>
+<button class="button" type="submit">Search</button><a href="./admin.html">Today / reset</a></form>
+<p class="search-summary">Appointments on 2026-11-16 - AM and PM</p>
+<p class="search-summary" role="status">0 appointments</p><div class="empty"><p>No customer bookings to display.</p></div></section>
+<footer><span>© 2026 Online Appointment</span><span>Online Appointment System</span></footer></main></div><script src="../shared/store.js"></script><script src="local.js"></script></body></html>

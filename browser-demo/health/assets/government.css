@@ -1,0 +1,309 @@
+:root{
+    --ink:#0c294b;
+    --muted:#5c6e83;
+    --green:#075ba5;
+    --border:#d9e2ec;
+    --bg:#f2f5f9;
+    --navy:#092747;
+    --gold:#d9ac36}
+
+body{
+    font-family:'Segoe UI',Arial,sans-serif;
+    background:var(--bg)}
+
+.public-portal .shell{
+    margin-left:0}
+    
+.government-strip{
+    background:var(--navy);
+    color:#fff;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:1.5px}
+    
+.government-strip>div{
+    max-width:1180px;
+    padding:11px 34px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:20px}
+    
+.government-strip span{
+    color:#ebca71;
+    font-size:9px}
+    
+.public-portal .government-masthead{
+    height:auto;
+    min-height:146px;
+    background:#fff;
+    border-bottom:4px solid var(--gold);
+    padding:24px max(34px,calc((100vw - 1112px)/2));
+    gap:30px;
+    color:var(--ink)}
+    
+.government-identity{
+    display:flex;
+    align-items:center;
+    gap:21px}
+    
+.government-identity img{
+    object-fit:contain;
+    flex-shrink:0}
+    
+.government-identity>div{
+    display:flex;
+    flex-direction:column;
+    gap:3px}
+    
+.government-city{
+    font-size:10px;
+    letter-spacing:1.6px;
+    color:#5d728b;
+    font-weight:650}
+    
+.government-identity strong{
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:29px;
+    font-weight:700;
+    line-height:1.25;
+    letter-spacing:-.4px}
+    
+.government-identity>div>span:last-child{
+    font-size:13px;
+    color:#59748f}
+    
+.service-label{
+    font-size:9px;
+    letter-spacing:1.3px;
+    text-align:right;
+    font-weight:700;
+    color:#075ba5;
+    line-height:2}
+    
+.service-label span{
+    font-size:11px;
+    font-weight:400;
+    letter-spacing:0;
+    color:var(--muted)}
+    
+.public-portal main{
+    max-width:1180px;
+    padding:36px 34px 20px}
+    
+.public-portal h1{
+    font-size:30px;
+    letter-spacing:-.7px;
+    font-weight:650;
+    margin-top:8px}
+    
+.eyebrow,.section-label{
+    color:#38638d;
+    font-size:10px;
+    letter-spacing:1.5px}
+    
+.public-portal .subtitle{
+    font-size:13px;
+    margin-bottom:22px;
+    line-height:1.8}
+    
+.public-portal #booking-idle{
+    background:#fff9e9;
+    border:1px solid #ead69b;
+    border-left:4px solid var(--gold);
+    color:#6d581e;
+    font-size:11px;
+    padding:11px 15px;
+    line-height:1.8}
+    
+.public-portal #idle-countdown{
+    font-weight:650;
+    margin-left:4px}
+    
+.booking-steps{
+    gap:0;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:7px;
+    margin:0 0 22px}
+    
+.booking-steps li{
+    flex:1;
+    padding:14px 20px;
+    border-bottom:3px solid transparent;
+    font-size:11px;
+    color:#6e7d8c;
+    min-width:140px}
+    
+.booking-steps li.current{
+    background:#edf4fb;
+    color:#075ba5;
+    border-color:#075ba5;
+    border-radius:6px 0 0 0}
+    
+.card{
+    border-radius:8px;
+    border-color:var(--border)}
+    
+.public-portal .booking-layout{
+    grid-template-columns:minmax(0,1.65fr) minmax(260px,1fr);
+    gap:24px}
+    
+.public-portal .booking{
+    padding:30px 32px;
+    box-shadow:0 3px 16px #09274705;
+    border-top:3px solid #075ba5}
+    
+.public-portal .booking h2{
+    font-size:21px;
+    margin:9px 0 22px}
+    
+.public-portal .booking-info{
+    background:#fff;
+    border-top:3px solid var(--gold);
+    padding:29px;
+    box-shadow:0 3px 16px #09274705}
+    
+.public-portal .booking-info h2{
+    font-size:20px;
+    line-height:1.5}
+    
+.public-portal .booking-info h3{
+    color:#075ba5;
+    margin-top:22px}
+    
+.booking-info p,.booking-info small{
+    color:#5c6e83;line-height:1.9}
+    
+.booking-info hr{
+    border-color:var(--border)}
+    
+.large-heart{display:none}
+label{
+    font-size:12px;
+    color:var(--ink)}
+    
+input,select,textarea{
+    border-color:#cdd9e5;
+    border-radius:5px;
+    padding:12px;color:var(--ink);
+    background:#fff}
+input:focus,select:focus,textarea:focus{
+    outline:2px solid #b8d4ef;
+    outline-offset:1px;
+    border-color:#075ba5}
+    
+.button{
+    background:#075ba5;
+    border-radius:5px;
+    font-size:12px;
+    padding:12px 20px}
+    
+.button:hover{
+    background:#08497f}
+    
+.booking .wide{
+    margin-top:25px}
+.alert{
+    background:#eaf3fb;
+    border-color:#bfd6ed;
+    color:#164f7c;
+    border-radius:5px}
+    
+.alert.error{
+    background:#fff0eb;
+    border-color:#e6c3bb;
+    color:#923d2b}
+.session-option{
+    background:#f7f9fc;
+    border-color:#cfdae7;
+    border-radius:7px}
+.session-option:has(input:checked){
+    background:#edf4fb;
+    border-color:#075ba5;
+    box-shadow:0 0 0 1px #075ba5}
+.session-option input{
+    accent-color:#075ba5}
+.session-option:has(input:disabled){
+    background:#f1f3f5;
+    color:#84909d}
+.reference-number{
+    background:#edf4fb;
+    color:#075ba5;
+    border-color:#84a9ca;
+    border-radius:5px}
+
+.pill{
+    background:#fbf4df;
+    border-color:#ead69b;
+    color:#776023}
+    
+.welcome-panel,.help-card{
+    background:#edf4fb}
+.welcome-panel{
+    border-color:#cddfed}
+.welcome-panel p,.welcome-foot,.help-card p{
+    color:#5c6e83}.art-cross{
+    color:#075ba5;
+    background:#fff;
+    box-shadow:10px 10px 0 #d7e4f1}
+    
+.sidebar{
+    border-top:5px solid var(--gold)}
+    nav a.active{background:#edf4fb;
+        color:#075ba5}
+    nav a:hover{
+        background:#f0f4f9}
+    .mark{background:#075ba5}
+    .brand-dot{color:var(--gold)}
+    .avatar{background:#eaf1f8;color:#37658d}
+    .confirmed{background:#eaf3fb;color:#075ba5}
+    .public-portal footer{
+        border-top:1px solid #d4deea;
+        color:#667a91;
+        gap:16px;
+        font-size:10px;
+        margin-top:32px;
+        padding-top:19px}
+    .public-portal footer a{
+        color:#42617f;
+        text-decoration:underline;
+        text-underline-offset:3px}
+    .public-portal .receipt{
+        max-width:800px}
+    .public-portal .receipt .pill{
+        margin-bottom:5px}
+
+@media(max-width:800px){
+    .government-strip>div{padding:10px 20px}
+    .public-portal .government-masthead{padding:20px;min-height:115px}
+    .government-identity{gap:14px}
+    .government-identity img{width:70px;height:70px}
+    .government-identity strong{font-size:25px}
+    .government-city{font-size:8px;letter-spacing:1px}
+    .service-label{display:none}
+    .public-portal main{padding:27px 20px 20px}
+    .public-portal .booking-layout{grid-template-columns:1fr}
+    .public-portal .booking-info{padding:24px}
+    .public-portal .booking{padding:25px}
+    .public-portal .government-masthead>
+    .government-identity{display:flex}}
+    
+@media(max-width:500px){
+    .government-strip span{display:none}
+    .government-strip>div{font-size:8px;letter-spacing:1px;padding-inline:16px}
+    .public-portal .government-masthead{padding:19px 16px;gap:0}
+    .government-identity img{width:60px;height:60px}
+    .government-identity strong{font-size:21px}
+    .government-identity>div>span:last-child{font-size:11px}
+    .government-city{font-size:7px;letter-spacing:.7px}
+    .public-portal main{padding:24px 16px 18px}
+    .public-portal h1{font-size:25px}
+    .public-portal .booking{padding:23px 20px}
+    .booking-steps li{font-size:10px;padding:11px 9px;min-width:0}
+    .public-portal footer{flex-direction:column;gap:8px}
+    .public-portal footer span:last-child{display:block}}
+    
+@media print{
+    .government-strip,.public-portal .government-masthead,.public-portal footer{display:none}
+    .public-portal .booking.receipt{box-shadow:none;border:0}}

@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Manage admin accounts · Online Appointment</title><link rel="stylesheet" href="./assets/style.css"><link rel="stylesheet" href="./assets/customer.css"><link rel="stylesheet" href="./assets/security.css"><link rel="stylesheet" href="./assets/government.css"><link rel="stylesheet" href="../shared/demo.css?v=all-1"></head><body class="staff-portal ">
+<aside class="sidebar"><a class="brand" href="./customer.html"><span>Appointments</span></a><div class="workspace">APPOINTMENT STAFF PORTAL</div><nav>
+
+<a class="" href="./admin.html">▤ All appointments</a><a class="active" href="./manage-admins.html">+ Manage admins</a></nav>
+<div class="sidebar-bottom">
+<!-- <div class="help-card">
+    <strong>Online Appointment</strong>
+<p>Appointment administration and customer attendance.</p>
+</div> -->
+<small>Online Appointment System</small></div></aside>
+<div class="shell">
+<header><span>Online Appointment · Staff portal</span><div class="profile"><span class="avatar">D</span><span>Demo Administrator</span><form method="post" action="./logout.html"><button class="text-button">Sign out</button></form></div></header><main>
+<div class="eyebrow">AUTHORIZED PERSONNEL</div><h1>Manage admin accounts</h1><p class="subtitle">Manage appointments, customer attendance, and health services.</p>
+<div class="booking-layout"><section class="card booking"><div class="section-label">SUPER ADMINISTRATOR</div><h2>Create an admin account</h2><form method="post" action="./manage-admins.html"><label for="admin-name">Full name</label><input id="admin-name" name="name" minlength="2" maxlength="100" value="" required>
+<label for="admin-username">Username</label><input id="admin-username" name="username" minlength="3" maxlength="50" pattern="[A-Za-z0-9][A-Za-z0-9._-]{2,49}" autocomplete="off" value="" required>
+<label for="admin-password">Password</label><input id="admin-password" name="password" type="password" minlength="12" maxlength="72" autocomplete="new-password" required><small>12–72 characters. Share the credentials directly with the intended administrator.</small><button class="button wide">Create admin account</button></form></section>
+<!-- <aside class="card booking-info"><h2>Admin permissions</h2><p>Admins can view every customer and patient appointment, record arrivals, and update booking statuses.</p><p>Only super admins can create admin accounts. Accounts created here always receive the admin role.</p></aside></div> -->
+<section class="card appointment-card customer-admin"><div class="section-heading"><h2>Admin accounts</h2></div><div class="table-wrap"><table><thead><tr><th>Name</th><th>Username</th><th>Role</th></tr></thead><tbody></tbody></table></div></section>
+<footer><span>© 2026 Online Appointment</span><span>Online Appointment System</span></footer></main></div><script src="../shared/store.js"></script><script src="local.js"></script></body></html>

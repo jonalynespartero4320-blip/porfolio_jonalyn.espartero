@@ -1,23 +1,26 @@
 # Jonalyn Espartero portfolio
 
-## GitHub Pages demos (no PHP or SQL)
+## GitHub Pages: all four browser demos
 
-The portfolio project buttons now open simplified, browser-only demos in `browser-demo/`. These use HTML, CSS, JavaScript, and localStorage. The original PHP applications below remain intact.
+All portfolio project buttons now open static demos in `browser-demo/`, using the original screen layouts and CSS with JavaScript/localStorage behavior. No PHP or SQL is required to run these browser demos. The original PHP applications remain unchanged.
 
-- Queue: `browser-demo/index.html?project=queue` — register visitors and update queue status.
-- Inventory: `browser-demo/index.html?project=inventory` — add equipment and update its status.
-- Appointments: `browser-demo/index.html?project=appointments` — book weekday AM/PM slots and manage bookings. Each slot holds one demo appointment.
-- Verification: `browser-demo/index.html?project=verification` — try Professional `0000001`, Home `000001`, or Food `00001` with `Demo Barangay`.
+- **ID & Queuing:** `browser-demo/bjmp/index.html`
+- **Inventory:** `browser-demo/ims/index.html`
+- **Verification:** `browser-demo/verification/index.html`
+- **Appointment booking:** `browser-demo/health/customer.html`
+- **Health staff login:** `browser-demo/health/login.html`
 
-For GitHub Pages, copy `browser-demo/` and the updated `script.js` to the root of your cloned repository, commit, and push using GitHub Desktop. Existing root portfolio HTML/CSS/image files must also remain published. No database export or private database configuration is needed for these demos.
+Demo login: **demo / Demo2026!**. Health public booking and Verification need no login. Use fictional data only: browser storage is device-specific and these demo logins are not secure authentication.
 
-Records persist only for the current browser and site origin. There is no authentication, shared storage, real identity verification, or server processing. Use fictional data only. Each demo has its own storage key and reset button. Opening on a different origin (for example localhost versus GitHub Pages) starts a separate workspace.
+Copy the complete `browser-demo/` folder plus updated `index.html` and `script.js` into your cloned repository, commit, and push. Keep the existing portfolio CSS, images, and resume. A clean static upload archive is also available at `deployment/github-pages-upload.zip`; extract it before copying files. Never upload private database configuration, SQL records, original personal uploads, or temporary export directories.
+
+See [browser-demo/README.md](browser-demo/README.md) for supported workflows, limitations, rebuild instructions, and verification details. These demos do not reproduce every server feature. Visual browser QA remains unverified; static checks and data behavior tests passed.
 
 ## Original PHP applications (XAMPP)
 
-The portfolio launches the original PHP projects in `ims`, `bjmp_vaqs`, and `verification_system` through `demo/`. This version runs locally with XAMPP Apache and MySQL.
+The original PHP projects remain in `ims`, `bjmp_vaqs`, `verification_system`, and `Health`. Access them directly through their local XAMPP URLs; portfolio project buttons now open their browser demos instead.
 
-The **Health Appointment System (Wellnest)** card launches `Health/public/customer` directly. Open http://localhost/porfolio_jonalyn.espartero-main/Health/public/customer for the public booking flow; no customer login is required. Health uses its own database configuration and is not initialized or reset by `demo/setup.php`. See `Health/README.md` for its database setup. Appointments submitted through this link are saved in the Health database.
+The original **Health Appointment System (Wellnest)** remains available at `Health/public/customer`. Open http://localhost/porfolio_jonalyn.espartero-main/Health/public/customer for the public booking flow; no customer login is required. Health uses its own database configuration and is not initialized or reset by `demo/setup.php`. See `Health/README.md` for its database setup. Appointments submitted through this link are saved in the Health database.
 
 1. Start Apache and MySQL in XAMPP.
 2. From this directory, run `C:\xampp\php\php.exe demo/setup.php`.

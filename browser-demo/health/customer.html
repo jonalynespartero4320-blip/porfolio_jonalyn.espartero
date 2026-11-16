@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Book your appointment · Online Appointment</title><link rel="stylesheet" href="./assets/style.css"><link rel="stylesheet" href="./assets/customer.css"><link rel="stylesheet" href="./assets/security.css"><link rel="stylesheet" href="./assets/government.css"><link rel="stylesheet" href="../shared/demo.css?v=all-1"></head><body class="public-portal ">
+<div class="shell">
+<div class="government-strip"><div>ONLINE APPOINTMENT<span>BOOK YOUR VISIT</span></div></div>
+<header class="government-masthead"><div class="government-identity"><div><span class="government-city">SIMPLE AND CONVENIENT BOOKING</span><strong>Online Appointment</strong><span>Online Appointment System</span></div></div><div class="service-label">PUBLIC ONLINE APPOINTMENT<br><span>Monday–Friday</span></div></header>
+<main>
+<div class="eyebrow">ONLINE APPOINTMENT BOOKING</div><h1>Book your appointment</h1><p class="subtitle">Choose a date and time that works for you.</p>
+<div id="booking-idle" hidden data-activity-url="./booking-activity.html" data-reset-url="./booking-reset.html" data-start-url="./customer.html" data-csrf="0a19c7193ba5eec2c371ba7ca1726cef800d8eccd937d51bcc0f576e906ea3ae" data-guard="" data-remaining="900"></div>
+
+<ol class="booking-steps" aria-label="Booking progress">
+    <li class="current">1. Customer details</li><li>2.Appointment Date</li>
+    <li>3. Reference number</li>
+</ol>
+<div class="booking-layout">
+    <section class="card booking">
+        <div class="section-label">STEP 1 OF 2</div>
+        <h2>Tell us about yourself</h2>
+        <form method="post" action="./customer.html">            <label for="full_name">Full name</label>
+            <input id="full_name" name="full_name" autocomplete="off" minlength="2" maxlength="100" placeholder="Juan Delacruz" value="Demo Customer" required>
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select gender</option>
+                                <option value="Male" >Male</option>
+                            <option value="Female" >Female</option>
+                            <option value="Other" selected>Other</option>
+                            <option value="Prefer not to say" >Prefer not to say</option>
+                    </select>
+<label for="company">Company name</label><input id="company" name="company" autocomplete="organization" minlength="2" maxlength="150" value="Sample Company" required>
+<label for="job">Job applying for</label><input id="job" name="job" minlength="2" maxlength="150" value="Sample Role" placeholder="e.g. Administrative Assistant" required>
+<button class="button wide">Next: choose a schedule →</button>
+</form>
+</section>
+<aside class="card booking-info">
+    <span class="large-heart">♡</span>
+    <h2>Your health appointment, in a few steps.</h2>
+    <p>Complete your details, choose a date in the calendar, then select an AM or PM time.</p>
+    <hr><h3>500 slots each day</h3><p>250 slots in the morning and 250 in the afternoon. Availability updates as customers book.</p>
+    <!-- <h3>A reference to keep</h3> -->
+    <!-- <p>Your reference uses your queue number, appointment date (MMDDYY), and time: <strong>001-010126-A</strong> for January 1, 2026 in the morning, or <strong>001-010126-P</strong> in the afternoon. Numbers start at 001 for each date and AM/PM time.</p> -->
+<!-- <small>No account is required. Customer details are visible only to the care team and in this browser’s booking confirmation.</small> -->
+</aside></div>
+<footer><span>© 2026 Online Appointment</span><span><a href="./cancel-appointment.html">Unable to attend? Cancel an appointment</a></span></footer></main></div><script src="../shared/store.js"></script><script src="local.js"></script></body></html>

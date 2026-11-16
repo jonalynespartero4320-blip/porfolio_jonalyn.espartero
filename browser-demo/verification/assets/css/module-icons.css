@@ -1,0 +1,13 @@
+.logo.module-brand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 22px;
+  background: linear-gradient(135deg, var(--navy), var(--royal));
+  color: #fff;
+  font-size: 36px;
+}
+@media (max-width: 600px) {
+  .logo.module-brand-icon { font-size: 28px; border-radius: 18px; }
+}
