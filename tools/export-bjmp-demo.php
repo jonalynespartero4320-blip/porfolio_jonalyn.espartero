@@ -152,7 +152,7 @@ foreach ($pages as $slug=>$view) {
     if (!str_contains($html,'<html')) $html = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'.($system==='ims'?'Inventory Management System':'ID & Queuing System').'</title></head><body>'.$html.'</body></html>';
     $html = str_replace('assets/css/main.css"','assets/css/main.css?v=plain-2"',$html);
     $html = str_replace('</head>','<link rel="stylesheet" href="local.css?v=plain-2"></head>',$html);
-    $scripts = '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>'.($system==='ims'?'<script src="../shared/store.js"></script>':'').'<script src="local.js?v='.($system==='ims'?'buttons-2':'all-1').'"></script>';
+    $scripts = '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>'.($system==='ims'?'<script src="../shared/store.js"></script>':'').'<script src="local.js?v='.($system==='ims'?'sidebar-3':'all-1').'"></script>';
     $html = str_replace('</body>','<link rel="stylesheet" href="local.css?v=plain-2">'.$scripts.'</body>',$html);
     if ($slug === 'index') {
         $html = str_replace('<body>','<body class="auth-screen">',$html);
