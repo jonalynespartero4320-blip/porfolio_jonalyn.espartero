@@ -1,6 +1,5 @@
 <?php
 
-session_name('portfolio_ims');
 session_start();
 
 define('ROOT_PATH', dirname(__DIR__));

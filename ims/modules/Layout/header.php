@@ -18,7 +18,7 @@ if (isset($required_permission)) {
 }
 
 $page_title = $page_title ?? 'Inventory Management System';
-$manualDownloadUrl = dirname(BASE_URL, 2) . '/demo/?project=ims';
+$manualDownloadUrl = BASE_URL . '/downloads/ims_cictd_user_manual.pdf';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,9 +26,9 @@ $manualDownloadUrl = dirname(BASE_URL, 2) . '/demo/?project=ims';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= htmlspecialchars($page_title) ?></title>
-    <link rel="icon" type="image/png" href="<?= BASE_URL ?>/assets/images/demo-mark.svg">
-    <link rel="shortcut icon" type="image/png" href="<?= BASE_URL ?>/assets/images/demo-mark.svg">
-    <link rel="apple-touch-icon" href="<?= BASE_URL ?>/assets/images/demo-mark.svg">
+    <link rel="icon" type="image/png" href="<?= BASE_URL ?>/assets/images/itlogo.png">
+    <link rel="shortcut icon" type="image/png" href="<?= BASE_URL ?>/assets/images/itlogo.png">
+    <link rel="apple-touch-icon" href="<?= BASE_URL ?>/assets/images/itlogo.png">
 
     <script>
         const APP_BASE_URL = <?= json_encode(BASE_URL) ?>;
@@ -37,7 +37,6 @@ $manualDownloadUrl = dirname(BASE_URL, 2) . '/demo/?project=ims';
     <?php include ROOT_PATH . '/modules/layout/bootstrap.php'; ?>
 </head>
 <body>
-<?php require_once dirname(__DIR__, 3) . '/demo/home-link.php'; ?>
 <script>
 try {
     if (window.innerWidth > 991 && localStorage.getItem('ims.sidebar.collapsed') === '1') {
@@ -58,7 +57,7 @@ try {
                 </button>
                 <div class="system-title fw-bold">
                     <i class="bi bi-pc-display-horizontal"></i>
-                    <span>Inventory Management System</span>
+                    <span>IMS CICTD</span>
                 </div>
 
                 <div class="topbar-clock text-muted">

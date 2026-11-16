@@ -103,10 +103,10 @@ function sr_export_time($value): string
 $serviceNo = sr_export_value($report, 'old_service_cn') ?: sr_export_value($report, 'service_controlno');
 $ratings = ['Excellent', 'Very Satisfactory', 'Satisfactory', 'Poor'];
 $rating = sr_export_value($report, 'employee_satisfactory');
-$itLogo = ims_pdf_asset_url('assets/images/demo-mark.svg');
-$mandaLogo = ims_pdf_asset_url('assets/images/demo-mark.svg');
-$bagongLogo = ims_pdf_asset_url('assets/images/demo-mark.svg');
-$isoLogo = ims_pdf_asset_url('assets/images/demo-scene.svg');
+$itLogo = ims_pdf_asset_url('assets/images/itlogo.png');
+$mandaLogo = ims_pdf_asset_url('assets/images/manda-logo.png');
+$bagongLogo = ims_pdf_asset_url('assets/images/bagong-pilipinas.png');
+$isoLogo = ims_pdf_asset_url('assets/images/ISO.jpg');
 ob_start();
 ?>
 <!doctype html>
@@ -197,13 +197,13 @@ ob_start();
             <img class="logo-left-b" src="<?= e($itLogo) ?>" alt="">
             <img class="logo-right-a" src="<?= e($bagongLogo) ?>" alt="">
             <img class="logo-right-b" src="<?= e($isoLogo) ?>" alt="">
-            <div class="republic">DEMO SERVICES</div>
-            <div class="republic">SAMPLE SERVICE CENTER</div>
+            <div class="republic">REPUBLIC OF THE PHILIPPINES</div>
+            <div class="republic">CITY OF MANDALUYONG</div>
             <div class="office">CITY INFORMATION AND COMMUNICATIONS</div>
             <div class="office">TECHNOLOGY DEPARTMENT</div>
             <div class="cert">ISO 9001:2015 CERTIFIED</div>
-            <div class="address">Sample Service Center ? Fictional address</div>
-            <div class="address">Email Address: support@example.test | Contact Number: Demo support</div>
+            <div class="address">3RD Floor, Executive Building, City Hall Compound, Maysilo Circle, Brgy. Plainview, Mandaluyong City</div>
+            <div class="address">Email Address: itd@mandaluyong.gov.ph | Contact Number: 8532-5001 Loc. 530</div>
             <h1>ACKNOWLEDGEMENT/SERVICE REPORT SLIP</h1>
         </header>
 
@@ -312,8 +312,8 @@ ob_start();
 
         <section class="disclaimer">Disclaimer :
      * For PC's that need to be re-formatted, end user should back-up their own files.
-     * Demo Services is not liable to any loss of your personal files (document, pictures, etc.).
-     * Demo Services does not back-up, copy, or maintain any files in your PC/device.</section>
+     * CICTD is not liable to any loss of your personal files (document, pictures, etc.).
+     * CICTD does not back-up, copy, or maintain any files in your PC/device.</section>
 
         <p class="receipt-note">Please acknowledge receipt of the following ICT equipment requested for repair, in good and working condition:</p>
 

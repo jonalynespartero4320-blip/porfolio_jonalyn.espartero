@@ -10,13 +10,27 @@ $modules = gr_modules($pdo);
 $activeKey = gr_active_module($pdo, trim((string) ($_GET['module'] ?? 'equipment')));
 $active = $modules[$activeKey];
 $filters = [
+    'technician' => trim((string) ($_GET['technician'] ?? '')),
     'search' => trim((string) ($_GET['search'] ?? '')),
     'date_from' => trim((string) ($_GET['date_from'] ?? '')),
     'date_to' => trim((string) ($_GET['date_to'] ?? '')),
     'description_name' => trim((string) ($_GET['description_name'] ?? '')),
     'status' => trim((string) ($_GET['status'] ?? '')),
 ];
+$isQuarterly = $activeKey === 'quarterly';
+if ($isQuarterly) $filters = gr_quarterly_filters($filters);
 $rows = gr_fetch_rows($pdo, $active, $filters);
+$hasTechnicianFilter = in_array($activeKey, ['quarterly', 'service_requests'], true);
+$technicianOptions = [];
+if ($hasTechnicianFilter) {
+    $optionFilters = $filters;
+    $optionFilters['technician'] = '';
+    $optionFilters['search'] = '';
+    foreach (gr_fetch_rows($pdo, $modules['quarterly'], $optionFilters) as $summary) {
+        $technicianOptions[] = $summary['technician'];
+    }
+    if ($filters['technician'] !== '' && !in_array($filters['technician'], $technicianOptions, true)) $technicianOptions[] = $filters['technician'];
+}
 $descriptions = gr_descriptions($pdo);
 $statusOptions = gr_status_options($pdo, $active, $filters);
 $labels = gr_field_labels($active);
@@ -136,6 +150,22 @@ foreach ($modules as $key => $config) {
             <?php endforeach; ?>
         </ul>
 
+        <?php if ($isQuarterly): ?>
+        <form method="get" action="<?= BASE_URL ?>/ictd/reports" class="card card-body">
+            <input type="hidden" name="module" value="quarterly">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-4"><label for="quarterFrom" class="form-label">From Date</label><input id="quarterFrom" type="date" name="date_from" class="form-control" required value="<?= e($filters['date_from']) ?>"></div>
+                <div class="col-md-4"><label for="quarterTo" class="form-label">To Date</label><input id="quarterTo" type="date" name="date_to" class="form-control" required value="<?= e($filters['date_to']) ?>"></div>
+                <div class="col-md-4"><label for="quarterTechnician" class="form-label">Technician</label><select id="quarterTechnician" name="technician" class="form-select"><option value="">All Technicians</option><?php foreach ($technicianOptions as $technician): ?><option value="<?= e($technician) ?>" <?= $filters['technician'] === $technician ? 'selected' : '' ?>><?= e($technician) ?></option><?php endforeach; ?></select></div>
+                <div class="col-12"><button class="btn btn-primary" type="submit">Generate Summary</button></div>
+            </div>
+            <div class="text-muted small mt-3">Report period: <?= e($filters['date_from']) ?> to <?= e($filters['date_to']) ?> (inclusive, by service report date). Work counts use recorded troubleshooting entries. Shared reports count for each listed technician; departments are counted once per technician.</div>
+        </form>
+        <div class="reports-stat-grid">
+            <div class="card reports-stat"><div class="card-body"><div class="reports-stat-label">Technicians</div><div class="reports-stat-value"><?= number_format($totalRows) ?></div></div></div>
+            <div class="card reports-stat"><div class="card-body"><div class="reports-stat-label">Excellent Ratings</div><div class="reports-stat-value"><?= number_format(array_sum(array_column($rows, 'excellent'))) ?></div></div></div>
+        </div>
+        <?php else: ?>
         <div class="reports-stat-grid">
             <div class="card reports-stat"><div class="card-body"><div class="reports-stat-label">Total Records</div><div class="reports-stat-value"><?= number_format($totalRows) ?></div></div></div>
             <div class="card reports-stat"><div class="card-body"><div class="reports-stat-label">Visible Value</div><div class="reports-stat-value"><?= $totalPrice > 0 ? number_format($totalPrice, 2) : '-' ?></div></div></div>
@@ -143,6 +173,7 @@ foreach ($modules as $key => $config) {
             <div class="card reports-stat"><div class="card-body"><div class="reports-stat-label">Last 30 Days</div><div class="reports-stat-value"><?= number_format($recentRows) ?></div></div></div>
         </div>
 
+        <?php endif; ?>
         <div class="reports-toolbar">
             <div class="reports-search">
                 <i class="bi bi-search"></i>
@@ -188,6 +219,9 @@ foreach ($modules as $key => $config) {
             <div class="modal-body">
                 <form method="get" action="<?= BASE_URL ?>/ictd/reports" id="reportFilterForm" class="row g-3">
                     <input type="hidden" name="module" id="report_module" value="<?= e($activeKey) ?>">
+                    <?php if ($hasTechnicianFilter): ?>
+                    <div class="col-12"><label for="filter_technician" class="form-label">Technician</label><select id="filter_technician" name="technician" class="form-select"><option value="">All Technicians</option><?php foreach ($technicianOptions as $technician): ?><option value="<?= e($technician) ?>" <?= $filters['technician'] === $technician ? 'selected' : '' ?>><?= e($technician) ?></option><?php endforeach; ?></select></div>
+                    <?php endif; ?>
                     <div class="col-md-6"><label class="form-label">From Date</label><input type="date" name="date_from" id="date_from" class="form-control" value="<?= e($filters['date_from']) ?>"></div>
                     <div class="col-md-6"><label class="form-label">To Date</label><input type="date" name="date_to" id="date_to" class="form-control" value="<?= e($filters['date_to']) ?>"></div>
                     <div class="col-md-6" id="descriptionFilterWrap">
@@ -236,7 +270,7 @@ $(function () {
         responsive: false,
         scrollX: true,
         pageLength: 10,
-        order: [[dateIndex, 'desc']],
+        order: activeModule === 'quarterly' ? [[0, 'asc']] : [[dateIndex, 'desc']],
         dom: 'rt<"row align-items-center"<"col-md-4"i><"col-md-4"l><"col-md-4"p>>',
         language: {
             info: '_START_ - _END_ of _TOTAL_',
@@ -300,7 +334,8 @@ $(function () {
             date_from: $('#date_from').val(),
             date_to: $('#date_to').val(),
             description_name: $('#description_name').val(),
-            status: $('#status').val()
+            status: $('#status').val(),
+            technician: $('#filter_technician').val() || ''
         });
         window.open('<?= BASE_URL ?>/ictd/reports-export?' + params.toString(), '_blank');
     });

@@ -210,7 +210,7 @@ function tr_store_pdf(PDO $pdo, int $id, array $file): ?string
         }
     }
 
-    $dirRel = 'demo-uploads/transmittal/';
+    $dirRel = 'uploads/transmittal/';
     $dirAbs = ROOT_PATH . '/public/' . $dirRel;
     if (!is_dir($dirAbs)) {
         mkdir($dirAbs, 0755, true);

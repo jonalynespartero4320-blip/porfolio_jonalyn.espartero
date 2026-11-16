@@ -3,7 +3,7 @@
 <style>
   body.auth-screen {
     min-height: 100vh;
-    background: url('<?= BASE_URL ?>/assets/images/demo-scene.svg') no-repeat center center fixed;
+    background: url('<?= BASE_URL ?>/assets/images/bg.png') no-repeat center center fixed;
     background-size: cover;
   }
   body.auth-screen::before {
@@ -265,7 +265,7 @@
 
         <aside class="auth-visual-panel">
             <div class="auth-visual-card">
-                <img src="<?= BASE_URL ?>/assets/images/demo-scene.svg" class="auth-visual-image" alt="Inventory illustration">
+                <img src="<?= BASE_URL ?>/assets/images/inventory-img.png" class="auth-visual-image" alt="Inventory illustration">
                 <div class="auth-visual-title">Set up your workspace access</div>
                 <p class="auth-visual-text">Create a user profile for equipment records, maintenance tracking, service reports, and transmittal workflows.</p>
                 <div class="auth-progress">

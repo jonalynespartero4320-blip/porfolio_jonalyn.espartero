@@ -12,6 +12,22 @@ function gr_modules(PDO $pdo): array
     END";
 
     return [
+        'quarterly' => [
+            'label' => 'Quarterly Report',
+            'title' => 'Quarterly Technician Summary',
+            'icon' => 'bi-calendar3',
+            'table' => 'service_report',
+            'custom' => 'quarterly',
+            'description' => null,
+            'status' => null,
+            'fields' => [
+                'technician' => ['Technician', 'technician'],
+                'total_reports' => ['Service Reports', 'total_reports'],
+                'ratings' => ['Ratings', 'ratings'],
+                'problems_solved' => ['Service Performed', 'problems_solved'],
+                'departments' => ['Department', 'departments'],
+            ],
+        ],
         'inventory_overview' => [
             'label' => 'Inventory Overview',
             'title' => 'Inventory Overview Report',
@@ -96,32 +112,6 @@ function gr_modules(PDO $pdo): array
                 'item_count' => ['Items', '(SELECT COUNT(*) FROM equipment_request_items eri WHERE eri.request_id = er.id)'],
                 'cancel_reason' => ['Cancel Reason', 'er.cancel_reason'],
                 'created_at' => ['Created At', 'er.created_at'],
-            ],
-        ],
-        'service_requests' => [
-            'label' => 'Service Requests',
-            'title' => 'Service Request Reports',
-            'icon' => 'bi-tools',
-            'table' => 'service_request',
-            'alias' => 'srq',
-            'date' => 'srq.created_at',
-            'description' => null,
-            'status' => 'srq.status',
-            'order' => 'srq.created_at DESC, srq.id DESC',
-            'from' => 'service_request srq LEFT JOIN list_end_user eu ON eu.end_user_id = srq.end_user_id LEFT JOIN list_department dep ON dep.department_id = srq.department_id',
-            'search' => ['srq.id', 'srq.request_type', 'eu.end_user_name', 'dep.department_name', 'srq.request_description', 'srq.complain_problem', 'srq.status', 'srq.assigned_technician', 'srq.admin_action_reason', 'srq.cancel_reason'],
-            'fields' => [
-                'id' => ['Request ID', 'srq.id'],
-                'request_type' => ['Request Type', 'srq.request_type'],
-                'end_user_name' => ['End User', 'eu.end_user_name'],
-                'department_name' => ['Department', 'dep.department_name'],
-                'request_description' => ['Description', 'srq.request_description'],
-                'complain_problem' => ['Complaint / Problem', 'srq.complain_problem'],
-                'status' => ['Status', 'srq.status'],
-                'assigned_technician' => ['Technician', 'srq.assigned_technician'],
-                'admin_action_reason' => ['Admin Reason', 'srq.admin_action_reason'],
-                'cancel_reason' => ['Cancel Reason', 'srq.cancel_reason'],
-                'created_at' => ['Created At', 'srq.created_at'],
             ],
         ],
         'assigned' => [
@@ -219,9 +209,9 @@ function gr_modules(PDO $pdo): array
                 'date_recorded' => ['Date Recorded', 'mr.date_recorded'],
             ],
         ],
-        'service' => [
-            'label' => 'Service Details',
-            'title' => 'Service Detail Reports',
+        'service_requests' => [
+            'label' => 'Service Requests',
+            'title' => 'Service Request Reports',
             'icon' => 'bi-card-text',
             'table' => 'service_report',
             'alias' => 'sr',
@@ -280,6 +270,7 @@ function gr_modules(PDO $pdo): array
 
 function gr_active_module(PDO $pdo, string $requested): string
 {
+    if ($requested === 'service') $requested = 'service_requests';
     return array_key_exists($requested, gr_modules($pdo)) ? $requested : 'equipment';
 }
 
@@ -294,6 +285,17 @@ function gr_field_labels(array $config): array
 
 function gr_fetch_rows(PDO $pdo, array $config, array $filters = []): array
 {
+    if (($config['custom'] ?? '') === 'quarterly') {
+        $filters = gr_quarterly_filters($filters);
+        $source = gr_modules($pdo)['service_requests'];
+        $sourceFilters = $filters;
+        $sourceFilters['search'] = '';
+        $sourceFilters['status'] = '';
+        $sourceFilters['technician'] = '';
+        $rows = gr_quarterly_summary(gr_fetch_rows($pdo, $source, $sourceFilters), $filters['search'] ?? '');
+        $technician = trim((string) ($filters['technician'] ?? ''));
+        return $technician === '' ? $rows : array_values(array_filter($rows, static fn($row) => strcasecmp($row['technician'], $technician) === 0));
+    }
     if (($config['custom'] ?? '') === 'inventory_overview') {
         return gr_inventory_overview_rows($pdo, $filters);
     }
@@ -363,7 +365,111 @@ function gr_fetch_rows(PDO $pdo, array $config, array $filters = []): array
         $stmt->bindValue(':' . $key, $value);
     }
     $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
+    $technician = trim((string) ($filters['technician'] ?? ''));
+    if ($technician !== '' && $config['table'] === 'service_report') {
+        $rows = array_values(array_filter($rows, static fn($row) => isset(gr_summary_values($row['attending_technician'] ?? '')[strtolower($technician)])));
+    }
+    return $rows;
+}
+
+function gr_quarterly_filters(array $filters): array
+{
+    $now = new DateTimeImmutable('now', new DateTimeZone('Asia/Singapore'));
+    $month = (int) (floor(((int) $now->format('n') - 1) / 3) * 3 + 1);
+    $start = $now->setDate((int) $now->format('Y'), $month, 1);
+    foreach (['date_from', 'date_to'] as $key) {
+        $value = (string) ($filters[$key] ?? '');
+        $date = DateTimeImmutable::createFromFormat('!Y-m-d', $value);
+        if (!$date || $date->format('Y-m-d') !== $value) {
+            $filters[$key] = $key === 'date_from' ? $start->format('Y-m-d') : $start->modify('+3 months -1 day')->format('Y-m-d');
+        }
+    }
+    if ($filters['date_from'] > $filters['date_to']) {
+        [$filters['date_from'], $filters['date_to']] = [$filters['date_to'], $filters['date_from']];
+    }
+    return $filters;
+}
+
+function gr_summary_values($value): array
+{
+    $decoded = json_decode((string) $value, true);
+    $values = is_array($decoded) ? $decoded : explode(',', (string) $value);
+    $result = [];
+    foreach ($values as $item) {
+        if (!is_scalar($item)) continue;
+        $item = trim(preg_replace('/\s+/u', ' ', (string) $item));
+        if ($item !== '') $result[strtolower($item)] = $item;
+    }
+    return $result;
+}
+
+function gr_quarterly_summary(array $records, string $search = ''): array
+{
+    $summary = [];
+    foreach ($records as $record) {
+        $technicians = gr_summary_values($record['attending_technician'] ?? '');
+        if (!$technicians) $technicians = ['unassigned' => 'Unassigned'];
+        foreach ($technicians as $key => $name) {
+            if (!isset($summary[$key])) {
+                $summary[$key] = ['technician' => $name, 'total_reports' => 0, 'excellent' => 0, 'rating_counts' => ['EXCELLENT' => 0, 'VERY SATISFACTORY' => 0, 'SATISFACTORY' => 0, 'POOR' => 0], 'problems' => [], 'department_set' => []];
+            }
+            $row =& $summary[$key];
+            $row['total_reports']++;
+            if (strcasecmp(trim((string) ($record['employee_satisfactory'] ?? '')), 'Excellent') === 0) $row['excellent']++;
+            $rating = strtoupper(trim(preg_replace('/\s+/', ' ', (string) ($record['employee_satisfactory'] ?? ''))));
+            if (isset($row['rating_counts'][$rating])) $row['rating_counts'][$rating]++;
+            foreach (gr_summary_values($record['troubleshoot'] ?? '') as $problemKey => $problem) {
+                if (!isset($row['problems'][$problemKey])) $row['problems'][$problemKey] = ['name' => $problem, 'count' => 0];
+                $row['problems'][$problemKey]['count']++;
+            }
+            $department = trim((string) ($record['department_name'] ?? ''));
+            if ($department !== '') {
+                $departmentKey = strtolower($department);
+                if (!isset($row['department_set'][$departmentKey])) $row['department_set'][$departmentKey] = ['name' => $department, 'count' => 0];
+                $row['department_set'][$departmentKey]['count']++;
+            }
+            unset($row);
+        }
+    }
+    $rows = [];
+    foreach ($summary as $row) {
+        ksort($row['problems']);
+        ksort($row['department_set']);
+        $row['ratings'] = implode('; ', array_map(static fn($rating, $count) => $rating . ' - ' . $count, array_keys($row['rating_counts']), array_values($row['rating_counts'])));
+        $row['problems_solved'] = implode('; ', array_map(static fn($problem) => $problem['name'] . ' - ' . $problem['count'], $row['problems']));
+        $row['departments_assisted'] = count($row['department_set']);
+        $row['departments'] = implode('; ', array_map(static fn($department) => $department['name'] . ' - ' . $department['count'], $row['department_set']));
+        unset($row['problems'], $row['department_set'], $row['rating_counts']);
+        if ($search === '' || stripos(implode(' ', $row), $search) !== false) $rows[] = $row;
+    }
+    usort($rows, static fn($a, $b) => strnatcasecmp($a['technician'], $b['technician']));
+    return $rows;
+}
+
+function gr_quarterly_overall(PDO $pdo, array $filters, array $visibleRows): array
+{
+    $names = array_fill_keys(array_map(static fn($row) => strtolower($row['technician']), $visibleRows), true);
+    $sourceFilters = gr_quarterly_filters($filters);
+    $sourceFilters['search'] = '';
+    $sourceFilters['technician'] = '';
+    $sourceFilters['status'] = '';
+    $records = gr_fetch_rows($pdo, gr_modules($pdo)['service_requests'], $sourceFilters);
+    $selected = [];
+    foreach ($records as $record) {
+        $technicians = gr_summary_values($record['attending_technician'] ?? '') ?: ['unassigned' => 'Unassigned'];
+        if (!array_intersect_key($technicians, $names)) continue;
+        // Count shared service reports once in the overall totals.
+        $record['attending_technician'] = 'Overall Summary';
+        $selected[] = $record;
+    }
+    $total = gr_quarterly_summary($selected)[0] ?? [
+        'technician' => 'Overall Summary', 'total_reports' => 0,
+        'ratings' => 'EXCELLENT - 0; VERY SATISFACTORY - 0; SATISFACTORY - 0; POOR - 0',
+        'problems_solved' => '', 'departments_assisted' => 0,
+    ];
+    $total['departments'] = $total['departments_assisted'];
+    return $total;
 }
 
 function gr_descriptions(PDO $pdo): array

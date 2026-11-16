@@ -87,7 +87,7 @@ function assign_store_pdf(PDO $pdo, int $assignedId, array $file): string
 
     assign_remove_pdf($pdo, $assignedId);
 
-    $uploadDir = ROOT_PATH . '/public/demo-uploads/assign-reports';
+    $uploadDir = ROOT_PATH . '/public/uploads/assign-reports';
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0775, true);
     }
@@ -96,7 +96,7 @@ function assign_store_pdf(PDO $pdo, int $assignedId, array $file): string
         throw new RuntimeException('Unable to save PDF attachment.');
     }
 
-    return 'demo-uploads/assign-reports/' . $filename;
+    return 'uploads/assign-reports/' . $filename;
 }
 
 function assign_remove_pdf(PDO $pdo, int $assignedId): void

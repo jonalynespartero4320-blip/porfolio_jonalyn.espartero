@@ -32,16 +32,25 @@ foreach ($selected as $field) {
 if (empty($fields)) {
     $fields = array_keys($fieldLabels);
 }
+// Preserve the Ratings column for links saved before the summary included all ratings.
+if ($moduleKey === 'quarterly' && in_array('excellent', $selected, true) && !in_array('ratings', $fields, true)) {
+    array_splice($fields, min(2, count($fields)), 0, ['ratings']);
+}
 
 $filters = [
+    'technician' => trim((string) ($_GET['technician'] ?? '')),
     'search' => trim((string) ($_GET['search'] ?? '')),
     'date_from' => trim((string) ($_GET['date_from'] ?? '')),
     'date_to' => trim((string) ($_GET['date_to'] ?? '')),
     'description_name' => trim((string) ($_GET['description_name'] ?? '')),
     'status' => trim((string) ($_GET['status'] ?? '')),
 ];
+if ($moduleKey === 'quarterly') $filters = gr_quarterly_filters($filters);
+$period = ($filters['date_from'] ?: 'Any date') . ' to ' . ($filters['date_to'] ?: 'Any date');
+if ($filters['technician'] !== '') $period .= ' | Technician: ' . $filters['technician'];
 $title = trim((string) ($_GET['title'] ?? $config['title'])) ?: $config['title'];
 $rows = gr_fetch_rows($pdo, $config, $filters);
+$overall = $moduleKey === 'quarterly' ? gr_quarterly_overall($pdo, $filters, $rows) : null;
 $totalPrice = array_reduce($rows, static fn($sum, $row) => $sum + (float) ($row['price'] ?? 0), 0.0);
 $wideReport = count($fields) > 7;
 
@@ -56,9 +65,14 @@ function gre_report_cell(array $row, string $field): string
 if ($format === 'excel') {
     header('Content-Type: application/vnd.ms-excel; charset=UTF-8');
     header('Content-Disposition: attachment; filename="' . preg_replace('/[^a-z0-9_]+/i', '_', strtolower($title)) . '_' . date('Ymd_His') . '.xls"');
-    echo '<html><head><meta charset="UTF-8"></head><body><table border="1">';
+    echo '<html xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="UTF-8"><style>table{border-collapse:collapse;font-family:Calibri,Arial,sans-serif;font-size:11pt}th,td{border:1px solid #000}td{vertical-align:bottom}br{mso-data-placement:same-cell}</style></head><body><table border="1">';
+    if ($moduleKey === 'quarterly') {
+        $widths = ['technician' => 205, 'total_reports' => 95, 'ratings' => 140, 'problems_solved' => 370, 'departments_assisted' => 130, 'departments' => 550];
+        foreach ($fields as $field) echo '<col width="' . ($widths[$field] ?? 120) . '">';
+    }
     echo '<tr><th colspan="' . count($fields) . '" style="font-size:18px;background:#d9ead3;">' . e($title) . '</th></tr>';
     echo '<tr><td colspan="' . count($fields) . '">Generated: ' . e(date('F j, Y g:i A')) . '</td></tr>';
+    echo '<tr><td colspan="' . count($fields) . '">Report period: ' . e($period) . '</td></tr>';
     echo '<tr>';
     foreach ($fields as $field) {
         echo '<th>' . e($fieldLabels[$field]) . '</th>';
@@ -67,12 +81,27 @@ if ($format === 'excel') {
     foreach ($rows as $row) {
         echo '<tr>';
         foreach ($fields as $field) {
-            echo '<td>' . e(gre_report_cell($row, $field)) . '</td>';
+            $value = e(gre_report_cell($row, $field));
+            if ($moduleKey === 'quarterly' && in_array($field, ['ratings', 'problems_solved', 'departments'], true)) {
+                $value = implode('<br style="mso-data-placement:same-cell">', array_map('e', explode('; ', gre_report_cell($row, $field))));
+            }
+            echo '<td style="vertical-align:bottom;white-space:normal;">' . $value . '</td>';
         }
         echo '</tr>';
     }
     if (in_array('price', $fields, true)) {
         echo '<tr><td colspan="' . max(1, count($fields) - 1) . '">Total Price</td><td>' . number_format($totalPrice, 2) . '</td></tr>';
+    }
+    if ($overall !== null) {
+        echo '<tr>';
+        foreach ($fields as $field) {
+            $value = gre_report_cell($overall, $field);
+            $value = in_array($field, ['ratings', 'problems_solved'], true)
+                ? implode('<br style="mso-data-placement:same-cell">', array_map('e', explode('; ', $value)))
+                : e($value);
+            echo '<td style="background:#c6efce;vertical-align:bottom;white-space:normal;">' . $value . '</td>';
+        }
+        echo '</tr>';
     }
     echo '</table></body></html>';
     exit;
@@ -114,6 +143,7 @@ if ($format === 'excel') {
         <button class="primary" onclick="window.print()"><?= $format === 'pdf' ? 'Save PDF' : 'Print / Save PDF' ?></button>
     </div>
     <h1><?= e($title) ?></h1>
+    <div class="meta">Report period: <?= e($period) ?></div>
     <div class="meta">Module: <?= e($config['label']) ?> | Generated: <?= e(date('F j, Y g:i A')) ?> | Records: <?= number_format(count($rows)) ?></div>
     <div class="table-wrap">
         <table>
@@ -125,6 +155,9 @@ if ($format === 'excel') {
                     <tr><?php foreach ($fields as $field): ?><td><?= e(gre_report_cell($row, $field)) ?></td><?php endforeach; ?></tr>
                 <?php endforeach; ?>
                 <?php if (empty($rows)): ?><tr><td colspan="<?= count($fields) ?>">No records found.</td></tr><?php endif; ?>
+                <?php if ($overall !== null): ?>
+                    <tr><?php foreach ($fields as $field): ?><td style="background:#c6efce;"><?= nl2br(e(str_replace('; ', "\n", gre_report_cell($overall, $field)))) ?></td><?php endforeach; ?></tr>
+                <?php endif; ?>
             </tbody>
             <?php if (in_array('price', $fields, true)): ?>
                 <tfoot><tr><td colspan="<?= max(1, count($fields) - 1) ?>">Total Price</td><td><?= number_format($totalPrice, 2) ?></td></tr></tfoot>

@@ -113,12 +113,29 @@ $assets = ['css/main.css','css/table.css','css/select.css','images/demo-mark.svg
 foreach ($assets as $asset) {
     $target = $out.'/assets/'.$asset;
     if (!is_dir(dirname($target))) mkdir(dirname($target),0777,true);
+    if (!is_file($root.'/'.$sourceFolder.'/public/assets/'.$asset)) continue;
     $content = file_get_contents($root.'/'.$sourceFolder.'/public/assets/'.$asset);
     // Plain page background; keep photos and ID preview assets separate.
     if (str_ends_with($asset,'.css')) {
         $content = preg_replace('~background\s*:\s*url\([\'"]?\.\./images/bg\.png[\'"]?\)[^;]*;~i','background: #f4f6f9;',$content);
     }
     file_put_contents($target,$content);
+}
+if ($system === 'ims') {
+    $assetRoot=$root.'/ims/public/assets/';
+    foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($assetRoot,FilesystemIterator::SKIP_DOTS)) as $assetFile){
+        if(!in_array(strtolower($assetFile->getExtension()),['css','js','png','jpg','jpeg','svg','webp','gif','ico','woff','woff2','ttf'],true))continue;
+        $relative=str_replace('\\','/',substr($assetFile->getPathname(),strlen($assetRoot)));
+        $target=$out.'/assets/'.$relative;if(!is_dir(dirname($target)))mkdir(dirname($target),0777,true);
+        $content=file_get_contents($assetFile->getPathname());
+        if($assetFile->getExtension()==='css')$content=preg_replace('~background\s*:\s*url\([\'"]?\.\./images/bg\.png[\'"]?\)[^;]*;~i','background:#f4f6f9;',$content);
+        file_put_contents($target,$content);
+    }
+    $mlSource=file_get_contents($root.'/ims/modules/Pages/masterlist/masterlist-action.php');
+    $start=strpos($mlSource,'function ml_configs()');$end=strpos($mlSource,"\nfunction ",$start+10);
+    eval(substr($mlSource,$start,$end-$start));
+    $clientConfigs=[];foreach(ml_configs() as $slug=>$config){unset($config['create'],$config['table']);$clientConfigs[$slug]=$config;}
+    file_put_contents($out.'/masterlist-schema.js','window.IMS_DEMO_SCHEMA='.json_encode($clientConfigs,JSON_UNESCAPED_SLASHES|JSON_HEX_TAG|JSON_HEX_AMP).';');
 }
 $failed = [];
 foreach ($pages as $slug=>$view) {
@@ -129,6 +146,23 @@ foreach ($pages as $slug=>$view) {
     fclose($pipes[1]); fclose($pipes[2]); $exit = proc_close($process);
     if ($exit !== 0) { $failed[] = $slug; fwrite(STDERR,$slug.': '.$errors."\n"); continue; }
     if ($errors !== '') fwrite(STDERR,$slug.': '.$errors."\n");
+    if ($system === 'ims') {
+        // Keep the restored project's actual JS, modals, table controls and sidebar.
+        $html=preg_replace_callback('~(href|action)="\./([^"?#]+)([^" ]*)"~i',function($match)use($routeMap,$pages){
+            if(str_starts_with($match[2],'assets/'))return $match[0];
+            $route=$routeMap[$match[2]]??(isset($pages[$match[2]])?$match[2]:null);
+            if(!$route)return $match[1].'="#" data-demo-unavailable="'.htmlspecialchars($match[2],ENT_QUOTES).'"';
+            $parts=explode('?',$route,2);return $match[1].'="'.$parts[0].'.html'.(isset($parts[1])?'?'.$parts[1]:'').$match[3].'"';
+        },$html);
+        $adapter='<script src="../shared/store.js"></script><script src="masterlist-schema.js?v=original-1"></script><script src="bridge.js?v=original-1"></script><script src="runtime.js?v=original-1"></script>';
+        $html=preg_replace('~(<script\b[^>]*src="\./assets/js/app\.js[^>]*>)~',$adapter.'$1',$html,1);
+        if(!str_contains($html,'<html'))$html='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Inventory Management System</title></head><body>'.$html.'</body></html>';
+        $html=str_replace('</head>','<link rel="stylesheet" href="original-demo.css?v=original-1"></head>',$html);
+        $html=str_replace('</body>','<link rel="stylesheet" href="original-demo.css?v=original-1"></body>',$html);
+        $html=preg_replace('~(href="\./assets/css/[^"?]+)(?:\?[^"]*)?"~','$1?v=original-1"',$html);
+        $html=preg_replace('~href="[^" ]*/demo/[^" ]*"~','href="#" data-demo-unavailable="manual"',$html);
+        file_put_contents($out.'/'.$slug.'.html',$html);echo 'Exported original IMS '.$slug."\n";continue;
+    }
     // Server handlers are replaced by one localStorage adapter, not called remotely.
     $html = preg_replace('~<script\b[^>]*>.*?</script>~is','',$html);
     $html = preg_replace('~body\.auth-screen\s*\{.*?\}~s','body.auth-screen { min-height: 100vh; background: #f4f6f9; }',$html);

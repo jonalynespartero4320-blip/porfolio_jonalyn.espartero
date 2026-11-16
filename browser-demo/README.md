@@ -21,7 +21,7 @@ Alternatively, extract `deployment/github-pages-upload.zip` and copy its content
 
 Data is saved per browser and site origin. Different devices and visitors do not share records. Reset affects only the selected demo. Health has 250 AM and 250 PM slots per weekday and supports bookings up to 90 days ahead. Browser admins and login flows provide no real security. Small fictional BJMP attachments are limited to 350 KB each. Use fictional information only.
 
-These are portfolio demos, not complete replacements for the original server applications. Secure authentication, real identity verification, multi-user concurrency, email, original database/file imports, camera scanning, production ID printing, and advanced report customization are not reproduced. Inventory provides demo record controls above the original tables; unconverted server forms show a notice. External Bootstrap/font/icon assets still need internet access.
+These are portfolio demos, not complete replacements for the original server applications. Secure authentication, real identity verification, multi-user concurrency, email, original database/file imports, camera scanning, production ID printing, and advanced report customization are not reproduced. Inventory now retains the restored original JavaScript, sidebar, tables, modals, and form fields. A response adapter replaces PHP calls with localStorage; there is no replacement toolbar or generic record form. Unconverted server-only utilities show a notice. External Bootstrap/font/icon assets still need internet access.
 
 ## Development
 
@@ -35,6 +35,6 @@ C:\xampp\php\php.exe tools/export-verification-demo.php
 C:\xampp\php\php.exe tools/check-demo-pages.php
 ```
 
-Run `tools/check-all-demo-storage.cjs` and `tools/check-bjmp-storage.cjs` with Node.js for data behavior checks. Temporary compilation folders are ignored by Git. The exports use an empty fake data provider and do not connect to or change any original database. `local.js`, `local.css`, and `shared/` are maintained separately from generated screens.
+Run `tools/check-all-demo-storage.cjs` and `tools/check-bjmp-storage.cjs` with Node.js for data behavior checks. Temporary compilation folders are ignored by Git. The exports use an empty fake data provider and do not connect to or change any original database. BJMP/Health/Verification local scripts and `shared/` are maintained separately from generated screens. IMS uses `bridge.js`, `runtime.js`, and `original-demo.css`; see `ims/README.md`.
 
-Validation passed: JavaScript syntax, original form controls, all 43 static pages' local links, project destinations, booking/cancellation rules, persistence and quota failure handling, lookup results, and BJMP queue behavior. Browser automation could not establish a debugging connection, so visual and full browser interaction verification remain outstanding.
+Validation passed: JavaScript syntax, original form controls, all 56 static pages' local links, project destinations, booking/cancellation rules, persistence and quota failure handling, lookup results, and BJMP queue behavior. A temporary Edge browser verified the restored IMS login, original sidebar, original Equipment batch save and View modal, assignment and borrowed-item submission, module initialization, and mobile sidebar behavior without runtime exceptions. See `ims/README.md`. Earlier visual verification limits still apply to the other demos.

@@ -519,7 +519,7 @@ function sr_store_pdf(int $reportId): ?string
     if (($file['size'] ?? 0) > 1024 * 1024) {
         throw new RuntimeException('PDF must not exceed 1MB.');
     }
-    $uploadDir = ROOT_PATH . '/public/demo-uploads/service-reports';
+    $uploadDir = ROOT_PATH . '/public/uploads/service-reports';
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0775, true);
     }
@@ -528,7 +528,7 @@ function sr_store_pdf(int $reportId): ?string
     if (!move_uploaded_file($file['tmp_name'], $target)) {
         throw new RuntimeException('Unable to save PDF attachment.');
     }
-    return 'demo-uploads/service-reports/' . $filename;
+    return 'uploads/service-reports/' . $filename;
 }
 
 function sr_delete_pdf(PDO $pdo, int $reportId): void

@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Service Report Archive</title>
+    <link rel="icon" type="image/png" href="./assets/images/itlogo.png">
+    <link rel="shortcut icon" type="image/png" href="./assets/images/itlogo.png">
+    <link rel="apple-touch-icon" href="./assets/images/itlogo.png">
+
+    <script>
+        const APP_BASE_URL = ".";
+    </script>
+
+    <!-- ================= META ================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ================= FONTS ================= -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ================= BOOTSTRAP ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ================= ICONS ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- ================= CSS PLUGINS ================= -->
+<link href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+
+<!-- ================= CUSTOM CSS ================= -->
+<link rel="stylesheet" href="./assets/css/main.css?v=original-1">
+<link rel="stylesheet" href="./assets/css/table.css?v=original-1">
+<link rel="stylesheet" href="./assets/css/select.css?v=original-1">
+
+
+
+
+<!-- ================= JQUERY (REQUIRED FIRST) ================= -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- ================= DATA TABLES ================= -->
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+
+<!-- ================= PLUGINS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- ================= CUSTOM JS ================= -->
+<script src="../shared/store.js"></script><script src="masterlist-schema.js?v=original-1"></script><script src="bridge.js?v=original-1"></script><script src="runtime.js?v=original-1"></script><script src="./assets/js/app.js?v=1"></script>
+<link rel="stylesheet" href="original-demo.css?v=original-1"></head>
+<body>
+<script>
+try {
+    if (window.innerWidth > 991 && localStorage.getItem('ims.sidebar.collapsed') === '1') {
+        document.body.classList.add('sidebar-collapsed');
+    }
+} catch (error) {}
+</script>
+
+<div class="layout">
+    
+<aside class="sidebar app-sidebar" id="appSidebar">
+    <div class="sidebar-rail">
+        <button type="button" class="rail-avatar" id="sidebarRailCollapse" title="Collapse sidebar" aria-label="Collapse sidebar" aria-expanded="true">
+            <i class="bi bi-pc-display-horizontal"></i>
+            <span class="rail-label"></span>
+        </button>
+
+        <div class="rail-nav">
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Main"
+                    aria-label="Main"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu0"
+                >
+                    <i class="bi bi-house-door-fill"></i>
+                    <span class="rail-label">Main</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu0" aria-hidden="true">
+                    <div class="rail-popout-title">Main</div>
+                                <a href="dashboard.html" class="" data-sidebar-link>
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Equipment"
+                    aria-label="Equipment"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu1"
+                >
+                    <i class="bi bi-hdd-network-fill"></i>
+                    <span class="rail-label">Equipment</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu1" aria-hidden="true">
+                    <div class="rail-popout-title">Equipment</div>
+                                <a href="equipment.html" class="" data-sidebar-link>
+                <i class="bi bi-pc-display"></i>
+                <span>Manage Equipment</span>
+            </a>
+                        <a href="equipment-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/equipment/import" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Supplies"
+                    aria-label="Supplies"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu2"
+                >
+                    <i class="bi bi-box-seam-fill"></i>
+                    <span class="rail-label">Supplies</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu2" aria-hidden="true">
+                    <div class="rail-popout-title">Supplies</div>
+                                <a href="supplies.html" class="" data-sidebar-link>
+                <i class="bi bi-box-seam-fill"></i>
+                <span>Manage Supplies</span>
+            </a>
+                        <a href="supplies-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/supplies/import" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Assign"
+                    aria-label="Assign"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu3"
+                >
+                    <i class="bi bi-person-workspace"></i>
+                    <span class="rail-label">Assign</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu3" aria-hidden="true">
+                    <div class="rail-popout-title">Assign</div>
+                                <a href="assign.html" class="" data-sidebar-link>
+                <i class="bi bi-person-workspace"></i>
+                <span>Manage Assign</span>
+            </a>
+                        <a href="assign-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/assign/import" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Other operations"
+                    aria-label="Other operations"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu4"
+                >
+                    <i class="bi bi-kanban-fill"></i>
+                    <span class="rail-label">Other operations</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu4" aria-hidden="true">
+                    <div class="rail-popout-title">Other operations</div>
+                                    <div class="rail-popout-subtitle">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    <span>Subscription</span>
+                </div>
+                            <a href="subscription.html" class="" data-sidebar-link>
+                <i class="bi bi-file-earmark-text-fill"></i>
+                <span>Manage Subscription</span>
+            </a>
+                        <a href="subscription-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/subscription/import" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                                            <div class="rail-popout-subtitle">
+                    <i class="bi bi-arrow-left-right"></i>
+                    <span>Borrowed</span>
+                </div>
+                            <a href="borrowed.html" class="" data-sidebar-link>
+                <i class="bi bi-arrow-left-right"></i>
+                <span>Manage Borrowed</span>
+            </a>
+                        <a href="borrowed-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/borrowed/import" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                                            <div class="rail-popout-subtitle">
+                    <i class="bi bi-briefcase-fill"></i>
+                    <span>Bidding</span>
+                </div>
+                            <a href="bidding.html" class="" data-sidebar-link>
+                <i class="bi bi-briefcase-fill"></i>
+                <span>Manage Bidding</span>
+            </a>
+                        <a href="bidding-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/bidding/import" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                                            <div class="rail-popout-subtitle">
+                    <i class="bi bi-type-bold"></i>
+                    <span>Title</span>
+                </div>
+                            <a href="#" data-demo-unavailable="ictd/title" class="" data-sidebar-link>
+                <i class="bi bi-type-bold"></i>
+                <span>Manage Title</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/title/archive" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/title/import" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Reports"
+                    aria-label="Reports"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu5"
+                >
+                    <i class="bi bi-graph-up-arrow"></i>
+                    <span class="rail-label">Reports</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu5" aria-hidden="true">
+                    <div class="rail-popout-title">Reports</div>
+                                <a href="service-report.html" class="" data-sidebar-link>
+                <i class="bi bi-clipboard-data-fill"></i>
+                <span>Service Report</span>
+            </a>
+                        <a href="service-report-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Service Archive</span>
+            </a>
+                        <a href="maintenance.html" class="" data-sidebar-link>
+                <i class="bi bi-tools"></i>
+                <span>Maintenance Report</span>
+            </a>
+                        <a href="maintenance-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Maintenance Archive</span>
+            </a>
+                        <a href="transmittal.html" class="" data-sidebar-link>
+                <i class="bi bi-send-fill"></i>
+                <span>Transmittal Report</span>
+            </a>
+                        <a href="transmittal-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Transmittal Archive</span>
+            </a>
+                        <a href="reports.html" class="" data-sidebar-link>
+                <i class="bi bi-bar-chart-line"></i>
+                <span>General Report</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Masterlist"
+                    aria-label="Masterlist"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu6"
+                >
+                    <i class="bi bi-collection-fill"></i>
+                    <span class="rail-label">Masterlist</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu6" aria-hidden="true">
+                    <div class="rail-popout-title">Masterlist</div>
+                                <a href="masterlist.html" class="" data-sidebar-link>
+                <i class="bi bi-ui-checks-grid"></i>
+                <span>Manage Masterlist</span>
+            </a>
+                            </div>
+                    </div>
+
+        <div class="rail-bottom">
+            <button type="button" class="rail-link rail-settings " id="accountMenuToggle" title="Account menu" aria-label="Account menu" aria-expanded="false">
+                <i class="bi bi-gear"></i>
+                <span class="rail-label">Account</span>
+            </button>
+            <div class="rail-popout-menu rail-account-menu" id="accountRailMenu" aria-hidden="true">
+                <div class="rail-popout-title">Account</div>
+                <a href="#" data-demo-unavailable="account" class="" data-sidebar-link>
+                    <i class="bi bi-person-lines-fill"></i>
+                    <span>Account Details</span>
+                </a>
+                <a href="#" data-demo-unavailable="change-password" class="" data-sidebar-link>
+                    <i class="bi bi-key"></i>
+                    <span>Change Password</span>
+                </a>
+                                    <a href="#" data-demo-unavailable="activity-logs" class="" data-sidebar-link>
+                        <i class="bi bi-clock-history"></i>
+                        <span>Logs</span>
+                    </a>
+                                                    <a href="#" data-demo-unavailable="admin" class="" data-sidebar-link>
+                        <i class="bi bi-person-gear"></i>
+                        <span>User Admin</span>
+                    </a>
+                            </div>
+            <a href="index.html" class="rail-link rail-logout" title="Logout">
+                <i class="bi bi-power"></i>
+                <span class="rail-label">Logout</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="sidebar-panel">
+        <div class="sidebar-profile">
+            <div class="sidebar-module-search">
+                <i class="bi bi-search"></i>
+                <input type="search" id="sidebarModuleSearch" placeholder="Search modules..." autocomplete="off">
+                <button type="button" id="sidebarModuleSearchClear" aria-label="Clear module search">
+                    <i class="bi bi-x-lg"></i>
+                    <span>Clear</span>
+                </button>
+            </div>
+            <button type="button" class="profile-collapse" id="sidebarCollapseToggle" title="Collapse sidebar" aria-label="Collapse sidebar" aria-expanded="true">
+                <i class="bi bi-layout-sidebar-inset"></i>
+                <span></span>
+            </button>
+        </div>
+        <div class="sidebar-search-empty" id="SearchEmpty">No matching modules found.</div>
+
+        <nav class="sidebar-menu">
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu0"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-house-door-fill"></i>
+                            <span>Main</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu0">
+                                    <a
+                href="dashboard.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span>Dashboard</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu1"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-hdd-network-fill"></i>
+                            <span>Equipment</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu1">
+                                    <a
+                href="equipment.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-pc-display"></i>
+                    <span>Manage Equipment</span>
+                </span>
+                            </a>
+                        <a
+                href="equipment-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/equipment/import"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu2"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-box-seam-fill"></i>
+                            <span>Supplies</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu2">
+                                    <a
+                href="supplies.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-box-seam-fill"></i>
+                    <span>Manage Supplies</span>
+                </span>
+                            </a>
+                        <a
+                href="supplies-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/supplies/import"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu3"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-person-workspace"></i>
+                            <span>Assign</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu3">
+                                    <a
+                href="assign.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-person-workspace"></i>
+                    <span>Manage Assign</span>
+                </span>
+                            </a>
+                        <a
+                href="assign-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/assign/import"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-kanban-fill"></i>
+                            <span>Other operations</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu4">
+                                        <div class="sidebar-nested-group ">
+                    <button
+                        type="button"
+                        class="sidebar-link sidebar-nested-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4_0_subscription_group"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-file-earmark-text-fill"></i>
+                            <span>Subscription</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+                    <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_0_subscription_group">
+                                    <a
+                href="subscription.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    <span>Manage Subscription</span>
+                </span>
+                            </a>
+                        <a
+                href="subscription-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/subscription/import"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </div>
+                                <div class="sidebar-nested-group ">
+                    <button
+                        type="button"
+                        class="sidebar-link sidebar-nested-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4_1_borrowed_group"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-arrow-left-right"></i>
+                            <span>Borrowed</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+                    <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_1_borrowed_group">
+                                    <a
+                href="borrowed.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-arrow-left-right"></i>
+                    <span>Manage Borrowed</span>
+                </span>
+                            </a>
+                        <a
+                href="borrowed-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/borrowed/import"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </div>
+                                <div class="sidebar-nested-group ">
+                    <button
+                        type="button"
+                        class="sidebar-link sidebar-nested-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4_2_bidding_group"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-briefcase-fill"></i>
+                            <span>Bidding</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+                    <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_2_bidding_group">
+                                    <a
+                href="bidding.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-briefcase-fill"></i>
+                    <span>Manage Bidding</span>
+                </span>
+                            </a>
+                        <a
+                href="bidding-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/bidding/import"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </div>
+                                <div class="sidebar-nested-group ">
+                    <button
+                        type="button"
+                        class="sidebar-link sidebar-nested-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4_3_title_group"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-type-bold"></i>
+                            <span>Title</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+                    <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_3_title_group">
+                                    <a
+                href="#" data-demo-unavailable="ictd/title"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-type-bold"></i>
+                    <span>Manage Title</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/title/archive"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/title/import"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </div>
+                                    </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu5"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-graph-up-arrow"></i>
+                            <span>Reports</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu5">
+                                    <a
+                href="service-report.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-clipboard-data-fill"></i>
+                    <span>Service Report</span>
+                </span>
+                            </a>
+                        <a
+                href="service-report-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Service Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="maintenance.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-tools"></i>
+                    <span>Maintenance Report</span>
+                </span>
+                            </a>
+                        <a
+                href="maintenance-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Maintenance Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="transmittal.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-send-fill"></i>
+                    <span>Transmittal Report</span>
+                </span>
+                            </a>
+                        <a
+                href="transmittal-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Transmittal Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="reports.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-bar-chart-line"></i>
+                    <span>General Report</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu6"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-collection-fill"></i>
+                            <span>Masterlist</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu6">
+                                    <a
+                href="masterlist.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-ui-checks-grid"></i>
+                    <span>Manage Masterlist</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+            
+                        <section class="sidebar-section sidebar-module ">
+                <button
+                    type="button"
+                    class="sidebar-section-title sidebar-submenu-toggle "
+                    data-sidebar-submenu="sidebarSubmenuAccount"
+                    aria-expanded="false"
+                >
+                    <span class="sidebar-submenu-label">
+                        <i class="bi bi-person-circle"></i>
+                        <span>Account</span>
+                    </span>
+                    <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                </button>
+
+                <div class="sidebar-submenu " id="sidebarSubmenuAccount">
+                    <a href="#" data-demo-unavailable="account" class="sidebar-link " data-sidebar-link>
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-person-lines-fill"></i>
+                            <span>Account Details</span>
+                        </span>
+                    </a>
+
+                    <a href="#" data-demo-unavailable="change-password" class="sidebar-link " data-sidebar-link>
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-key"></i>
+                            <span>Change Password</span>
+                        </span>
+                    </a>
+
+                                            <a href="#" data-demo-unavailable="activity-logs" class="sidebar-link " data-sidebar-link>
+                            <span class="sidebar-link-main">
+                                <i class="bi bi-clock-history"></i>
+                                <span>Logs</span>
+                            </span>
+                        </a>
+                                    </div>
+            </section>
+
+                                            <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenuAdmin"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-shield-lock-fill"></i>
+                            <span>Admin</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenuAdmin">
+                                                    <a href="#" data-demo-unavailable="admin" class="sidebar-link " data-sidebar-link>
+                                <span class="sidebar-link-main">
+                                    <i class="bi bi-person-gear"></i>
+                                    <span>Manage Users</span>
+                                </span>
+                            </a>
+                                            </div>
+                </section>
+                    </nav>
+
+        <div class="sidebar-footer">
+            Developed by City of Information and Communication Technology Department
+        </div>
+    </div>
+
+</aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="content">
+        <div class="topbar d-flex justify-content-between align-items-center px-3 py-2 shadow-sm">
+            <div class="d-flex align-items-center gap-3">
+                <button type="button" class="sidebar-toggle btn btn-outline-secondary btn-sm" id="sidebarToggle" aria-label="Toggle sidebar">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="system-title fw-bold">
+                    <i class="bi bi-pc-display-horizontal"></i>
+                    <span>IMS CICTD</span>
+                </div>
+
+                <div class="topbar-clock text-muted">
+                    <i class="bi bi-clock"></i>
+                    <span id="currentDateTime"></span>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                                    <a href="#" data-demo-unavailable="activity-logs" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-clock-history"></i> Logs
+                    </a>
+                
+                <a href="#" data-demo-unavailable="downloads/ims_cictd_user_manual.pdf" download class="btn btn-outline-success btn-sm">
+                    <i class="bi bi-download"></i> Manual
+                </a>
+
+                <div class="user-panel d-flex align-items-center gap-2">
+                    <i class="bi bi-person-circle fs-4"></i>
+
+                    <div>
+                        <div class="fw-semibold">demo</div>
+                        <small class="text-muted">Super Admin</small>
+                    </div>
+                </div>
+
+                <a href="#" data-demo-unavailable="change-password" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-key"></i> Change Password
+                </a>
+
+                <a href="index.html" class="btn btn-danger btn-sm">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="p-3">
+            
+<style>
+  .report-archive-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+  .report-archive-title { margin: 0; color: #1f2937; font-size: 1.35rem; font-weight: 850; }
+  .report-archive-toolbar { display: flex; align-items: center; justify-content: flex-end; gap: .65rem; flex-wrap: wrap; margin-bottom: .8rem; }
+  .report-archive-search { position: relative; min-width: min(320px, 100%); }
+  .report-archive-search i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #98a2b3; font-size: .85rem; }
+  .report-archive-search input { height: 38px; padding-left: 34px; border-radius: 4px; border-color: #eaecf0; font-size: .78rem; }
+  .report-archive-soft-btn { height: 38px; border: 1px solid #eaecf0; background: #fff; color: #344054; border-radius: 4px; padding: 0 .8rem; font-size: .78rem; font-weight: 650; }
+  .report-archive-card { border: 0; border-radius: 10px; background: rgba(255,255,255,.78); box-shadow: none; overflow: hidden; }
+  .report-archive-table { border-collapse: separate !important; border-spacing: 0 !important; font-size: .8rem; color: #1f2937; }
+  .report-archive-table thead th { white-space: nowrap; font-size: .72rem; color: #5f6672; font-weight: 760; background: #f3f4f6 !important; border: 0 !important; padding: .72rem .8rem !important; }
+  .report-archive-table tbody td { border: 0 !important; border-bottom: 1px solid #f2f4f7 !important; padding: .72rem .8rem !important; vertical-align: middle; white-space: nowrap; }
+  .report-archive-table tbody tr:nth-child(even) td { background: rgba(249,250,251,.72); }
+  .report-archive-table tbody tr:hover td { background: #f8fbff; }
+  .report-archive-card .dataTables_wrapper { padding: 0; }
+  .report-archive-card .row:first-child { display: none; }
+  .report-archive-card .row:last-child { margin: 0; padding: .9rem .25rem 0; align-items: center; color: #475467; font-size: .78rem; }
+  .report-archive-card .dataTables_info { padding-top: .45rem !important; }
+  .report-archive-card .dataTables_paginate .pagination { gap: .35rem; margin: 0; justify-content: flex-end; }
+  .report-archive-card .page-link { min-width: 34px; height: 34px; border-radius: 4px !important; display: inline-flex; align-items: center; justify-content: center; border-color: #eaecf0; color: #344054; font-size: .78rem; box-shadow: none; }
+  .report-archive-card .page-item.active .page-link { background: #3657f6; border-color: #3657f6; color: #fff; }
+  .service-actions { display: inline-flex; gap: .65rem; align-items: center; white-space: nowrap; }
+  .service-action-btn { border: 0; background: transparent; padding: 0; line-height: 1; font-size: .95rem; }
+  .service-action-pdf { color: #d92d20; }
+  .service-action-delete { color: #e26060; }
+  .ims-upload-panel { width: 220px; display: grid; gap: .28rem; justify-items: center; }
+  .ims-upload-file-link { color: #14966f; font-size: .82rem; font-weight: 850; text-decoration: underline; max-width: 212px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ims-upload-empty { color: #98a2b3; font-size: .72rem; font-weight: 750; }
+  .ims-upload-actions { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; }
+  .ims-upload-btn { border: 0; border-radius: 11px; min-width: 38px; height: 30px; padding: 0 .75rem; display: inline-flex; align-items: center; justify-content: center; gap: .35rem; font-size: .72rem; font-weight: 800; line-height: 1; box-shadow: inset 0 1px 0 rgba(255,255,255,.48), 0 3px 7px rgba(15,23,42,.2); cursor: pointer; text-decoration: none; }
+  .ims-upload-square { min-width: 64px; width: auto; padding: 0 .65rem; }
+  .ims-upload-btn-blue { background: linear-gradient(180deg, #4f9cff 0%, #1f6fe5 100%); color: #fff; }
+  .ims-upload-btn-gray { background: linear-gradient(180deg, #f9fafb 0%, #e5e7eb 100%); color: #64748b; }
+</style>
+
+<div class="container-fluid py-3">
+    <div class="report-archive-head">
+        <div>
+            <div class="text-muted small fw-bold">Archive</div>
+            <h2 class="report-archive-title">Service Report Archive</h2>
+        </div>
+        <a href="service-report.html" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-left"></i> Back to Service Reports</a>
+    </div>
+    <div class="report-archive-toolbar">
+        <div class="report-archive-search">
+            <i class="bi bi-search"></i>
+            <input type="search" class="form-control" id="serviceArchiveSearch" placeholder="Search archived service reports">
+        </div>
+        <button type="button" class="report-archive-soft-btn" id="serviceArchiveRefreshBtn" title="Refresh">
+            <i class="bi bi-arrow-clockwise"></i>
+        </button>
+    </div>
+    <div class="card report-archive-card">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table id="serviceArchiveTable" class="table align-middle nowrap mb-0 report-archive-table" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Upload File</th>
+                            <th>ID</th>
+                            <th>Service CN</th>
+                            <th>Old Service CN</th>
+                            <th>End User</th>
+                            <th>Department</th>
+                            <th>Report Date</th>
+                            <th>Report Time</th>
+                            <th>Satisfactory</th>
+                            <th>Items</th>
+                            <th>Archived</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="serviceArchivePdfModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content border-0">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold"><i class="bi bi-file-earmark-pdf"></i> Service Report PDF Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-0">
+                <iframe id="serviceArchivePdfFrame" style="width:100%;height:75vh;border:0"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const actionUrl = './ictd/service-report-action';
+    const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[character]));
+
+    function serviceItemPdfLabel(item) {
+        return [
+            String(item.type || 'item').toUpperCase(),
+            item.other_description || item.description_name || '',
+            item.control_no ? 'Control: ' + item.control_no : '',
+            item.brand_name ? 'Brand: ' + item.brand_name : '',
+            item.serialno ? 'SN: ' + item.serialno : ''
+        ].filter(Boolean).join(' | ') || ('Item #' + (item.id || ''));
+    }
+
+    function openServiceExportPicker(id, exportUrl) {
+        $.getJSON(actionUrl, { action: 'view', id }).done(function (res) {
+            if (!res.success) return Swal.fire('Error', res.message || 'Unable to load service report items.', 'error');
+            const items = res.items || [];
+            if (!items.length) return window.open(exportUrl, '_blank');
+            const html = `<div class="text-start" style="max-height:340px;overflow:auto;">
+                ${items.map(item => `<label class="d-flex gap-2 align-items-start py-2 border-bottom" style="color:#1f2937;background:#fff;">
+                    <input type="checkbox" class="form-check-input service-export-item" value="${escapeHtml(item.id)}" checked>
+                    <span style="font-size:.86rem;line-height:1.35;font-weight:700;color:#1f2937;">${escapeHtml(serviceItemPdfLabel(item))}</span>
+                </label>`).join('')}
+            </div>`;
+            Swal.fire({
+                title: 'Select Items for PDF', html, showCancelButton: true,
+                confirmButtonText: 'Generate PDF', confirmButtonColor: '#3657f6',
+                preConfirm: () => {
+                    const ids = $('.service-export-item:checked').map(function () { return this.value; }).get();
+                    if (!ids.length) {
+                        Swal.showValidationMessage('Select at least one item to include.');
+                        return false;
+                    }
+                    return ids;
+                }
+            }).then(result => {
+                if (!result.isConfirmed) return;
+                const url = new URL(exportUrl, window.location.origin);
+                url.searchParams.set('item_ids', result.value.join(','));
+                window.open(url.toString(), '_blank');
+            });
+        }).fail(function (xhr) {
+            Swal.fire('Error', xhr.responseJSON?.message || 'Unable to load service report items.', 'error');
+        });
+    }
+
+    $(document).on('click', '.export-service-pdf-btn', function () {
+        openServiceExportPicker($(this).data('id'), $(this).data('export-url'));
+    });
+    const table = $('#serviceArchiveTable').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: { url: './ictd/service-report-data', type: 'GET', data: d => { d.archive = 1; } },
+        order: [[11, 'desc']],
+        dom: 'rt<"row align-items-center"<"col-md-4"i><"col-md-4"l><"col-md-4"p>>',
+        pageLength: 10,
+        scrollX: true,
+        columnDefs: [{ targets: [0, 1], orderable: false, searchable: false }],
+        language: {
+            info: '_START_ - _END_ of _TOTAL_',
+            lengthMenu: 'Rows per page _MENU_',
+            paginate: { previous: '<i class="bi bi-chevron-left"></i>', next: '<i class="bi bi-chevron-right"></i>' },
+            processing: 'Loading archive...',
+            emptyTable: 'No archived service reports yet.'
+        }
+    });
+
+    $('#serviceArchiveSearch').on('input', function () {
+        table.search(this.value).draw();
+    });
+
+    $('#serviceArchiveRefreshBtn').on('click', function () {
+        $('#serviceArchiveSearch').val('');
+        table.search('').ajax.reload();
+    });
+
+    $(document).on('click', '.restore-service-btn', function () {
+        $.ajax({ url: actionUrl, method: 'POST', contentType: 'application/json', dataType: 'json', data: JSON.stringify({ action: 'restore', id: $(this).data('id') }),
+            success: res => { Swal.fire(res.success ? 'Restored' : 'Error', res.message, res.success ? 'success' : 'error'); table.ajax.reload(null, false); }
+        });
+    });
+    $(document).on('click', '.permanent-delete-service-btn', function () {
+        const id = $(this).data('id');
+        Swal.fire({ title: 'Permanently delete?', text: 'This cannot be undone.', icon: 'warning', showCancelButton: true, confirmButtonColor: '#d33' }).then(result => {
+            if (!result.isConfirmed) return;
+            $.ajax({ url: actionUrl, method: 'POST', contentType: 'application/json', dataType: 'json', data: JSON.stringify({ action: 'permanent_delete', id }),
+                success: res => { Swal.fire(res.success ? 'Deleted' : 'Error', res.message, res.success ? 'success' : 'error'); table.ajax.reload(null, false); }
+            });
+        });
+    });
+
+    $(document).on('click', '.preview-service-pdf', function () {
+        $('#serviceArchivePdfFrame').attr('src', $(this).data('pdf'));
+        bootstrap.Modal.getOrCreateInstance(document.getElementById('serviceArchivePdfModal')).show();
+    });
+
+    $('#serviceArchivePdfModal').on('hidden.bs.modal', function () {
+        $('#serviceArchivePdfFrame').attr('src', '');
+    });
+});
+</script>
+
+</div> 
+
+</main>
+</div>
+<script>
+
+function updateDateTime(){
+    const now = new Date();
+
+    const options={
+        weekday:'short',
+        year:'numeric',
+        month:'short',
+        day:'numeric',
+        hour:'2-digit',
+        minute:'2-digit',
+        second:'2-digit',
+        hour12:false
+    };
+
+    document.getElementById('currentDateTime').textContent =
+    now.toLocaleString('en-US',options);
+}
+
+updateDateTime();
+setInterval(updateDateTime,1000);
+
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const sidebarCollapseToggle = document.getElementById('sidebarCollapseToggle');
+    const sidebarRailCollapse = document.getElementById('sidebarRailCollapse');
+    const accountMenuToggle = document.getElementById('accountMenuToggle');
+    const accountRailMenu = document.getElementById('accountRailMenu');
+    const railMenuToggles = document.querySelectorAll('[data-rail-menu-toggle]');
+    const railPopoutMenus = document.querySelectorAll('.rail-popout-menu');
+    const sidebarSubmenuToggles = document.querySelectorAll('[data-sidebar-submenu]');
+    const sidebarLinks = document.querySelectorAll('[data-sidebar-link]');
+    const sidebarCollapseStorageKey = 'ims.sidebar.collapsed';
+    const sidebarScrollStorageKey = 'ims.sidebar.scrollTop';
+    const sidebarPanel = document.querySelector('.sidebar-panel');
+    const sidebarMenu = document.querySelector('.sidebar-menu');
+    const sidebarModuleSearch = document.getElementById('sidebarModuleSearch');
+    const sidebarModuleSearchClear = document.getElementById('sidebarModuleSearchClear');
+    const sidebarSearchEmpty = document.getElementById('sidebarSearchEmpty');
+
+function getSidebarScroller() {
+    if (sidebarMenu && sidebarMenu.scrollHeight > sidebarMenu.clientHeight) {
+        return sidebarMenu;
+    }
+    if (sidebarPanel && sidebarPanel.scrollHeight > sidebarPanel.clientHeight) {
+        return sidebarPanel;
+    }
+    return sidebarMenu || sidebarPanel;
+}
+
+function saveSidebarScroll() {
+    const scroller = getSidebarScroller();
+    if (!scroller) return;
+    sessionStorage.setItem(sidebarScrollStorageKey, String(scroller.scrollTop || 0));
+}
+
+function restoreSidebarScroll() {
+    const scroller = getSidebarScroller();
+    if (!scroller) return;
+    const savedScroll = parseInt(sessionStorage.getItem(sidebarScrollStorageKey) || '0', 10);
+    if (Number.isNaN(savedScroll)) return;
+    scroller.scrollTop = savedScroll;
+}
+
+requestAnimationFrame(restoreSidebarScroll);
+setTimeout(restoreSidebarScroll, 120);
+
+function setSidebarState(isOpen) {
+    document.body.classList.toggle('sidebar-open', Boolean(isOpen));
+}
+
+function isDesktopSidebar() {
+return window.innerWidth > 991;
+}
+
+function setSidebarCollapsed(isCollapsed, shouldStore = true) {
+    document.body.classList.toggle('sidebar-collapsed', Boolean(isCollapsed));
+        closeRailMenus();
+    if (sidebarCollapseToggle) {
+        sidebarCollapseToggle.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+        sidebarCollapseToggle.setAttribute('title', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
+        sidebarCollapseToggle.querySelector('i')?.classList.toggle('bi-layout-sidebar-inset', !isCollapsed);
+        sidebarCollapseToggle.querySelector('i')?.classList.toggle('bi-layout-sidebar-inset-reverse', Boolean(isCollapsed));
+    }
+    if (sidebarRailCollapse) {
+        sidebarRailCollapse.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+        sidebarRailCollapse.setAttribute('title', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
+        sidebarRailCollapse.querySelector('i')?.classList.toggle('bi-pc-display-horizontal', !isCollapsed);
+        sidebarRailCollapse.querySelector('i')?.classList.toggle('bi-layout-sidebar-inset-reverse', Boolean(isCollapsed));
+    }
+    if (shouldStore) {
+        localStorage.setItem(sidebarCollapseStorageKey, isCollapsed ? '1' : '0');
+    }
+}
+
+function closeRailMenus(exceptMenu = null) {
+    railPopoutMenus.forEach(function(menu) {
+    if (menu === exceptMenu) return;
+    menu.classList.remove('show');
+    menu.setAttribute('aria-hidden', 'true');
+});
+
+railMenuToggles.forEach(function(toggle) {
+const menuId = toggle.getAttribute('data-rail-menu-toggle');
+if (exceptMenu && menuId === exceptMenu.id) return;
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+});
+
+if (accountRailMenu !== exceptMenu) {
+    accountMenuToggle?.classList.remove('open');
+    accountMenuToggle?.setAttribute('aria-expanded', 'false');
+    }
+}
+
+function setRailMenuState(toggle, menu, isOpen) {
+if (isOpen) {
+closeRailMenus(menu);
+if (toggle && menu?.closest('.rail-nav')) {
+menu.style.top = `${toggle.offsetTop}px`;
+}
+} else {
+closeRailMenus();
+}
+
+    menu?.classList.toggle('show', Boolean(isOpen));
+    menu?.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    toggle?.classList.toggle('open', Boolean(isOpen));
+    toggle?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+
+function setAccountMenuState(isOpen) {
+    setRailMenuState(accountMenuToggle, accountRailMenu, isOpen);
+}
+
+if (isDesktopSidebar()) {
+    setSidebarCollapsed(localStorage.getItem(sidebarCollapseStorageKey) === '1', false);
+}
+
+function setSubmenuState(toggle, submenu, isOpen) {
+    if (!toggle) return;
+    toggle.classList.toggle('active', Boolean(isOpen));
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    submenu?.classList.toggle('show', Boolean(isOpen));
+    toggle.closest('.sidebar-module')?.classList.toggle('open', Boolean(isOpen));
+    toggle.closest('.sidebar-nested-group')?.classList.toggle('open', Boolean(isOpen));
+}
+
+function normalizeSearchText(value) {
+    return String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function filterSidebarModules(query) {
+    const keyword = normalizeSearchText(query);
+    const sections = document.querySelectorAll('.sidebar-panel .sidebar-section');
+    let visibleLinks = 0;
+
+    sidebarModuleSearch?.closest('.sidebar-module-search')?.classList.toggle('has-value', keyword.length > 0);
+
+    sections.forEach(function(section) {
+        const links = section.querySelectorAll('[data-sidebar-link]');
+        const toggle = section.querySelector(':scope > [data-sidebar-submenu]');
+        const submenuId = toggle?.getAttribute('data-sidebar-submenu');
+        const submenu = submenuId ? document.getElementById(submenuId) : null;
+        let sectionVisible = false;
+
+        links.forEach(function(link) {
+            const text = normalizeSearchText(link.textContent);
+            const sectionText = normalizeSearchText(toggle?.textContent || '');
+            const matched = keyword === '' || text.includes(keyword) || sectionText.includes(keyword);
+            link.classList.toggle('search-hidden', !matched);
+            if (matched) {
+                sectionVisible = true;
+                visibleLinks++;
+
+                if (keyword !== '') {
+                    let parentSubmenu = link.closest('.sidebar-submenu');
+                    while (parentSubmenu) {
+                        const parentToggle = document.querySelector(`[data-sidebar-submenu="${parentSubmenu.id}"]`);
+                        setSubmenuState(parentToggle, parentSubmenu, true);
+                        parentSubmenu = parentSubmenu.parentElement?.closest('.sidebar-submenu');
+                    }
+                }
+            }
+        });
+
+        section.classList.toggle('search-hidden', !sectionVisible);
+        if (keyword !== '' && sectionVisible && toggle && submenu) {
+            setSubmenuState(toggle, submenu, true);
+        }
+    });
+
+    sidebarSearchEmpty?.classList.toggle('show', keyword.length > 0 && visibleLinks === 0);
+}
+
+function firstVisibleSidebarLink() {
+    return Array.from(document.querySelectorAll('.sidebar-panel [data-sidebar-link]'))
+        .find(function(link) {
+            return !link.classList.contains('search-hidden') && link.offsetParent !== null;
+        });
+}
+
+sidebarToggle?.addEventListener('click', function() {
+if (isDesktopSidebar()) {
+setSidebarCollapsed(!document.body.classList.contains('sidebar-collapsed'));
+return;
+}
+setSidebarState(!document.body.classList.contains('sidebar-open'));
+});
+
+sidebarCollapseToggle?.addEventListener('click', function() {
+setSidebarCollapsed(!document.body.classList.contains('sidebar-collapsed'));
+});
+
+sidebarModuleSearch?.addEventListener('input', function() {
+filterSidebarModules(this.value);
+});
+
+sidebarModuleSearch?.addEventListener('keydown', function(event) {
+if (event.key !== 'Enter') return;
+const link = firstVisibleSidebarLink();
+if (!link) return;
+event.preventDefault();
+saveSidebarScroll();
+link.click();
+});
+
+sidebarModuleSearchClear?.addEventListener('click', function() {
+if (!sidebarModuleSearch) return;
+sidebarModuleSearch.value = '';
+filterSidebarModules('');
+sidebarModuleSearch.focus();
+});
+
+sidebarRailCollapse?.addEventListener('click', function() {
+if (!isDesktopSidebar()) {
+setSidebarState(false);
+return;
+}
+setSidebarCollapsed(!document.body.classList.contains('sidebar-collapsed'));
+});
+
+railMenuToggles.forEach(function(toggle) {
+toggle.addEventListener('click', function(event) {
+event.stopPropagation();
+const menuId = toggle.getAttribute('data-rail-menu-toggle');
+const menu = menuId ? document.getElementById(menuId) : null;
+if (!menu) return;
+
+if (isDesktopSidebar() && !document.body.classList.contains('sidebar-collapsed')) {
+setSidebarCollapsed(true);
+setRailMenuState(toggle, menu, true);
+return;
+}
+
+setRailMenuState(toggle, menu, !menu.classList.contains('show'));
+});
+});
+
+accountMenuToggle?.addEventListener('click', function(event) {
+event.stopPropagation();
+if (isDesktopSidebar() && !document.body.classList.contains('sidebar-collapsed')) {
+setSidebarCollapsed(true);
+setAccountMenuState(true);
+return;
+}
+setAccountMenuState(!accountRailMenu?.classList.contains('show'));
+});
+
+document.addEventListener('click', function(event) {
+const openMenu = document.querySelector('.rail-popout-menu.show');
+if (!openMenu) return;
+const clickedToggle = event.target.closest('[data-rail-menu-toggle], #accountMenuToggle');
+if (openMenu.contains(event.target) || clickedToggle) return;
+closeRailMenus();
+});
+
+sidebarOverlay?.addEventListener('click', function() {
+setSidebarState(false);
+});
+
+sidebarSubmenuToggles.forEach(function(toggle) {
+toggle.addEventListener('click', function(event) {
+event.preventDefault();
+saveSidebarScroll();
+const submenuId = toggle.getAttribute('data-sidebar-submenu');
+const submenu = submenuId ? document.getElementById(submenuId) : null;
+if (!submenu) return;
+
+const shouldOpen = !submenu.classList.contains('show');
+setSubmenuState(toggle, submenu, shouldOpen);
+restoreSidebarScroll();
+});
+});
+
+sidebarLinks.forEach(function(link) {
+link.addEventListener('click', function(event) {
+saveSidebarScroll();
+const targetHref = link.getAttribute('href');
+if (targetHref) {
+    const targetUrl = new URL(targetHref, window.location.origin);
+    if (targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search) {
+        event.preventDefault();
+        closeRailMenus();
+        restoreSidebarScroll();
+        return;
+    }
+}
+closeRailMenus();
+if (window.innerWidth <= 991) {
+setSidebarState(false);
+}
+});
+});
+
+window.addEventListener('resize', function() {
+if (window.innerWidth > 991) {
+setSidebarState(false);
+setSidebarCollapsed(localStorage.getItem(sidebarCollapseStorageKey) === '1', false);
+} else {
+setSidebarCollapsed(false, false);
+}
+});
+
+</script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
+
+<script src="./assets/js/app.js"></script>
+
+<link rel="stylesheet" href="original-demo.css?v=original-1"></body>
+</html>

@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Supplies Records</title>
-    <link rel="icon" type="image/png" href="./assets/images/demo-mark.svg">
-    <link rel="shortcut icon" type="image/png" href="./assets/images/demo-mark.svg">
-    <link rel="apple-touch-icon" href="./assets/images/demo-mark.svg">
+    <link rel="icon" type="image/png" href="./assets/images/itlogo.png">
+    <link rel="shortcut icon" type="image/png" href="./assets/images/itlogo.png">
+    <link rel="apple-touch-icon" href="./assets/images/itlogo.png">
 
-    
+    <script>
+        const APP_BASE_URL = ".";
+    </script>
 
     <!-- ================= META ================= -->
 <meta charset="UTF-8">
@@ -19,42 +21,48 @@
 
 <!-- ================= BOOTSTRAP ================= -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- ================= ICONS ================= -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
 <!-- ================= CSS PLUGINS ================= -->
-
-
-
+<link href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 
 <!-- ================= CUSTOM CSS ================= -->
-<link rel="stylesheet" href="./assets/css/main.css?v=1">
-<link rel="stylesheet" href="./assets/css/table.css?v=1">
-<link rel="stylesheet" href="./assets/css/select.css?v=1">
+<link rel="stylesheet" href="./assets/css/main.css?v=original-1">
+<link rel="stylesheet" href="./assets/css/table.css?v=original-1">
+<link rel="stylesheet" href="./assets/css/select.css?v=original-1">
 
 
 
 
 <!-- ================= JQUERY (REQUIRED FIRST) ================= -->
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <!-- ================= DATA TABLES ================= -->
-
-
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
 
 <!-- ================= PLUGINS ================= -->
-
-
-
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <!-- ================= CUSTOM JS ================= -->
-
-<link rel="stylesheet" href="local.css?v=plain-2"></head>
+<script src="../shared/store.js"></script><script src="masterlist-schema.js?v=original-1"></script><script src="bridge.js?v=original-1"></script><script src="runtime.js?v=original-1"></script><script src="./assets/js/app.js?v=1"></script>
+<link rel="stylesheet" href="original-demo.css?v=original-1"></head>
 <body>
-
+<script>
+try {
+    if (window.innerWidth > 991 && localStorage.getItem('ims.sidebar.collapsed') === '1') {
+        document.body.classList.add('sidebar-collapsed');
+    }
+} catch (error) {}
+</script>
 
 <div class="layout">
     
@@ -101,11 +109,11 @@
                 <i class="bi bi-pc-display"></i>
                 <span>Manage Equipment</span>
             </a>
-                        <a href="equipment.html?archived=1" class="" data-sidebar-link>
+                        <a href="equipment-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/equipment/import" class="" data-sidebar-link>
                 <i class="bi bi-upload"></i>
                 <span>Import data</span>
             </a>
@@ -127,11 +135,11 @@
                 <i class="bi bi-box-seam-fill"></i>
                 <span>Manage Supplies</span>
             </a>
-                        <a href="supplies.html?archived=1" class="" data-sidebar-link>
+                        <a href="supplies-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/supplies/import" class="" data-sidebar-link>
                 <i class="bi bi-upload"></i>
                 <span>Import data</span>
             </a>
@@ -153,11 +161,11 @@
                 <i class="bi bi-person-workspace"></i>
                 <span>Manage Assign</span>
             </a>
-                        <a href="assign.html?archived=1" class="" data-sidebar-link>
+                        <a href="assign-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/assign/import" class="" data-sidebar-link>
                 <i class="bi bi-upload"></i>
                 <span>Import data</span>
             </a>
@@ -183,11 +191,11 @@
                 <i class="bi bi-file-earmark-text-fill"></i>
                 <span>Manage Subscription</span>
             </a>
-                        <a href="subscription.html?archived=1" class="" data-sidebar-link>
+                        <a href="subscription-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/subscription/import" class="" data-sidebar-link>
                 <i class="bi bi-upload"></i>
                 <span>Import data</span>
             </a>
@@ -199,11 +207,11 @@
                 <i class="bi bi-arrow-left-right"></i>
                 <span>Manage Borrowed</span>
             </a>
-                        <a href="borrowed.html?archived=1" class="" data-sidebar-link>
+                        <a href="borrowed-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/borrowed/import" class="" data-sidebar-link>
                 <i class="bi bi-upload"></i>
                 <span>Import data</span>
             </a>
@@ -211,15 +219,15 @@
                     <i class="bi bi-briefcase-fill"></i>
                     <span>Bidding</span>
                 </div>
-                            <a href="#" class="" data-sidebar-link>
+                            <a href="bidding.html" class="" data-sidebar-link>
                 <i class="bi bi-briefcase-fill"></i>
                 <span>Manage Bidding</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="bidding-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/bidding/import" class="" data-sidebar-link>
                 <i class="bi bi-upload"></i>
                 <span>Import data</span>
             </a>
@@ -227,15 +235,15 @@
                     <i class="bi bi-type-bold"></i>
                     <span>Title</span>
                 </div>
-                            <a href="#" class="" data-sidebar-link>
+                            <a href="#" data-demo-unavailable="ictd/title" class="" data-sidebar-link>
                 <i class="bi bi-type-bold"></i>
                 <span>Manage Title</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/title/archive" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/title/import" class="" data-sidebar-link>
                 <i class="bi bi-upload"></i>
                 <span>Import data</span>
             </a>
@@ -253,19 +261,19 @@
                 </button>
                 <div class="rail-popout-menu" id="railGroupMenu5" aria-hidden="true">
                     <div class="rail-popout-title">Reports</div>
-                                <a href="#" class="" data-sidebar-link>
+                                <a href="service-report.html" class="" data-sidebar-link>
                 <i class="bi bi-clipboard-data-fill"></i>
                 <span>Service Report</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="service-report-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Service Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="maintenance.html" class="" data-sidebar-link>
                 <i class="bi bi-tools"></i>
                 <span>Maintenance Report</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="maintenance-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Maintenance Archive</span>
             </a>
@@ -273,7 +281,7 @@
                 <i class="bi bi-send-fill"></i>
                 <span>Transmittal Report</span>
             </a>
-                        <a href="transmittal.html?archived=1" class="" data-sidebar-link>
+                        <a href="transmittal-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Transmittal Archive</span>
             </a>
@@ -309,19 +317,19 @@
             </button>
             <div class="rail-popout-menu rail-account-menu" id="accountRailMenu" aria-hidden="true">
                 <div class="rail-popout-title">Account</div>
-                <a href="#" class="" data-sidebar-link>
+                <a href="#" data-demo-unavailable="account" class="" data-sidebar-link>
                     <i class="bi bi-person-lines-fill"></i>
                     <span>Account Details</span>
                 </a>
-                <a href="#" class="" data-sidebar-link>
+                <a href="#" data-demo-unavailable="change-password" class="" data-sidebar-link>
                     <i class="bi bi-key"></i>
                     <span>Change Password</span>
                 </a>
-                                    <a href="#" class="" data-sidebar-link>
+                                    <a href="#" data-demo-unavailable="activity-logs" class="" data-sidebar-link>
                         <i class="bi bi-clock-history"></i>
                         <span>Logs</span>
                     </a>
-                                                    <a href="#" class="" data-sidebar-link>
+                                                    <a href="#" data-demo-unavailable="admin" class="" data-sidebar-link>
                         <i class="bi bi-person-gear"></i>
                         <span>User Admin</span>
                     </a>
@@ -406,7 +414,7 @@
                 </span>
                             </a>
                         <a
-                href="equipment.html?archived=1"
+                href="equipment-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -416,7 +424,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/equipment/import"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -454,7 +462,7 @@
                 </span>
                             </a>
                         <a
-                href="supplies.html?archived=1"
+                href="supplies-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -464,7 +472,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/supplies/import"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -502,7 +510,7 @@
                 </span>
                             </a>
                         <a
-                href="assign.html?archived=1"
+                href="assign-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -512,7 +520,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/assign/import"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -564,7 +572,7 @@
                 </span>
                             </a>
                         <a
-                href="subscription.html?archived=1"
+                href="subscription-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -574,7 +582,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/subscription/import"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -610,7 +618,7 @@
                 </span>
                             </a>
                         <a
-                href="borrowed.html?archived=1"
+                href="borrowed-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -620,7 +628,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/borrowed/import"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -646,7 +654,7 @@
                     </button>
                     <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_2_bidding_group">
                                     <a
-                href="#"
+                href="bidding.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -656,7 +664,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="bidding-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -666,7 +674,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/bidding/import"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -692,7 +700,7 @@
                     </button>
                     <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_3_title_group">
                                     <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/title"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -702,7 +710,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/title/archive"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -712,7 +720,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/title/import"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -742,7 +750,7 @@
 
                     <div class="sidebar-submenu " id="sidebarSubmenu5">
                                     <a
-                href="#"
+                href="service-report.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -752,7 +760,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="service-report-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -762,7 +770,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="maintenance.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -772,7 +780,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="maintenance-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -792,7 +800,7 @@
                 </span>
                             </a>
                         <a
-                href="transmittal.html?archived=1"
+                href="transmittal-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -857,21 +865,21 @@
                 </button>
 
                 <div class="sidebar-submenu " id="sidebarSubmenuAccount">
-                    <a href="#" class="sidebar-link " data-sidebar-link>
+                    <a href="#" data-demo-unavailable="account" class="sidebar-link " data-sidebar-link>
                         <span class="sidebar-link-main">
                             <i class="bi bi-person-lines-fill"></i>
                             <span>Account Details</span>
                         </span>
                     </a>
 
-                    <a href="#" class="sidebar-link " data-sidebar-link>
+                    <a href="#" data-demo-unavailable="change-password" class="sidebar-link " data-sidebar-link>
                         <span class="sidebar-link-main">
                             <i class="bi bi-key"></i>
                             <span>Change Password</span>
                         </span>
                     </a>
 
-                                            <a href="#" class="sidebar-link " data-sidebar-link>
+                                            <a href="#" data-demo-unavailable="activity-logs" class="sidebar-link " data-sidebar-link>
                             <span class="sidebar-link-main">
                                 <i class="bi bi-clock-history"></i>
                                 <span>Logs</span>
@@ -895,7 +903,7 @@
                     </button>
 
                     <div class="sidebar-submenu " id="sidebarSubmenuAdmin">
-                                                    <a href="#" class="sidebar-link " data-sidebar-link>
+                                                    <a href="#" data-demo-unavailable="admin" class="sidebar-link " data-sidebar-link>
                                 <span class="sidebar-link-main">
                                     <i class="bi bi-person-gear"></i>
                                     <span>Manage Users</span>
@@ -906,7 +914,7 @@
                     </nav>
 
         <div class="sidebar-footer">
-            Developed by Demo Development Team
+            Developed by City of Information and Communication Technology Department
         </div>
     </div>
 
@@ -921,7 +929,7 @@
                 </button>
                 <div class="system-title fw-bold">
                     <i class="bi bi-pc-display-horizontal"></i>
-                    <span>Inventory Management System</span>
+                    <span>IMS CICTD</span>
                 </div>
 
                 <div class="topbar-clock text-muted">
@@ -931,11 +939,11 @@
             </div>
 
             <div class="d-flex align-items-center gap-3">
-                                    <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <a href="#" data-demo-unavailable="activity-logs" class="btn btn-outline-primary btn-sm">
                         <i class="bi bi-clock-history"></i> Logs
                     </a>
                 
-                <a href="#?project=ims" download class="btn btn-outline-success btn-sm">
+                <a href="#" data-demo-unavailable="downloads/ims_cictd_user_manual.pdf" download class="btn btn-outline-success btn-sm">
                     <i class="bi bi-download"></i> Manual
                 </a>
 
@@ -948,7 +956,7 @@
                     </div>
                 </div>
 
-                <a href="#" class="btn btn-outline-secondary btn-sm">
+                <a href="#" data-demo-unavailable="change-password" class="btn btn-outline-secondary btn-sm">
                     <i class="bi bi-key"></i> Change Password
                 </a>
 
@@ -1099,7 +1107,7 @@
                 <h2 class="supplies-title">Supplies Information</h2>
             </div>
             <div class="supplies-head-actions">
-                <a href="supplies.html?archived=1" class="btn btn-outline-secondary btn-sm">
+                <a href="supplies-archive.html" class="btn btn-outline-secondary btn-sm">
                     <i class="bi bi-archive"></i> Archive
                 </a>
                                     <button type="button" class="btn btn-primary btn-sm" id="openAddSupplyModal">
@@ -1250,17 +1258,967 @@
     </div>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const tableElement = $('#suppliesTable');
+    if (!tableElement.length) {
+        return;
+    }
 
+    const suppliesActionUrl = './ictd/supplies-action';
+    const canCreateSupply = true;
+    const canEditSupply = true;
+    const canDeleteSupply = true;
+    let supplyMasterlists = {
+        descriptions: [],
+        brands: [],
+        endUsers: [],
+        departments: [],
+        suppliers: [],
+        statuses: []
+    };
+    const supplyFormGuard = window.IMSUnsavedGuard?.create({
+        form: '#supplyForm',
+        modal: '#supplyFormModal',
+        dirtySelectors: ['#addSupplyRowBtn', '.duplicate-supply-row', '.remove-supply-row']
+    });
+
+    const table = tableElement.DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: './ictd/supplies-data',
+            data: function (data) {
+                data.status_filter = $('#suppliesStatusFilter').val();
+                data.delivery_filter = $('#suppliesDeliveryFilter').val();
+                data.assigned_filter = $('#suppliesAssignedFilter').val();
+                data.mine_only = $('#suppliesMineOnlyBtn').data('active') === 1 ? 1 : 0;
+            }
+        },
+        dom: 'rt<"row align-items-center supplies-table-footer"<"col-md-4"i><"col-md-4 supplies-length"l><"col-md-4"p>>',
+        order: [[1, 'desc']],
+        responsive: true,
+        pageLength: 10,
+        columnDefs: [
+            { targets: [11], visible: false, searchable: false },
+            { targets: [0], orderable: false, searchable: false }
+        ],
+        createdRow: function (row, data) {
+            $(row).toggleClass('supplies-row-assigned', Number(data[11]) === 1);
+        },
+        language: {
+            info: '_START_ - _END_ of _TOTAL_',
+            lengthMenu: 'Rows per page _MENU_',
+            paginate: {
+                previous: '<i class="bi bi-chevron-left"></i>',
+                next: '<i class="bi bi-chevron-right"></i>'
+            },
+            processing: 'Loading supplies...'
+        }
+    });
+
+    $('#suppliesSearch').on('input', function () {
+        table.search(this.value).draw();
+    });
+
+    $('#suppliesStatusFilter, #suppliesDeliveryFilter, #suppliesAssignedFilter').on('change', function () {
+        table.ajax.reload();
+    });
+
+    $('#suppliesMineOnlyBtn').on('click', function () {
+        const isActive = $(this).data('active') === 1;
+        $(this)
+            .data('active', isActive ? 0 : 1)
+            .toggleClass('active btn-primary text-white', !isActive);
+        table.ajax.reload();
+    });
+
+    $('#suppliesRefreshBtn').on('click', function () {
+        $('#suppliesSearch').val('');
+        $('#suppliesStatusFilter').val('');
+        $('#suppliesDeliveryFilter').val('');
+        $('#suppliesAssignedFilter').val('');
+        table.search('').ajax.reload();
+    });
+
+    $(document).on('focus mousedown', '.supplies-inline-status', function () {
+        $(this).data('previous-value', $(this).val());
+    });
+
+    $(document).on('change', '.supplies-inline-status', function () {
+        if (!canEditSupply) {
+            Swal.fire('Unavailable', 'You do not have permission to update supply status.', 'info');
+            return;
+        }
+
+        const select = $(this);
+        const previousValue = select.data('previous-value') ?? '';
+        select.prop('disabled', true);
+
+        $.ajax({
+            url: suppliesActionUrl,
+            method: 'POST',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify({
+                action: 'mark_status',
+                id: select.data('id'),
+                status: select.val()
+            }),
+            success: function (res) {
+                if (!res.success) {
+                    select.val(previousValue);
+                    Swal.fire('Error', res.message || 'Unable to update supply status.', 'error');
+                    return;
+                }
+
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    title: res.message || 'Supply status updated.',
+                    showConfirmButton: false,
+                    timer: 1300
+                });
+                table.ajax.reload(null, false);
+            },
+            error: function (xhr) {
+                select.val(previousValue);
+                Swal.fire('Error', xhr.responseJSON?.message || 'Unable to update supply status.', 'error');
+            },
+            complete: function () {
+                select.prop('disabled', false);
+            }
+        });
+    });
+
+    function escapeHtml(value) {
+        return String(value ?? '').replace(/[&<>"']/g, function (char) {
+            return {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            }[char];
+        });
+    }
+
+    function masterOptions(items, selectedValue, placeholder = 'Select') {
+        let html = `<option value="">${escapeHtml(placeholder)}</option>`;
+        let hasSelectedValue = selectedValue === '' || selectedValue === null || selectedValue === undefined;
+        (items || []).forEach(function (item) {
+            const selected = String(item.id) === String(selectedValue ?? '') ? ' selected' : '';
+            if (selected) {
+                hasSelectedValue = true;
+            }
+            html += `<option value="${escapeHtml(item.id)}"${selected}>${escapeHtml(item.text)}</option>`;
+        });
+        if (!hasSelectedValue) {
+            html += `<option value="${escapeHtml(selectedValue)}" selected>${escapeHtml(selectedValue)}</option>`;
+        }
+        return html;
+    }
+
+    function renderStatusControls(selectedValue = '') {
+        $('#suppliesStatusFilter').html(masterOptions(supplyMasterlists.statuses, $('#suppliesStatusFilter').val(), 'Supply Status'));
+        $('#supply_status').html(masterOptions(supplyMasterlists.statuses, selectedValue, 'Select'));
+    }
+
+    function renderSupplyStatusList() {
+        const html = (supplyMasterlists.statuses || []).map(function (item) {
+            return `
+                <div class="supplies-status-item">
+                    <span class="fw-semibold">${escapeHtml(item.text)}</span>
+                    <span class="supplies-actions">
+                        <button type="button" class="supplies-action-btn supplies-action-edit edit-supply-status-btn" data-id="${escapeHtml(item.id)}" data-name="${escapeHtml(item.text)}"><i class="bi bi-pencil-square"></i> Edit</button>
+                        <button type="button" class="supplies-action-btn supplies-action-delete delete-supply-status-btn" data-id="${escapeHtml(item.id)}"><i class="bi bi-trash"></i> Delete</button>
+                    </span>
+                </div>
+            `;
+        }).join('');
+        $('#supplyStatusList').html(html || '<div class="text-muted small">No status records yet.</div>');
+    }
+
+    function initSelect2(context) {
+        if (!$.fn.select2) {
+            return;
+        }
+
+        $(context).find('.supply-select2').select2({
+            width: '100%',
+            dropdownParent: $('#supplyFormModal')
+        });
+    }
+
+    function supplyFieldsHtml(prefix, data = {}, options = {}) {
+        const removable = Boolean(options.removable);
+        const duplicable = Boolean(options.duplicable);
+        const includeBatchFields = options.includeBatchFields !== false;
+        const removeButton = removable ? '<button type="button" class="supplies-batch-remove remove-supply-row" title="Remove"><i class="bi bi-x-lg"></i></button>' : '';
+        const duplicateButton = duplicable ? '<button type="button" class="supplies-batch-duplicate duplicate-supply-row" title="Duplicate this entry"><i class="bi bi-files"></i></button>' : '';
+        const deliveredDateField = includeBatchFields ? '<div class="col-md-4"><label class="form-label">Delivered Date</label><input type="date" class="form-control" name="' + prefix + '[delivered_date]" value="' + escapeHtml(data.delivered_date) + '"></div>' : '';
+        const deliveryStatus = data.delivery_status || 'To Follow';
+
+        return `
+            <div class="supplies-batch-row">
+                ${removeButton}
+                ${duplicateButton}
+                <div class="supplies-form-section">
+                    <div class="supplies-form-section-title"><i class="bi bi-upc-scan"></i> Identification</div>
+                    <div class="row g-3">
+                        <div class="col-md-6"><label class="form-label">Code</label><input type="text" class="form-control" name="${prefix}[code]" value="${escapeHtml(data.code)}" placeholder="Auto generated if blank"></div>
+                        <div class="col-md-6"><label class="form-label">Old Control No</label><input type="text" class="form-control" name="${prefix}[old_control_no]" value="${escapeHtml(data.old_control_no)}" placeholder="Optional if applicable"></div>
+                        <div class="col-md-6"><label class="form-label">Description</label><select class="form-select supply-select2" name="${prefix}[description_id]">${masterOptions(supplyMasterlists.descriptions, data.description_id)}</select></div>
+                        <div class="col-md-6"><label class="form-label">Brand</label><select class="form-select supply-select2" name="${prefix}[brand_id]">${masterOptions(supplyMasterlists.brands, data.brand_id)}</select></div>
+                        <div class="col-md-6"><label class="form-label">Serial No</label><input type="text" class="form-control" name="${prefix}[serialno]" value="${escapeHtml(data.serialno)}"></div>
+                        <div class="col-md-6"><label class="form-label">Status</label><select class="form-select" name="${prefix}[status]">${masterOptions(supplyMasterlists.statuses, data.status, 'Select')}</select></div>
+                        <div class="col-md-6"><label class="form-label">Warranty Date</label><input type="date" class="form-control" name="${prefix}[warranty_date]" value="${escapeHtml(data.warranty_date)}"></div>
+                    </div>
+                </div>
+
+                <div class="supplies-form-section">
+                    <div class="supplies-form-section-title"><i class="bi bi-truck"></i> Delivery Details</div>
+                    <div class="row g-3">
+                        ${deliveredDateField}
+                        <div class="col-md-4">
+                            <label class="form-label">Delivery Status</label>
+                            <select class="form-select supply-delivery-status-field" name="${prefix}[delivery_status]">
+                                ${masterOptions(supplyMasterlists.statuses, deliveryStatus, 'Select')}
+                            </select>
+                        </div>
+                        <div class="col-md-4"><label class="form-label">ETA Date</label><input type="date" class="form-control supply-eta-date-field" name="${prefix}[eta_date]" value="${escapeHtml(data.eta_date)}"></div>
+                        <div class="col-12"><label class="form-label">Remarks</label><textarea class="form-control" name="${prefix}[remarks]" rows="3">${escapeHtml(data.remarks)}</textarea></div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function syncSupplyRowRules(row) {
+        const container = $(row);
+        const deliveryStatus = container.find('.supply-delivery-status-field');
+        const etaDate = container.find('.supply-eta-date-field');
+        const isDelivered = deliveryStatus.val() === 'Delivered';
+
+        etaDate.prop('disabled', isDelivered);
+        if (isDelivered) {
+            etaDate.val('');
+        }
+    }
+
+    function syncSupplyRules(scope) {
+        $(scope).find('.supplies-batch-row').each(function () {
+            syncSupplyRowRules(this);
+        });
+    }
+
+    function serializeSupplyRow(container) {
+        const data = {};
+        $(container).find(':input[name]').each(function () {
+            const match = this.name.match(/\[([^\]]+)\]$/);
+            if (match) {
+                data[match[1]] = $(this).val();
+            }
+        });
+        return data;
+    }
+
+    function loadMasterlists(callback) {
+        $.getJSON(suppliesActionUrl, { action: 'masterlists' })
+            .done(function (res) {
+                if (res.success) {
+                    supplyMasterlists = res.data || supplyMasterlists;
+                    renderStatusControls();
+                    renderSupplyStatusList();
+                }
+                if (typeof callback === 'function') {
+                    callback();
+                }
+            })
+            .fail(function () {
+                Swal.fire('Error', 'Unable to load supply masterlists.', 'error');
+            });
+    }
+
+    loadMasterlists();
+
+    function reloadSupplyMasterlists(callback) {
+        supplyMasterlists = { descriptions: [], brands: [], endUsers: [], departments: [], suppliers: [], statuses: [] };
+        loadMasterlists(function () {
+            renderStatusControls();
+            renderSupplyStatusList();
+            table.ajax.reload(null, false);
+            callback?.();
+        });
+    }
+
+    function fillForm(data = {}) {
+        $('#supply_id').val(data.id || '');
+        const isEdit = Boolean(data.id);
+        $('#addSupplyRowBtn').toggle(!isEdit);
+        $('#supplyBatchMeta').toggle(!isEdit);
+        $('#supply_batch_date_delivered').prop('required', !isEdit).val('');
+        $('#supply_batch_supplier_id').prop('required', !isEdit).html(masterOptions(supplyMasterlists.suppliers, data.supplier_id));
+        $('#supplyBatchRows').html(supplyFieldsHtml('rows[0]', data, {
+            removable: false,
+            duplicable: !isEdit,
+            includeBatchFields: isEdit
+        }));
+        initSelect2($('#supplyFormModal'));
+        $('.supply-select2').trigger('change.select2');
+        syncSupplyRules($('#supplyFormModal'));
+    }
+
+    function formPayload(action) {
+        const rows = $('#supplyBatchRows .supplies-batch-row').map(function () {
+            return serializeSupplyRow(this);
+        }).get();
+        if (action === 'update') {
+            return { action, id: $('#supply_id').val(), ...(rows[0] || {}) };
+        }
+        return {
+            action: 'batch_create',
+            batch_supplier_id: $('#supply_batch_supplier_id').val(),
+            batch_date_delivered: $('#supply_batch_date_delivered').val(),
+            rows
+        };
+    }
+
+    function fetchSupply(id) {
+        return $.getJSON(suppliesActionUrl, { action: 'view', id: id });
+    }
+
+    function showModal(selector) {
+        const element = document.querySelector(selector);
+        if (window.bootstrap && element) {
+            bootstrap.Modal.getOrCreateInstance(element).show();
+            return;
+        }
+        $(selector).modal('show');
+    }
+
+    function hideModal(selector) {
+        const element = document.querySelector(selector);
+        if (window.bootstrap && element) {
+            bootstrap.Modal.getOrCreateInstance(element).hide();
+            return;
+        }
+        $(selector).modal('hide');
+    }
+
+    function renderDetails(data) {
+        const fields = [
+            ['Assigned', Number(data.is_assigned) === 1 ? 'Yes' : 'No'],
+            ['Code', data.code],
+            ['Old Control No', data.old_control_no],
+            ['Description', data.description_name],
+            ['Brand', data.brand_name],
+            ['Supplier', data.supplier_name],
+            ['Serial No', data.serialno],
+            ['Status', data.status],
+            ['Delivery Status', data.delivery_status],
+            ['ETA Date', data.eta_date],
+            ['Delivered Date', data.delivered_date],
+            ['Warranty Date', data.warranty_date],
+            ['Batch ID', data.batch_id],
+            ['End User', data.end_user_name],
+            ['Department', data.department_name],
+            ['Remarks', data.remarks],
+            ['Created At', data.created_at]
+        ];
+
+        $('#supplyViewDetails').html(fields.map(function (field) {
+            return `
+                <div class="supplies-detail-item">
+                    <div class="supplies-detail-label">${escapeHtml(field[0])}</div>
+                    <div class="supplies-detail-value">${escapeHtml(field[1] || 'No Info')}</div>
+                </div>
+            `;
+        }).join(''));
+    }
+
+    function openAddSupplyModal() {
+        if (!canCreateSupply) {
+            Swal.fire('Unavailable', 'You do not have permission to add supplies.', 'info');
+            return;
+        }
+
+        loadMasterlists(function () {
+            $('#supplyModalTitle').text('Add Supplies');
+            $('#supplyFormModal .modal-header .text-muted.small').text('Maintain supplies and other equipment records.');
+            fillForm({});
+            showModal('#supplyFormModal');
+        });
+    }
+
+    $('#openAddSupplyModal').on('click', function () {
+        openAddSupplyModal();
+    });
+
+    $('#addSupplyRowBtn').on('click', function () {
+        const index = $('#supplyBatchRows .supplies-batch-row').length;
+        $('#supplyBatchRows').append(supplyFieldsHtml(`rows[${index}]`, {}, {
+            removable: true,
+            duplicable: true,
+            includeBatchFields: false
+        }));
+        initSelect2($('#supplyBatchRows .supplies-batch-row').last());
+        syncSupplyRules($('#supplyBatchRows .supplies-batch-row').last());
+    });
+
+    $(document).on('click', '.duplicate-supply-row', function () {
+        const sourceRow = $(this).closest('.supplies-batch-row');
+        const clonedData = serializeSupplyRow(sourceRow);
+        clonedData.code = '';
+        clonedData.serialno = '';
+
+        const index = $('#supplyBatchRows .supplies-batch-row').length;
+        $('#supplyBatchRows').append(supplyFieldsHtml(`rows[${index}]`, clonedData, {
+            removable: true,
+            duplicable: true,
+            includeBatchFields: false
+        }));
+        initSelect2($('#supplyBatchRows .supplies-batch-row').last());
+        syncSupplyRules($('#supplyBatchRows .supplies-batch-row').last());
+    });
+
+    $(document).on('click', '.remove-supply-row', function () {
+        $(this).closest('.supplies-batch-row').remove();
+    });
+
+    $(document).on('change', '.supply-delivery-status-field', function () {
+        syncSupplyRowRules($(this).closest('.supplies-batch-row'));
+    });
+
+    $('#manageSupplyStatusBtn').on('click', function () {
+        loadMasterlists(function () {
+            $('#supply_status_master_id').val('');
+            $('#supply_status_master_name').val('');
+            showModal('#supplyStatusModal');
+        });
+    });
+
+    $('#supplyStatusForm').on('submit', function (event) {
+        event.preventDefault();
+        const id = $('#supply_status_master_id').val();
+
+        $.ajax({
+            url: suppliesActionUrl,
+            method: 'POST',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify({
+                action: id ? 'status_update' : 'status_create',
+                id: id,
+                equipment_status: $('#supply_status_master_name').val()
+            }),
+            success: function (res) {
+                if (!res.success) {
+                    Swal.fire('Error', res.message || 'Unable to save status.', 'error');
+                    return;
+                }
+
+                $('#supply_status_master_id').val('');
+                $('#supply_status_master_name').val('');
+                reloadSupplyMasterlists();
+                Swal.fire('Saved', res.message, 'success');
+            },
+            error: function (xhr) {
+                Swal.fire('Error', xhr.responseJSON?.message || 'Unable to save status.', 'error');
+            }
+        });
+    });
+
+    $(document).on('click', '.edit-supply-status-btn', function () {
+        $('#supply_status_master_id').val($(this).data('id'));
+        $('#supply_status_master_name').val($(this).data('name')).focus();
+    });
+
+    $(document).on('click', '.delete-supply-status-btn', function () {
+        const id = $(this).data('id');
+        Swal.fire({
+            title: 'Delete status?',
+            text: 'This cannot delete statuses currently used by equipment or supplies records.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it',
+            confirmButtonColor: '#d92d20'
+        }).then(function (result) {
+            if (!result.isConfirmed) {
+                return;
+            }
+
+            $.ajax({
+                url: suppliesActionUrl,
+                method: 'POST',
+                contentType: 'application/json',
+                dataType: 'json',
+                data: JSON.stringify({ action: 'status_delete', id: id }),
+                success: function (res) {
+                    if (!res.success) {
+                        Swal.fire('Error', res.message || 'Unable to delete status.', 'error');
+                        return;
+                    }
+
+                    reloadSupplyMasterlists();
+                    Swal.fire('Deleted', res.message, 'success');
+                },
+                error: function (xhr) {
+                    Swal.fire('Error', xhr.responseJSON?.message || 'Unable to delete status.', 'error');
+                }
+            });
+        });
+    });
+
+    $(document).on('click', '.view-supply-btn', function () {
+        fetchSupply($(this).data('id')).done(function (res) {
+            if (!res.success) {
+                Swal.fire('Error', res.message || 'Unable to load supply.', 'error');
+                return;
+            }
+            renderDetails(res.data);
+            showModal('#supplyViewModal');
+        });
+    });
+
+    $(document).on('click', '.edit-supply-btn', function () {
+        if (!canEditSupply) {
+            Swal.fire('Unavailable', 'You do not have permission to edit supplies.', 'info');
+            return;
+        }
+
+        const id = $(this).data('id');
+        loadMasterlists(function () {
+            fetchSupply(id).done(function (res) {
+                if (!res.success) {
+                    Swal.fire('Error', res.message || 'Unable to load supply.', 'error');
+                    return;
+                }
+
+                $('#supplyModalTitle').text('Edit Supply');
+                fillForm(res.data);
+                showModal('#supplyFormModal');
+            });
+        });
+    });
+
+    $('#supplyForm').on('submit', function (event) {
+        event.preventDefault();
+        const id = $('#supply_id').val();
+        const action = id ? 'update' : 'batch_create';
+        if (!id && (!$('#supply_batch_supplier_id').val() || !$('#supply_batch_date_delivered').val())) {
+            Swal.fire('Missing batch details', 'Please select a supplier and date delivered for this supply batch.', 'warning');
+            return;
+        }
+
+        $.ajax({
+            url: suppliesActionUrl,
+            method: 'POST',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify(formPayload(action)),
+            beforeSend: function () {
+                Swal.fire({
+                    title: 'Saving...',
+                    allowOutsideClick: false,
+                    didOpen: () => Swal.showLoading()
+                });
+            },
+            success: function (res) {
+                if (!res.success) {
+                    Swal.fire('Error', res.message || 'Unable to save supply.', 'error');
+                    return;
+                }
+
+                supplyFormGuard?.forceClean();
+                Swal.fire('Success', res.message, 'success');
+                hideModal('#supplyFormModal');
+                table.ajax.reload(null, false);
+            },
+            error: function (xhr) {
+                Swal.fire('Error', xhr.responseJSON?.message || 'Unable to save supply.', 'error');
+            }
+        });
+    });
+
+    $(document).on('click', '.delete-supply-btn', function () {
+        if (!canDeleteSupply) {
+            Swal.fire('Unavailable', 'You do not have permission to delete supplies.', 'info');
+            return;
+        }
+
+        const id = $(this).data('id');
+        Swal.fire({
+            title: 'Archive supply?',
+            text: 'If this supply is assigned, the system will automatically unassign it first and save the assignment details in the archive.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Move to archive',
+            confirmButtonColor: '#d92d20'
+        }).then(function (result) {
+            if (!result.isConfirmed) {
+                return;
+            }
+
+            $.ajax({
+                url: suppliesActionUrl,
+                method: 'POST',
+                contentType: 'application/json',
+                dataType: 'json',
+                data: JSON.stringify({ action: 'delete', id: id }),
+                success: function (res) {
+                    if (!res.success) {
+                        Swal.fire('Error', res.message || 'Unable to delete supply.', 'error');
+                        return;
+                    }
+
+                    Swal.fire('Archived', res.message, 'success');
+                    table.ajax.reload(null, false);
+                },
+                error: function (xhr) {
+                    Swal.fire('Error', xhr.responseJSON?.message || 'Unable to delete supply.', 'error');
+                }
+            });
+        });
+    });
+});
+</script>
 
 </div> 
 
 </main>
 </div>
+<script>
 
+function updateDateTime(){
+    const now = new Date();
 
-<!--  -->
+    const options={
+        weekday:'short',
+        year:'numeric',
+        month:'short',
+        day:'numeric',
+        hour:'2-digit',
+        minute:'2-digit',
+        second:'2-digit',
+        hour12:false
+    };
 
+    document.getElementById('currentDateTime').textContent =
+    now.toLocaleString('en-US',options);
+}
 
+updateDateTime();
+setInterval(updateDateTime,1000);
 
-<link rel="stylesheet" href="local.css?v=plain-2"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="../shared/store.js"></script><script src="local.js?v=sidebar-3"></script></body>
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const sidebarCollapseToggle = document.getElementById('sidebarCollapseToggle');
+    const sidebarRailCollapse = document.getElementById('sidebarRailCollapse');
+    const accountMenuToggle = document.getElementById('accountMenuToggle');
+    const accountRailMenu = document.getElementById('accountRailMenu');
+    const railMenuToggles = document.querySelectorAll('[data-rail-menu-toggle]');
+    const railPopoutMenus = document.querySelectorAll('.rail-popout-menu');
+    const sidebarSubmenuToggles = document.querySelectorAll('[data-sidebar-submenu]');
+    const sidebarLinks = document.querySelectorAll('[data-sidebar-link]');
+    const sidebarCollapseStorageKey = 'ims.sidebar.collapsed';
+    const sidebarScrollStorageKey = 'ims.sidebar.scrollTop';
+    const sidebarPanel = document.querySelector('.sidebar-panel');
+    const sidebarMenu = document.querySelector('.sidebar-menu');
+    const sidebarModuleSearch = document.getElementById('sidebarModuleSearch');
+    const sidebarModuleSearchClear = document.getElementById('sidebarModuleSearchClear');
+    const sidebarSearchEmpty = document.getElementById('sidebarSearchEmpty');
+
+function getSidebarScroller() {
+    if (sidebarMenu && sidebarMenu.scrollHeight > sidebarMenu.clientHeight) {
+        return sidebarMenu;
+    }
+    if (sidebarPanel && sidebarPanel.scrollHeight > sidebarPanel.clientHeight) {
+        return sidebarPanel;
+    }
+    return sidebarMenu || sidebarPanel;
+}
+
+function saveSidebarScroll() {
+    const scroller = getSidebarScroller();
+    if (!scroller) return;
+    sessionStorage.setItem(sidebarScrollStorageKey, String(scroller.scrollTop || 0));
+}
+
+function restoreSidebarScroll() {
+    const scroller = getSidebarScroller();
+    if (!scroller) return;
+    const savedScroll = parseInt(sessionStorage.getItem(sidebarScrollStorageKey) || '0', 10);
+    if (Number.isNaN(savedScroll)) return;
+    scroller.scrollTop = savedScroll;
+}
+
+requestAnimationFrame(restoreSidebarScroll);
+setTimeout(restoreSidebarScroll, 120);
+
+function setSidebarState(isOpen) {
+    document.body.classList.toggle('sidebar-open', Boolean(isOpen));
+}
+
+function isDesktopSidebar() {
+return window.innerWidth > 991;
+}
+
+function setSidebarCollapsed(isCollapsed, shouldStore = true) {
+    document.body.classList.toggle('sidebar-collapsed', Boolean(isCollapsed));
+        closeRailMenus();
+    if (sidebarCollapseToggle) {
+        sidebarCollapseToggle.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+        sidebarCollapseToggle.setAttribute('title', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
+        sidebarCollapseToggle.querySelector('i')?.classList.toggle('bi-layout-sidebar-inset', !isCollapsed);
+        sidebarCollapseToggle.querySelector('i')?.classList.toggle('bi-layout-sidebar-inset-reverse', Boolean(isCollapsed));
+    }
+    if (sidebarRailCollapse) {
+        sidebarRailCollapse.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+        sidebarRailCollapse.setAttribute('title', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
+        sidebarRailCollapse.querySelector('i')?.classList.toggle('bi-pc-display-horizontal', !isCollapsed);
+        sidebarRailCollapse.querySelector('i')?.classList.toggle('bi-layout-sidebar-inset-reverse', Boolean(isCollapsed));
+    }
+    if (shouldStore) {
+        localStorage.setItem(sidebarCollapseStorageKey, isCollapsed ? '1' : '0');
+    }
+}
+
+function closeRailMenus(exceptMenu = null) {
+    railPopoutMenus.forEach(function(menu) {
+    if (menu === exceptMenu) return;
+    menu.classList.remove('show');
+    menu.setAttribute('aria-hidden', 'true');
+});
+
+railMenuToggles.forEach(function(toggle) {
+const menuId = toggle.getAttribute('data-rail-menu-toggle');
+if (exceptMenu && menuId === exceptMenu.id) return;
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+});
+
+if (accountRailMenu !== exceptMenu) {
+    accountMenuToggle?.classList.remove('open');
+    accountMenuToggle?.setAttribute('aria-expanded', 'false');
+    }
+}
+
+function setRailMenuState(toggle, menu, isOpen) {
+if (isOpen) {
+closeRailMenus(menu);
+if (toggle && menu?.closest('.rail-nav')) {
+menu.style.top = `${toggle.offsetTop}px`;
+}
+} else {
+closeRailMenus();
+}
+
+    menu?.classList.toggle('show', Boolean(isOpen));
+    menu?.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    toggle?.classList.toggle('open', Boolean(isOpen));
+    toggle?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+
+function setAccountMenuState(isOpen) {
+    setRailMenuState(accountMenuToggle, accountRailMenu, isOpen);
+}
+
+if (isDesktopSidebar()) {
+    setSidebarCollapsed(localStorage.getItem(sidebarCollapseStorageKey) === '1', false);
+}
+
+function setSubmenuState(toggle, submenu, isOpen) {
+    if (!toggle) return;
+    toggle.classList.toggle('active', Boolean(isOpen));
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    submenu?.classList.toggle('show', Boolean(isOpen));
+    toggle.closest('.sidebar-module')?.classList.toggle('open', Boolean(isOpen));
+    toggle.closest('.sidebar-nested-group')?.classList.toggle('open', Boolean(isOpen));
+}
+
+function normalizeSearchText(value) {
+    return String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function filterSidebarModules(query) {
+    const keyword = normalizeSearchText(query);
+    const sections = document.querySelectorAll('.sidebar-panel .sidebar-section');
+    let visibleLinks = 0;
+
+    sidebarModuleSearch?.closest('.sidebar-module-search')?.classList.toggle('has-value', keyword.length > 0);
+
+    sections.forEach(function(section) {
+        const links = section.querySelectorAll('[data-sidebar-link]');
+        const toggle = section.querySelector(':scope > [data-sidebar-submenu]');
+        const submenuId = toggle?.getAttribute('data-sidebar-submenu');
+        const submenu = submenuId ? document.getElementById(submenuId) : null;
+        let sectionVisible = false;
+
+        links.forEach(function(link) {
+            const text = normalizeSearchText(link.textContent);
+            const sectionText = normalizeSearchText(toggle?.textContent || '');
+            const matched = keyword === '' || text.includes(keyword) || sectionText.includes(keyword);
+            link.classList.toggle('search-hidden', !matched);
+            if (matched) {
+                sectionVisible = true;
+                visibleLinks++;
+
+                if (keyword !== '') {
+                    let parentSubmenu = link.closest('.sidebar-submenu');
+                    while (parentSubmenu) {
+                        const parentToggle = document.querySelector(`[data-sidebar-submenu="${parentSubmenu.id}"]`);
+                        setSubmenuState(parentToggle, parentSubmenu, true);
+                        parentSubmenu = parentSubmenu.parentElement?.closest('.sidebar-submenu');
+                    }
+                }
+            }
+        });
+
+        section.classList.toggle('search-hidden', !sectionVisible);
+        if (keyword !== '' && sectionVisible && toggle && submenu) {
+            setSubmenuState(toggle, submenu, true);
+        }
+    });
+
+    sidebarSearchEmpty?.classList.toggle('show', keyword.length > 0 && visibleLinks === 0);
+}
+
+function firstVisibleSidebarLink() {
+    return Array.from(document.querySelectorAll('.sidebar-panel [data-sidebar-link]'))
+        .find(function(link) {
+            return !link.classList.contains('search-hidden') && link.offsetParent !== null;
+        });
+}
+
+sidebarToggle?.addEventListener('click', function() {
+if (isDesktopSidebar()) {
+setSidebarCollapsed(!document.body.classList.contains('sidebar-collapsed'));
+return;
+}
+setSidebarState(!document.body.classList.contains('sidebar-open'));
+});
+
+sidebarCollapseToggle?.addEventListener('click', function() {
+setSidebarCollapsed(!document.body.classList.contains('sidebar-collapsed'));
+});
+
+sidebarModuleSearch?.addEventListener('input', function() {
+filterSidebarModules(this.value);
+});
+
+sidebarModuleSearch?.addEventListener('keydown', function(event) {
+if (event.key !== 'Enter') return;
+const link = firstVisibleSidebarLink();
+if (!link) return;
+event.preventDefault();
+saveSidebarScroll();
+link.click();
+});
+
+sidebarModuleSearchClear?.addEventListener('click', function() {
+if (!sidebarModuleSearch) return;
+sidebarModuleSearch.value = '';
+filterSidebarModules('');
+sidebarModuleSearch.focus();
+});
+
+sidebarRailCollapse?.addEventListener('click', function() {
+if (!isDesktopSidebar()) {
+setSidebarState(false);
+return;
+}
+setSidebarCollapsed(!document.body.classList.contains('sidebar-collapsed'));
+});
+
+railMenuToggles.forEach(function(toggle) {
+toggle.addEventListener('click', function(event) {
+event.stopPropagation();
+const menuId = toggle.getAttribute('data-rail-menu-toggle');
+const menu = menuId ? document.getElementById(menuId) : null;
+if (!menu) return;
+
+if (isDesktopSidebar() && !document.body.classList.contains('sidebar-collapsed')) {
+setSidebarCollapsed(true);
+setRailMenuState(toggle, menu, true);
+return;
+}
+
+setRailMenuState(toggle, menu, !menu.classList.contains('show'));
+});
+});
+
+accountMenuToggle?.addEventListener('click', function(event) {
+event.stopPropagation();
+if (isDesktopSidebar() && !document.body.classList.contains('sidebar-collapsed')) {
+setSidebarCollapsed(true);
+setAccountMenuState(true);
+return;
+}
+setAccountMenuState(!accountRailMenu?.classList.contains('show'));
+});
+
+document.addEventListener('click', function(event) {
+const openMenu = document.querySelector('.rail-popout-menu.show');
+if (!openMenu) return;
+const clickedToggle = event.target.closest('[data-rail-menu-toggle], #accountMenuToggle');
+if (openMenu.contains(event.target) || clickedToggle) return;
+closeRailMenus();
+});
+
+sidebarOverlay?.addEventListener('click', function() {
+setSidebarState(false);
+});
+
+sidebarSubmenuToggles.forEach(function(toggle) {
+toggle.addEventListener('click', function(event) {
+event.preventDefault();
+saveSidebarScroll();
+const submenuId = toggle.getAttribute('data-sidebar-submenu');
+const submenu = submenuId ? document.getElementById(submenuId) : null;
+if (!submenu) return;
+
+const shouldOpen = !submenu.classList.contains('show');
+setSubmenuState(toggle, submenu, shouldOpen);
+restoreSidebarScroll();
+});
+});
+
+sidebarLinks.forEach(function(link) {
+link.addEventListener('click', function(event) {
+saveSidebarScroll();
+const targetHref = link.getAttribute('href');
+if (targetHref) {
+    const targetUrl = new URL(targetHref, window.location.origin);
+    if (targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search) {
+        event.preventDefault();
+        closeRailMenus();
+        restoreSidebarScroll();
+        return;
+    }
+}
+closeRailMenus();
+if (window.innerWidth <= 991) {
+setSidebarState(false);
+}
+});
+});
+
+window.addEventListener('resize', function() {
+if (window.innerWidth > 991) {
+setSidebarState(false);
+setSidebarCollapsed(localStorage.getItem(sidebarCollapseStorageKey) === '1', false);
+} else {
+setSidebarCollapsed(false, false);
+}
+});
+
+</script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
+
+<script src="./assets/js/app.js"></script>
+
+<link rel="stylesheet" href="original-demo.css?v=original-1"></body>
 </html>

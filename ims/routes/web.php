@@ -26,10 +26,9 @@ if (!function_exists('render_ictd_module_page')) {
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-// Strip the exact application mount path, including the portfolio directory.
-if (BASE_URL !== '' && ($uri === BASE_URL || strpos($uri, BASE_URL . '/') === 0)) {
-    $uri = substr($uri, strlen(BASE_URL));
-}
+// Remove base path and /public
+$uri = str_replace('/ims/public', '', $uri);
+$uri = str_replace(BASE_URL, '', $uri);
 
 // Normalize
 $uri = rtrim($uri, '/') ?: '/';

@@ -1,0 +1,2375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Service Reports</title>
+    <link rel="icon" type="image/png" href="./assets/images/itlogo.png">
+    <link rel="shortcut icon" type="image/png" href="./assets/images/itlogo.png">
+    <link rel="apple-touch-icon" href="./assets/images/itlogo.png">
+
+    <script>
+        const APP_BASE_URL = ".";
+    </script>
+
+    <!-- ================= META ================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ================= FONTS ================= -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ================= BOOTSTRAP ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ================= ICONS ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- ================= CSS PLUGINS ================= -->
+<link href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+
+<!-- ================= CUSTOM CSS ================= -->
+<link rel="stylesheet" href="./assets/css/main.css?v=original-1">
+<link rel="stylesheet" href="./assets/css/table.css?v=original-1">
+<link rel="stylesheet" href="./assets/css/select.css?v=original-1">
+
+
+
+
+<!-- ================= JQUERY (REQUIRED FIRST) ================= -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- ================= DATA TABLES ================= -->
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+
+<!-- ================= PLUGINS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- ================= CUSTOM JS ================= -->
+<script src="../shared/store.js"></script><script src="masterlist-schema.js?v=original-1"></script><script src="bridge.js?v=original-1"></script><script src="runtime.js?v=original-1"></script><script src="./assets/js/app.js?v=1"></script>
+<link rel="stylesheet" href="original-demo.css?v=original-1"></head>
+<body>
+<script>
+try {
+    if (window.innerWidth > 991 && localStorage.getItem('ims.sidebar.collapsed') === '1') {
+        document.body.classList.add('sidebar-collapsed');
+    }
+} catch (error) {}
+</script>
+
+<div class="layout">
+    
+<aside class="sidebar app-sidebar" id="appSidebar">
+    <div class="sidebar-rail">
+        <button type="button" class="rail-avatar" id="sidebarRailCollapse" title="Collapse sidebar" aria-label="Collapse sidebar" aria-expanded="true">
+            <i class="bi bi-pc-display-horizontal"></i>
+            <span class="rail-label"></span>
+        </button>
+
+        <div class="rail-nav">
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Main"
+                    aria-label="Main"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu0"
+                >
+                    <i class="bi bi-house-door-fill"></i>
+                    <span class="rail-label">Main</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu0" aria-hidden="true">
+                    <div class="rail-popout-title">Main</div>
+                                <a href="dashboard.html" class="" data-sidebar-link>
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Equipment"
+                    aria-label="Equipment"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu1"
+                >
+                    <i class="bi bi-hdd-network-fill"></i>
+                    <span class="rail-label">Equipment</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu1" aria-hidden="true">
+                    <div class="rail-popout-title">Equipment</div>
+                                <a href="equipment.html" class="" data-sidebar-link>
+                <i class="bi bi-pc-display"></i>
+                <span>Manage Equipment</span>
+            </a>
+                        <a href="equipment-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/equipment/import" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Supplies"
+                    aria-label="Supplies"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu2"
+                >
+                    <i class="bi bi-box-seam-fill"></i>
+                    <span class="rail-label">Supplies</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu2" aria-hidden="true">
+                    <div class="rail-popout-title">Supplies</div>
+                                <a href="supplies.html" class="" data-sidebar-link>
+                <i class="bi bi-box-seam-fill"></i>
+                <span>Manage Supplies</span>
+            </a>
+                        <a href="supplies-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/supplies/import" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Assign"
+                    aria-label="Assign"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu3"
+                >
+                    <i class="bi bi-person-workspace"></i>
+                    <span class="rail-label">Assign</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu3" aria-hidden="true">
+                    <div class="rail-popout-title">Assign</div>
+                                <a href="assign.html" class="" data-sidebar-link>
+                <i class="bi bi-person-workspace"></i>
+                <span>Manage Assign</span>
+            </a>
+                        <a href="assign-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/assign/import" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Other operations"
+                    aria-label="Other operations"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu4"
+                >
+                    <i class="bi bi-kanban-fill"></i>
+                    <span class="rail-label">Other operations</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu4" aria-hidden="true">
+                    <div class="rail-popout-title">Other operations</div>
+                                    <div class="rail-popout-subtitle">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    <span>Subscription</span>
+                </div>
+                            <a href="subscription.html" class="" data-sidebar-link>
+                <i class="bi bi-file-earmark-text-fill"></i>
+                <span>Manage Subscription</span>
+            </a>
+                        <a href="subscription-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/subscription/import" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                                            <div class="rail-popout-subtitle">
+                    <i class="bi bi-arrow-left-right"></i>
+                    <span>Borrowed</span>
+                </div>
+                            <a href="borrowed.html" class="" data-sidebar-link>
+                <i class="bi bi-arrow-left-right"></i>
+                <span>Manage Borrowed</span>
+            </a>
+                        <a href="borrowed-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/borrowed/import" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                                            <div class="rail-popout-subtitle">
+                    <i class="bi bi-briefcase-fill"></i>
+                    <span>Bidding</span>
+                </div>
+                            <a href="bidding.html" class="" data-sidebar-link>
+                <i class="bi bi-briefcase-fill"></i>
+                <span>Manage Bidding</span>
+            </a>
+                        <a href="bidding-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/bidding/import" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                                            <div class="rail-popout-subtitle">
+                    <i class="bi bi-type-bold"></i>
+                    <span>Title</span>
+                </div>
+                            <a href="#" data-demo-unavailable="ictd/title" class="" data-sidebar-link>
+                <i class="bi bi-type-bold"></i>
+                <span>Manage Title</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/title/archive" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Archive</span>
+            </a>
+                        <a href="#" data-demo-unavailable="ictd/title/import" class="" data-sidebar-link>
+                <i class="bi bi-upload"></i>
+                <span>Import data</span>
+            </a>
+                                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Reports"
+                    aria-label="Reports"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu5"
+                >
+                    <i class="bi bi-graph-up-arrow"></i>
+                    <span class="rail-label">Reports</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu5" aria-hidden="true">
+                    <div class="rail-popout-title">Reports</div>
+                                <a href="service-report.html" class="" data-sidebar-link>
+                <i class="bi bi-clipboard-data-fill"></i>
+                <span>Service Report</span>
+            </a>
+                        <a href="service-report-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Service Archive</span>
+            </a>
+                        <a href="maintenance.html" class="" data-sidebar-link>
+                <i class="bi bi-tools"></i>
+                <span>Maintenance Report</span>
+            </a>
+                        <a href="maintenance-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Maintenance Archive</span>
+            </a>
+                        <a href="transmittal.html" class="" data-sidebar-link>
+                <i class="bi bi-send-fill"></i>
+                <span>Transmittal Report</span>
+            </a>
+                        <a href="transmittal-archive.html" class="" data-sidebar-link>
+                <i class="bi bi-archive-fill"></i>
+                <span>Transmittal Archive</span>
+            </a>
+                        <a href="reports.html" class="" data-sidebar-link>
+                <i class="bi bi-bar-chart-line"></i>
+                <span>General Report</span>
+            </a>
+                            </div>
+                                            <button
+                    type="button"
+                    class="rail-link rail-group-toggle "
+                    title="Masterlist"
+                    aria-label="Masterlist"
+                    aria-expanded="false"
+                    data-rail-menu-toggle="railGroupMenu6"
+                >
+                    <i class="bi bi-collection-fill"></i>
+                    <span class="rail-label">Masterlist</span>
+                </button>
+                <div class="rail-popout-menu" id="railGroupMenu6" aria-hidden="true">
+                    <div class="rail-popout-title">Masterlist</div>
+                                <a href="masterlist.html" class="" data-sidebar-link>
+                <i class="bi bi-ui-checks-grid"></i>
+                <span>Manage Masterlist</span>
+            </a>
+                            </div>
+                    </div>
+
+        <div class="rail-bottom">
+            <button type="button" class="rail-link rail-settings " id="accountMenuToggle" title="Account menu" aria-label="Account menu" aria-expanded="false">
+                <i class="bi bi-gear"></i>
+                <span class="rail-label">Account</span>
+            </button>
+            <div class="rail-popout-menu rail-account-menu" id="accountRailMenu" aria-hidden="true">
+                <div class="rail-popout-title">Account</div>
+                <a href="#" data-demo-unavailable="account" class="" data-sidebar-link>
+                    <i class="bi bi-person-lines-fill"></i>
+                    <span>Account Details</span>
+                </a>
+                <a href="#" data-demo-unavailable="change-password" class="" data-sidebar-link>
+                    <i class="bi bi-key"></i>
+                    <span>Change Password</span>
+                </a>
+                                    <a href="#" data-demo-unavailable="activity-logs" class="" data-sidebar-link>
+                        <i class="bi bi-clock-history"></i>
+                        <span>Logs</span>
+                    </a>
+                                                    <a href="#" data-demo-unavailable="admin" class="" data-sidebar-link>
+                        <i class="bi bi-person-gear"></i>
+                        <span>User Admin</span>
+                    </a>
+                            </div>
+            <a href="index.html" class="rail-link rail-logout" title="Logout">
+                <i class="bi bi-power"></i>
+                <span class="rail-label">Logout</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="sidebar-panel">
+        <div class="sidebar-profile">
+            <div class="sidebar-module-search">
+                <i class="bi bi-search"></i>
+                <input type="search" id="sidebarModuleSearch" placeholder="Search modules..." autocomplete="off">
+                <button type="button" id="sidebarModuleSearchClear" aria-label="Clear module search">
+                    <i class="bi bi-x-lg"></i>
+                    <span>Clear</span>
+                </button>
+            </div>
+            <button type="button" class="profile-collapse" id="sidebarCollapseToggle" title="Collapse sidebar" aria-label="Collapse sidebar" aria-expanded="true">
+                <i class="bi bi-layout-sidebar-inset"></i>
+                <span></span>
+            </button>
+        </div>
+        <div class="sidebar-search-empty" id="SearchEmpty">No matching modules found.</div>
+
+        <nav class="sidebar-menu">
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu0"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-house-door-fill"></i>
+                            <span>Main</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu0">
+                                    <a
+                href="dashboard.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span>Dashboard</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu1"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-hdd-network-fill"></i>
+                            <span>Equipment</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu1">
+                                    <a
+                href="equipment.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-pc-display"></i>
+                    <span>Manage Equipment</span>
+                </span>
+                            </a>
+                        <a
+                href="equipment-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/equipment/import"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu2"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-box-seam-fill"></i>
+                            <span>Supplies</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu2">
+                                    <a
+                href="supplies.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-box-seam-fill"></i>
+                    <span>Manage Supplies</span>
+                </span>
+                            </a>
+                        <a
+                href="supplies-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/supplies/import"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu3"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-person-workspace"></i>
+                            <span>Assign</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu3">
+                                    <a
+                href="assign.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-person-workspace"></i>
+                    <span>Manage Assign</span>
+                </span>
+                            </a>
+                        <a
+                href="assign-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/assign/import"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-kanban-fill"></i>
+                            <span>Other operations</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu4">
+                                        <div class="sidebar-nested-group ">
+                    <button
+                        type="button"
+                        class="sidebar-link sidebar-nested-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4_0_subscription_group"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-file-earmark-text-fill"></i>
+                            <span>Subscription</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+                    <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_0_subscription_group">
+                                    <a
+                href="subscription.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    <span>Manage Subscription</span>
+                </span>
+                            </a>
+                        <a
+                href="subscription-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/subscription/import"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </div>
+                                <div class="sidebar-nested-group ">
+                    <button
+                        type="button"
+                        class="sidebar-link sidebar-nested-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4_1_borrowed_group"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-arrow-left-right"></i>
+                            <span>Borrowed</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+                    <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_1_borrowed_group">
+                                    <a
+                href="borrowed.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-arrow-left-right"></i>
+                    <span>Manage Borrowed</span>
+                </span>
+                            </a>
+                        <a
+                href="borrowed-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/borrowed/import"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </div>
+                                <div class="sidebar-nested-group ">
+                    <button
+                        type="button"
+                        class="sidebar-link sidebar-nested-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4_2_bidding_group"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-briefcase-fill"></i>
+                            <span>Bidding</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+                    <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_2_bidding_group">
+                                    <a
+                href="bidding.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-briefcase-fill"></i>
+                    <span>Manage Bidding</span>
+                </span>
+                            </a>
+                        <a
+                href="bidding-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/bidding/import"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </div>
+                                <div class="sidebar-nested-group ">
+                    <button
+                        type="button"
+                        class="sidebar-link sidebar-nested-toggle "
+                        data-sidebar-submenu="sidebarSubmenu4_3_title_group"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-type-bold"></i>
+                            <span>Title</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+                    <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_3_title_group">
+                                    <a
+                href="#" data-demo-unavailable="ictd/title"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-type-bold"></i>
+                    <span>Manage Title</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/title/archive"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="#" data-demo-unavailable="ictd/title/import"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-upload"></i>
+                    <span>Import data</span>
+                </span>
+                            </a>
+                                </div>
+                </div>
+                                    </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu5"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-graph-up-arrow"></i>
+                            <span>Reports</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu5">
+                                    <a
+                href="service-report.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-clipboard-data-fill"></i>
+                    <span>Service Report</span>
+                </span>
+                            </a>
+                        <a
+                href="service-report-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Service Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="maintenance.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-tools"></i>
+                    <span>Maintenance Report</span>
+                </span>
+                            </a>
+                        <a
+                href="maintenance-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Maintenance Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="transmittal.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-send-fill"></i>
+                    <span>Transmittal Report</span>
+                </span>
+                            </a>
+                        <a
+                href="transmittal-archive.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Transmittal Archive</span>
+                </span>
+                            </a>
+                        <a
+                href="reports.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-bar-chart-line"></i>
+                    <span>General Report</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+                            
+                <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenu6"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-collection-fill"></i>
+                            <span>Masterlist</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenu6">
+                                    <a
+                href="masterlist.html"
+                class="sidebar-link "
+                data-sidebar-link
+            >
+                <span class="sidebar-link-main">
+                    <i class="bi bi-ui-checks-grid"></i>
+                    <span>Manage Masterlist</span>
+                </span>
+                            </a>
+                                </div>
+                </section>
+            
+                        <section class="sidebar-section sidebar-module ">
+                <button
+                    type="button"
+                    class="sidebar-section-title sidebar-submenu-toggle "
+                    data-sidebar-submenu="sidebarSubmenuAccount"
+                    aria-expanded="false"
+                >
+                    <span class="sidebar-submenu-label">
+                        <i class="bi bi-person-circle"></i>
+                        <span>Account</span>
+                    </span>
+                    <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                </button>
+
+                <div class="sidebar-submenu " id="sidebarSubmenuAccount">
+                    <a href="#" data-demo-unavailable="account" class="sidebar-link " data-sidebar-link>
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-person-lines-fill"></i>
+                            <span>Account Details</span>
+                        </span>
+                    </a>
+
+                    <a href="#" data-demo-unavailable="change-password" class="sidebar-link " data-sidebar-link>
+                        <span class="sidebar-link-main">
+                            <i class="bi bi-key"></i>
+                            <span>Change Password</span>
+                        </span>
+                    </a>
+
+                                            <a href="#" data-demo-unavailable="activity-logs" class="sidebar-link " data-sidebar-link>
+                            <span class="sidebar-link-main">
+                                <i class="bi bi-clock-history"></i>
+                                <span>Logs</span>
+                            </span>
+                        </a>
+                                    </div>
+            </section>
+
+                                            <section class="sidebar-section sidebar-module ">
+                    <button
+                        type="button"
+                        class="sidebar-section-title sidebar-submenu-toggle "
+                        data-sidebar-submenu="sidebarSubmenuAdmin"
+                        aria-expanded="false"
+                    >
+                        <span class="sidebar-submenu-label">
+                            <i class="bi bi-shield-lock-fill"></i>
+                            <span>Admin</span>
+                        </span>
+                        <i class="bi bi-chevron-down sidebar-submenu-caret"></i>
+                    </button>
+
+                    <div class="sidebar-submenu " id="sidebarSubmenuAdmin">
+                                                    <a href="#" data-demo-unavailable="admin" class="sidebar-link " data-sidebar-link>
+                                <span class="sidebar-link-main">
+                                    <i class="bi bi-person-gear"></i>
+                                    <span>Manage Users</span>
+                                </span>
+                            </a>
+                                            </div>
+                </section>
+                    </nav>
+
+        <div class="sidebar-footer">
+            Developed by City of Information and Communication Technology Department
+        </div>
+    </div>
+
+</aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="content">
+        <div class="topbar d-flex justify-content-between align-items-center px-3 py-2 shadow-sm">
+            <div class="d-flex align-items-center gap-3">
+                <button type="button" class="sidebar-toggle btn btn-outline-secondary btn-sm" id="sidebarToggle" aria-label="Toggle sidebar">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="system-title fw-bold">
+                    <i class="bi bi-pc-display-horizontal"></i>
+                    <span>IMS CICTD</span>
+                </div>
+
+                <div class="topbar-clock text-muted">
+                    <i class="bi bi-clock"></i>
+                    <span id="currentDateTime"></span>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                                    <a href="#" data-demo-unavailable="activity-logs" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-clock-history"></i> Logs
+                    </a>
+                
+                <a href="#" data-demo-unavailable="downloads/ims_cictd_user_manual.pdf" download class="btn btn-outline-success btn-sm">
+                    <i class="bi bi-download"></i> Manual
+                </a>
+
+                <div class="user-panel d-flex align-items-center gap-2">
+                    <i class="bi bi-person-circle fs-4"></i>
+
+                    <div>
+                        <div class="fw-semibold">demo</div>
+                        <small class="text-muted">Super Admin</small>
+                    </div>
+                </div>
+
+                <a href="#" data-demo-unavailable="change-password" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-key"></i> Change Password
+                </a>
+
+                <a href="index.html" class="btn btn-danger btn-sm">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="p-3">
+            
+<style>
+  .service-shell { display: grid; gap: 1rem; }
+  .service-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+  .service-eyebrow { color: #667085; font-size: .78rem; font-weight: 750; }
+  .service-title { margin: 0; color: #1f2937; font-size: 1.35rem; font-weight: 850; }
+  .service-toolbar { display: flex; justify-content: flex-end; gap: .65rem; flex-wrap: wrap; }
+  .service-search { position: relative; min-width: min(340px, 100%); }
+  .service-search i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #98a2b3; }
+  .service-search input { height: 38px; padding-left: 34px; border-radius: 4px; border-color: #eaecf0; font-size: .78rem; }
+  .service-card { border: 0; border-radius: 16px; background: rgba(255,255,255,.88); box-shadow: 0 18px 44px rgba(15,23,42,.08); overflow: hidden; }
+  .service-table { font-size: .8rem; }
+  .service-table thead th { white-space: nowrap; background: #f3f4f6 !important; border: 0 !important; color: #5f6672; font-size: .72rem; padding: .72rem .8rem !important; }
+  .service-table tbody td { border: 0 !important; border-bottom: 1px solid #f2f4f7 !important; padding: .72rem .8rem !important; white-space: nowrap; vertical-align: middle; }
+  .service-control { font-weight: 850; color: #1f2937; }
+  .service-badge { border-radius: 999px; padding: .25rem .55rem; font-size: .72rem; font-weight: 800; }
+  .service-actions { display: inline-flex; align-items: center; gap: .55rem; }
+  .service-action-btn { border: 0; background: transparent; padding: 0; line-height: 1; font-size: .95rem; }
+  .service-action-view { color: #16a085; }
+  .service-action-edit { color: #1f9bb4; }
+  .service-action-pdf { color: #d92d20; }
+  .service-action-delete { color: #e26060; }
+  .service-action-toggle { color: #3657f6; }
+  .service-item-toggle { border: 0; background: transparent; padding: 0; }
+  .service-items-child { margin: .25rem 0 .35rem 3rem; border: 1px solid #e7eefc; border-radius: 8px; overflow: hidden; background: #fff; }
+  .service-items-child table { width: 100%; margin: 0; font-size: .76rem; }
+  .service-items-child th { background: #f8fafc; color: #667085; font-size: .68rem; text-transform: uppercase; padding: .55rem .65rem; }
+  .service-items-child td { padding: .55rem .65rem; border-top: 1px solid #f2f4f7; }
+  .ims-upload-actions { display: inline-flex; align-items: center; gap: .45rem; }
+  .ims-upload-btn { border: 0; border-radius: 11px; min-width: 38px; height: 30px; padding: 0 .75rem; display: inline-flex; align-items: center; justify-content: center; gap: .35rem; font-size: .72rem; font-weight: 800; line-height: 1; box-shadow: inset 0 1px 0 rgba(255,255,255,.48), 0 3px 7px rgba(15,23,42,.2); cursor: pointer; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease, filter .15s ease; }
+  .ims-upload-btn:hover { transform: translateY(-1px); box-shadow: inset 0 1px 0 rgba(255,255,255,.55), 0 5px 10px rgba(15,23,42,.24); filter: brightness(1.03); text-decoration: none; }
+  .ims-upload-btn i { font-size: .86rem; }
+  .ims-upload-btn-blue { background: linear-gradient(180deg, #4f9cff 0%, #1f6fe5 100%); color: #fff; }
+  .ims-upload-btn-red { background: linear-gradient(180deg, #ff5c5c 0%, #e21f2f 100%); color: #fff; }
+  .ims-upload-panel { width: 220px; display: grid; gap: .28rem; justify-items: center; }
+  .ims-upload-file-link { color: #14966f; font-size: .82rem; font-weight: 850; text-decoration: underline; max-width: 212px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ims-upload-empty { color: #98a2b3; font-size: .72rem; font-weight: 750; }
+  .ims-upload-actions { justify-content: center; gap: .45rem; }
+  .ims-upload-square { min-width: 64px; width: auto; height: 30px; padding: 0 .65rem; }
+  .ims-upload-btn-gray { background: linear-gradient(180deg, #f9fafb 0%, #e5e7eb 100%); color: #64748b; }
+  .ims-upload-input { width: 100%; max-width: 216px; font-size: .72rem; padding: .25rem .35rem; border-radius: 6px; border: 1px solid #d7dce5; background: #fff; }
+  .ims-upload-submit { width: 100%; max-width: 216px; border-radius: 9px; background: linear-gradient(180deg, #fff 0%, #eef1f5 100%); color: #5f6672; }
+  .service-form-section { border: 1px solid #edf0f5; border-radius: 14px; background: #fbfcff; padding: 1rem; margin-bottom: 1rem; }
+  .service-section-title { display: flex; align-items: center; gap: .45rem; color: #263241; font-size: .82rem; font-weight: 900; text-transform: uppercase; letter-spacing: .02em; margin-bottom: .8rem; }
+  .service-section-title i { color: #3657f6; }
+  .service-item-row { border: 1px solid #edf0f5; border-radius: 12px; padding: .85rem; background: #fff; margin-bottom: .75rem; }
+  .service-item-row-existing { background: #eaf6ff; border-color: #b9e4ff; }
+  .service-item-row-new { background: #ecfdf3; border-color: #b7efc5; }
+  .service-item-legend { display: flex; flex-wrap: wrap; gap: .65rem; margin-bottom: .8rem; font-size: .76rem; font-weight: 800; color: #475467; }
+  .service-item-legend span { display: inline-flex; align-items: center; gap: .4rem; }
+  .service-item-legend-dot { width: 14px; height: 14px; border-radius: 4px; border: 1px solid transparent; }
+  .service-item-legend-existing { background: #eaf6ff; border-color: #b9e4ff; }
+  .service-item-legend-new { background: #ecfdf3; border-color: #b7efc5; }
+  .service-item-row-head { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: .8rem; padding-bottom: .65rem; border-bottom: 1px solid #f2f4f7; }
+  .service-item-row-title { display: inline-flex; align-items: center; gap: .45rem; color: #344054; font-size: .8rem; font-weight: 850; text-transform: uppercase; letter-spacing: .02em; }
+  .service-remove-item { border: 0; width: 34px; height: 34px; border-radius: 10px; background: #fff1f1; color: #d92d20; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+  .service-remove-item:hover { background: #ffe4e4; color: #b42318; }
+  .service-detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+  .service-detail-item { padding: .75rem; background: #f9fafb; border-radius: 10px; }
+  .service-detail-label { color: #667085; font-size: .72rem; font-weight: 800; text-transform: uppercase; }
+  .service-detail-value { margin-top: .2rem; font-weight: 650; color: #1f2937; }
+  #serviceFormModal .modal-dialog { width: min(1180px, calc(100vw - 24px)); max-width: min(1180px, calc(100vw - 24px)); margin: .75rem auto; }
+  #serviceFormModal .modal-content { max-height: calc(100dvh - 1.5rem); display: flex; flex-direction: column; overflow: hidden; }
+  #serviceFormModal form { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+  #serviceFormModal .modal-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding-bottom: 1.25rem; }
+  #serviceFormModal .modal-footer { flex: 0 0 auto; position: sticky; bottom: 0; z-index: 5; background: #fff; box-shadow: 0 -10px 24px rgba(15, 23, 42, .08); }
+  #serviceViewModal .modal-body { max-height: calc(100dvh - 170px); overflow-y: auto; }
+  @media (max-width: 767px) {
+    .service-head { flex-direction: column; }
+    .service-head .btn, .service-search { width: 100%; }
+    .service-detail-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="container-fluid py-3">
+    <div class="service-shell">
+        <div class="service-head">
+            <div>
+                <div class="service-eyebrow">Reports</div>
+                <h2 class="service-title">Service Report Records</h2>
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+                <a href="service-report-archive.html" class="btn btn-outline-secondary btn-sm"><i class="bi bi-archive"></i> Archive</a>
+                <button type="button" class="btn btn-primary btn-sm" id="openServiceFormBtn">
+                    <i class="bi bi-plus-lg"></i> New Service Report
+                </button>
+            </div>
+        </div>
+
+        <div class="service-toolbar">
+            <div class="service-search">
+                <i class="bi bi-search"></i>
+                <input type="search" class="form-control" id="serviceSearch" placeholder="Search service reports">
+            </div>
+            <button type="button" class="btn btn-outline-primary btn-sm" id="serviceMineOnlyBtn" data-active="0">
+                <i class="bi bi-person-check"></i> My Records
+            </button>
+        </div>
+
+        <div class="card service-card">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table id="serviceTable" class="table align-middle nowrap mb-0 service-table" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Upload File</th>
+                                <th>ID</th>
+                                <th>Service CN</th>
+                                <th>Old Service CN</th>
+                                <th>End User</th>
+                                <th>Employee Designation</th>
+                                <th>Report Date</th>
+                                <th>Report Time</th>
+                                <th>Satisfactory</th>
+                                <th>Items</th>
+                                <th>Created</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="serviceFormModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content border-0">
+            <div class="modal-header">
+                <div>
+                    <h5 class="modal-title fw-bold" id="serviceModalTitle">New Service Report</h5>
+                    <div class="text-muted small">Service control number is generated from the report date year.</div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="serviceForm" enctype="multipart/form-data">
+                <input type="hidden" id="service_id" name="id">
+                <input type="hidden" id="request_id" name="request_id">
+                <div class="modal-body">
+                    <div class="service-form-section">
+                        <div class="service-section-title"><i class="bi bi-file-earmark-text"></i> Report Details</div>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Service Control No</label>
+                                <input type="text" class="form-control" id="service_controlno" name="service_controlno" placeholder="Auto generated if blank">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Old Service CN</label>
+                                <input type="text" class="form-control" id="old_service_cn" name="old_service_cn">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">End User *</label>
+                                <select class="form-select service-select2" id="end_user_id" name="end_user_id" required></select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Department</label>
+                                <input type="hidden" id="department_id" name="department_id">
+                                <input type="text" class="form-control" id="department_name" readonly>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Employee Designation</label>
+                                <select class="form-select service-select2" id="employee_designation_id" name="employee_designation_id"></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-form-section">
+                        <div class="service-section-title"><i class="bi bi-pc-display"></i> Equipment, Supplies, Others</div>
+                        <div class="row g-3 align-items-end mb-3">
+                            <div class="col-lg-4">
+                                <label class="form-label">Equipment</label>
+                                <select class="form-select service-select2" id="service_equipment_picker"></select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label">Supplies</label>
+                                <select class="form-select service-select2" id="service_supply_picker"></select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label">Subscriptions</label>
+                                <select class="form-select service-select2" id="service_subscription_picker"></select>
+                            </div>
+                            <div class="col-lg-12 d-flex flex-wrap gap-2">
+                                <button type="button" class="btn btn-outline-primary" id="addNewEquipmentItem"><i class="bi bi-plus"></i> Add New Equipment</button>
+                                <button type="button" class="btn btn-outline-success" id="addNewSupplyItem"><i class="bi bi-plus"></i> Add New Supply</button>
+                                <button type="button" class="btn btn-outline-info" id="addNewSubscriptionItem"><i class="bi bi-plus"></i> Add Subscription</button>
+                                <button type="button" class="btn btn-outline-secondary" id="addOtherServiceItem"><i class="bi bi-plus"></i> Add Other</button>
+                            </div>
+                        </div>
+                        <div class="service-item-legend">
+                            <span><i class="service-item-legend-dot service-item-legend-existing"></i> Blue is for existing equipment/supplies assigned to the end user</span>
+                            <span><i class="service-item-legend-dot service-item-legend-new"></i> Light green is for entering new items</span>
+                        </div>
+                        <div id="serviceItems"></div>
+                    </div>
+
+                    <div class="service-form-section">
+                        <div class="service-section-title"><i class="bi bi-geo-alt"></i> Travel</div>
+                        <div class="row g-3">
+                            <div class="col-md-3"><label class="form-label">Vicinity</label><input type="text" class="form-control" id="vicinity" name="vicinity"></div>
+                            <div class="col-md-3"><label class="form-label">Distance</label><input type="text" class="form-control" id="distance" name="distance"></div>
+                            <div class="col-md-2"><label class="form-label">Travel Date</label><input type="date" class="form-control" id="travel_date" name="travel_date"></div>
+                            <div class="col-md-2"><label class="form-label">Departure</label><input type="time" class="form-control" id="travel_departure" name="travel_departure" value="12:00"></div>
+                            <div class="col-md-2"><label class="form-label">Arrival</label><input type="time" class="form-control" id="travel_arrival" name="travel_arrival" value="12:00"></div>
+                        </div>
+                    </div>
+
+                    <div class="service-form-section">
+                        <div class="service-section-title"><i class="bi bi-clipboard-pulse"></i> Complaint and Troubleshooting</div>
+                        <div class="row g-3">
+                            <div class="col-md-6"><label class="form-label">Complain</label><select class="form-select service-select2" id="complain" name="complain[]" multiple></select></div>
+                            <div class="col-md-3"><label class="form-label">Inspection Start</label><input type="time" class="form-control" id="complain_inspection_time_start" name="complain_inspection_time_start" value="12:00"></div>
+                            <div class="col-md-3"><label class="form-label">Inspection Finish</label><input type="time" class="form-control" id="complain_inspection_time_finish" name="complain_inspection_time_finish" value="12:00"></div>
+                            <div class="col-md-6"><label class="form-label">Troubleshoot</label><select class="form-select service-select2" id="troubleshoot" name="troubleshoot[]" multiple></select></div>
+                            <div class="col-md-3"><label class="form-label">Troubleshoot Start</label><input type="time" class="form-control" id="troubleshoot_start" name="troubleshoot_start" value="12:00"></div>
+                            <div class="col-md-3"><label class="form-label">Troubleshoot Finish</label><input type="time" class="form-control" id="troubleshoot_finish" name="troubleshoot_finish" value="12:00"></div>
+                        </div>
+                    </div>
+
+                    <div class="service-form-section">
+                        <div class="service-section-title"><i class="bi bi-journal-check"></i> Remarks and Pullout</div>
+                        <div class="row g-3">
+                            <div class="col-md-6"><label class="form-label">Remarks Service Details</label><select class="form-select service-select2" id="remarks_service_details" name="remarks_service_details[]" multiple></select></div>
+                            <div class="col-md-3"><label class="form-label">Pullout Date</label><input type="date" class="form-control" id="remarks_date_pullout" name="remarks_date_pullout"></div>
+                            <div class="col-md-3"><label class="form-label">Pullout Time</label><input type="time" class="form-control" id="remarks_time_pullout" name="remarks_time_pullout" value="12:00"></div>
+                            <div class="col-md-3"><label class="form-label">Returned Date</label><input type="date" class="form-control" id="remarks_date_returned" name="remarks_date_returned"></div>
+                            <div class="col-md-3"><label class="form-label">Returned Time</label><input type="time" class="form-control" id="remarks_time_returned" name="remarks_time_returned" value="12:00"></div>
+                        </div>
+                    </div>
+
+                    <div class="service-form-section">
+                        <div class="service-section-title"><i class="bi bi-people"></i> Technician</div>
+                        <div class="row g-3">
+                            <div class="col-md-8"><label class="form-label">Attending Technician</label><select class="form-select service-select2" id="attending_technician" name="attending_technician[]" multiple></select></div>
+                            <div class="col-md-4"><label class="form-label">Technician Designation</label><input type="text" class="form-control" id="technician_designation" name="technician_designation"></div>
+                            <div class="col-md-3"><label class="form-label">Report Date *</label><input type="date" class="form-control" id="report_date" name="report_date" required></div>
+                            <div class="col-md-3"><label class="form-label">Report Time</label><input type="time" class="form-control" id="report_time" name="report_time" value="12:00"></div>
+                            <div class="col-md-3">
+                                <label class="form-label">Employee Satisfactory</label>
+                                <select class="form-select service-select2" id="employee_satisfactory" name="employee_satisfactory">
+                                    <option value="">Select</option>
+                                    <option>EXCELLENT</option>
+                                    <option>VERY SATISFACTORY</option>
+                                    <option>SATISFACTORY</option>
+                                    <option>POOR</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3"><label class="form-label">PDF Attachment</label><input type="file" class="form-control" id="attachment_pdf" name="attachment_pdf" accept="application/pdf"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Service Report</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="serviceViewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content border-0">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Service Report Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="serviceViewBody"></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="servicePdfModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content border-0">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold"><i class="bi bi-file-earmark-pdf"></i> Service Report PDF Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-0">
+                <iframe id="servicePdfFrame" style="width:100%;height:75vh;border:0"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const actionUrl = './ictd/service-report-action';
+    const defaultTimeValue = '12:00';
+    const serviceTimeFields = [
+        'travel_departure',
+        'travel_arrival',
+        'complain_inspection_time_start',
+        'complain_inspection_time_finish',
+        'troubleshoot_start',
+        'troubleshoot_finish',
+        'remarks_time_pullout',
+        'remarks_time_returned',
+        'report_time'
+    ];
+    let masterlists = { users: [], departments: [], complaints: [], troubleshoots: [], remarks: [], technicians: [], descriptions: [], brands: [], statuses: [], equipment: [], supplies: [], subscriptions: [] };
+    let masterlistsLoaded = false;
+    let serviceItems = [];
+    let assignedItemsEndUserId = '';
+    let removedAssignedItemKeys = new Set();
+
+    const table = $('#serviceTable').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: './ictd/service-report-data',
+            data: d => { d.mine_only = $('#serviceMineOnlyBtn').data('active') === 1 ? 1 : 0; }
+        },
+        order: [[2, 'desc']],
+        scrollX: true,
+        dom: 'rt<"row align-items-center mt-3"<"col-md-4"i><"col-md-4 text-center"l><"col-md-4"p>>',
+        columnDefs: [{ targets: [0, 1], orderable: false, searchable: false }]
+    });
+
+    let searchTimer = null;
+    $('#serviceSearch').on('input', function () {
+        clearTimeout(searchTimer);
+        const value = this.value;
+        searchTimer = setTimeout(() => table.search(value).draw(), 250);
+    });
+
+    $('#serviceMineOnlyBtn').on('click', function () {
+        const isActive = $(this).data('active') === 1;
+        $(this).data('active', isActive ? 0 : 1).toggleClass('active', !isActive);
+        table.ajax.reload();
+    });
+
+    function serviceItemsChild(items) {
+        if (!items || !items.length) {
+            return '<div class="service-items-child"><div class="p-3 text-muted small">No connected items.</div></div>';
+        }
+        const rows = items.map(item => `
+            <tr>
+                <td><span class="service-badge bg-info-subtle text-info">${escapeHtml(item.type || '')}</span></td>
+                <td><strong>${escapeHtml(item.control_no || '')}</strong></td>
+                <td>${escapeHtml(item.date_delivered || '')}</td>
+                <td>${escapeHtml(item.other_description || item.description_name || '')}</td>
+                <td>${escapeHtml(item.brand_name || '')}</td>
+                <td>${escapeHtml(item.serialno || '')}</td>
+                <td>${escapeHtml(item.item_status || '')}</td>
+                <td>${escapeHtml(item.remarks || '')}</td>
+            </tr>
+        `).join('');
+        return `<div class="service-items-child"><table><thead><tr><th>Type</th><th>Code / Control</th><th>Date Delivered</th><th>Description</th><th>Brand</th><th>Serial No</th><th>Status</th><th>Remarks</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    }
+
+    function toggleServiceItems(button) {
+        const tr = $(button).closest('tr');
+        const row = table.row(tr);
+        const id = $(button).data('id');
+        if (row.child.isShown()) {
+            row.child.hide();
+            tr.removeClass('shown');
+            tr.find('.toggle-service-items-btn i').removeClass('bi-chevron-down').addClass('bi-chevron-right');
+            return;
+        }
+        tr.find('.toggle-service-items-btn i').removeClass('bi-chevron-right').addClass('bi-chevron-down');
+        row.child('<div class="service-items-child"><div class="p-3 text-muted small">Loading items...</div></div>').show();
+        $.getJSON(actionUrl, { action: 'view', id }).done(res => row.child(serviceItemsChild(res.success ? (res.items || []) : [])).show())
+            .fail(() => row.child('<div class="service-items-child"><div class="p-3 text-danger small">Unable to load items.</div></div>').show());
+    }
+
+    $(document).on('click', '.toggle-service-items-btn', function (event) {
+        event.stopPropagation();
+        toggleServiceItems(this);
+    });
+
+    $('#serviceTable tbody').on('click', 'tr', function (event) {
+        if ($(event.target).closest('button, a, input, select, textarea, label').length) return;
+        const toggle = $(this).find('.toggle-service-items-btn').first();
+        if (toggle.length) toggleServiceItems(toggle[0]);
+    });
+
+    function escapeHtml(value) {
+        return String(value ?? '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+    }
+
+    function serviceItemPdfLabel(item) {
+        return [
+            String(item.type || 'item').toUpperCase(),
+            item.other_description || item.description_name || '',
+            item.control_no ? 'Control: ' + item.control_no : '',
+            item.brand_name ? 'Brand: ' + item.brand_name : '',
+            item.serialno ? 'SN: ' + item.serialno : ''
+        ].filter(Boolean).join(' | ') || ('Item #' + (item.id || ''));
+    }
+
+    function openServiceExportPicker(id, exportUrl) {
+        $.getJSON(actionUrl, { action: 'view', id }).done(function (res) {
+            if (!res.success) {
+                Swal.fire('Error', res.message || 'Unable to load service report items.', 'error');
+                return;
+            }
+            const items = res.items || [];
+            if (!items.length) {
+                window.open(exportUrl, '_blank');
+                return;
+            }
+            const html = `<div class="text-start" style="max-height:340px;overflow:auto;">
+                ${items.map(item => `<label class="d-flex gap-2 align-items-start py-2 border-bottom" style="color:#1f2937;background:#fff;">
+                    <input type="checkbox" class="form-check-input service-export-item" value="${escapeHtml(item.id)}" checked>
+                    <span style="font-size:.86rem;line-height:1.35;font-weight:700;color:#1f2937;">${escapeHtml(serviceItemPdfLabel(item))}</span>
+                </label>`).join('')}
+            </div>`;
+            Swal.fire({
+                title: 'Select Items for PDF',
+                html,
+                showCancelButton: true,
+                confirmButtonText: 'Generate PDF',
+                confirmButtonColor: '#3657f6',
+                preConfirm: () => {
+                    const ids = $('.service-export-item:checked').map(function () { return this.value; }).get();
+                    if (!ids.length) {
+                        Swal.showValidationMessage('Select at least one item to include.');
+                        return false;
+                    }
+                    return ids;
+                }
+            }).then(result => {
+                if (!result.isConfirmed) return;
+                const url = new URL(exportUrl, window.location.origin);
+                url.searchParams.set('item_ids', result.value.join(','));
+                window.open(url.toString(), '_blank');
+            });
+        }).fail(function (xhr) {
+            Swal.fire('Error', xhr.responseJSON?.message || 'Unable to load service report items.', 'error');
+        });
+    }
+
+    $(document).on('click', '.export-service-pdf-btn', function () {
+        openServiceExportPicker($(this).data('id'), $(this).data('export-url'));
+    });
+
+    function normalizeItemType(value) {
+        const type = String(value || 'equipment').toLowerCase();
+        const legacyTypes = { '1': 'equipment', '2': 'supply', '3': 'subscription', '4': 'other', supplies: 'supply' };
+        const normalized = legacyTypes[type] || type;
+        return ['equipment', 'supply', 'subscription', 'other'].includes(normalized) ? normalized : 'other';
+    }
+
+    function normalizeServiceItem(item) {
+        item = item || {};
+        return { ...item, type: normalizeItemType(item.type) };
+    }
+
+    function serviceItemKey(item) {
+        const normalized = normalizeServiceItem({ ...item, type: item.type || item.item_type });
+        const source = normalized.source_id || normalized.control_no || normalized.other_description || '';
+        return `${normalized.type}:${source}`;
+    }
+
+    function serviceItemFromSource(selected, extra = {}) {
+        return normalizeServiceItem({
+            type: selected.item_type,
+            source_id: selected.source_id,
+            control_no: selected.control_no,
+            other_description: selected.other_description || selected.description_name || '',
+            description_id: selected.description_id,
+            brand_id: selected.brand_id,
+            serialno: selected.serialno,
+            date_delivered: selected.date_delivered,
+            item_status: selected.item_status,
+            unit_warranty: selected.unit_warranty,
+            ...extra
+        });
+    }
+
+    function appendServiceItem(item) {
+        const key = serviceItemKey(item);
+        if (key && serviceItems.some(existing => serviceItemKey(existing) === key)) {
+            return false;
+        }
+        serviceItems.push(item);
+        return true;
+    }
+
+    function options(list, placeholder = 'Select') {
+        return `<option value="">${placeholder}</option>` + (list || []).map(item => `<option value="${escapeHtml(item.id)}" data-department-id="${escapeHtml(item.department_id || '')}" data-department-name="${escapeHtml(item.department_name || '')}" data-designation="${escapeHtml(item.designation || '')}">${escapeHtml(item.text)}</option>`).join('');
+    }
+
+    function initSelect2() {
+        if (!$.fn.select2) return;
+        $('select.service-select2').each(function () {
+            if ($(this).hasClass('select2-hidden-accessible')) {
+                return;
+            }
+            const parentModal = $(this).closest('.modal');
+            const allowTags = ['complain', 'troubleshoot', 'remarks_service_details'].includes(this.id);
+            const isLargePicker = ['service_equipment_picker', 'service_supply_picker', 'service_subscription_picker'].includes(this.id);
+            $(this).select2({
+                width: '100%',
+                dropdownParent: parentModal.length ? parentModal : $(document.body),
+                tags: allowTags,
+                allowClear: !this.required,
+                minimumInputLength: isLargePicker ? 1 : 0,
+                placeholder: $(this).find('option:first').text() || 'Select'
+            });
+        });
+    }
+
+    function loadMasterlists(callback) {
+        if (masterlistsLoaded) {
+            initSelect2();
+            callback?.();
+            return;
+        }
+        $.getJSON(actionUrl, { action: 'masterlists' }).done(function (res) {
+            if (!res.success) return;
+            masterlists = res.data || masterlists;
+            masterlistsLoaded = true;
+            $('#end_user_id').html(options(masterlists.users, 'Select user'));
+            $('#employee_designation_id').html(options(masterlists.departments, 'Select designation'));
+            $('#complain').html(options(masterlists.complaints, 'Select complaint'));
+            $('#troubleshoot').html(options(masterlists.troubleshoots, 'Select troubleshoot'));
+            $('#remarks_service_details').html(options(masterlists.remarks, 'Select remarks'));
+            $('#attending_technician').html(options(masterlists.technicians, 'Select technician'));
+            $('#service_equipment_picker').html(options(masterlists.equipment, 'Select equipment'));
+            $('#service_supply_picker').html(options(masterlists.supplies, 'Select supply'));
+            $('#service_subscription_picker').html(options(masterlists.subscriptions, 'Select subscription'));
+            initSelect2();
+            callback?.();
+        });
+    }
+
+    function initItemSelect2(select, openAfterInit = false) {
+        if (!$.fn.select2) return;
+        const $select = $(select);
+        if ($select.hasClass('select2-hidden-accessible')) {
+            if (openAfterInit) {
+                $select.select2('open');
+            }
+            return;
+        }
+        $select.select2({
+            width: '100%',
+            dropdownParent: $('#serviceFormModal'),
+            allowClear: !$select.hasClass('item-type'),
+            minimumInputLength: $select.hasClass('item-description') || $select.hasClass('item-brand') ? 1 : 0,
+            placeholder: $select.find('option:first').text() || 'Select'
+        });
+        if (openAfterInit) {
+            window.setTimeout(() => $select.select2('open'), 0);
+        }
+    }
+
+    $(document).on('mousedown', '#serviceItems select.item-select2', function (event) {
+        if ($.fn.select2 && !$(this).hasClass('select2-hidden-accessible')) {
+            event.preventDefault();
+            initItemSelect2(this, true);
+        }
+    });
+
+    $(document).on('focus', '#serviceItems select.item-select2', function () {
+        initItemSelect2(this);
+    });
+
+    function renderItems() {
+        const descOptions = options(masterlists.descriptions, 'Description');
+        const brandOptions = options(masterlists.brands, 'Brand');
+        const statusOptions = options(masterlists.statuses, 'No status');
+        const typeMeta = {
+            equipment: { title: 'Equipment', icon: 'bi-pc-display', accent: 'text-primary' },
+            supply: { title: 'Supplies', icon: 'bi-box-seam', accent: 'text-success' },
+            subscription: { title: 'Subscription', icon: 'bi-receipt', accent: 'text-info' },
+            other: { title: 'Other / As Is', icon: 'bi-pencil-square', accent: 'text-secondary' }
+        };
+        const typeField = (item) => `
+            <select class="form-select item-type item-select2">
+                <option value="equipment"${item.type === 'equipment' ? ' selected' : ''}>Equipment</option>
+                <option value="supply"${item.type === 'supply' ? ' selected' : ''}>Supply</option>
+                <option value="subscription"${item.type === 'subscription' ? ' selected' : ''}>Subscription</option>
+                <option value="other"${item.type === 'other' ? ' selected' : ''}>Other</option>
+            </select>
+            <input type="hidden" class="item-source-id" value="${escapeHtml(item.source_id || '')}">
+        `;
+        const statusField = (item) => `<select class="form-select item-status item-status-select item-select2">${statusOptions}</select>`;
+        const commonNotes = (item) => `
+            <div class="col-md-6"><label class="form-label">Warranty/Status Remarks</label><input type="text" class="form-control item-warranty-remarks" value="${escapeHtml(item.warranty_remarks || '')}"></div>
+            <div class="col-md-6"><label class="form-label">Service Remarks</label><input type="text" class="form-control item-remarks" value="${escapeHtml(item.remarks || '')}"></div>
+        `;
+        const equipmentFields = (item) => `
+            <div class="row g-3">
+                <div class="col-md-2"><label class="form-label">Type</label>${typeField(item)}</div>
+                <div class="col-md-3"><label class="form-label">Control No</label><input type="text" class="form-control item-control" value="${escapeHtml(item.control_no || '')}" placeholder="Auto if blank"></div>
+                <div class="col-md-3"><label class="form-label">Date Delivered</label><input type="date" class="form-control item-date-delivered" value="${escapeHtml((item.date_delivered || '').slice(0, 10))}"><div class="text-muted small">Used for auto control no year.</div></div>
+                <div class="col-md-3"><label class="form-label">Description</label><select class="form-select item-description item-select2">${descOptions}</select></div>
+                <div class="col-md-2"><label class="form-label">Brand</label><select class="form-select item-brand item-select2">${brandOptions}</select></div>
+                <div class="col-md-2"><label class="form-label">Serial No</label><input type="text" class="form-control item-serial" value="${escapeHtml(item.serialno || '')}"></div>
+                <div class="col-md-3"><label class="form-label">Equipment Status</label>${statusField(item)}<div class="text-muted small">Syncs to equipment table.</div></div>
+                <div class="col-md-3"><label class="form-label">Unit Warranty</label><input type="date" class="form-control item-warranty" value="${escapeHtml((item.unit_warranty || '').slice(0, 10))}"></div>
+                <input type="hidden" class="item-other-description" value="${escapeHtml(item.other_description || '')}">
+                ${commonNotes(item)}
+            </div>
+        `;
+        const supplyFields = (item) => `
+            <div class="row g-3">
+                <div class="col-md-2"><label class="form-label">Type</label>${typeField(item)}</div>
+                <div class="col-md-3"><label class="form-label">Supply Code</label><input type="text" class="form-control item-control" value="${escapeHtml(item.control_no || '')}" placeholder="Auto if blank"></div>
+                <div class="col-md-3"><label class="form-label">Description</label><select class="form-select item-description item-select2">${descOptions}</select></div>
+                <div class="col-md-2"><label class="form-label">Brand</label><select class="form-select item-brand item-select2">${brandOptions}</select></div>
+                <div class="col-md-2"><label class="form-label">Serial No</label><input type="text" class="form-control item-serial" value="${escapeHtml(item.serialno || '')}"></div>
+                <div class="col-md-3"><label class="form-label">Supply Status</label>${statusField(item)}<div class="text-muted small">Syncs to supplies table.</div></div>
+                <div class="col-md-3"><label class="form-label">Warranty Date</label><input type="date" class="form-control item-warranty" value="${escapeHtml((item.unit_warranty || '').slice(0, 10))}"></div>
+                <input type="hidden" class="item-other-description" value="${escapeHtml(item.other_description || '')}">
+                ${commonNotes(item)}
+            </div>
+        `;
+        const subscriptionFields = (item) => `
+            <div class="row g-3">
+                <div class="col-md-3"><label class="form-label">Type</label>${typeField(item)}</div>
+                <div class="col-md-5"><label class="form-label">Software / Subscription Description</label><input type="text" class="form-control item-other-description" value="${escapeHtml(item.other_description || item.control_no || '')}" placeholder="Example: Microsoft 365 License"></div>
+                <div class="col-md-4"><label class="form-label">Expiry Date</label><input type="date" class="form-control item-warranty" value="${escapeHtml((item.unit_warranty || '').slice(0, 10))}"></div>
+                <input type="hidden" class="item-control" value="${escapeHtml(item.control_no || item.other_description || '')}">
+                <input type="hidden" class="item-description" value="">
+                <input type="hidden" class="item-brand" value="">
+                <input type="hidden" class="item-serial" value="">
+                <input type="hidden" class="item-date-delivered" value="">
+                <input type="hidden" class="item-status" value="">
+                <div class="col-12"><label class="form-label">Subscription Remarks</label><input type="text" class="form-control item-remarks" value="${escapeHtml(item.remarks || '')}"></div>
+                <input type="hidden" class="item-warranty-remarks" value="${escapeHtml(item.warranty_remarks || '')}">
+            </div>
+        `;
+        const otherFields = (item) => `
+            <div class="row g-3">
+                <div class="col-md-3"><label class="form-label">Type</label>${typeField(item)}</div>
+                <div class="col-md-9"><label class="form-label">Description</label><input type="text" class="form-control item-other-description" value="${escapeHtml(item.other_description || '')}" placeholder="Type the exact item or description"></div>
+                <input type="hidden" class="item-control" value="${escapeHtml(item.control_no || '')}">
+                <input type="hidden" class="item-description" value="">
+                <input type="hidden" class="item-brand" value="">
+                <input type="hidden" class="item-serial" value="">
+                <input type="hidden" class="item-date-delivered" value="">
+                <input type="hidden" class="item-status" value="">
+                <input type="hidden" class="item-warranty" value="">
+                <input type="hidden" class="item-warranty-remarks" value="${escapeHtml(item.warranty_remarks || '')}">
+                <div class="col-12"><label class="form-label">Remarks</label><input type="text" class="form-control item-remarks" value="${escapeHtml(item.remarks || '')}"></div>
+            </div>
+        `;
+        serviceItems = (serviceItems || []).map(normalizeServiceItem);
+        const html = serviceItems.map((item, index) => {
+            const meta = typeMeta[item.type] || typeMeta.other;
+            const rowClass = (item.auto_fetched || item.source_id) ? 'service-item-row-existing' : 'service-item-row-new';
+            const fields = item.type === 'equipment'
+                ? equipmentFields(item)
+                : item.type === 'supply'
+                    ? supplyFields(item)
+                    : item.type === 'subscription'
+                        ? subscriptionFields(item)
+                        : otherFields(item);
+            return `
+            <div class="service-item-row ${rowClass}" data-index="${index}">
+                <div class="service-item-row-head">
+                    <div class="service-item-row-title"><i class="bi ${meta.icon} ${meta.accent}"></i><span>${meta.title}</span></div>
+                    <button type="button" class="service-remove-item remove-service-item" title="Remove item"><i class="bi bi-x-lg"></i></button>
+                </div>
+                ${fields}
+            </div>
+        `}).join('');
+        $('#serviceItems').html(html || '<div class="text-muted small">No equipment/supplies/other items added yet.</div>');
+        serviceItems.forEach((item, index) => {
+            const row = $(`.service-item-row[data-index="${index}"]`);
+            row.find('.item-description').val(item.description_id || '');
+            row.find('.item-brand').val(item.brand_id || '');
+            row.find('.item-status').val(item.item_status || '');
+        });
+    }
+
+    function collectItems() {
+        const items = [];
+        $('.service-item-row').each(function () {
+            const row = $(this);
+            items.push({
+                type: row.find('.item-type').val(),
+                source_id: row.find('.item-source-id').val(),
+                control_no: row.find('.item-control').val(),
+                other_description: row.find('.item-other-description').val(),
+                description_id: row.find('.item-description').val(),
+                brand_id: row.find('.item-brand').val(),
+                serialno: row.find('.item-serial').val(),
+                date_delivered: row.find('.item-date-delivered').val(),
+                item_status: row.find('.item-status').val(),
+                unit_warranty: row.find('.item-warranty').val(),
+                warranty_remarks: row.find('.item-warranty-remarks').val(),
+                remarks: row.find('.item-remarks').val()
+            });
+        });
+        return items;
+    }
+
+    function resetForm() {
+        $('#serviceForm')[0].reset();
+        $('#service_id').val('');
+        $('#request_id').val('');
+        $('#serviceModalTitle').text('New Service Report');
+        $('#report_date').val(new Date().toISOString().slice(0, 10));
+        serviceTimeFields.forEach(id => $('#' + id).val(defaultTimeValue));
+        $('#department_id').val('');
+        $('#department_name').val('');
+        $('#employee_designation_id').val(null).trigger('change');
+        assignedItemsEndUserId = '';
+        removedAssignedItemKeys = new Set();
+        serviceItems = [];
+        renderItems();
+        $('.service-select2').val(null).trigger('change');
+    }
+    const serviceFormGuard = window.IMSUnsavedGuard?.create({
+        form: '#serviceForm',
+        modal: '#serviceFormModal',
+        dirtySelectors: [
+            '#addNewEquipmentItem',
+            '#addNewSupplyItem',
+            '#addNewSubscriptionItem',
+            '#addOtherServiceItem',
+            '.remove-service-item'
+        ]
+    });
+
+    $('#openServiceFormBtn').on('click', function () {
+        loadMasterlists(function () {
+            resetForm();
+            bootstrap.Modal.getOrCreateInstance(document.getElementById('serviceFormModal')).show();
+        });
+    });
+
+    $('#end_user_id').on('change', function () {
+        const selected = $(this).find(':selected');
+        $('#department_id').val(selected.data('department-id') || '');
+        $('#department_name').val(selected.data('department-name') || '');
+        if (!$('#employee_designation_id').val()) {
+            $('#employee_designation_id').val(selected.data('department-id') || '').trigger('change');
+        }
+        loadAssignedItemsForEndUser($(this).val());
+    });
+
+    function loadAssignedItemsForEndUser(endUserId) {
+        endUserId = String(endUserId || '');
+
+        serviceItems = serviceItems.filter(item => !item.auto_fetched);
+        if (!endUserId) {
+            assignedItemsEndUserId = '';
+            removedAssignedItemKeys = new Set();
+            renderItems();
+            return;
+        }
+
+        if (assignedItemsEndUserId !== endUserId) {
+            assignedItemsEndUserId = endUserId;
+            removedAssignedItemKeys = new Set();
+        }
+
+        $.getJSON(actionUrl, { action: 'assigned_items', end_user_id: endUserId })
+            .done(function (res) {
+                if (String($('#end_user_id').val() || '') !== endUserId) {
+                    return;
+                }
+                if (!res.success) {
+                    renderItems();
+                    return;
+                }
+
+                let added = 0;
+                (res.items || []).forEach(function (sourceItem) {
+                    const item = serviceItemFromSource(sourceItem, {
+                        auto_fetched: true,
+                        assigned_key: serviceItemKey(sourceItem)
+                    });
+                    if (removedAssignedItemKeys.has(item.assigned_key)) {
+                        return;
+                    }
+                    if (appendServiceItem(item)) {
+                        added++;
+                    }
+                });
+                renderItems();
+                if (added > 0) {
+                    $('#serviceItems').prepend(`<div class="alert alert-info py-2 mb-3 small"><i class="bi bi-info-circle"></i> Assigned item(s) under this end user were added automatically. Remove any item you do not want to include.</div>`);
+                }
+            })
+            .fail(function () {
+                renderItems();
+            });
+    }
+
+    $('#attending_technician').on('change', function () {
+        const designations = $(this).find(':selected').map(function () { return $(this).data('designation'); }).get().filter(Boolean);
+        $('#technician_designation').val([...new Set(designations)].join(', '));
+    });
+
+    function addSelectedItem(listName, picker) {
+        const selected = (masterlists[listName] || []).find(item => String(item.id) === String($(picker).val()));
+        if (!selected) return;
+        appendServiceItem(serviceItemFromSource(selected));
+        $(picker).val(null).trigger('change');
+        renderItems();
+    }
+
+    $('#service_equipment_picker').on('change', function () {
+        addSelectedItem('equipment', this);
+    });
+
+    $('#service_supply_picker').on('change', function () {
+        addSelectedItem('supplies', this);
+    });
+
+    $('#service_subscription_picker').on('change', function () {
+        addSelectedItem('subscriptions', this);
+    });
+
+    $('#addNewEquipmentItem').on('click', function () {
+        serviceItems.unshift({ type: 'equipment', other_description: '', item_status: 'Working' });
+        renderItems();
+    });
+
+    $('#addNewSupplyItem').on('click', function () {
+        serviceItems.unshift({ type: 'supply', other_description: '', item_status: 'Working' });
+        renderItems();
+    });
+
+    $('#addNewSubscriptionItem').on('click', function () {
+        serviceItems.unshift({ type: 'subscription', other_description: '', item_status: '' });
+        renderItems();
+    });
+
+    $('#addOtherServiceItem').on('click', function () {
+        serviceItems.unshift({ type: 'other', other_description: '' });
+        renderItems();
+    });
+
+    $(document).on('click', '.remove-service-item', function () {
+        const index = Number($(this).closest('.service-item-row').data('index'));
+        const item = serviceItems[index];
+        if (item && item.auto_fetched && item.assigned_key) {
+            removedAssignedItemKeys.add(item.assigned_key);
+        }
+        serviceItems.splice(index, 1);
+        renderItems();
+    });
+
+    $(document).on('change', '.item-type', function () {
+        const row = $(this).closest('.service-item-row');
+        const index = Number(row.data('index'));
+        if (!serviceItems[index]) return;
+        const selectedType = $(this).val();
+        serviceItems[index] = {
+            ...serviceItems[index],
+            type: selectedType,
+            source_id: '',
+            control_no: row.find('.item-control').val() || '',
+            other_description: row.find('.item-other-description').val() || '',
+            description_id: row.find('.item-description').val() || '',
+            brand_id: row.find('.item-brand').val() || '',
+            serialno: row.find('.item-serial').val() || '',
+            date_delivered: row.find('.item-date-delivered').val() || '',
+            item_status: row.find('.item-status').val() || (selectedType === 'equipment' || selectedType === 'supply' ? 'Working' : ''),
+            unit_warranty: row.find('.item-warranty').val() || '',
+            warranty_remarks: row.find('.item-warranty-remarks').val() || '',
+            remarks: row.find('.item-remarks').val() || ''
+        };
+        renderItems();
+    });
+
+    $('#serviceForm').on('submit', function (event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        formData.append('action', $('#service_id').val() ? 'update' : 'create');
+        formData.set('complain', JSON.stringify($('#complain').val() || []));
+        formData.set('troubleshoot', JSON.stringify($('#troubleshoot').val() || []));
+        formData.set('remarks_service_details', JSON.stringify($('#remarks_service_details').val() || []));
+        formData.set('attending_technician', JSON.stringify($('#attending_technician').val() || []));
+        formData.append('items', JSON.stringify(collectItems()));
+
+        $.ajax({
+            url: actionUrl,
+            method: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            beforeSend: () => Swal.fire({ title: 'Saving service report...', allowOutsideClick: false, didOpen: () => Swal.showLoading() }),
+            success: function (res) {
+                if (!res.success) {
+                    Swal.fire('Error', res.message || 'Unable to save service report.', 'error');
+                    return;
+                }
+                serviceFormGuard?.forceClean();
+                $('#serviceFormModal').modal('hide');
+                Swal.fire('Saved', res.message, 'success');
+                table.ajax.reload(null, false);
+            },
+            error: xhr => Swal.fire('Error', xhr.responseJSON?.message || 'Unable to save service report.', 'error')
+        });
+    });
+
+    function fillForm(record, items) {
+        $('#service_id').val(record.id);
+        $('#request_id').val(record.request_id || '');
+        $('#service_controlno').val(record.service_controlno);
+        $('#old_service_cn').val(record.old_service_cn);
+        $('#report_date').val(record.report_date);
+        $('#report_time').val(record.report_time || defaultTimeValue);
+        $('#end_user_id').val(record.end_user_id).trigger('change');
+        $('#department_id').val(record.department_id);
+        $('#department_name').val(record.department_name || '');
+        $('#employee_designation_id').val(record.employee_designation_id || record.department_id || '').trigger('change');
+        ['vicinity','distance','travel_date','remarks_date_pullout','remarks_date_returned','technician_designation','employee_satisfactory'].forEach(id => $('#' + id).val(record[id] || ''));
+        serviceTimeFields
+            .filter(id => id !== 'report_time')
+            .forEach(id => $('#' + id).val(record[id] || defaultTimeValue));
+        $('#complain').val(record.complain_values || []).trigger('change');
+        $('#troubleshoot').val(record.troubleshoot_values || []).trigger('change');
+        $('#remarks_service_details').val(record.remarks_service_details_values || []).trigger('change');
+        $('#attending_technician').val(record.attending_technician_values || []).trigger('change');
+        assignedItemsEndUserId = '';
+        removedAssignedItemKeys = new Set();
+        serviceItems = (items || []).map(normalizeServiceItem);
+        renderItems();
+        loadAssignedItemsForEndUser(record.end_user_id);
+    }
+
+    $(document).on('click', '.edit-service-btn', function () {
+        const id = $(this).data('id');
+        loadMasterlists(function () {
+            $.getJSON(actionUrl, { action: 'view', id }).done(function (res) {
+                if (!res.success) return Swal.fire('Error', res.message || 'Unable to load service report.', 'error');
+                $('#serviceModalTitle').text('Edit Service Report');
+                fillForm(res.data, res.items);
+                bootstrap.Modal.getOrCreateInstance(document.getElementById('serviceFormModal')).show();
+            });
+        });
+    });
+
+    $(document).on('click', '.view-service-btn', function () {
+        const id = $(this).data('id');
+        $.getJSON(actionUrl, { action: 'view', id }).done(function (res) {
+            if (!res.success) return Swal.fire('Error', res.message || 'Unable to load service report.', 'error');
+            const r = res.data;
+            const items = (res.items || []).map(item => `<tr><td>${escapeHtml(item.type)}</td><td>${escapeHtml(item.control_no)}</td><td>${escapeHtml(item.date_delivered || '')}</td><td>${escapeHtml(item.other_description || item.description_name)}</td><td>${escapeHtml(item.brand_name)}</td><td>${escapeHtml(item.serialno)}</td><td>${escapeHtml(item.item_status)}</td><td>${escapeHtml(item.remarks)}</td></tr>`).join('');
+            $('#serviceViewBody').html(`
+                <div class="service-detail-grid mb-3">
+                    <div class="service-detail-item"><div class="service-detail-label">Service CN</div><div class="service-detail-value">${escapeHtml(r.service_controlno)}</div></div>
+                    <div class="service-detail-item"><div class="service-detail-label">Old Service CN</div><div class="service-detail-value">${escapeHtml(r.old_service_cn || '')}</div></div>
+                    <div class="service-detail-item"><div class="service-detail-label">End User</div><div class="service-detail-value">${escapeHtml(r.end_user_name || '')}</div></div>
+                    <div class="service-detail-item"><div class="service-detail-label">Department</div><div class="service-detail-value">${escapeHtml(r.department_name || '')}</div></div>
+                    <div class="service-detail-item"><div class="service-detail-label">Employee Designation</div><div class="service-detail-value">${escapeHtml(r.employee_designation_name || r.department_name || '')}</div></div>
+                    <div class="service-detail-item"><div class="service-detail-label">Complaints</div><div class="service-detail-value">${escapeHtml((r.complain_values || []).join(', '))}</div></div>
+                    <div class="service-detail-item"><div class="service-detail-label">Troubleshoot</div><div class="service-detail-value">${escapeHtml((r.troubleshoot_values || []).join(', '))}</div></div>
+                    <div class="service-detail-item"><div class="service-detail-label">Technician</div><div class="service-detail-value">${escapeHtml((r.attending_technician_values || []).join(', '))}</div></div>
+                    <div class="service-detail-item"><div class="service-detail-label">Report Date/Time</div><div class="service-detail-value">${escapeHtml(r.report_date || '')} ${escapeHtml(r.report_time || '')}</div></div>
+                </div>
+                <h6 class="fw-bold">Connected Items</h6>
+                <div class="table-responsive"><table class="table table-sm"><thead><tr><th>Type</th><th>Control</th><th>Date Delivered</th><th>Description</th><th>Brand</th><th>Serial</th><th>Status</th><th>Remarks</th></tr></thead><tbody>${items || '<tr><td colspan="8" class="text-muted">No items.</td></tr>'}</tbody></table></div>
+            `);
+            bootstrap.Modal.getOrCreateInstance(document.getElementById('serviceViewModal')).show();
+        });
+    });
+
+    $(document).on('click', '.delete-service-btn', function () {
+        const id = $(this).data('id');
+        Swal.fire({ title: 'Archive service report?', text: 'This will move the report to the archive.', icon: 'warning', showCancelButton: true, confirmButtonColor: '#f59e0b', confirmButtonText: 'Archive' }).then(function (result) {
+            if (!result.isConfirmed) return;
+            $.ajax({
+                url: actionUrl,
+                method: 'POST',
+                contentType: 'application/json',
+                dataType: 'json',
+                data: JSON.stringify({ action: 'delete', id }),
+                success: function (res) {
+                    if (!res.success) return Swal.fire('Error', res.message || 'Unable to archive service report.', 'error');
+                    Swal.fire('Archived', res.message, 'success');
+                    table.ajax.reload(null, false);
+                },
+                error: xhr => Swal.fire('Error', xhr.responseJSON?.message || 'Unable to delete service report.', 'error')
+            });
+        });
+    });
+
+    $(document).on('click', '.upload-service-pdf-btn', function () {
+        const panel = $(this).closest('.ims-upload-panel');
+        const input = panel.find('.service-pdf-input')[0];
+        const file = input && input.files ? input.files[0] : null;
+        const id = $(this).data('id');
+        if (!file) {
+            Swal.fire('Select file', 'Choose a PDF file first.', 'info');
+            return;
+        }
+        if (file.size > 1024 * 1024) {
+            Swal.fire('Error', 'PDF must not exceed 1MB.', 'error');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('action', 'upload_pdf');
+        formData.append('id', id);
+        formData.append('attachment_pdf', file);
+        $.ajax({
+            url: actionUrl,
+            method: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success: function (res) {
+                Swal.fire(res.success ? 'Uploaded' : 'Error', res.message || 'Unable to upload PDF.', res.success ? 'success' : 'error');
+                if (res.success) table.ajax.reload(null, false);
+            },
+            error: xhr => Swal.fire('Error', xhr.responseJSON?.message || 'Unable to upload PDF.', 'error')
+        });
+    });
+
+    $(document).on('click', '.remove-service-pdf', function () {
+        const id = $(this).data('id');
+        Swal.fire({ title: 'Delete attachment?', text: 'This PDF file will be permanently removed.', icon: 'warning', showCancelButton: true, confirmButtonColor: '#d33' })
+            .then(function (result) {
+                if (!result.isConfirmed) return;
+                $.post(actionUrl, { action: 'remove_pdf', id }, function (res) {
+                    Swal.fire(res.success ? 'Removed' : 'Error', res.message || 'Unable to remove PDF.', res.success ? 'success' : 'error');
+                    if (res.success) table.ajax.reload(null, false);
+                }, 'json');
+            });
+    });
+
+    $(document).on('click', '.preview-service-pdf', function () {
+        $('#servicePdfFrame').attr('src', $(this).data('pdf'));
+        bootstrap.Modal.getOrCreateInstance(document.getElementById('servicePdfModal')).show();
+    });
+
+    $('#servicePdfModal').on('hidden.bs.modal', function () {
+        $('#servicePdfFrame').attr('src', '');
+    });
+
+    const requestIdFromUrl = new URLSearchParams(window.location.search).get('request_id');
+    if (requestIdFromUrl) {
+        loadMasterlists(function () {
+            $.getJSON('./ictd/requests/service-action', { action: 'get', id: requestIdFromUrl }, function (res) {
+                if (!res.success || !res.data) {
+                    Swal.fire('Error', res.message || 'Service request not found.', 'error');
+                    return;
+                }
+                resetForm();
+                const request = res.data;
+                $('#request_id').val(request.id);
+                $('#end_user_id').val(request.end_user_id).trigger('change');
+                $('#department_id').val(request.department_id);
+                $('#department_name').val($('#end_user_id').find(':selected').data('department-name') || '');
+                $('#employee_designation_id').val(request.department_id || '').trigger('change');
+                function setMultiValue(selector, value) {
+                    if (!value) return;
+                    const select = $(selector);
+                    if (!select.find('option').filter(function () { return this.value === value; }).length) {
+                        select.append(new Option(value, value, true, true));
+                    }
+                    select.val([value]).trigger('change');
+                }
+                setMultiValue('#complain', request.complain_problem || request.request_description || '');
+                setMultiValue('#remarks_service_details', request.remarks || '');
+                $('#serviceModalTitle').text('New Service Report for Request #' + request.id);
+                bootstrap.Modal.getOrCreateInstance(document.getElementById('serviceFormModal')).show();
+            });
+        });
+    }
+});
+</script>
+
+</div> 
+
+</main>
+</div>
+<script>
+
+function updateDateTime(){
+    const now = new Date();
+
+    const options={
+        weekday:'short',
+        year:'numeric',
+        month:'short',
+        day:'numeric',
+        hour:'2-digit',
+        minute:'2-digit',
+        second:'2-digit',
+        hour12:false
+    };
+
+    document.getElementById('currentDateTime').textContent =
+    now.toLocaleString('en-US',options);
+}
+
+updateDateTime();
+setInterval(updateDateTime,1000);
+
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const sidebarCollapseToggle = document.getElementById('sidebarCollapseToggle');
+    const sidebarRailCollapse = document.getElementById('sidebarRailCollapse');
+    const accountMenuToggle = document.getElementById('accountMenuToggle');
+    const accountRailMenu = document.getElementById('accountRailMenu');
+    const railMenuToggles = document.querySelectorAll('[data-rail-menu-toggle]');
+    const railPopoutMenus = document.querySelectorAll('.rail-popout-menu');
+    const sidebarSubmenuToggles = document.querySelectorAll('[data-sidebar-submenu]');
+    const sidebarLinks = document.querySelectorAll('[data-sidebar-link]');
+    const sidebarCollapseStorageKey = 'ims.sidebar.collapsed';
+    const sidebarScrollStorageKey = 'ims.sidebar.scrollTop';
+    const sidebarPanel = document.querySelector('.sidebar-panel');
+    const sidebarMenu = document.querySelector('.sidebar-menu');
+    const sidebarModuleSearch = document.getElementById('sidebarModuleSearch');
+    const sidebarModuleSearchClear = document.getElementById('sidebarModuleSearchClear');
+    const sidebarSearchEmpty = document.getElementById('sidebarSearchEmpty');
+
+function getSidebarScroller() {
+    if (sidebarMenu && sidebarMenu.scrollHeight > sidebarMenu.clientHeight) {
+        return sidebarMenu;
+    }
+    if (sidebarPanel && sidebarPanel.scrollHeight > sidebarPanel.clientHeight) {
+        return sidebarPanel;
+    }
+    return sidebarMenu || sidebarPanel;
+}
+
+function saveSidebarScroll() {
+    const scroller = getSidebarScroller();
+    if (!scroller) return;
+    sessionStorage.setItem(sidebarScrollStorageKey, String(scroller.scrollTop || 0));
+}
+
+function restoreSidebarScroll() {
+    const scroller = getSidebarScroller();
+    if (!scroller) return;
+    const savedScroll = parseInt(sessionStorage.getItem(sidebarScrollStorageKey) || '0', 10);
+    if (Number.isNaN(savedScroll)) return;
+    scroller.scrollTop = savedScroll;
+}
+
+requestAnimationFrame(restoreSidebarScroll);
+setTimeout(restoreSidebarScroll, 120);
+
+function setSidebarState(isOpen) {
+    document.body.classList.toggle('sidebar-open', Boolean(isOpen));
+}
+
+function isDesktopSidebar() {
+return window.innerWidth > 991;
+}
+
+function setSidebarCollapsed(isCollapsed, shouldStore = true) {
+    document.body.classList.toggle('sidebar-collapsed', Boolean(isCollapsed));
+        closeRailMenus();
+    if (sidebarCollapseToggle) {
+        sidebarCollapseToggle.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+        sidebarCollapseToggle.setAttribute('title', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
+        sidebarCollapseToggle.querySelector('i')?.classList.toggle('bi-layout-sidebar-inset', !isCollapsed);
+        sidebarCollapseToggle.querySelector('i')?.classList.toggle('bi-layout-sidebar-inset-reverse', Boolean(isCollapsed));
+    }
+    if (sidebarRailCollapse) {
+        sidebarRailCollapse.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+        sidebarRailCollapse.setAttribute('title', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
+        sidebarRailCollapse.querySelector('i')?.classList.toggle('bi-pc-display-horizontal', !isCollapsed);
+        sidebarRailCollapse.querySelector('i')?.classList.toggle('bi-layout-sidebar-inset-reverse', Boolean(isCollapsed));
+    }
+    if (shouldStore) {
+        localStorage.setItem(sidebarCollapseStorageKey, isCollapsed ? '1' : '0');
+    }
+}
+
+function closeRailMenus(exceptMenu = null) {
+    railPopoutMenus.forEach(function(menu) {
+    if (menu === exceptMenu) return;
+    menu.classList.remove('show');
+    menu.setAttribute('aria-hidden', 'true');
+});
+
+railMenuToggles.forEach(function(toggle) {
+const menuId = toggle.getAttribute('data-rail-menu-toggle');
+if (exceptMenu && menuId === exceptMenu.id) return;
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+});
+
+if (accountRailMenu !== exceptMenu) {
+    accountMenuToggle?.classList.remove('open');
+    accountMenuToggle?.setAttribute('aria-expanded', 'false');
+    }
+}
+
+function setRailMenuState(toggle, menu, isOpen) {
+if (isOpen) {
+closeRailMenus(menu);
+if (toggle && menu?.closest('.rail-nav')) {
+menu.style.top = `${toggle.offsetTop}px`;
+}
+} else {
+closeRailMenus();
+}
+
+    menu?.classList.toggle('show', Boolean(isOpen));
+    menu?.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    toggle?.classList.toggle('open', Boolean(isOpen));
+    toggle?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+
+function setAccountMenuState(isOpen) {
+    setRailMenuState(accountMenuToggle, accountRailMenu, isOpen);
+}
+
+if (isDesktopSidebar()) {
+    setSidebarCollapsed(localStorage.getItem(sidebarCollapseStorageKey) === '1', false);
+}
+
+function setSubmenuState(toggle, submenu, isOpen) {
+    if (!toggle) return;
+    toggle.classList.toggle('active', Boolean(isOpen));
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    submenu?.classList.toggle('show', Boolean(isOpen));
+    toggle.closest('.sidebar-module')?.classList.toggle('open', Boolean(isOpen));
+    toggle.closest('.sidebar-nested-group')?.classList.toggle('open', Boolean(isOpen));
+}
+
+function normalizeSearchText(value) {
+    return String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function filterSidebarModules(query) {
+    const keyword = normalizeSearchText(query);
+    const sections = document.querySelectorAll('.sidebar-panel .sidebar-section');
+    let visibleLinks = 0;
+
+    sidebarModuleSearch?.closest('.sidebar-module-search')?.classList.toggle('has-value', keyword.length > 0);
+
+    sections.forEach(function(section) {
+        const links = section.querySelectorAll('[data-sidebar-link]');
+        const toggle = section.querySelector(':scope > [data-sidebar-submenu]');
+        const submenuId = toggle?.getAttribute('data-sidebar-submenu');
+        const submenu = submenuId ? document.getElementById(submenuId) : null;
+        let sectionVisible = false;
+
+        links.forEach(function(link) {
+            const text = normalizeSearchText(link.textContent);
+            const sectionText = normalizeSearchText(toggle?.textContent || '');
+            const matched = keyword === '' || text.includes(keyword) || sectionText.includes(keyword);
+            link.classList.toggle('search-hidden', !matched);
+            if (matched) {
+                sectionVisible = true;
+                visibleLinks++;
+
+                if (keyword !== '') {
+                    let parentSubmenu = link.closest('.sidebar-submenu');
+                    while (parentSubmenu) {
+                        const parentToggle = document.querySelector(`[data-sidebar-submenu="${parentSubmenu.id}"]`);
+                        setSubmenuState(parentToggle, parentSubmenu, true);
+                        parentSubmenu = parentSubmenu.parentElement?.closest('.sidebar-submenu');
+                    }
+                }
+            }
+        });
+
+        section.classList.toggle('search-hidden', !sectionVisible);
+        if (keyword !== '' && sectionVisible && toggle && submenu) {
+            setSubmenuState(toggle, submenu, true);
+        }
+    });
+
+    sidebarSearchEmpty?.classList.toggle('show', keyword.length > 0 && visibleLinks === 0);
+}
+
+function firstVisibleSidebarLink() {
+    return Array.from(document.querySelectorAll('.sidebar-panel [data-sidebar-link]'))
+        .find(function(link) {
+            return !link.classList.contains('search-hidden') && link.offsetParent !== null;
+        });
+}
+
+sidebarToggle?.addEventListener('click', function() {
+if (isDesktopSidebar()) {
+setSidebarCollapsed(!document.body.classList.contains('sidebar-collapsed'));
+return;
+}
+setSidebarState(!document.body.classList.contains('sidebar-open'));
+});
+
+sidebarCollapseToggle?.addEventListener('click', function() {
+setSidebarCollapsed(!document.body.classList.contains('sidebar-collapsed'));
+});
+
+sidebarModuleSearch?.addEventListener('input', function() {
+filterSidebarModules(this.value);
+});
+
+sidebarModuleSearch?.addEventListener('keydown', function(event) {
+if (event.key !== 'Enter') return;
+const link = firstVisibleSidebarLink();
+if (!link) return;
+event.preventDefault();
+saveSidebarScroll();
+link.click();
+});
+
+sidebarModuleSearchClear?.addEventListener('click', function() {
+if (!sidebarModuleSearch) return;
+sidebarModuleSearch.value = '';
+filterSidebarModules('');
+sidebarModuleSearch.focus();
+});
+
+sidebarRailCollapse?.addEventListener('click', function() {
+if (!isDesktopSidebar()) {
+setSidebarState(false);
+return;
+}
+setSidebarCollapsed(!document.body.classList.contains('sidebar-collapsed'));
+});
+
+railMenuToggles.forEach(function(toggle) {
+toggle.addEventListener('click', function(event) {
+event.stopPropagation();
+const menuId = toggle.getAttribute('data-rail-menu-toggle');
+const menu = menuId ? document.getElementById(menuId) : null;
+if (!menu) return;
+
+if (isDesktopSidebar() && !document.body.classList.contains('sidebar-collapsed')) {
+setSidebarCollapsed(true);
+setRailMenuState(toggle, menu, true);
+return;
+}
+
+setRailMenuState(toggle, menu, !menu.classList.contains('show'));
+});
+});
+
+accountMenuToggle?.addEventListener('click', function(event) {
+event.stopPropagation();
+if (isDesktopSidebar() && !document.body.classList.contains('sidebar-collapsed')) {
+setSidebarCollapsed(true);
+setAccountMenuState(true);
+return;
+}
+setAccountMenuState(!accountRailMenu?.classList.contains('show'));
+});
+
+document.addEventListener('click', function(event) {
+const openMenu = document.querySelector('.rail-popout-menu.show');
+if (!openMenu) return;
+const clickedToggle = event.target.closest('[data-rail-menu-toggle], #accountMenuToggle');
+if (openMenu.contains(event.target) || clickedToggle) return;
+closeRailMenus();
+});
+
+sidebarOverlay?.addEventListener('click', function() {
+setSidebarState(false);
+});
+
+sidebarSubmenuToggles.forEach(function(toggle) {
+toggle.addEventListener('click', function(event) {
+event.preventDefault();
+saveSidebarScroll();
+const submenuId = toggle.getAttribute('data-sidebar-submenu');
+const submenu = submenuId ? document.getElementById(submenuId) : null;
+if (!submenu) return;
+
+const shouldOpen = !submenu.classList.contains('show');
+setSubmenuState(toggle, submenu, shouldOpen);
+restoreSidebarScroll();
+});
+});
+
+sidebarLinks.forEach(function(link) {
+link.addEventListener('click', function(event) {
+saveSidebarScroll();
+const targetHref = link.getAttribute('href');
+if (targetHref) {
+    const targetUrl = new URL(targetHref, window.location.origin);
+    if (targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search) {
+        event.preventDefault();
+        closeRailMenus();
+        restoreSidebarScroll();
+        return;
+    }
+}
+closeRailMenus();
+if (window.innerWidth <= 991) {
+setSidebarState(false);
+}
+});
+});
+
+window.addEventListener('resize', function() {
+if (window.innerWidth > 991) {
+setSidebarState(false);
+setSidebarCollapsed(localStorage.getItem(sidebarCollapseStorageKey) === '1', false);
+} else {
+setSidebarCollapsed(false, false);
+}
+});
+
+</script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
+
+<script src="./assets/js/app.js"></script>
+
+<link rel="stylesheet" href="original-demo.css?v=original-1"></body>
+</html>

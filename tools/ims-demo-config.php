@@ -17,5 +17,8 @@ $routeMap = ['login'=>'index','logout'=>'index','ictd'=>'dashboard','ictd/dashbo
 $routeMap['ictd/equipment/manage']='equipment';
 $routeMap['ictd/masterlists']='masterlist';
 foreach (['equipment','supplies','assign','borrowed','subscription','transmittal'] as $module) {
-    $routeMap['ictd/'.$module.'/archive']=$module.'?archived=1';
+    $archiveView='modules/Pages/'.$module.'/'.$module.'-archive.php';
+    if(is_file($root.'/ims/'.$archiveView)){$pages[$module.'-archive']=$archiveView;$routeMap['ictd/'.$module.'/archive']=$module.'-archive';}
 }
+foreach(['bidding','maintenance','service-report'] as $module){$pages[$module]='modules/Pages/'.$module.'/'.$module.'.php';$pages[$module.'-archive']='modules/Pages/'.$module.'/'.$module.'-archive.php';$routeMap['ictd/'.$module]=$module;$routeMap['ictd/'.$module.'/archive']=$module.'-archive';}
+$pages['assign-history']='modules/Pages/assign/assign-history.php';$routeMap['ictd/assign/history']='assign-history';

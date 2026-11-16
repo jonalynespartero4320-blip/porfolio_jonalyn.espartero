@@ -1,38 +1,14 @@
 <?php include ROOT_PATH.'/modules/layout/bootstrap.php'; ?>
-<?php require_once dirname(__DIR__, 4) . '/demo/home-link.php'; ?>
 
 <style>
   body.auth-screen {
     min-height: 100vh;
-    background: #edf1fa;
-    position: relative;
-    isolation: isolate;
+    background: url('<?= BASE_URL ?>/assets/images/bg.png') no-repeat center center fixed;
+    background-size: cover;
   }
   body.auth-screen::before {
-    content: "";
     display: block;
-    position: fixed;
-    inset: -180px -180px auto auto;
-    width: 440px;
-    height: 440px;
-    border: 54px solid rgba(75, 94, 247, .06);
-    border-radius: 50%;
-    background: transparent;
-    pointer-events: none;
-    z-index: -1;
-  }
-  body.auth-screen::after {
-    content: "";
-    position: fixed;
-    left: -90px;
-    bottom: -110px;
-    width: 280px;
-    height: 280px;
-    border: 1px solid rgba(75, 94, 247, .12);
-    border-radius: 48px;
-    transform: rotate(25deg);
-    pointer-events: none;
-    z-index: -1;
+    background: linear-gradient(180deg, rgba(247, 249, 255, 0.78), rgba(243, 247, 255, 0.82));
   }
   .auth-shell {
     min-height: 100vh;
@@ -228,7 +204,7 @@
     <div class="auth-stage">
         <section class="auth-form-panel">
             <div class="auth-form-card">
-                <div class="auth-kicker">Inventory Management System</div>
+                <div class="auth-kicker">IMS CICTD</div>
                 <h1 class="auth-title">Login</h1>
                 <p class="auth-subtitle">Access your inventory workspace with your email or username.</p>
 
@@ -276,7 +252,7 @@
 
         <aside class="auth-visual-panel">
             <div class="auth-visual-card">
-                <img src="<?= BASE_URL ?>/assets/images/demo-scene.svg" class="auth-visual-image" alt="Inventory illustration">
+                <img src="<?= BASE_URL ?>/assets/images/inventory-img.png" class="auth-visual-image" alt="Inventory illustration">
                 <div class="auth-visual-title">Check your project progress</div>
                 <p class="auth-visual-text">Monitor equipment, assignments, maintenance, and service activity from one focused inventory workspace.</p>
                 <div class="auth-progress">

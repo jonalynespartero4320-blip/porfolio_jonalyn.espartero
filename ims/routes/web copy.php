@@ -170,12 +170,6 @@ switch ($uri) {
 
     /* ---------- PAGES WITH PERMISSIONS ---------- */
 
-    case '/pdl-management':
-        require_login();
-        require_permission('pdl-management');
-        require ROOT_PATH . '/modules/Dashboard/views/pdl-record.php';
-        break;
-
     case '/page2':
         require_login();
         require_permission('page2');
@@ -217,42 +211,6 @@ switch ($uri) {
         session_destroy();
         header("Location: " . BASE_URL);
         exit;
-
-    /* ---------- PDL CRUD---------- */
-
-    case '/pdl':
-    require_login();
-    require ROOT_PATH . '/modules/PDL/views/index.php';
-    break;
-
-    case '/pdl-form':
-        require_login();
-        require ROOT_PATH . '/modules/PDL/views/form.php';
-        break;
-
-    case '/pdl-save':
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            require ROOT_PATH . '/modules/PDL/controllers/PDLController.php';
-            PDLController::save();
-        }
-        break;
-
-    case '/pdl-delete':
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            require ROOT_PATH . '/modules/PDL/controllers/PDLController.php';
-            PDLController::delete();
-        }
-        break;
-
-    case '/pdl-view':
-        require_login();
-        require ROOT_PATH . '/modules/PDL/controllers/PDLController.php';
-
-        $id = $_GET['id'] ?? null;
-        $pdl = PDLController::view($id);
-
-        require ROOT_PATH . '/modules/PDL/views/view.php';
-        break;
 
             // ================= RESET REQUEST HANDLER =================
     case '/handle-reset-request':

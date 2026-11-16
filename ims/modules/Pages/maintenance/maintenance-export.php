@@ -241,10 +241,10 @@ $isAssembled = !empty($items) ? mx_items_are_assembled($items) : mx_yes(mx_value
 $isBranded = !$isAssembled && (!empty($items) || (mx_value($report, 'branded') !== '' && strtolower(mx_value($report, 'branded')) !== 'no'));
 $brandedDisplay = $isBranded ? (mx_item_brand_label($items) ?: mx_value($report, 'branded') ?: 'Branded') : (mx_value($report, 'branded') ?: '__________');
 
-$itLogo = ims_pdf_asset_url('assets/images/demo-mark.svg');
-$mandaLogo = ims_pdf_asset_url('assets/images/demo-mark.svg');
-$isoLogo = ims_pdf_asset_url('assets/images/demo-scene.svg');
-$bagongLogo = ims_pdf_asset_url('assets/images/demo-mark.svg');
+$itLogo = ims_pdf_asset_url('assets/images/itlogo.png');
+$mandaLogo = ims_pdf_asset_url('assets/images/manda-logo.png');
+$isoLogo = ims_pdf_asset_url('assets/images/ISO.jpg');
+$bagongLogo = ims_pdf_asset_url('assets/images/bagong-pilipinas.png');
 ob_start();
 ?>
 <!doctype html>
@@ -329,8 +329,8 @@ ob_start();
             <img class="manda-logo" src="<?= e($mandaLogo) ?>" alt="">
             <img class="iso-logo" src="<?= e($isoLogo) ?>" alt="">
             <img class="bagong-logo" src="<?= e($bagongLogo) ?>" alt="">
-            <div class="republic">DEMO SERVICES</div>
-            <div class="republic">SAMPLE SERVICE CENTER</div>
+            <div class="republic">REPUBLIC OF THE PHILIPPINES</div>
+            <div class="republic">CITY OF MANDALUYONG</div>
             <div class="office">CITY INFORMATION AND COMMUNICATIONS</div>
             <div class="office">TECHNOLOGY DEPARTMENT</div>
             <div class="cert">ISO 9001:2015 CERTIFIED</div>
@@ -392,8 +392,8 @@ ob_start();
     </main>
 
     <footer class="footer">
-        Sample Service Center ? Fictional address<br>
-        Email: support@example.test &nbsp;&nbsp; Contact No: Demo support
+        3rd Floor, Executive Building, City Hall Compound, Maysilo Circle, Brgy. Plainview, Mandaluyong City<br>
+        Email: itd@mandaluyong.gov.ph &nbsp;&nbsp; Contact No: 8532-5001 Loc. 530
     </footer>
     <?php if (!empty($allItems)): ?>
         <script>

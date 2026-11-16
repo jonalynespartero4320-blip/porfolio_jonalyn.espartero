@@ -75,7 +75,7 @@
 
   $displayName = trim((string) ($user['name'] ?? $user['username'] ?? 'User'));
   $displayRole = trim((string) ($user['role_name'] ?? 'User'));
-  $userManualDownloadUrl = dirname(BASE_URL, 2) . '/demo/';
+  $userManualDownloadUrl = BASE_URL . '/downloads/ims_cictd_user_manual.pdf';
 
   $tiles = [
       'All Records' => ['count' => $totalRecords, 'tone' => 'red', 'icon' => 'collection', 'href' => BASE_URL . '/ictd/dashboard'],

@@ -61,7 +61,7 @@ margin:0;
 font-family:Inter,system-ui,Segoe UI,Roboto;
 font-size:13px;
 color:var(--text-main);
-background: #f4f6f9;
+background:#f4f6f9;
 background-size:cover;
 line-height:1.5;
 overflow-x:hidden;
@@ -610,7 +610,7 @@ box-shadow:0 16px 32px rgba(15,71,215,.16);
 }
 
 body{
-background: #f4f6f9;
+background:#f4f6f9;
 background-size:cover;
 color:var(--text-main);
 }

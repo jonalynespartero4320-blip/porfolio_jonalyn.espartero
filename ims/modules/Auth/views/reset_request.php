@@ -3,7 +3,7 @@
 <style>
   body.auth-screen {
     min-height: 100vh;
-    background: url('<?= BASE_URL ?>/assets/images/demo-scene.svg') no-repeat center center fixed;
+    background: url('<?= BASE_URL ?>/assets/images/bg.png') no-repeat center center fixed;
     background-size: cover;
   }
   body.auth-screen::before {
@@ -208,7 +208,7 @@
 
         <aside class="auth-visual-panel">
             <div class="auth-visual-card">
-                <img src="<?= BASE_URL ?>/assets/images/demo-scene.svg" class="auth-visual-image" alt="Inventory illustration">
+                <img src="<?= BASE_URL ?>/assets/images/inventory-img.png" class="auth-visual-image" alt="Inventory illustration">
                 <div class="auth-visual-title">Keep account recovery organized</div>
                 <p class="auth-visual-text">Submit recovery requests through one clean flow so administrators can verify users and restore access faster.</p>
                 <div class="auth-progress">

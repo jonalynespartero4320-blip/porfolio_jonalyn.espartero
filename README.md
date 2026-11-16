@@ -14,7 +14,7 @@ Demo login: **demo / Demo2026!**. Health public booking and Verification need no
 
 Copy the complete `browser-demo/` folder plus updated `index.html` and `script.js` into your cloned repository, commit, and push. Keep the existing portfolio CSS, images, and resume. A clean static upload archive is also available at `deployment/github-pages-upload.zip`; extract it before copying files. Never upload private database configuration, SQL records, original personal uploads, or temporary export directories.
 
-See [browser-demo/README.md](browser-demo/README.md) for supported workflows, limitations, rebuild instructions, and verification details. These demos do not reproduce every server feature. Visual browser QA remains unverified; static checks and data behavior tests passed.
+See [browser-demo/README.md](browser-demo/README.md) for supported workflows, limitations, rebuild instructions, and verification details. These demos do not reproduce every server feature. IMS now preserves the restored original handlers and forms; its core flows and sidebar passed a temporary Edge browser check. Static checks and data behavior tests passed. See the per-demo notes for remaining limitations.
 
 ## Original PHP applications (XAMPP)
 

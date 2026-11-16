@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Masterlist</title>
-    <link rel="icon" type="image/png" href="./assets/images/demo-mark.svg">
-    <link rel="shortcut icon" type="image/png" href="./assets/images/demo-mark.svg">
-    <link rel="apple-touch-icon" href="./assets/images/demo-mark.svg">
+    <link rel="icon" type="image/png" href="./assets/images/itlogo.png">
+    <link rel="shortcut icon" type="image/png" href="./assets/images/itlogo.png">
+    <link rel="apple-touch-icon" href="./assets/images/itlogo.png">
 
-    
+    <script>
+        const APP_BASE_URL = ".";
+    </script>
 
     <!-- ================= META ================= -->
 <meta charset="UTF-8">
@@ -19,42 +21,48 @@
 
 <!-- ================= BOOTSTRAP ================= -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- ================= ICONS ================= -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
 <!-- ================= CSS PLUGINS ================= -->
-
-
-
+<link href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 
 <!-- ================= CUSTOM CSS ================= -->
-<link rel="stylesheet" href="./assets/css/main.css?v=1">
-<link rel="stylesheet" href="./assets/css/table.css?v=1">
-<link rel="stylesheet" href="./assets/css/select.css?v=1">
+<link rel="stylesheet" href="./assets/css/main.css?v=original-1">
+<link rel="stylesheet" href="./assets/css/table.css?v=original-1">
+<link rel="stylesheet" href="./assets/css/select.css?v=original-1">
 
 
 
 
 <!-- ================= JQUERY (REQUIRED FIRST) ================= -->
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <!-- ================= DATA TABLES ================= -->
-
-
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
 
 <!-- ================= PLUGINS ================= -->
-
-
-
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <!-- ================= CUSTOM JS ================= -->
-
-<link rel="stylesheet" href="local.css?v=plain-2"></head>
+<script src="../shared/store.js"></script><script src="masterlist-schema.js?v=original-1"></script><script src="bridge.js?v=original-1"></script><script src="runtime.js?v=original-1"></script><script src="./assets/js/app.js?v=1"></script>
+<link rel="stylesheet" href="original-demo.css?v=original-1"></head>
 <body>
-
+<script>
+try {
+    if (window.innerWidth > 991 && localStorage.getItem('ims.sidebar.collapsed') === '1') {
+        document.body.classList.add('sidebar-collapsed');
+    }
+} catch (error) {}
+</script>
 
 <div class="layout">
     
@@ -101,11 +109,11 @@
                 <i class="bi bi-pc-display"></i>
                 <span>Manage Equipment</span>
             </a>
-                        <a href="equipment.html?archived=1" class="" data-sidebar-link>
+                        <a href="equipment-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/equipment/import" class="" data-sidebar-link>
                 <i class="bi bi-upload"></i>
                 <span>Import data</span>
             </a>
@@ -127,11 +135,11 @@
                 <i class="bi bi-box-seam-fill"></i>
                 <span>Manage Supplies</span>
             </a>
-                        <a href="supplies.html?archived=1" class="" data-sidebar-link>
+                        <a href="supplies-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/supplies/import" class="" data-sidebar-link>
                 <i class="bi bi-upload"></i>
                 <span>Import data</span>
             </a>
@@ -153,11 +161,11 @@
                 <i class="bi bi-person-workspace"></i>
                 <span>Manage Assign</span>
             </a>
-                        <a href="assign.html?archived=1" class="" data-sidebar-link>
+                        <a href="assign-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/assign/import" class="" data-sidebar-link>
                 <i class="bi bi-upload"></i>
                 <span>Import data</span>
             </a>
@@ -183,11 +191,11 @@
                 <i class="bi bi-file-earmark-text-fill"></i>
                 <span>Manage Subscription</span>
             </a>
-                        <a href="subscription.html?archived=1" class="" data-sidebar-link>
+                        <a href="subscription-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/subscription/import" class="" data-sidebar-link>
                 <i class="bi bi-upload"></i>
                 <span>Import data</span>
             </a>
@@ -199,11 +207,11 @@
                 <i class="bi bi-arrow-left-right"></i>
                 <span>Manage Borrowed</span>
             </a>
-                        <a href="borrowed.html?archived=1" class="" data-sidebar-link>
+                        <a href="borrowed-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/borrowed/import" class="" data-sidebar-link>
                 <i class="bi bi-upload"></i>
                 <span>Import data</span>
             </a>
@@ -211,15 +219,15 @@
                     <i class="bi bi-briefcase-fill"></i>
                     <span>Bidding</span>
                 </div>
-                            <a href="#" class="" data-sidebar-link>
+                            <a href="bidding.html" class="" data-sidebar-link>
                 <i class="bi bi-briefcase-fill"></i>
                 <span>Manage Bidding</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="bidding-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/bidding/import" class="" data-sidebar-link>
                 <i class="bi bi-upload"></i>
                 <span>Import data</span>
             </a>
@@ -227,15 +235,15 @@
                     <i class="bi bi-type-bold"></i>
                     <span>Title</span>
                 </div>
-                            <a href="#" class="" data-sidebar-link>
+                            <a href="#" data-demo-unavailable="ictd/title" class="" data-sidebar-link>
                 <i class="bi bi-type-bold"></i>
                 <span>Manage Title</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/title/archive" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="#" data-demo-unavailable="ictd/title/import" class="" data-sidebar-link>
                 <i class="bi bi-upload"></i>
                 <span>Import data</span>
             </a>
@@ -253,19 +261,19 @@
                 </button>
                 <div class="rail-popout-menu" id="railGroupMenu5" aria-hidden="true">
                     <div class="rail-popout-title">Reports</div>
-                                <a href="#" class="" data-sidebar-link>
+                                <a href="service-report.html" class="" data-sidebar-link>
                 <i class="bi bi-clipboard-data-fill"></i>
                 <span>Service Report</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="service-report-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Service Archive</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="maintenance.html" class="" data-sidebar-link>
                 <i class="bi bi-tools"></i>
                 <span>Maintenance Report</span>
             </a>
-                        <a href="#" class="" data-sidebar-link>
+                        <a href="maintenance-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Maintenance Archive</span>
             </a>
@@ -273,7 +281,7 @@
                 <i class="bi bi-send-fill"></i>
                 <span>Transmittal Report</span>
             </a>
-                        <a href="transmittal.html?archived=1" class="" data-sidebar-link>
+                        <a href="transmittal-archive.html" class="" data-sidebar-link>
                 <i class="bi bi-archive-fill"></i>
                 <span>Transmittal Archive</span>
             </a>
@@ -309,19 +317,19 @@
             </button>
             <div class="rail-popout-menu rail-account-menu" id="accountRailMenu" aria-hidden="true">
                 <div class="rail-popout-title">Account</div>
-                <a href="#" class="" data-sidebar-link>
+                <a href="#" data-demo-unavailable="account" class="" data-sidebar-link>
                     <i class="bi bi-person-lines-fill"></i>
                     <span>Account Details</span>
                 </a>
-                <a href="#" class="" data-sidebar-link>
+                <a href="#" data-demo-unavailable="change-password" class="" data-sidebar-link>
                     <i class="bi bi-key"></i>
                     <span>Change Password</span>
                 </a>
-                                    <a href="#" class="" data-sidebar-link>
+                                    <a href="#" data-demo-unavailable="activity-logs" class="" data-sidebar-link>
                         <i class="bi bi-clock-history"></i>
                         <span>Logs</span>
                     </a>
-                                                    <a href="#" class="" data-sidebar-link>
+                                                    <a href="#" data-demo-unavailable="admin" class="" data-sidebar-link>
                         <i class="bi bi-person-gear"></i>
                         <span>User Admin</span>
                     </a>
@@ -406,7 +414,7 @@
                 </span>
                             </a>
                         <a
-                href="equipment.html?archived=1"
+                href="equipment-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -416,7 +424,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/equipment/import"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -454,7 +462,7 @@
                 </span>
                             </a>
                         <a
-                href="supplies.html?archived=1"
+                href="supplies-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -464,7 +472,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/supplies/import"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -502,7 +510,7 @@
                 </span>
                             </a>
                         <a
-                href="assign.html?archived=1"
+                href="assign-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -512,7 +520,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/assign/import"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -564,7 +572,7 @@
                 </span>
                             </a>
                         <a
-                href="subscription.html?archived=1"
+                href="subscription-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -574,7 +582,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/subscription/import"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -610,7 +618,7 @@
                 </span>
                             </a>
                         <a
-                href="borrowed.html?archived=1"
+                href="borrowed-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -620,7 +628,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/borrowed/import"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -646,7 +654,7 @@
                     </button>
                     <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_2_bidding_group">
                                     <a
-                href="#"
+                href="bidding.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -656,7 +664,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="bidding-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -666,7 +674,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/bidding/import"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -692,7 +700,7 @@
                     </button>
                     <div class="sidebar-submenu sidebar-nested-submenu " id="sidebarSubmenu4_3_title_group">
                                     <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/title"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -702,7 +710,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/title/archive"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -712,7 +720,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="#" data-demo-unavailable="ictd/title/import"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -742,7 +750,7 @@
 
                     <div class="sidebar-submenu " id="sidebarSubmenu5">
                                     <a
-                href="#"
+                href="service-report.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -752,7 +760,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="service-report-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -762,7 +770,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="maintenance.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -772,7 +780,7 @@
                 </span>
                             </a>
                         <a
-                href="#"
+                href="maintenance-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -792,7 +800,7 @@
                 </span>
                             </a>
                         <a
-                href="transmittal.html?archived=1"
+                href="transmittal-archive.html"
                 class="sidebar-link "
                 data-sidebar-link
             >
@@ -857,21 +865,21 @@
                 </button>
 
                 <div class="sidebar-submenu " id="sidebarSubmenuAccount">
-                    <a href="#" class="sidebar-link " data-sidebar-link>
+                    <a href="#" data-demo-unavailable="account" class="sidebar-link " data-sidebar-link>
                         <span class="sidebar-link-main">
                             <i class="bi bi-person-lines-fill"></i>
                             <span>Account Details</span>
                         </span>
                     </a>
 
-                    <a href="#" class="sidebar-link " data-sidebar-link>
+                    <a href="#" data-demo-unavailable="change-password" class="sidebar-link " data-sidebar-link>
                         <span class="sidebar-link-main">
                             <i class="bi bi-key"></i>
                             <span>Change Password</span>
                         </span>
                     </a>
 
-                                            <a href="#" class="sidebar-link " data-sidebar-link>
+                                            <a href="#" data-demo-unavailable="activity-logs" class="sidebar-link " data-sidebar-link>
                             <span class="sidebar-link-main">
                                 <i class="bi bi-clock-history"></i>
                                 <span>Logs</span>
@@ -895,7 +903,7 @@
                     </button>
 
                     <div class="sidebar-submenu " id="sidebarSubmenuAdmin">
-                                                    <a href="#" class="sidebar-link " data-sidebar-link>
+                                                    <a href="#" data-demo-unavailable="admin" class="sidebar-link " data-sidebar-link>
                                 <span class="sidebar-link-main">
                                     <i class="bi bi-person-gear"></i>
                                     <span>Manage Users</span>
@@ -906,7 +914,7 @@
                     </nav>
 
         <div class="sidebar-footer">
-            Developed by Demo Development Team
+            Developed by City of Information and Communication Technology Department
         </div>
     </div>
 
@@ -921,7 +929,7 @@
                 </button>
                 <div class="system-title fw-bold">
                     <i class="bi bi-pc-display-horizontal"></i>
-                    <span>Inventory Management System</span>
+                    <span>IMS CICTD</span>
                 </div>
 
                 <div class="topbar-clock text-muted">
@@ -931,11 +939,11 @@
             </div>
 
             <div class="d-flex align-items-center gap-3">
-                                    <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <a href="#" data-demo-unavailable="activity-logs" class="btn btn-outline-primary btn-sm">
                         <i class="bi bi-clock-history"></i> Logs
                     </a>
                 
-                <a href="#?project=ims" download class="btn btn-outline-success btn-sm">
+                <a href="#" data-demo-unavailable="downloads/ims_cictd_user_manual.pdf" download class="btn btn-outline-success btn-sm">
                     <i class="bi bi-download"></i> Manual
                 </a>
 
@@ -948,7 +956,7 @@
                     </div>
                 </div>
 
-                <a href="#" class="btn btn-outline-secondary btn-sm">
+                <a href="#" data-demo-unavailable="change-password" class="btn btn-outline-secondary btn-sm">
                     <i class="bi bi-key"></i> Change Password
                 </a>
 
@@ -1118,17 +1126,563 @@
     </div>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const actionUrl = './ictd/masterlist-action';
+    const routeBase = './ictd/masterlists';
+    const tabs = [{"slug":"equipment-status","title":"Equipment Status","icon":"bi-ui-checks-grid"},{"slug":"descriptions","title":"Descriptions","icon":"bi-card-list"},{"slug":"brands","title":"Brands","icon":"bi-tags-fill"},{"slug":"suppliers","title":"Suppliers","icon":"bi-truck"},{"slug":"departments","title":"Departments","icon":"bi-building"},{"slug":"end-users","title":"End Users","icon":"bi-person-vcard-fill"},{"slug":"positions","title":"Positions","icon":"bi-person-badge"},{"slug":"employee-status","title":"Employee Status","icon":"bi-person-check"},{"slug":"funds","title":"Funds","icon":"bi-cash-coin"},{"slug":"technical","title":"Technical","icon":"bi-tools"},{"slug":"complain","title":"Complain","icon":"bi-chat-square-text"},{"slug":"troubleshoot","title":"Troubleshoot","icon":"bi-wrench-adjustable"},{"slug":"service","title":"Service","icon":"bi-clipboard2-check"}];
+    let activeTab = 'equipment-status';
+    let currentConfig = null;
+    let masterlistDataTable = null;
+    let searchTimer = null;
 
+    function escapeHtml(value) {
+        return String(value ?? '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+    }
+
+    function modal() {
+        const element = document.getElementById('masterlistModal');
+        return bootstrap.Modal.getInstance(element) || new bootstrap.Modal(element);
+    }
+
+    function optionLabel(source, value) {
+        const option = ((currentConfig.options || {})[source] || []).find(item => String(item.id) === String(value));
+        return option ? option.text : (value || '');
+    }
+
+    function renderFields(row = {}) {
+        $('#masterlistFields').html((currentConfig.fields || []).map(field => {
+            const required = field.required ? 'required' : '';
+            const value = row[field.name] ?? '';
+            if (field.type === 'select') {
+                const options = ((currentConfig.options || {})[field.source] || []).map(option => {
+                    const selected = String(option.id) === String(value) ? 'selected' : '';
+                    return `<option value="${escapeHtml(option.id)}" ${selected}>${escapeHtml(option.text)}</option>`;
+                }).join('');
+                return `
+                    <div class="col-md-6">
+                        <label class="form-label">${escapeHtml(field.label)}${field.required ? ' *' : ''}</label>
+                        <select class="form-select masterlist-field" name="${escapeHtml(field.name)}" ${required}>
+                            <option value="">Select ${escapeHtml(field.label)}</option>
+                            ${options}
+                        </select>
+                    </div>
+                `;
+            }
+            return `
+                <div class="col-md-6">
+                    <label class="form-label">${escapeHtml(field.label)}${field.required ? ' *' : ''}</label>
+                    <input type="text" class="form-control masterlist-field" name="${escapeHtml(field.name)}" value="${escapeHtml(value)}" ${required}>
+                </div>
+            `;
+        }).join(''));
+    }
+
+    function initMasterlistTable() {
+        const pk = currentConfig.pk;
+        $('#masterlistTable thead').html(`
+            <tr>
+                <th style="width:110px;">Action</th>
+                <th style="width:80px;">ID</th>
+                ${(currentConfig.fields || []).map(field => `<th>${escapeHtml(field.label)}</th>`).join('')}
+            </tr>
+        `);
+
+        if (masterlistDataTable) {
+            masterlistDataTable.destroy();
+            masterlistDataTable = null;
+        }
+        $('#masterlistTable tbody').empty();
+
+        const columns = [
+            {
+                data: null,
+                orderable: false,
+                searchable: false,
+                render: () => `
+                    <span class="masterlist-actions">
+                        <button type="button" class="masterlist-icon-btn text-info edit-masterlist" title="Edit"><i class="bi bi-pencil-square"></i> Edit</button>
+                        <button type="button" class="masterlist-icon-btn text-danger delete-masterlist" title="Delete"><i class="bi bi-trash3"></i> Delete</button>
+                    </span>
+                `
+            },
+            {
+                data: pk,
+                render: data => `<strong>${escapeHtml(data)}</strong>`
+            },
+            ...(currentConfig.fields || []).map(field => ({
+                data: field.name,
+                render: data => escapeHtml(field.type === 'select' ? optionLabel(field.source, data) : data)
+            }))
+        ];
+
+        masterlistDataTable = $('#masterlistTable').DataTable({
+            processing: true,
+            serverSide: true,
+            destroy: true,
+            autoWidth: false,
+            pageLength: 10,
+            lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
+            ajax: {
+                url: actionUrl,
+                type: 'POST',
+                data: d => {
+                    d.action = 'data';
+                    d.tab = activeTab;
+                }
+            },
+            columns,
+            columnDefs: [
+                { targets: 0, width: '110px' },
+                { targets: 1, width: '90px' }
+            ],
+            order: [[1, 'asc']],
+            scrollX: true,
+            dom: 'rt<"row align-items-center mt-3 px-3 pb-3"<"col-md-4"i><"col-md-4 text-center"l><"col-md-4"p>>',
+            createdRow: (row, data) => $(row).attr('data-id', data[pk]),
+            language: {
+                emptyTable: 'No records found.',
+                processing: 'Loading records...'
+            }
+        });
+    }
+
+    function setActiveTab(tab) {
+        activeTab = tab;
+        $('#masterlistTabs .masterlist-tab').removeClass('active');
+        $(`#masterlistTabs .masterlist-tab[data-tab="${tab}"]`).addClass('active');
+        const tabMeta = tabs.find(item => item.slug === tab) || {};
+        history.replaceState(null, '', `${routeBase}/${tab}`);
+        $('#masterlistCurrentIcon').attr('class', `bi ${tabMeta.icon || 'bi-collection'}`);
+    }
+
+    function loadTab(tab) {
+        setActiveTab(tab);
+        $('#masterlistCurrentTitle').text('Loading...');
+        $('#masterlistCurrentSubtitle').text('Please wait while records are prepared.');
+        $('#masterlistTable thead').empty();
+        $('#masterlistTable tbody').html('<tr><td class="masterlist-empty">Loading records...</td></tr>');
+        if (masterlistDataTable) {
+            masterlistDataTable.destroy();
+            masterlistDataTable = null;
+        }
+        $.getJSON(actionUrl, { action: 'list', tab }, function (res) {
+            if (!res.success) {
+                Swal.fire('Error', res.message || 'Unable to load masterlist.', 'error');
+                return;
+            }
+            currentConfig = res.config;
+            $('#masterlistCurrentTitle').text(currentConfig.title);
+            $('#masterlistCurrentSubtitle').text(currentConfig.subtitle);
+            $('#masterlistSearch').val('');
+            initMasterlistTable();
+        });
+    }
+
+    $('#masterlistTabs').on('click', '.masterlist-tab', function () {
+        loadTab($(this).data('tab'));
+    });
+
+    $('#masterlistSearch').on('input', function () {
+        clearTimeout(searchTimer);
+        const value = this.value;
+        searchTimer = setTimeout(() => {
+            if (masterlistDataTable) {
+                masterlistDataTable.search(value).draw();
+            }
+        }, 250);
+    });
+
+    $('#masterlistAddBtn').on('click', function () {
+        $('#masterlistRecordId').val('');
+        $('#masterlistModalTitle').text('Add ' + currentConfig.title);
+        renderFields();
+        modal().show();
+    });
+
+    $('#masterlistTable').on('click', '.edit-masterlist', function () {
+        const tr = $(this).closest('tr');
+        const row = masterlistDataTable ? masterlistDataTable.row(tr).data() : null;
+        if (!row) return;
+        $('#masterlistRecordId').val(row[currentConfig.pk]);
+        $('#masterlistModalTitle').text('Edit ' + currentConfig.title);
+        renderFields(row);
+        modal().show();
+    });
+
+    $('#masterlistTable').on('click', '.delete-masterlist', function () {
+        const id = $(this).closest('tr').data('id');
+        Swal.fire({
+            title: 'Delete record?',
+            text: 'If this record is already used by another module, the database may prevent deletion.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            confirmButtonText: 'Delete'
+        }).then(result => {
+            if (!result.isConfirmed) return;
+            $.post(actionUrl, { action: 'delete', tab: activeTab, id }, function (res) {
+                Swal.fire(res.success ? 'Deleted' : 'Error', res.message, res.success ? 'success' : 'error');
+                if (res.success && masterlistDataTable) masterlistDataTable.ajax.reload(null, false);
+            }, 'json');
+        });
+    });
+
+    $('#masterlistForm').on('submit', function (e) {
+        e.preventDefault();
+        const formData = $(this).serializeArray().reduce((carry, item) => {
+            carry[item.name] = item.value;
+            return carry;
+        }, { action: 'save', tab: activeTab });
+        $.post(actionUrl, formData, function (res) {
+            if (res.success) {
+                Swal.fire('Saved', res.message, 'success');
+                modal().hide();
+                if (masterlistDataTable) masterlistDataTable.ajax.reload(null, false);
+            } else {
+                Swal.fire('Error', res.message || 'Unable to save record.', 'error');
+            }
+        }, 'json');
+    });
+
+    loadTab(activeTab);
+});
+</script>
 
 </div> 
 
 </main>
 </div>
+<script>
 
+function updateDateTime(){
+    const now = new Date();
 
-<!--  -->
+    const options={
+        weekday:'short',
+        year:'numeric',
+        month:'short',
+        day:'numeric',
+        hour:'2-digit',
+        minute:'2-digit',
+        second:'2-digit',
+        hour12:false
+    };
 
+    document.getElementById('currentDateTime').textContent =
+    now.toLocaleString('en-US',options);
+}
 
+updateDateTime();
+setInterval(updateDateTime,1000);
 
-<link rel="stylesheet" href="local.css?v=plain-2"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="../shared/store.js"></script><script src="local.js?v=sidebar-3"></script></body>
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const sidebarCollapseToggle = document.getElementById('sidebarCollapseToggle');
+    const sidebarRailCollapse = document.getElementById('sidebarRailCollapse');
+    const accountMenuToggle = document.getElementById('accountMenuToggle');
+    const accountRailMenu = document.getElementById('accountRailMenu');
+    const railMenuToggles = document.querySelectorAll('[data-rail-menu-toggle]');
+    const railPopoutMenus = document.querySelectorAll('.rail-popout-menu');
+    const sidebarSubmenuToggles = document.querySelectorAll('[data-sidebar-submenu]');
+    const sidebarLinks = document.querySelectorAll('[data-sidebar-link]');
+    const sidebarCollapseStorageKey = 'ims.sidebar.collapsed';
+    const sidebarScrollStorageKey = 'ims.sidebar.scrollTop';
+    const sidebarPanel = document.querySelector('.sidebar-panel');
+    const sidebarMenu = document.querySelector('.sidebar-menu');
+    const sidebarModuleSearch = document.getElementById('sidebarModuleSearch');
+    const sidebarModuleSearchClear = document.getElementById('sidebarModuleSearchClear');
+    const sidebarSearchEmpty = document.getElementById('sidebarSearchEmpty');
+
+function getSidebarScroller() {
+    if (sidebarMenu && sidebarMenu.scrollHeight > sidebarMenu.clientHeight) {
+        return sidebarMenu;
+    }
+    if (sidebarPanel && sidebarPanel.scrollHeight > sidebarPanel.clientHeight) {
+        return sidebarPanel;
+    }
+    return sidebarMenu || sidebarPanel;
+}
+
+function saveSidebarScroll() {
+    const scroller = getSidebarScroller();
+    if (!scroller) return;
+    sessionStorage.setItem(sidebarScrollStorageKey, String(scroller.scrollTop || 0));
+}
+
+function restoreSidebarScroll() {
+    const scroller = getSidebarScroller();
+    if (!scroller) return;
+    const savedScroll = parseInt(sessionStorage.getItem(sidebarScrollStorageKey) || '0', 10);
+    if (Number.isNaN(savedScroll)) return;
+    scroller.scrollTop = savedScroll;
+}
+
+requestAnimationFrame(restoreSidebarScroll);
+setTimeout(restoreSidebarScroll, 120);
+
+function setSidebarState(isOpen) {
+    document.body.classList.toggle('sidebar-open', Boolean(isOpen));
+}
+
+function isDesktopSidebar() {
+return window.innerWidth > 991;
+}
+
+function setSidebarCollapsed(isCollapsed, shouldStore = true) {
+    document.body.classList.toggle('sidebar-collapsed', Boolean(isCollapsed));
+        closeRailMenus();
+    if (sidebarCollapseToggle) {
+        sidebarCollapseToggle.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+        sidebarCollapseToggle.setAttribute('title', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
+        sidebarCollapseToggle.querySelector('i')?.classList.toggle('bi-layout-sidebar-inset', !isCollapsed);
+        sidebarCollapseToggle.querySelector('i')?.classList.toggle('bi-layout-sidebar-inset-reverse', Boolean(isCollapsed));
+    }
+    if (sidebarRailCollapse) {
+        sidebarRailCollapse.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+        sidebarRailCollapse.setAttribute('title', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
+        sidebarRailCollapse.querySelector('i')?.classList.toggle('bi-pc-display-horizontal', !isCollapsed);
+        sidebarRailCollapse.querySelector('i')?.classList.toggle('bi-layout-sidebar-inset-reverse', Boolean(isCollapsed));
+    }
+    if (shouldStore) {
+        localStorage.setItem(sidebarCollapseStorageKey, isCollapsed ? '1' : '0');
+    }
+}
+
+function closeRailMenus(exceptMenu = null) {
+    railPopoutMenus.forEach(function(menu) {
+    if (menu === exceptMenu) return;
+    menu.classList.remove('show');
+    menu.setAttribute('aria-hidden', 'true');
+});
+
+railMenuToggles.forEach(function(toggle) {
+const menuId = toggle.getAttribute('data-rail-menu-toggle');
+if (exceptMenu && menuId === exceptMenu.id) return;
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+});
+
+if (accountRailMenu !== exceptMenu) {
+    accountMenuToggle?.classList.remove('open');
+    accountMenuToggle?.setAttribute('aria-expanded', 'false');
+    }
+}
+
+function setRailMenuState(toggle, menu, isOpen) {
+if (isOpen) {
+closeRailMenus(menu);
+if (toggle && menu?.closest('.rail-nav')) {
+menu.style.top = `${toggle.offsetTop}px`;
+}
+} else {
+closeRailMenus();
+}
+
+    menu?.classList.toggle('show', Boolean(isOpen));
+    menu?.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    toggle?.classList.toggle('open', Boolean(isOpen));
+    toggle?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+
+function setAccountMenuState(isOpen) {
+    setRailMenuState(accountMenuToggle, accountRailMenu, isOpen);
+}
+
+if (isDesktopSidebar()) {
+    setSidebarCollapsed(localStorage.getItem(sidebarCollapseStorageKey) === '1', false);
+}
+
+function setSubmenuState(toggle, submenu, isOpen) {
+    if (!toggle) return;
+    toggle.classList.toggle('active', Boolean(isOpen));
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    submenu?.classList.toggle('show', Boolean(isOpen));
+    toggle.closest('.sidebar-module')?.classList.toggle('open', Boolean(isOpen));
+    toggle.closest('.sidebar-nested-group')?.classList.toggle('open', Boolean(isOpen));
+}
+
+function normalizeSearchText(value) {
+    return String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function filterSidebarModules(query) {
+    const keyword = normalizeSearchText(query);
+    const sections = document.querySelectorAll('.sidebar-panel .sidebar-section');
+    let visibleLinks = 0;
+
+    sidebarModuleSearch?.closest('.sidebar-module-search')?.classList.toggle('has-value', keyword.length > 0);
+
+    sections.forEach(function(section) {
+        const links = section.querySelectorAll('[data-sidebar-link]');
+        const toggle = section.querySelector(':scope > [data-sidebar-submenu]');
+        const submenuId = toggle?.getAttribute('data-sidebar-submenu');
+        const submenu = submenuId ? document.getElementById(submenuId) : null;
+        let sectionVisible = false;
+
+        links.forEach(function(link) {
+            const text = normalizeSearchText(link.textContent);
+            const sectionText = normalizeSearchText(toggle?.textContent || '');
+            const matched = keyword === '' || text.includes(keyword) || sectionText.includes(keyword);
+            link.classList.toggle('search-hidden', !matched);
+            if (matched) {
+                sectionVisible = true;
+                visibleLinks++;
+
+                if (keyword !== '') {
+                    let parentSubmenu = link.closest('.sidebar-submenu');
+                    while (parentSubmenu) {
+                        const parentToggle = document.querySelector(`[data-sidebar-submenu="${parentSubmenu.id}"]`);
+                        setSubmenuState(parentToggle, parentSubmenu, true);
+                        parentSubmenu = parentSubmenu.parentElement?.closest('.sidebar-submenu');
+                    }
+                }
+            }
+        });
+
+        section.classList.toggle('search-hidden', !sectionVisible);
+        if (keyword !== '' && sectionVisible && toggle && submenu) {
+            setSubmenuState(toggle, submenu, true);
+        }
+    });
+
+    sidebarSearchEmpty?.classList.toggle('show', keyword.length > 0 && visibleLinks === 0);
+}
+
+function firstVisibleSidebarLink() {
+    return Array.from(document.querySelectorAll('.sidebar-panel [data-sidebar-link]'))
+        .find(function(link) {
+            return !link.classList.contains('search-hidden') && link.offsetParent !== null;
+        });
+}
+
+sidebarToggle?.addEventListener('click', function() {
+if (isDesktopSidebar()) {
+setSidebarCollapsed(!document.body.classList.contains('sidebar-collapsed'));
+return;
+}
+setSidebarState(!document.body.classList.contains('sidebar-open'));
+});
+
+sidebarCollapseToggle?.addEventListener('click', function() {
+setSidebarCollapsed(!document.body.classList.contains('sidebar-collapsed'));
+});
+
+sidebarModuleSearch?.addEventListener('input', function() {
+filterSidebarModules(this.value);
+});
+
+sidebarModuleSearch?.addEventListener('keydown', function(event) {
+if (event.key !== 'Enter') return;
+const link = firstVisibleSidebarLink();
+if (!link) return;
+event.preventDefault();
+saveSidebarScroll();
+link.click();
+});
+
+sidebarModuleSearchClear?.addEventListener('click', function() {
+if (!sidebarModuleSearch) return;
+sidebarModuleSearch.value = '';
+filterSidebarModules('');
+sidebarModuleSearch.focus();
+});
+
+sidebarRailCollapse?.addEventListener('click', function() {
+if (!isDesktopSidebar()) {
+setSidebarState(false);
+return;
+}
+setSidebarCollapsed(!document.body.classList.contains('sidebar-collapsed'));
+});
+
+railMenuToggles.forEach(function(toggle) {
+toggle.addEventListener('click', function(event) {
+event.stopPropagation();
+const menuId = toggle.getAttribute('data-rail-menu-toggle');
+const menu = menuId ? document.getElementById(menuId) : null;
+if (!menu) return;
+
+if (isDesktopSidebar() && !document.body.classList.contains('sidebar-collapsed')) {
+setSidebarCollapsed(true);
+setRailMenuState(toggle, menu, true);
+return;
+}
+
+setRailMenuState(toggle, menu, !menu.classList.contains('show'));
+});
+});
+
+accountMenuToggle?.addEventListener('click', function(event) {
+event.stopPropagation();
+if (isDesktopSidebar() && !document.body.classList.contains('sidebar-collapsed')) {
+setSidebarCollapsed(true);
+setAccountMenuState(true);
+return;
+}
+setAccountMenuState(!accountRailMenu?.classList.contains('show'));
+});
+
+document.addEventListener('click', function(event) {
+const openMenu = document.querySelector('.rail-popout-menu.show');
+if (!openMenu) return;
+const clickedToggle = event.target.closest('[data-rail-menu-toggle], #accountMenuToggle');
+if (openMenu.contains(event.target) || clickedToggle) return;
+closeRailMenus();
+});
+
+sidebarOverlay?.addEventListener('click', function() {
+setSidebarState(false);
+});
+
+sidebarSubmenuToggles.forEach(function(toggle) {
+toggle.addEventListener('click', function(event) {
+event.preventDefault();
+saveSidebarScroll();
+const submenuId = toggle.getAttribute('data-sidebar-submenu');
+const submenu = submenuId ? document.getElementById(submenuId) : null;
+if (!submenu) return;
+
+const shouldOpen = !submenu.classList.contains('show');
+setSubmenuState(toggle, submenu, shouldOpen);
+restoreSidebarScroll();
+});
+});
+
+sidebarLinks.forEach(function(link) {
+link.addEventListener('click', function(event) {
+saveSidebarScroll();
+const targetHref = link.getAttribute('href');
+if (targetHref) {
+    const targetUrl = new URL(targetHref, window.location.origin);
+    if (targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search) {
+        event.preventDefault();
+        closeRailMenus();
+        restoreSidebarScroll();
+        return;
+    }
+}
+closeRailMenus();
+if (window.innerWidth <= 991) {
+setSidebarState(false);
+}
+});
+});
+
+window.addEventListener('resize', function() {
+if (window.innerWidth > 991) {
+setSidebarState(false);
+setSidebarCollapsed(localStorage.getItem(sidebarCollapseStorageKey) === '1', false);
+} else {
+setSidebarCollapsed(false, false);
+}
+});
+
+</script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
+
+<script src="./assets/js/app.js"></script>
+
+<link rel="stylesheet" href="original-demo.css?v=original-1"></body>
 </html>

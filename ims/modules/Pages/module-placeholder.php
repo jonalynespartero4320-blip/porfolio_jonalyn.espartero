@@ -7,7 +7,7 @@ require_once ROOT_PATH . '/modules/layout/header.php';
 $title = (string) ($modulePage['title'] ?? 'Module');
 $subtitle = (string) ($modulePage['subtitle'] ?? 'This module is ready for migration.');
 $icon = (string) ($modulePage['icon'] ?? 'bi-grid');
-$badge = (string) ($modulePage['badge'] ?? 'Inventory Management System');
+$badge = (string) ($modulePage['badge'] ?? 'IMS CICTD');
 $actions = $modulePage['actions'] ?? [];
 ?>
 

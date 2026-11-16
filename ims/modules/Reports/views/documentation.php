@@ -4,14 +4,14 @@ require_login();
 require_permission('documentation.view');
 require_once ROOT_PATH . '/modules/layout/header.php';
 
-$documentationBundleUrl = dirname(BASE_URL, 2) . '/demo/';
+$documentationBundleUrl = BASE_URL . '/downloads/ims_documentation_bundle.zip';
 
 $docs = [
     [
         'title' => 'Documentation Pack',
         'subtitle' => 'Combined process flow, module guide, role guide, and user manual reference.',
         'icon' => 'bi-folder2-open',
-        'file' => dirname(BASE_URL, 2) . '/demo/',
+        'file' => BASE_URL . '/downloads/ims_documentation_pack.html',
         'type' => 'html',
         'accent' => 'danger',
     ],
@@ -19,7 +19,7 @@ $docs = [
         'title' => 'Process Flow',
         'subtitle' => 'Step-by-step operational process of the whole system.',
         'icon' => 'bi-diagram-3',
-        'file' => dirname(BASE_URL, 2) . '/demo/',
+        'file' => BASE_URL . '/downloads/ims_process_flow.html',
         'type' => 'html',
         'accent' => 'primary',
     ],
@@ -27,7 +27,7 @@ $docs = [
         'title' => 'Flowchart',
         'subtitle' => 'Visual system workflow from authentication to reporting.',
         'icon' => 'bi-bezier2',
-        'file' => dirname(BASE_URL, 2) . '/demo/',
+        'file' => BASE_URL . '/downloads/ims_flowchart.svg',
         'type' => 'svg',
         'accent' => 'success',
     ],
@@ -35,7 +35,7 @@ $docs = [
         'title' => 'User Manual',
         'subtitle' => 'Operational guide for staff, admin, and super admin users.',
         'icon' => 'bi-journal-richtext',
-        'file' => dirname(BASE_URL, 2) . '/demo/',
+        'file' => BASE_URL . '/downloads/ims_user_manual.html',
         'type' => 'html',
         'accent' => 'warning',
     ],

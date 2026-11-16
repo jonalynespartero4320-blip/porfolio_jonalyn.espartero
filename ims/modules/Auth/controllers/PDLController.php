@@ -54,7 +54,7 @@ class PDLController
 
                     return [
                         'status'  => 'error',
-                        'message' => 'Invalid Resident record.'
+                        'message' => 'Invalid PDL record.'
                     ];
                 }
 
@@ -106,7 +106,7 @@ class PDLController
 
                 return [
                     'status'  => 'success',
-                    'message' => 'Resident record updated successfully.'
+                    'message' => 'PDL record updated successfully.'
                 ];
             }
 
@@ -143,7 +143,7 @@ class PDLController
 
             return [
                 'status'  => 'success',
-                'message' => 'Resident record saved successfully.'
+                'message' => 'PDL record saved successfully.'
             ];
         } catch (Exception $e) {
             if ($startedTransaction && $pdo->inTransaction()) {
@@ -215,7 +215,7 @@ class PDLController
         if ($existingCount >= 5) {
             return [
                 'status' => 'error',
-                'message' => 'This Resident already has the maximum of 5 authorized visitors.'
+                'message' => 'This PDL already has the maximum of 5 authorized visitors.'
             ];
         }
 
@@ -234,7 +234,7 @@ class PDLController
         if (($existingCount + count($normalizedVisitors)) > 5) {
             return [
                 'status' => 'error',
-                'message' => 'Import exceeds the maximum of 5 authorized visitors for this Resident.'
+                'message' => 'Import exceeds the maximum of 5 authorized visitors for this PDL.'
             ];
         }
 
@@ -258,7 +258,7 @@ class PDLController
             if (!$pdl) {
                 return [
                     'status'  => 'error',
-                    'message' => 'Resident record not found.'
+                    'message' => 'PDL record not found.'
                 ];
             }
 
@@ -279,7 +279,7 @@ class PDLController
 
             $photo = trim((string) ($pdl['pdl_photo'] ?? ''));
             if ($photo !== '') {
-                $photoPath = ROOT_PATH . '/public/demo-uploads/pdl/' . $photo;
+                $photoPath = ROOT_PATH . '/public/uploads/pdl/' . $photo;
                 if (file_exists($photoPath)) {
                     @unlink($photoPath);
                 }
@@ -287,13 +287,13 @@ class PDLController
 
             log_activity(
                 'PDL_DELETE',
-                "Deleted Resident record ID: {$id} | pdl_id: " . trim((string) ($pdl['pdl_id'] ?? '')) .
+                "Deleted PDL record ID: {$id} | pdl_id: " . trim((string) ($pdl['pdl_id'] ?? '')) .
                 " | name: " . trim((string) (($pdl['pdl_fname'] ?? '') . ' ' . ($pdl['pdl_lname'] ?? '')))
             );
 
             return [
                 'status'  => 'success',
-                'message' => 'Resident record deleted successfully.'
+                'message' => 'PDL record deleted successfully.'
             ];
         } catch (Exception $e) {
             if ($startedTransaction && $pdo->inTransaction()) {

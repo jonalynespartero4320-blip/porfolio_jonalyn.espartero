@@ -760,7 +760,7 @@ foreach ($modules as $module) {
         </nav>
 
         <div class="sidebar-footer">
-            Developed by Demo Development Team
+            Developed by City of Information and Communication Technology Department
         </div>
     </div>
 

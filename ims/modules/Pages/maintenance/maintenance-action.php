@@ -574,7 +574,7 @@ function mr_store_pdf(PDO $pdo, int $id, array $file): string
         }
     }
 
-    $dirRel = 'demo-uploads/maintenance_reports/';
+    $dirRel = 'uploads/maintenance_reports/';
     $dirAbs = ROOT_PATH . '/public/' . $dirRel;
     if (!is_dir($dirAbs)) {
         mkdir($dirAbs, 0755, true);
